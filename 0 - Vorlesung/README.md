@@ -48,13 +48,33 @@
 ### Begriffe
 
 ### Geschichte und Trends
+  * Großrechner mit Thin-clients
+  * Personalcompuer
+  * Web / Smartphones / Tables -> Browser als OS
+  * Internet of Things
 
 ### Sichten auf Architekturen
 
+  * Statische vs. Dynamische Sichten
+  * Jeweils einige Details wichtig
+  * UML als Anwendung der Sichten
+
 ### Qualiät und andere nichtfunktionale Anforderungen
+
+  * Was ist Qualität?
+  * Skalierbarkeit
+  * Performance
+  * Sicherheit
+  * Wartbarkeit
+
 
 ### Architekturmuster
 
+  * Schichten, speziell MVC
+  * Plugin
+  * Pipes & Filters
+  * ...
+  
 ### Dokumentation von Architekturen
 
   * Warum dokumentieren?
@@ -69,3 +89,15 @@
     * Swagger als API Dokumentation
 
 ### Technologien und Frameworks
+
+  * Was sind Architketurframeworks?
+  * Vorteile/Nachteile von Frameworks?
+  * Beispiele für Frameworks
+    * Ruby on Rails
+    * .NET
+    * Twitter Bootstrao
+  * Kriterien für die Auswahl eines Frameworks
+    * Funktionale Anforderungen: Wieviel Framework brauche ich?
+    * nichtfunktionale Anf.: Was muss das FW noch so können?
+    * Unternehmensanforderungen: Was gibt es schon? (Vorgängerprojekte, Sprachen im Einsatz, ...)
+    * Verbreitung des Frameworks? (Reife, gibt es in x Jahren noch Entwickler, Wartung, Breaking Changes, ...)
