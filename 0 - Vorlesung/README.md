@@ -66,6 +66,7 @@
   * Performance
   * Sicherheit
   * Wartbarkeit
+  * Testbarkeit
 
 
 ### Architekturmuster
@@ -74,7 +75,8 @@
   * Plugin
   * Pipes & Filters
   * ...
-  
+  * -> Ausblick auf Designpatterns
+
 ### Dokumentation von Architekturen
 
   * Warum dokumentieren?
