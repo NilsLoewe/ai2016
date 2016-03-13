@@ -1,42 +1,141 @@
 ---
-title: Vorlesung X
+title: Motivation und Grundlagen
 layout: slide
 ---
 
 %section{"data-markdown" => ""}
-  \# Page title
+  \## Architektur von Informationssystemen
+  \#### Hochschule für angewandte Wissenschaften
+  \#### Sommersemester 2016
+  Nils Löwe / [nils@loewe.io](mailto:nils@loewe.io) / @NilsLoewe
 
-  A paragraph with some text and a [link](http://hakim.se).
 
-%section
-  %pre
-    %code{"data-noescape" => "", "data-trim" => ""}
-      def lazy-fib
-      (concat
-      [0 1]
-      %mark ((fn rfib [a b]
-      (lazy-cons (+ a b) (rfib b (+ a b)))) 0 1)))
+%section{"data-markdown" => ""}
+  \### Diese Veranstaltung in Zahlen
+  ![](/images/ai2016_aufwand.png)
 
-%section
-  First Slide
+%section{"data-markdown" => ""}
+  \### Praktikum - Regeln
 
-%section
-  Second Slide
-  Blubb
-  Bla
+  * Bilden Sie Teams aus 3 Personen
+  * Das erste Praktikum findet in KWxx statt
+  * Während der Praktikumstermine präsentieren die Teams ihre Ergebnisse in ca. 20-25 Minuten pro Team. Eine Bearbeitung der Aufgaben findet dort nicht statt!
+  * Die Vorbereitungszeit für ein Praktikum beträgt idr. drei Wochen. Nutzen sie diese Zeit ruhig :)
 
-%section
-  Second Slide
-  Blubb
-  Bla
+%section{"data-markdown" => ""}
+  \### Organisation
 
-%section
-  Second Slide
-  Blubb
-  Bla
+  * Unterlagen: [ai2016.nils-loewe.de](https://ai2016.nils-loewe.de)
+  * Klausur am Semesterende **ohne** Hilfsmittel
 
-%section
-  %ul
-    %li Second Slide
-    %li Blubb
-    %li Bla
+%section{"data-markdown" => ""}
+  \## Ziele dieser Vorlesung
+
+  * Was ist Softwarearchitektur und wozu braucht man sie?
+  * Was muss ein Softwarearchitekt / eine Softwarearchitektin können?
+  * Wissen, wie man eine große Anwendung konzipiert
+  * Wie werden Architekturen entworfen, dokumentiert und bewertet?
+
+%section{"data-markdown" => ""}
+  \## Keine Ziele dieser Vorlesung
+  * Der alleingültige Masterplan für **die** Architektur
+  * Details von .NET, JEE, Rails, ... beschreiben
+  * Eine weitere UML-Vorlesung
+
+%section{"data-markdown" => ""}
+  \### Aufbau dieser Veranstaltung
+
+  \#### **Organisation & Motivation**
+  \#### Begriffe
+  \#### Geschichte und Trends
+  \#### Sichten auf Architekturen
+  \#### Qualiät und andere nichtfunktionale Anforderungen
+  \#### Architekturmuster
+  \#### Dokumentation von Architekturen
+  \#### Technologien und Frameworks
+
+%section{"data-markdown" => ""}
+  \## Literatur
+
+  %br
+  Software Architecture in Practice *(Bass, Clements, Kazman)*
+  %br
+  Pattern-Oriented Software Architecture *(Buschmann, Henney, Schmidt)*
+  %br
+  Systemarchitekturen für verteilte Anwendungen *(Dunkel, Eberhart, Fischer, Kleiner, Koschel)*
+  %br
+  Software Architecture and Design Illuminated *(Qian, Fu )*
+  %br
+  Handbuch der Software-Architektur *(Reussner, Hasselbring)*
+  %br
+  Effektive Software-Architekturen Ein praktischer Leitfaden *(Starke)*
+  %br
+  Software Architecture Foundations, Theory and Practice *(Taylor, Medvidovic, Dashofy)*
+  %br
+  Software-Architekturen dokumentieren und kommunizieren *(Zörner)*
+
+
+
+%section{"data-markdown" => ""}
+  \## Was ist Softwarearchitektur?
+
+%section{"data-markdown" => ""}
+  \## Was ist Architektur?
+
+  * Der Begriff stammt aus dem Mittelalter
+  * Oberbegriff für Baustil / Baukunst
+  * Ziel: Ordnung und Generalisierung struktureller Beziehungen in Produkten des Bauwesens
+  * Ziel: Erfahrung und Wissen verallgemeinern.
+
+%section{"data-markdown" => ""}
+  \### Architektur zur Verteidigung
+  ![](/images/arch_defense_1.jpg)
+
+%section{"data-markdown" => ""}
+  \### Architektur zur Verteidigung
+  ![](/images/arch_defense_2.jpg)
+
+%section{"data-markdown" => ""}
+  \### Architektur um Macht zu zeigen
+  ![](/images/arch_impress_1.jpg)
+
+%section{"data-markdown" => ""}
+  \### Architektur um Macht zu zeigen
+  ![](/images/arch_impress_2.jpg)
+
+%section{"data-markdown" => ""}
+  \### Architektur um Verkehr zu lenken
+  ![](/images/arch_traffic.jpg)
+
+%section{"data-markdown" => ""}
+  \### Architektur um mobil zu sein
+  ![](/images/arch_mobility.jpg)
+
+%section{"data-markdown" => ""}
+  %p
+    Die Architektur eines Softwaresystems ist die Menge der Haupt-Designentscheidungen über das System. *(Taylor)*
+  *(“A software system’s architecture is the set of principal design decisions about the system.”)*
+
+%section{"data-markdown" => ""}
+  Die Software-Architektur ist die grundlegende Organisation eines Systems, dargestellt durch dessen Komponenten, deren Beziehungen zueinander und zur Umgebung sowie die Prinzipien, die den Entwurf und die Evolution des Systems bestimmen. *(Reussner)*
+
+%section{"data-markdown" => ""}
+  Software Architecture = { what, how, why } *(Perry and Wolf)*
+
+%section{"data-markdown" => ""}
+  The software architecture of deployed software is determined by those aspects that are the hardest to change. *(Chris Verhoef)*
+
+%section{"data-markdown" => ""}
+  \### Architektur vs. Entwurf?
+
+  \#### Architektur = global, Entwurf = lokal
+  \#### Architektur = strategisch, Entwurf = taktisch
+  \#### Architekturentscheidungen beeinflussen in hohem Maße die Qualitätsmerkmale eines Systems (Performance, Skalierbarkeit, Wartbarkeit, ...)
+%section{"data-markdown" => ""}
+  \## Was ist nicht Softwarearchitektur?
+
+%section{"data-markdown" => ""}
+  \## Wozu braucht man Softwarearchitektur?
+
+%section{"data-markdown" => ""}
+  \## Die Rolle des Softwarearchitekten (Status, Aufgaben, Karriere,

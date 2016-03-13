@@ -26,9 +26,9 @@
 3. Geschichte und Trends
 4. Sichten auf Architekturen
 5. Qualiät und andere nichtfunktionale Anforderungen
-4. Architekturmuster
-5. Dokumentation von Architekturen
-6. Technologien und Frameworks
+6. Architekturmuster
+7. Dokumentation von Architekturen
+8. Technologien und Frameworks
 
 
 ### Einleitung & Motivation
