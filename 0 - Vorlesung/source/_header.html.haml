@@ -1,1 +1,20 @@
-../../../slides/source/_header.html.haml
+%header.header.push-down-45
+  .container
+    / .logo.pull-left
+    /   %a{:href => "index.html"}
+    /     %img{:alt => "Logo", :src => "images/logo.png"}/
+    / Brand and toggle get grouped for better mobile display
+    .navbar-header
+      %button.navbar-toggle{"data-target" => "#readable-navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+    %nav.navbar.navbar-default{:role => "navigation"}
+      / Collect the nav links, forms, and other content for toggling
+      #readable-navbar-collapse.collapse.navbar-collapse
+        %ul.navigation
+          %li
+            %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "https://nils-loewe.de/index.html"} nils-loewe.de
+          %li{:class => ("active" if current_page.path == 'index.html')}
+            %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "https://nils-loewe.de/index.html"} AI - SS2016
