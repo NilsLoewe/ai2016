@@ -7,9 +7,18 @@ title: Architektur von Informationssystemen
       .slides-box
         %h1 Architektur von Informationssystemen
 
-        =link_to '[Vorlesungsunterlagen] ', '#VL'
-        =link_to '[Praktikum]', '#PR'
-        =link_to '[Literatur]', '#Lit'
+        %p
+          Auf dieser Seite finden Sie alle Vorlesungsunterlagen, Praktikumsaufgaben
+          und Literaturempfehlungen zur Veranstaltung 'Architektur von Informationssystemen'
+          im Sommersemester 2016 an der HAW Hamburg. Die Seite wird laufend aktualisiert,
+          das Datum der letzten Änderung ist jeweils für die einzelnen Bereiche angegeben.
+
+        %h5
+          =link_to '[Vorlesungsunterlagen]', '#VL'
+          |
+          =link_to '[Praktikum] ', '#PR'
+          |
+          =link_to '[Literatur]', '#Lit'
 
 
 .boxed.push-down-45
@@ -25,91 +34,76 @@ title: Architektur von Informationssystemen
               %th #
               %th Datum
               %th Slides
-              %th pdf
           %tbody
             %tr
               %td 1
               %td 17.03.16
               %td=link_to 'Motivation und Grundlagen', 'vl01.html'
-              %td=link_to 'TBD' , '#'
 
             %tr
               %td 2
               %td 24.03.16
               %td=link_to 'TBD', 'vl02.html'
-              %td=link_to 'TBD' , '#'
 
             %tr
               %td 3
               %td 31.03.16
               %td=link_to 'TBD', 'vl03.html'
-              %td=link_to 'TBD' , '#'
 
             %tr
               %td 4
               %td 07.04.16
               %td=link_to 'TBD', 'vl04.html'
-              %td=link_to 'TBD' , '#'
 
             %tr
               %td 5
               %td 14.04.16
               %td=link_to 'TBD', 'vl05.html'
-              %td=link_to 'TBD' , '#'
 
             %tr
               %td 6
               %td 21.04.16
               %td=link_to 'TBD', 'vl06.html'
-              %td=link_to 'TBD' , '#'
 
             %tr
               %td 7
               %td 28.04.16
               %td=link_to 'TBD', 'vl07.html'
-              %td=link_to 'TBD' , '#'
 
             %tr
               %td 8
               %td 12.05.16
               %td=link_to 'TBD', 'vl08.html'
-              %td=link_to 'TBD' , '#'
 
             %tr
               %td 9
               %td 19.05.16
               %td=link_to 'TBD', 'vl09.html'
-              %td=link_to 'TBD' , '#'
 
             %tr
               %td 10
               %td 26.05.16
               %td=link_to 'TBD', 'vl10.html'
-              %td=link_to 'TBD' , '#'
 
             %tr
               %td 11
               %td 02.06.16
               %td=link_to 'TBD', 'vl11.html'
-              %td=link_to 'TBD' , '#'
 
             %tr
               %td 12
               %td 09.06.16
               %td=link_to 'TBD', 'vl12.html'
-              %td=link_to 'TBD' , '#'
 
             %tr
               %td 13
               %td 16.06.16
               %td [Reserve]
-              %td
 
             %tr
               %td 14
               %td 23.06.16
               %td [Reserve]
-              %td
 
 .boxed.push-down-45
   .row
@@ -127,22 +121,22 @@ title: Architektur von Informationssystemen
           %tbody
             %tr
               %td 1
+              %td=link_to 'Praktikum 1: Vorbereitung auf ein Projekt', 'p01.html'
+              %td=link_to 'pdf' , 'p01.pdf'
+
+            %tr
+              %td 2
               %td=link_to 'TBD', '#'
               %td=link_to 'TBD' , '#'
 
             %tr
-              %td 2
-              %td=link_to 'TBD', 'vl02.html'
-              %td=link_to 'TBD' , '#'
-
-            %tr
               %td 3
-              %td=link_to 'TBD', 'vl03.html'
+              %td=link_to 'TBD', '#'
               %td=link_to 'TBD' , '#'
 
             %tr
               %td 4
-              %td=link_to 'TBD', 'vl04.html'
+              %td=link_to 'TBD', '#'
               %td=link_to 'TBD' , '#'
 
 .boxed.push-down-45
@@ -151,13 +145,56 @@ title: Architektur von Informationssystemen
       .slides-box
         %h2{id: 'Lit'} Literatur
 
+        Die folgenden Bücher kann ich aus persönlicher Erfahrung empfehlen und wurden teilweise auch im vergangenen Semester
+        von Prof. Sarstedt empfohlen.
+
         %table.table.table-striped
-          %caption Stand: 15.03.2016
+          %caption Stand: 16.03.2016
           %thead
             %tr
-              %th Autor
               %th Titel
+              %th Autor(en)
           %tbody
             %tr
-              %td Gernot Starke
-              %td ...
+              %td Effektive Software-Architekturen - Ein praktischer Leitfaden
+              %td Starke
+            %tr
+              %td Knigge für Softwarearchitekten - Reloaded
+              %td Hruschka, Starke
+            %tr
+              %td Software-Architekturen dokumentieren und kommunizieren
+              %td Zörner
+            %tr
+              %td Handbuch der Software-Architektur
+              %td Reussner, Hasselbring
+            %tr
+              %td Pattern-Oriented Software Architecture
+              %td Buschmann, Henney, Schmidt
+            %tr
+              %td REST und Http
+              %td Tilkov, Wolff
+            %tr
+              %td Microservices
+              %td Wolff
+
+        Die folgenden Bücher wurden im vergangenen Semester von Prof. Sarstedt empfohlen, habe ich selber aber bisher nicht gelesen.
+
+        %table.table.table-striped
+          %caption Stand: 16.03.2016
+          %thead
+            %tr
+              %th Titel
+              %th Autor(en)
+          %tbody
+            %tr
+              %td Software Architecture in Practice
+              %td Bass, Clements, Kazman
+            %tr
+              %td Systemarchitekturen für verteilte Anwendungen
+              %td Dunkel, Eberhart, Fischer, Kleiner, Koschel
+            %tr
+              %td Software Architecture and Design Illuminated
+              %td Qian, Fu
+            %tr
+              %td Software Architecture Foundations, Theory and Practice
+              %td Taylor, Medvidovic, Dashofy

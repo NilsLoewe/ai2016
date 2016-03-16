@@ -21,16 +21,29 @@ layout: slide
 %section{"data-markdown" => ""}
   \### Über Sie
 
-  * Bachelor 5. Fachsemester
-  * Angewandte Informatik
-  * Blubb
+  * Bachelor 5. Fachsemester: **Angewandte Informatik**
   * Software Engineering I & II
+  * Programmiermethodik I & II
+  * BWL I & II
   * Programmiersprachen: Java, Erlang, Ruby
+  * ...
 
 %section{"data-markdown" => ""}
-  \### Über diese Veranstaltung
+  \### Ziele dieser Vorlesung
 
-  * dfd
+  * Was ist Softwarearchitektur und wozu braucht man sie?
+  * Was muss ein Softwarearchitekt / eine Softwarearchitektin können?
+  * Wie konzipiert man eine große Anwendung?
+  * Wie werden Architekturen entworfen, dokumentiert und bewertet?
+
+%section{"data-markdown" => ""}
+  \### Keine Ziele dieser Vorlesung
+  * Der alleingültige Masterplan für **die** Architektur
+  * Details von .NET, JEE, Rails, ... beschreiben
+  * Eine weitere UML-Vorlesung
+
+%section{"data-markdown" => ""}
+  ![](/images/past.png)
 
 %section{"data-markdown" => ""}
   \### Organisation
@@ -39,46 +52,24 @@ layout: slide
   * Klausur am Semesterende **ohne** Hilfsmittel
 
 %section{"data-markdown" => ""}
-  \### Diese Veranstaltung in Zahlen
-  ![](/images/ai2016_aufwand.png)
-
-%section{"data-markdown" => ""}
   \### Praktikum
 
   * Bilden Sie Teams aus 3 Personen
   * Das erste Praktikum findet in KW 13 statt (nach Ostern)
   * Während der Praktikumstermine präsentieren die Teams ihre Ergebnisse in ca. 20-25 Minuten pro Team. Eine Bearbeitung der Aufgaben findet dort nicht statt!
   * Die Vorbereitungszeit für ein Praktikum beträgt idr. drei Wochen. Nutzen sie diese Zeit ruhig :)
+  * Aufgaben: [ai2016.nils-loewe.de](https://ai2016.nils-loewe.de)
 
 %section{"data-markdown" => ""}
-  \## Ziele dieser Vorlesung
-
-  * Was ist Softwarearchitektur und wozu braucht man sie?
-  * Was muss ein Softwarearchitekt / eine Softwarearchitektin können?
-  * Wie konzipiert man eine große Anwendung?
-  * Wie werden Architekturen entworfen, dokumentiert und bewertet?
-
-%section{"data-markdown" => ""}
-  \## Keine Ziele dieser Vorlesung
-  * Der alleingültige Masterplan für **die** Architektur
-  * Details von .NET, JEE, Rails, ... beschreiben
-  * Eine weitere UML-Vorlesung
-
-%section{"data-markdown" => ""}
-  \### Aufbau dieser Veranstaltung
-
-  \#### **Organisation & Motivation**
-  \#### Begriffe
-  \#### Geschichte und Trends
-  \#### Sichten auf Architekturen
-  \#### Qualiät und andere nichtfunktionale Anforderungen
-  \#### Architekturmuster
-  \#### Dokumentation von Architekturen
-  \#### Technologien und Frameworks
+  ![](/images/veto.jpg)
 
 %section{"data-markdown" => ""}
   \## Literatur
 
+  %br
+  Effektive Software-Architekturen - Ein praktischer Leitfaden *(Starke)*
+  %br
+  Knigge für Software-Architekturen  *(Hruschka, Starke)*
   %br
   Software Architecture in Practice *(Bass, Clements, Kazman)*
   %br
@@ -90,16 +81,87 @@ layout: slide
   %br
   Handbuch der Software-Architektur *(Reussner, Hasselbring)*
   %br
-  Effektive Software-Architekturen - Ein praktischer Leitfaden *(Starke)*
-  %br
   Software Architecture Foundations, Theory and Practice *(Taylor, Medvidovic, Dashofy)*
   %br
   Software-Architekturen dokumentieren und kommunizieren *(Zörner)*
 
-
+%section{"data-markdown" => ""}
+  \### **Was ist Softwarearchitektur?**
+  \#### Geschichte und Trends
+  \#### Sichten auf Architekturen
+  \#### Qualiät und andere nichtfunktionale Anforderungen
+  \#### Architekturmuster
+  \#### Dokumentation von Architekturen
+  \#### Technologien und Frameworks
 
 %section{"data-markdown" => ""}
-  \## Was ist Softwarearchitektur?
+  \### Was ist Softwarearchitektur?
+
+  * Motivation & Abgrenzung
+  * Architektur vs. Entwurf
+  * Architektur vs. Softwareengineering
+  * Aufgaben und Rollen von Architekten
+
+%section{"data-markdown" => ""}
+  \### Geschichte und Trends
+
+  * Großrechner mit Thin-clients
+  * Personalcompuer
+  * Web / Smartphones / Tables -> Browser als OS
+  * Internet of Things
+
+%section{"data-markdown" => ""}
+  \### Sichten auf Architekturen
+
+  * Was sind Sichten?
+  * Statische vs. Dynamische Sichten
+  * UML als Anwendung der Sichten
+
+%section{"data-markdown" => ""}
+  \### Qualiät und andere nichtfunktionale Anforderungen
+
+  **Was ist**
+  * eine "gute" Architektur?
+  * Skalierbarkeit?
+  * Performance?
+  * Sicherheit
+  * Wartbarkeit?
+  * Testbarkeit?
+
+%section{"data-markdown" => ""}
+  \### Architekturmuster
+
+  * Was sind Architekturmuster?
+  * Architekturmuster vs. Designpatterns?
+  * Vorstellung gängiger Architekturmuster
+
+%section{"data-markdown" => ""}
+  \### Dokumentation von Architekturen
+
+  * Warum dokumentieren?
+  * Wie dokumentieren?
+  * Für wen dokumentieren?
+  * Best practices?
+  * Tools zur Dokumentation
+  * Wie lese ich Architekturdoku?
+
+%section{"data-markdown" => ""}
+  \### Technologien und Frameworks
+
+  * Was sind Architketurframeworks?
+  * Vorteile/Nachteile von Frameworks?
+  * Beispiele für Frameworks: *Ruby on Rails, .NET, Twitter Bootstrap*
+  * Kriterien für die Auswahl eines Frameworks
+
+%section{"data-markdown" => ""}
+  \### **Was ist Softwarearchitektur?**
+  \#### Geschichte und Trends
+  \#### Sichten auf Architekturen
+  \#### Qualiät und andere nichtfunktionale Anforderungen
+  \#### Architekturmuster
+  \#### Dokumentation von Architekturen
+  \#### Technologien und Frameworks
+
 
 %section{"data-markdown" => ""}
   \## Was ist Architektur?
