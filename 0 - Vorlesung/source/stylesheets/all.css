@@ -16,4 +16,12 @@ ul > li > a {
   margin-bottom: 60px;
 }
 
-body { padding-bottom: 228px; }
+body {
+  padding-bottom: 228px;
+  font-size: 14pt;
+}
+
+.color-box {
+  border: 1px;
+  background: #eee;
+}
