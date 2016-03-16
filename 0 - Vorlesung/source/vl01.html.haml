@@ -46,7 +46,7 @@ layout: slide
   \### Praktikum
 
   * Bilden Sie Teams aus 3 Personen
-  * Das erste Praktikum findet in KWxx statt
+  * Das erste Praktikum findet in KW 13 statt (nach Ostern)
   * Während der Praktikumstermine präsentieren die Teams ihre Ergebnisse in ca. 20-25 Minuten pro Team. Eine Bearbeitung der Aufgaben findet dort nicht statt!
   * Die Vorbereitungszeit für ein Praktikum beträgt idr. drei Wochen. Nutzen sie diese Zeit ruhig :)
 
@@ -55,7 +55,7 @@ layout: slide
 
   * Was ist Softwarearchitektur und wozu braucht man sie?
   * Was muss ein Softwarearchitekt / eine Softwarearchitektin können?
-  * Wissen, wie man eine große Anwendung konzipiert
+  * Wie konzipiert man eine große Anwendung?
   * Wie werden Architekturen entworfen, dokumentiert und bewertet?
 
 %section{"data-markdown" => ""}
@@ -90,7 +90,7 @@ layout: slide
   %br
   Handbuch der Software-Architektur *(Reussner, Hasselbring)*
   %br
-  Effektive Software-Architekturen Ein praktischer Leitfaden *(Starke)*
+  Effektive Software-Architekturen - Ein praktischer Leitfaden *(Starke)*
   %br
   Software Architecture Foundations, Theory and Practice *(Taylor, Medvidovic, Dashofy)*
   %br
@@ -151,18 +151,254 @@ layout: slide
   The software architecture of deployed software is determined by those aspects that are the hardest to change. *(Chris Verhoef)*
 
 %section{"data-markdown" => ""}
-  \### Architektur vs. Entwurf?
+  Noch mehr Definitionen von Softwarearchitektur auf http://sei.cmu.edu/architecture/start/glossary/community.cfm
+  \### - Aber was heißt das denn praktisch?
 
 %section{"data-markdown" => ""}
-  \#### Architektur = global, Entwurf = lokal
-  \#### Architektur = strategisch, Entwurf = taktisch
-  \#### Architekturentscheidungen beeinflussen in hohem Maße die Qualitätsmerkmale eines Systems (Performance, Skalierbarkeit, Wartbarkeit, ...)
+  \### Architektur besteht aus Strukturen
+  * die Komponenten (Bausteine), aus denen ein System besteht
+  * die wesentlichen (extern sichtbaren) Eigenschaften dieser Komponenten
+  * die Beziehungen der Komponenten untereinander
 
 %section{"data-markdown" => ""}
-  \## Was ist nicht Softwarearchitektur?
+  \### Architektur beschreibt eine Lösung im Sinne eines Bauplans
+  (die Architektur eines Gebäudes besteht aus einer Sammlung von Plänen - nicht aus Steinen und Zement)
+  \#### Erst die *Implementierung* macht aus den Komponenten und Schnittstellen der Architektur ein reales System.
+
+%section{"data-markdown" => ""}
+  \### Architektur basiert auf Entwurfsentscheidungen
+  * Entscheidungen zum Entwurf der Komponenten
+  * Entscheidung für eine bestimmte Technologie
+
+  \#### Die Konsequenz vieler Entscheidungen können Architekten erst sehr viel später beurteilen!
+
+%section{"data-markdown" => ""}
+  \### Architektur bildet den Übergang von der Analyse zur Realisierung
+  * Analysephase &rarr; Architektur &rarr; technische Realisierung
+  * Fachdomände &rarr; Architektur &rarr; Umsetzung in Software
+
+%section{"data-markdown" => ""}
+  \### Architektur besteht aus verschiedenen *Sichten*
+  * jede Sicht dokumentiert einzelne Aspekte des Gesamtsystems
+  * jede Sicht ist für bestimmte Stakeholder nützlich
+
+%section{"data-markdown" => ""}
+  ![](/images/vier_sichten_auf_architektur.png)
+  %br
+  Bildquelle: Starke / "Effektive Softwarearchitekturen" (5. Auflage)
+
+%section{"data-markdown" => ""}
+  \### Architektur schafft Verständlichkeit
+  * komplexe Anforderungen &rarr; geordnete Strukturen (übersichtlich dokumentiert)
+  * angemessene und problembezogene Dokumentation für alle Projektbeteiligten
+  %br
+  *Management:* Anforderungen erfüllbar / erfüllt?
+  %br
+  *neue Mitarbeiter:* Systemstruktur kennen lernen
+  %br
+  *Wartungsteams:* betroffene Bestandteile leichter finden und Folgen von Änderungen abschätzen
+  %br
+  *Systembetreiber:* Welche Software-Komponenten laufen auf welchen physischen Systemen ab?
+
+%section{"data-markdown" => ""}
+  \### Architektur ist der Rahmen für flexible Systeme
+  * stellt Flexibilität und Erweiterbarkeit sicher &rarr; *"framework for change"* (Tom DeMarco)
+
+%section{"data-markdown" => ""}
+  \### Architektur ist Abstraktion
+  * Essenzielle Aufgabe von Architekten: Weglassen von nicht benötigten Informationen
+  * Informationen werden bewusst gefiltert um die Darstellung lesbar und verständlich zu halten
+
+%section{"data-markdown" => ""}
+  \### Architektur schafft Qualität
+  %br
+  Die Qualität eines Systems bezeichnet die Summe seiner nicht-funktionale Eigenschaften:
+  * Performance
+  * Verständlichkeit
+  * Flexibilität
+  * ...
+  %br
+  Das sind meistens die schwierigen Anforderungen!
+
+
+%section{"data-markdown" => ""}
+  \### Architektur vs. Entwurf/Design?
+  * die Grenze ist fließend
+  * Design (oder Entwurf) bezeichnet den Prozess der Erstellung der Architektur
+  %br
+  &rarr; Gehen Sie mit diesen Begriffen pragmatisch um und suchen Sie nicht nach einer "formalen" Definition.
+
+
+%section{"data-markdown" => ""}
+  \## Was Softwarearchitektur *nicht* ist...
+  ![](/images/keine_Architektur.jpg)
+  %br
+  Bildquelle: Starke / "Effektive Softwarearchitekturen" (5. Auflage)
+
+%section{"data-markdown" => ""}
+  \### Wenn Ihnen jemand eine Architektur-Darstellung vorlegt, stellen Sie folgende Fragen (die in einer guten Dokumentation immer beantwortet sind):
+  * Welche Verantwortlichkeiten (*responsibilities*) hat jees der Kästchen und Verbindungslinien im Diagram?
+  * Für jede Verbindungslinie: Warum existiert sie und welche Semantik oder Bedeutung hat sie?
+  * Was wird zu welchem Zeitpunkt auf welche Weise über diese Verbindungen transportiert?
 
 %section{"data-markdown" => ""}
   \## Wozu braucht man Softwarearchitektur?
 
+
+  \# TBD
+
 %section{"data-markdown" => ""}
-  \## Die Rolle des Softwarearchitekten (Status, Aufgaben, Karriere,
+  \## Die Rolle des Softwarearchitekten (Status, Aufgaben, Karriere)
+
+  \# TBD
+
+%section{"data-markdown" => ""}
+  \### Die Aufgaben von Softwarearchitekten
+  %br
+
+  "Das Leben von Software-Architekten besteht aus einer langen und schnellen Abfolge suboptimaler Entwurfsentscheidungen, die meist im Dunkel getroffen werden."
+  %br
+  (Phillipe Kruchten)
+
+%section{"data-markdown" => ""}
+  \### Architekten konstruieren und entwerfen
+  * Komponenten: Verantwortlichkeiten definieren
+  * Schnittstellen: "Verträge" beschreiben, auf deren Basis die Komponenten miteinander arbeiten (*design by contract*)
+  * Strukturen: Komponenten + Zusammenspiel &rarr; statische und dynamische Strukturen
+
+%section{"data-markdown" => ""}
+  \### Architekten entscheiden
+  %br
+  *"...schnelle Folge suboptimaler Designentscheidungen"*
+  * Welche Bausteine?
+  * Welche Schnittstellen?
+  * Welche Abläufe?
+  * Welche technischen Frameworks?
+  * Selbst implementieren, kaufen oder ein Mittelweg davon?
+  * Welches Teilteam entwickelt welche Komponenten?
+  * Wie sollen die Bausteine der Architektur heißen? (Aussagekräftige Namen sind wirklich, wirklich wichtig!)
+
+%section{"data-markdown" => ""}
+  *"...Entwurfsentscheidungen, die meist im Dunkel getroffen werden"*
+  %br
+  * teilweise zeigt sich erst Monate oder Jahre (!) später, ob eine Architekturentscheidung vernünfigt, angemessen oder sinnvoll war
+  * oft haben Architekten mit Frameworks, Betriebssystemen oder sonstigen Dingen zu tun, deren genaues Verhalten sie gar nicht kennen können
+  %br
+  &rarr; Dabei hilft iteratives Vorgehen erheblich weiter!
+  %br
+  &rarr; Entscheidungen großer Tragweite sollten Sie angemessen dokumentieren!
+
+%section{"data-markdown" => ""}
+  \### Architekten garantieren die Erfüllung von Anforderungen
+  * Machbarkeit von Anforderungen sicherstellen (z.B. durch Protoypen)
+  * dafür sorgen, dass die Anforderungen auch erfüllt werden (gilt für funktionale und nicht-funktionale Anforderungen und Randbedingungen)
+  * einen angemessenen Kostenrahmen einhalten
+
+%section{"data-markdown" => ""}
+  \### Architekten beraten
+  * Management und Auftraggeber bei der Projektplanung und -Organisation
+  * Auftraggeber und Analyseteams zu Machbarkeit, Kosten/Nutzen, Auswirkungen von Anforderungen, Realisierung und Betrieb
+  * Projektleiter bei der Organisaton und Steuerung des Implementierungsteams
+  * Projektleiter beim Managment (technischer) Risiken
+  * das Implementierungsteam bei der Umsetzung
+  * Hardware-Architekten und Systembetreiber hinsichtlich Hardware-Anforderungen
+  * die Qualitätssicherung über Kritikalität und Testbarkeit von Systembestandteilen
+
+%section{"data-markdown" => ""}
+  \### Architekten dokumentieren - angemessen
+  * an den Bedürfnissen der Adressaten orientieren
+  * pragmatisch arbeiten (manchmal reicht eine Skizze auf einem alten Umschlag)
+  %br
+  *Die Projekte sollen agil, flexibel und kurzfristig wandlungsfähig bleiben!*
+
+%section{"data-markdown" => ""}
+  \### Architekten sind Diplomaten und Akrobaten
+  Sie schließen Kompromisse zwischen widersprüchlichen oder kunkurrierenden Forderungen.
+  %br
+  ![](/images/gummiband-diagramm.png)
+  %br
+  Bildquelle: Starke / "Effektive Softwarearchitekturen" (5. Auflage)
+
+
+%section{"data-markdown" => ""}
+  \### Architekten vereinfachen Strukturen
+  * leichter und günstiger realisierbar
+  * einfacher verständlich
+  * weniger fehleranfällig
+  %br
+  "Die zuverlässigste, preiswerteste und robusteste Komponente eines Systems ist diejenige, die erst gar nicht realisert werden muss!"
+  %br
+  (Gernot Starke)
+
+%section{"data-markdown" => ""}
+  \### Architekten kommunizieren
+  * Architekturentscheidungen für unterschiedliche Stakeholder angemessen aufbereiten
+  * Stakeholder von Entscheidungen überzeugen (präsentieren + vermarkten)
+  * Team coachen und unterrichten
+
+%section{"data-markdown" => ""}
+  \### Architekten bewerten die Güte der Architektur
+  %br
+  An welchen Stellen des Systems sind nicht-funktionale Anforderungen (z.B. Performance) riskant oder kritisch?
+  %br
+  &rarr; Maßnahmen zur Optimierung oder Risikominderung ableiten
+
+%section{"data-markdown" => ""}
+  \### Architekten brauchen Mut
+  %br
+  Aus Zeitgründen verfügen Architekten oft nicht über genügend Informationen, um optimale Entscheidungen zu treffen.
+  %br
+  &rarr; Mut für möglicherweise suboptimale Entscheidungen aufbringen - damit das Projekt weiter laufen kann...
+  %br
+  *Damit ist nicht Waghalsigkeit gemeint! Bewusste Risikoabwägung, Prüfen von Alternativen und Beachtung der Konsequenzen gehört immer dazu!*
+
+%section{"data-markdown" => ""}
+  \### Die Werkzeuge von Architekten
+  * Modelle (vereinfachte Abbildungen der Wirklichkeit)
+  * System-Dokumentationen (zur Kommunikation mit anderen Projektbeteiligten)
+  * Heuristiken (Erfahrungen, Regeln, Tipps)
+  * Muster (Vorlagen für elegante Lösungen zu spezifischen Entwurfsproblemen)
+  * Partitionierung (Problem in Teilprobleme zerlegen)
+  * Aggregation (Einzelteile zu Software-Systemen zusammensetzen)
+  * Iteration (zyklische Vorgehensweise und kurzfristiges Feedback)
+  * Compiler, Debugger, Prototypen (Implementierung unterstützen, Machbarkeit testen, technische Risiken prüfen)
+
+%section{"data-markdown" => ""}
+  \## Wie entstehen Architekturen?
+
+%section{"data-markdown" => ""}
+  \### Architekturen entstehen in Zyklen und Iterationen
+  %br
+  ![](/images/moving_target.png)
+  %br
+  Bildquelle: Starke / "Effektive Softwarearchitekturen" (5. Auflage)
+
+%section{"data-markdown" => ""}
+  \### Conway's Law
+  %br
+  Die Strukturen einer Organisation .... TBD
+  %br
+  ![](/images/conway.png)
+  %br
+  Bildquelle: Starke / "Effektive Softwarearchitekturen" (5. Auflage)
+
+%section{"data-markdown" => ""}
+  \### Architekturen entstehen in kleinen Teams
+  * gemeinsames Ziel: Die Anforderungen des Kunden erfüllen
+  * Erfahrung in Software-Engineering
+  * Erfahrung in der Fachdomäne
+
+%section{"data-markdown" => ""}
+  \### Wie Architekturen nicht entstehen sollten
+  * im Architekturkomitee, das jeden Donnerstag um 15 Uhr im großen Besprechungsraum tagt
+  * im Elfenbeinturm ohne Kunden, Auftraggeber, Projektleitung und Realisierungsteam
+  * ausschließlich auf bunten Marketing-Folien
+  * "Wir machen jetzt {Name-der-Technologie}!"
+
+%section{"data-markdown" => ""}
+  \## In welchem Kontext steht Architektur?
+
+%section{"data-markdown" => ""}
+  ![](/images/swa_im_kontext.png)
+  %br
+  Bildquelle: Starke / "Effektive Softwarearchitekturen" (5. Auflage)
