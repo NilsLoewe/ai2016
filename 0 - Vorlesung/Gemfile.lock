@@ -133,6 +133,3 @@ DEPENDENCIES
   middleman-blog
   middleman-deploy!
   redcarpet (~> 3.3, >= 3.3.3)
-
-BUNDLED WITH
-   1.11.2
