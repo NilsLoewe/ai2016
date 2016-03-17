@@ -17,11 +17,16 @@ ul > li > a {
 }
 
 body {
-  padding-bottom: 228px;
+  padding-bottom: 128px;
   font-size: 14pt;
 }
 
 .color-box {
   border: 1px;
   background: #eee;
+}
+
+.footer {
+  padding-top: 10px;
+  padding-bottom: 0px;
 }
