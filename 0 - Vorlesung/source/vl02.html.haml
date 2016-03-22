@@ -10,6 +10,11 @@ layout: slide
   Nils Löwe / [nils@loewe.io](mailto:nils@loewe.io) / @NilsLoewe
 
 %section{"data-markdown" => ""}
+  \#### Raumänderung
+
+  Die Vorlesung findet jetzt in Raum 1060 statt!
+
+%section{"data-markdown" => ""}
   \### Was ist Softwarearchitektur?
   \#### Geschichte und Trends
   \#### Sichten auf Architekturen
@@ -20,12 +25,107 @@ layout: slide
 
 %section{"data-markdown" => ""}
   \### Wiederholung
-  TODO: Best of der letzten Vorlesung
+  \### Was ist Softwarearchitektur?
+
+
+%section{"data-markdown" => ""}
+  \## Was ist Architektur?
+
+  * Der Begriff stammt aus dem Mittelalter
+  * Oberbegriff für Baustil / Baukunst
+  * Ziel: Ordnung und Generalisierung struktureller Beziehungen in Produkten des Bauwesens
+  * Ziel: Erfahrung und Wissen verallgemeinern.
+
+%section{"data-markdown" => ""}
+  ![](/images/arch_defense_2.jpg)
+
+%section{"data-markdown" => ""}
+  The software architecture of deployed software is determined by those aspects that are the hardest to change. *(Chris Verhoef)*
+
+%section{"data-markdown" => ""}
+  \### Architektur besteht aus Strukturen
+  * die Komponenten (Bausteine), aus denen ein System besteht
+  * die wesentlichen (extern sichtbaren) Eigenschaften dieser Komponenten
+  * die Beziehungen der Komponenten untereinander
+
+%section{"data-markdown" => ""}
+  \### Architektur basiert auf Entwurfsentscheidungen
+  * Entscheidungen zum Entwurf der Komponenten
+  * Entscheidung für eine bestimmte Technologie
+
+%section{"data-markdown" => ""}
+  \### Architektur besteht aus verschiedenen *Sichten*
+  * jede Sicht dokumentiert einzelne Aspekte des Gesamtsystems
+  * jede Sicht ist für bestimmte Stakeholder nützlich
+
+%section{"data-markdown" => ""}
+  \### Architektur ist Abstraktion
+  * Essenzielle Aufgabe von Architekten: Weglassen von nicht benötigten Informationen
+  * Informationen werden bewusst gefiltert um die Darstellung lesbar und verständlich zu halten
+
+%section{"data-markdown" => ""}
+  \### Architektur vs. Entwurf/Design?
+  * die Grenze ist fließend
+  * Design (oder Entwurf) bezeichnet den Prozess der Erstellung der Architektur
+
+%section{"data-markdown" => ""}
+  "Das Leben von Software-Architekten besteht aus einer langen und schnellen Abfolge suboptimaler Entwurfsentscheidungen, die meist im Dunkel getroffen werden."
+  %br
+  (Phillipe Kruchten)
+
+%section{"data-markdown" => ""}
+  \### Architekten beraten
+  * Management und Auftraggeber bei der Projektplanung und -Organisation
+  * Auftraggeber und Analyseteams zu Machbarkeit, Kosten/Nutzen, Auswirkungen von Anforderungen, Realisierung und Betrieb
+  * Projektleiter bei der Organisaton und Steuerung des Implementierungsteams
+  * Projektleiter beim Managment (technischer) Risiken
+  * das Implementierungsteam bei der Umsetzung
+  * Hardware-Architekten und Systembetreiber hinsichtlich Hardware-Anforderungen
+  * die Qualitätssicherung über Kritikalität und Testbarkeit von Systembestandteilen
+
+%section{"data-markdown" => ""}
+  \### Architekten dokumentieren - angemessen
+  * an den Bedürfnissen der Adressaten orientieren
+  * pragmatisch arbeiten (manchmal reicht eine Skizze auf einem alten Umschlag)
+  %br
+  *Die Projekte sollen agil, flexibel und kurzfristig wandlungsfähig bleiben!*
+
+%section{"data-markdown" => ""}
+  "Die zuverlässigste, preiswerteste und robusteste Komponente eines Systems ist diejenige, die erst gar nicht realisert werden muss!"
+  %br
+  (Gernot Starke)
+
+%section{"data-markdown" => ""}
+  \### Architekten bewerten
+  %br
+  An welchen Stellen des Systems sind nicht-funktionale Anforderungen (z.B. Performance) riskant oder kritisch?
+
+%section{"data-markdown" => ""}
+  \### Architekturen entstehen in Zyklen und Iterationen
+  %br
+  ![](/images/moving_target.png)
+  %br
+  Bildquelle: Starke / "Effektive Softwarearchitekturen" (5. Auflage)
+
+%section{"data-markdown" => ""}
+  \### Wie Architekturen nicht entstehen sollten
+  * im Architekturkomitee, das jeden Donnerstag um 15 Uhr im großen Besprechungsraum tagt
+  * im Elfenbeinturm ohne Kunden, Auftraggeber, Projektleitung und Realisierungsteam
+  * ausschließlich auf bunten Marketing-Folien
+  * "Wir machen jetzt {Name-der-Technologie}!"
 
 %section{"data-markdown" => ""}
   \### Ergebnisse der Umfrage
-  TODO: Bilder
-  TODO: Was heisst das?
+
+%section{"data-markdown" => ""}
+  Wieviel Vorwissen haben Sie zu den einzelnen Bereichen?
+  %br
+  ![](/images/vorwissen.png)
+
+%section{"data-markdown" => ""}
+  Welche Schwerpunkt wünschen Sie sich?
+  %br
+  ![](/images/aufteilung.png)
 
 %section{"data-markdown" => ""}
   \#### Was ist Softwarearchitektur?
@@ -35,3 +135,104 @@ layout: slide
   \#### Architekturmuster
   \#### Dokumentation von Architekturen
   \#### Technologien und Frameworks
+
+%section{"data-markdown" => ""}
+  \#### Seit wann gibt es den Begriff der Softwarearchitektur?
+
+  \### Konferenz über Softwaretechnik in Rom
+  %br
+  %i Software Engineering Techniques. Report of a Conference Sponsored by the NATO Science Committee. Scientific Affairs Division, NATO, 1970, S. 12.
+
+%section{"data-markdown" => ""}
+  \#### Warum?
+
+  Die Systeme wurden in den 1960ern so komplex, dass sie von mehreren Teams entwickelt werden mussten.
+
+%section
+  %h4 Beispiel: IBM OS/360
+
+  %h3 Planung
+  %ul
+    %li Entwicklungskosten: 40 Mio. USD
+    %li Lines of Code: 1 Mio.
+    %li Fertigstellung: 1965
+
+%section
+
+  %h4 Beispiel: IBM OS/360
+
+  %h3 Realität
+  %ul
+    %li Entwicklungskosten: 500 Mio. USD (Faktor 12,5)
+    %li Lines of Code: 10 Mio. (Faktor 10)
+    %li Fertigstellung: 1967 (2 Jahre zu spät)
+
+%section
+
+  %h4 Beispiel: IBM OS/360
+
+  %h3 Fun Facts
+  %ul
+    %li PCP: Primary Control Program (genau ein Task ausführbar)
+    %li MFT: Multiprogramming with a Fixed number of Tasks (Anzahl Tasks fest vorgegeben)
+    %li MVT: Multiprogramming with a Variable number of Tasks (Echte dynamische Speicherverwaltung)
+
+%section
+
+  %h4 Beispiel: IBM SYSTEM/360
+
+  %h3 Mainframes damals und heute
+
+  %ul
+    %li Mainframes verwalten heute 80 % aller Unternehmensdaten
+    %li Mainframes verarbeiten heute täglich 30 Mrd. Unternehmenstransaktionen (z.B. Banking, Flugbuchungen, ...)
+    %li Modell EC12 (2012): 5,5GHz CMOS Prozessor, 3 TB Ram
+    %li Erstes Modell damals: 0,0018 MIPS, 8 KByte Ram
+    %li Vergleich: Ein iPhone 5S schafft 18200 MIPS
+
+%section{"data-markdown" => ""}
+  \#### Softwarearchitektur im Lauf der Zeit
+
+  \#### Erste Beschreibung von "Dekomposition, Zerlegung, Entwurf"
+
+  * 1970er: Eher im Kontext von Hardware genutzt
+  * 1972:  *"On the criteria to be used in decomposing systems into modules"* von D. L. Parnas
+  * 1975: *"The Mythical Man Month"* von Frederick Brooks
+
+
+%section{"data-markdown" => ""}
+  \#### Softwarearchitektur im Lauf der Zeit
+  \#### Unabhängiges Teilgebiet der Softwaretechnik
+  \#### Konzept der Schnittstellen und Konnektoren
+
+  * 1992: *"Foundations for the Study of Software Architecture"* von Dewayne Perry und Alexander Wolf
+  * 1995: *"Software Architecture Analysis Method"* des Software Engineering Institute
+
+%section{"data-markdown" => ""}
+  \#### Softwarearchitektur im Lauf der Zeit
+  \#### Allgemeine Verbreitung und "Stand der Technik"
+
+  * 2000: *"IEEE 1471:2000 Norm Recommended Practice for Architectural Description of Software-Intensive Systems"*
+  * 2003: Zertifizierung als Softwarearchitekt durch die iSAQB (International Software Architect Qualification Board)
+  * 2003: UML 2.0 ist geeignet um Softwarearchitekturen zu beschreiben
+
+%section{"data-markdown" => ""}
+  https://de.wikipedia.org/wiki/David_Parnas
+
+%section{"data-markdown" => ""}
+  https://de.wikipedia.org/wiki/Frederick_P._Brooks
+
+%section{"data-markdown" => ""}
+  https://de.wikipedia.org/wiki/Tony_Hoare
+
+%section{"data-markdown" => ""}
+  https://de.wikipedia.org/wiki/Edsger_W._Dijkstra
+
+%section{"data-markdown" => ""}
+  https://de.wikipedia.org/wiki/Per_Brinch_Hansen
+
+%section{"data-markdown" => ""}
+  https://de.wikipedia.org/wiki/Friedrich_L._Bauer
+
+%section{"data-markdown" => ""}
+  https://de.wikipedia.org/wiki/Niklaus_Wirth

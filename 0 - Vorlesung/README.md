@@ -31,7 +31,9 @@
 8. Technologien und Frameworks
 
 
-### Einleitung & Motivation
+### Vorlesung 1
+
+#### Einleitung & Motivation
 
 * Vorstellung: Wer bin ich?
 * Überblick über die Veranstaltung
@@ -45,7 +47,10 @@
   * Wozu braucht man Softwarearchitektur?
   * Die Rolle des Softwarearchitekten (Status, Aufgaben, Karriere, ...)
 
-### Begriffe
+### Vorlesung 2
+
+* Todo: Zettel für Raumänderung
+* Zettel für Umfrage
 
 ### Geschichte und Trends
   * Großrechner mit Thin-clients
@@ -54,6 +59,19 @@
   * Internet of Things
 
 ### Sichten auf Architekturen
+
+  * Motivation: Warum überhaupt Sichten?
+  * Überblick über die vier Sichten
+    * Kontext
+    * Baustein
+    * Laufzeit
+    * Verteilung
+  * Jeweils
+    * Was ist die Aufgabe der Sicht?
+    * Für wen ist sie speziell interessant?
+    * Was für Informationen sind darin enthalten?
+    * Was ist NICHT drin? Was kann ich also alles nicht wissen, wenn ich zu einer Architektur nur diese Sicht habe?
+    * Weitere Fragen aus 'Effektive Architekturen' ...
 
   * Statische vs. Dynamische Sichten
   * Jeweils einige Details wichtig
