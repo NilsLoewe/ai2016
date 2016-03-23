@@ -1,5 +1,5 @@
 ---
-title: Vorlesung X
+title: Vorlesung 2
 layout: slide
 ---
 
@@ -268,3 +268,118 @@ layout: slide
 
 %section{"data-markdown" => ""}
   \### Tools und Frameworks im Laufe der Zeit
+
+
+
+
+
+%section{"data-markdown" => ""}
+  \#### Was ist Softwarearchitektur?
+  \#### Geschichte und Trends
+  \### Sichten auf Architekturen
+  \#### Qualiät und andere nichtfunktionale Anforderungen
+  \#### Architekturmuster
+  \#### Dokumentation von Architekturen
+  \#### Technologien und Frameworks
+
+%section{"data-markdown" => ""}
+  \## Warum überhaupt Sichten?
+  %br
+  \#### *"Es ist eine offensichtliche Wahrheit, dass auch eine perfekte Architektur nutzlos bleibt, wenn sie nicht verstanden wird..."*
+  %br
+  Felix Bachmann und Len Bass in "Software Architecture Documentation in Practice"
+
+%section{"data-markdown" => ""}
+  \# 1.
+  \### Eine einzelne Darstellung kann die Vielschichtigkeit und Komplexität einer Architektur nicht ausdrücken.
+  %br
+  \### - Genauso wenig, wie man nur mit einem Grundriss ein Haus bauen kann.
+
+%section{"data-markdown" => ""}
+  \# 2.
+  \### Sichten ermöglichen die Konzentration auf einzelne Aspekte des Gesamtsystems und reduzieren somit die Komplexität der Darstellung.
+
+%section{"data-markdown" => ""}
+  \# 3.
+  \### Die Projektbeteiligten haben ganz unterschiedliche Informationsbedürfnisse.
+
+
+%section{"data-markdown" => ""}
+  \### Architekten müssen Projektbeteiligten die Architektur erklären bzw. sie verteidigen/vermarkten
+  * die entworfenen Strukturen
+  * die getroffenen Entscheidungen
+  * ihre Konzepte + Begründungen + Vor- und Nachteile
+  %br
+  &rarr; Mit Hilfe von unterschiedlichen Sichten lassen sich viele Aspekte von Architektur verständlich darstellen.
+
+%section{"data-markdown" => ""}
+  \###So erreichen Architekten ein gemeinsames Verständnis der Architektur innerhalb des Teams
+  ![](/images/kommunikationsaufgabe.png)
+  %br
+  Bildquelle: "Effektive Softwarearchitekturen" von Gernot Starke
+
+
+%section{"data-markdown" => ""}
+  \### Überblick über die vier Sichten
+  ![](/images/vier_sichten_auf_architektur.png)
+  %br
+  Bildquelle: "Effektive Softwarearchitekturen" von Gernot Starke
+
+%section{"data-markdown" => ""}
+  \## Kontextsicht
+  * Wie ist das System in seine Umgebung eingebettet?
+  * zeigt das System als Blackbox in seinem Kontext aus der Vogelperspektive
+
+%section{"data-markdown" => ""}
+  \### Kontextsicht - Enthaltene Informationen:
+  * Schnittstellen zu Nachbarsystemen
+  * Interaktion mit wichtigen Stakeholdern
+  * wesentliche Teile der umgebenden Infrastruktur
+
+%section{"data-markdown" => ""}
+  ![](/images/kontextsicht_beispiel.png)
+
+
+%section{"data-markdown" => ""}
+  \## Bausteinsicht
+  * Wie ist das System intern aufgebaut?
+  * unterstützt Auftaggeber und Projektleiter bei der Projektüberwachung
+  * dienent der Zuteilung von Arbeitspaketen
+  * dient als Referenz für Software-Entwickler
+
+%section{"data-markdown" => ""}
+  \### Bausteinsicht - Enthaltene Informationen:
+  * statische Strukturen der Bausteine des Systems
+  * Subsysteme
+  * Komponenten und deren Schnittstellen
+
+%section{"data-markdown" => ""}
+  ![](/images/bausteinsicht_beispiel.png)
+
+
+%section{"data-markdown" => ""}
+  \## Laufzeitsicht
+  * Wie läuft das System ab?
+  * Welche Bausteine des Systems existieren zur Laufzeit?
+  * Wie wirken die Bausteine zusammen?
+
+%section{"data-markdown" => ""}
+  ![](/images/laufzeitsicht_beispiel.png)
+
+%section{"data-markdown" => ""}
+  ![](/images/laufzeitsicht_beispiel2.png)
+
+%section{"data-markdown" => ""}
+  \##  Verteilungssicht / Infrastruktursicht
+  * In welcher Umgebung läuft das System ab?
+  * zeigt das System aus Betreibersicht
+
+%section{"data-markdown" => ""}
+  \### Verteilungssicht - Enthaltene Informationen:
+  * Hardwarekomponenten: Rechner, Prozessoren
+  * Netztopologien
+  * Netzprotokolle
+  * sonstige Bestandteile der physischen Systemumgebung
+
+%section{"data-markdown" => ""}
+  ![](/images/verteilungssicht_beispiel.png)
