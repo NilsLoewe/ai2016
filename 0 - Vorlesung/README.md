@@ -30,6 +30,21 @@
 7. Dokumentation von Architekturen
 8. Technologien und Frameworks
 
+## Plan fürs Semester
+
+1.  Motivation, Überblick, Organisation
+2.  Geschichte, Sichten
+3.  Qualität und andere nichtfunktionale Anforderungen
+4.  Qualität und andere nichtfunktionale Anforderungen
+5.  Architekturmuster:
+6.  Architekturmuster:
+7.  Dokumentation von Architekturen:
+8.  Dokumentation von Architekturen:
+9.  Technologie:
+10. Technologie: Spring Boot (Jan)
+11. Technologie:
+12. Wiederholung, Klausurvorbereitung
+
 
 ### Vorlesung 1
 

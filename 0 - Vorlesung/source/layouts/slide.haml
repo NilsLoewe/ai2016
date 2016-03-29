@@ -9,9 +9,16 @@
     %meta{:content => "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui", :name => "viewport"}/
     %link{:href => "css/reveal.css", :rel => "stylesheet"}/
     %link{:href => "css/ai.css", :rel => "stylesheet"}/
-    %link#theme{:href => "css/theme/night.css", :rel => "stylesheet"}/
+    / %link#theme{:href => "css/theme/night.css", :rel => "stylesheet"}/
+    / %link#theme{:href => "css/theme/simple.css", :rel => "stylesheet"}/
     / Code syntax highlighting
     %link{:href => "lib/css/zenburn.css", :rel => "stylesheet"}/
+    :javascript
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '/css/theme/simple.css' : 'css/theme/night.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
     / Printing and PDF exports
     :javascript
       var link = document.createElement( 'link' );
@@ -19,8 +26,6 @@
       link.type = 'text/css';
       link.href = window.location.search.match( /print-pdf/gi ) ? '/css/print/pdf.css' : 'css/print/paper.css';
       document.getElementsByTagName( 'head' )[0].appendChild( link );
-    /[if lt IE 9]
-      <script src="lib/js/html5shiv.js"></script>
   %body
     .reveal
       .slides
