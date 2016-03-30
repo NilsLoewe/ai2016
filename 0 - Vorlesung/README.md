@@ -1,9 +1,5 @@
 # Softwarearchitektur SS2016
 
-## Ressourcen
-
-* TBD: Links zu Stisys etc...
-
 ### Altes Konzept
 
   * Motivation und Grundlagen

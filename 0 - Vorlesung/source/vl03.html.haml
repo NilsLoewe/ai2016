@@ -98,8 +98,6 @@ layout: slide
   * 2003: Zertifizierung als Softwarearchitekt durch die iSAQB (International Software Architect Qualification Board)
   * 2003: UML 2.0 ist geeignet um Softwarearchitekturen zu beschreiben
 
-
-
 %section{"data-markdown" => ""}
   \### Pioniere der Softwarearchitektur
 
@@ -166,6 +164,532 @@ layout: slide
   \#### - Genauso wenig, wie man nur mit einem Grundriss ein Haus bauen kann.
 
 %section{"data-markdown" => ""}
+  \## 2.
+  \#### Sichten ermöglichen die Konzentration auf einzelne Aspekte des Gesamtsystems und reduzieren somit die Komplexität der Darstellung.
+
+%section{"data-markdown" => ""}
+  \## 3.
+  \#### Die Projektbeteiligten haben ganz unterschiedliche Informationsbedürfnisse.
+
+%section{"data-markdown" => ""}
+  ![](/images/4-sichten.png)
+  %br
+  Bildquelle: "Effektive Softwarearchitekturen" von Gernot Starke
+
+%section{"data-markdown" => ""}
+  \#### Architekten müssen Projektbeteiligten die Architektur erklären bzw. sie verteidigen/vermarkten
+  * die entworfenen Strukturen
+  * die getroffenen Entscheidungen
+  * ihre Konzepte + Begründungen + Vor- und Nachteile
+  %br
+  &rarr; Mit Hilfe von unterschiedlichen Sichten lassen sich viele Aspekte von Architektur verständlich darstellen.
+
+%section{"data-markdown" => ""}
+  \#### Überblick über die vier Sichten
+  ![](/images/vier_sichten_auf_architektur.png)
+  %br
+  Bildquelle: "Effektive Softwarearchitekturen" von Gernot Starke
+
+%section{"data-markdown" => ""}
+  \## Kontextsicht
+  * Wie ist das System in seine Umgebung eingebettet?
+  * zeigt das System als Blackbox in seinem Kontext aus der Vogelperspektive
+
+%section{"data-markdown" => ""}
+  \### Kontextsicht - Enthaltene Informationen:
+  * Schnittstellen zu Nachbarsystemen
+  * Interaktion mit wichtigen Stakeholdern
+  * wesentliche Teile der umgebenden Infrastruktur
+
+%section{"data-markdown" => ""}
+  \#### Kontextsicht - Beispiel
+  ![](/images/kontextsicht_beispiel.png)
+  %br
+  Bildquelle: "Effektive Softwarearchitekturen" von Gernot Starke
+
+%section{"data-markdown" => ""}
+  \## Bausteinsicht
+  * Wie ist das System intern aufgebaut?
+  * unterstützt Auftaggeber und Projektleiter bei der Projektüberwachung
+  * dienent der Zuteilung von Arbeitspaketen
+  * dient als Referenz für Software-Entwickler
+
+%section{"data-markdown" => ""}
+  \### Bausteinsicht - Enthaltene Informationen:
+  * statische Strukturen der Bausteine des Systems
+  * Subsysteme
+  * Komponenten und deren Schnittstellen
+
+%section{"data-markdown" => ""}
+  \#### Bausteinsicht - Beispiel
+  ![](/images/bausteinsicht_beispiel.png)
+  %br
+  Bildquelle: "Effektive Softwarearchitekturen" von Gernot Starke
+
+%section{"data-markdown" => ""}
+  \## Laufzeitsicht
+  * Wie läuft das System ab?
+  * Welche Bausteine des Systems existieren zur Laufzeit?
+  * Wie wirken die Bausteine zusammen?
+
+%section{"data-markdown" => ""}
+  \#### Laufzeitsicht - Beispiel
+  ![](/images/laufzeitsicht_beispiel.png)
+  %br
+  Bildquelle: "Effektive Softwarearchitekturen" von Gernot Starke
+
+%section{"data-markdown" => ""}
+  \##  Verteilungssicht / Infrastruktursicht
+  * In welcher Umgebung läuft das System ab?
+  * zeigt das System aus Betreibersicht
+
+%section{"data-markdown" => ""}
+  \### Verteilungssicht - Enthaltene Informationen:
+  * Hardwarekomponenten: Rechner, Prozessoren
+  * Netztopologien
+  * Netzprotokolle
+  * sonstige Bestandteile der physischen Systemumgebung
+
+%section{"data-markdown" => ""}
+  \#### Verteilungssicht - Beispiel
+  ![](/images/verteilungssicht_beispiel.png)
+  %br
+  Bildquelle: "Effektive Softwarearchitekturen" von Gernot Starke
+
+%section{"data-markdown" => ""}
+  \#### Was ist Softwarearchitektur?
+  \#### Geschichte und Trends
+  \### Sichten auf Architekturen
+  \#### Qualiät und andere nichtfunktionale Anforderungen
+  \#### Architekturmuster
+  \#### Dokumentation von Architekturen
+  \#### Technologien und Frameworks
+
+%section{"data-markdown" => ""}
+  \## Gibt es noch weitere Sichten?
+
+%section{"data-markdown" => ""}
+  \### Empfehlung
+  * Verzichten Sie möglichst auf weitere Sichten
+  * Jede Sicht kostet Erstellungs- und Wartungsaufwand
+  * Die grundlegenden Aspekte der Architektur- und Systementwicklung decken die vier Sichten ab
+
+%section
+  %h4 Beispiel (nach Peter Hruschka):
+  %pre
+    %code
+      :preserve
+        Beim Häuserbau könnten Kakteen- und Orchideenzüchter nach der Sonnenein-
+        strahlung in einzelnen Räumen fragen und zum Wohle ihrer pflanzlichen Lieblinge
+        einen gesonderten Plan wünschen. Wie groß ist Ihrer Erfahrung nach die Zahl derer,
+        die beim Bau oder beim Kauf einer Immobilie diese „pflanzliche“ Sicht als Entschei-
+        dungskriterium verwenden?
+
+%section{"data-markdown" => ""}
+  \### Ok, aber gibt es noch trotzdem noch weitere Sichten?
+
+%section{"data-markdown" => ""}
+  \### Die Standpunktmenge von Clements et al.
+
+  * Modul-Standpunkt *(module view type)*
+  * Komponenten-und-Konnektoren-Standpunkt *(components and connectors view type)*
+  * Zuordnungs-Standpunkt *(allocation view type)*
+
+%section{"data-markdown" => ""}
+
+  \#### Modul-Standpunkt (module view type):
+  *Sichten dieses Standpunkts beschreiben die strukturelle Zerlegung des Systems in Einheiten der Implementierung.*
+
+%section{"data-markdown" => ""}
+
+  \#### Komponenten-und-Konnektoren-Standpunkt (components and connectors view type):
+  *Sichten dieses Standpunkts beschreiben Komponenten und deren Interaktionen zur Laufzeit.*
+
+%section{"data-markdown" => ""}
+
+  \#### Zuordnungs-Standpunkt (allocation view type):
+  *Sichten dieses Standpunkts beschreiben den Zusammenhang zwischen der Software und ihrer Entwicklung- und Ausführungsumgebung*
+
+%section{"data-markdown" => ""}
+  \### Die „4+1“-Standpunktmenge von Kruchten
+  * Logischer Standpunkt
+  * Prozess-Standpunkt
+  * Physischer Standpunkt
+  * Entwicklungs-Standpunkt
+
+%section{"data-markdown" => ""}
+  \#### Logischer Standpunkt:
+  *Sichten dieses Standpunkts beschreiben die vorkommenden Objekte bzw. Komponenten.*
+
+%section{"data-markdown" => ""}
+  \#### Prozess-Standpunkt:
+  *Sichten dieses Standpunkts beschreiben den Programmablauf durch Prozesse, Threads und Tasks, und deren Kommunikation.*
+
+%section{"data-markdown" => ""}
+  \#### Physischer Standpunkt:
+  *Sichten dieses Standpunkts beschreiben das Deployment von Software-Komponenten auf Hardware-Einheiten.*
+
+%section{"data-markdown" => ""}
+
+  \#### Entwicklungs-Standpunkt:
+  *Sichten dieses Standpunkts beschreiben statische Organisation des Software-Systems in der verwendeten Entwicklungsumgebung.*
+
+%section{"data-markdown" => ""}
+  \### Die Standpunktmenge von Hofmeister, Nord und Soni
+  * Konzeptioneller Standpunkt
+  * Modul-Standpunkt
+  * Ausführungs-Standpunkt
+  * Quelltext-Standpunkt
+
+%section{"data-markdown" => ""}
+  \#### Konzeptioneller Standpunkt:
+  *Dieser wird zur Beschreibung der funktionalen Aspekte des Systems und dessen Modifizierbarkeit verwendet.*
+
+%section{"data-markdown" => ""}
+  \#### Modul-Standpunkt:
+  *Dieser wird zur Beschreibung der Aufteilung der Software in Module und ihre Organisation in Schichten verwendet.*
+
+%section{"data-markdown" => ""}
+  \#### Ausführungs-Standpunkt:
+  *Dieser wird zur Beschreibung der Abbildung der Module auf ausführbare Einheiten, der Kommunikation zwischen ihnen und ihrer Zuordnung auf physikalische Einheiten verwendet.*
+
+%section{"data-markdown" => ""}
+  \#### Quelltext-Standpunkt:
+  *Dieser wird zur Beschreibung der Zuordnung von Modulen und Schnittstellen auf Quelldateien und von ausführbaren Einheiten auf ausführbare Dateien verwendet.*
+
+%section{"data-markdown" => ""}
+  \### Die Standpunktmenge von Reussner
+  * Statischer Standpunkt
+  * Dynamischer Standpunkt
+  * Verteilungs-Standpunkt
+
+%section{"data-markdown" => ""}
+  \#### Statischer Standpunkt:
+  *Sichten aus diesem Standpunkt beschreiben Zerlegungen des betrachteten Systems in Elemente und deren Abhängigkeiten, z. B. in Komponenten und Konnektoren. Ein System kann unterschiedliche Zerlegungen aufweisen.*
+
+%section{"data-markdown" => ""}
+  \#### Dynamischer Standpunkt:
+  *Sichten aus diesem Standpunkt beschreiben das Systemverhalten zu seiner Laufzeit. […]*
+
+%section{"data-markdown" => ""}
+  \#### Verteilungs-Standpunkt:
+  *Sichten aus diesem Standpunkt beschreiben die Abbildung bestimmter Elemente aus der strukturellen Sicht einerseits auf Infrastruktur- bzw. Hardware-Einheiten (Prozessoren, Netzwerkressourcen, Drucker, etc.) – das Deployment – und andererseits auf organisatorische Einheiten (Entwickler, Teams oder externe Hersteller). […]*
+
+%section{"data-markdown" => ""}
+  \### Entwurf der Sichten
+
+%section{"data-markdown" => ""}
+  \### Wie sollten die Sichten entstehen?
+  \#### Der Entwurfsprozess der Sichten wird von deren starken Wechselwirkungen und Abhängigkeiten geprägt. Software-Architekturen sollten daher iterativ entstehen, weil die Auswirkungen mancher Entwurfsentscheidungen erst über die Grenzen von Sichten hinweg spürbar werden.
+
+%section{"data-markdown" => ""}
+  \### Wechselwirkungen
+  ![](/images/wechselwirkungen.png)
+  %br
+  Bildquelle: "Effektive Softwarearchitekturen" von Gernot Starke
+
+%section{"data-markdown" => ""}
+  \### In welcher Reihenfolge sollten die Sichten entstehen?
+  \##### Letztlich spielt es kaum eine Rolle, mit welcher Architektursicht Sie beginnen. Im Laufe des Entwurfs der Software-Architektur werden Sie an allen Sichten nahezu parallel arbeiten oder häufig zwischen den Sichten wechseln.
+
+%section{"data-markdown" => ""}
+  \#### Beginnen Sie mit einer **Bausteinsicht**, wenn Sie
+  * bereits ähnliche Systeme entwickelt haben und eine genaue Vorstellung von benötigten Implementierungskomponenten besitzen
+  * ein bereits teilweise bestehendes System verändern müssen und damit Teile der Bausteinsicht vorgegeben sind
+
+%section{"data-markdown" => ""}
+  \#### Beginnen Sie mit einer Laufzeitsicht, wenn Sie
+  * bereits eine erste Vorstellung wesentlicher Architekturbausteine besitzen und deren Verantwortlichkeit und Zusammenspiel klären wollen
+
+%section{"data-markdown" => ""}
+  \#### Beginnen Sie mit einer Verteilungssicht, wenn Sie
+  * viele Randbedingungen und Vorgaben durch die technische Infrastruktur, das Rechenzentrum oder den Administrator des Systems bekommen
+
+
+%section{"data-markdown" => ""}
+  \### Wie viel Aufwand für welche Sicht?
+
+  \##### Rechnen Sie damit, dass Sie 60 bis 80% der Zeit, die Sie für den Entwurf der Architektursichten insgesamt benötigen, alleine für die Ausgestaltung der Bausteinsicht aufwenden. Der ausschlaggebende Grund hierfür: Die Bausteinsicht wird oftmals wesentlich detaillierter ausgeführt als die übrigen Sichten.
+  \##### Dennoch sind die übrigen Sichten für die Software-Architektur und das Gelingen des gesamten Projektes wichtig! Lassen Sie sich von diesem relativ hohen Aufwand für die Bausteinsicht in keinem Fall dazu verleiten, die anderen Sichten zu ignorieren.
+  \##### *Quelle: Starke/Effektive Softwarearchitekturen*
+
+%section{"data-markdown" => ""}
+  \###  Wechselwirkungen dokumentieren
+
+  \##### Sie sollten in Ihren Architekturbeschreibungen die Entwurfsentscheidungen dokumentieren, die besonderen Einfluss auf andere Sichten haben. Beispielsweise bestimmt die Entscheidung für eine zentrale Datenhaltung in der Bausteinsicht maßgeblich den Aufbau der technischen Infrastruktur
+
+%section{"data-markdown" => ""}
+  \###  Wechselwirkungen dokumentieren
+  * Bessere Nachvollziehbarkeit von Entscheidungen
+  * Auswirkungen von Änderungen werden vereinfacht
+  * Das Verständnis der Architekturbeschreibung wird einfacher, da die Zusammenhänge zwischen den Sichten klarer werden
+
+%section{"data-markdown" => ""}
+  \#### Entwurf der Sichten
+  \### Entwurf der Kontextabgrenzung
+
+%section{"data-markdown" => ""}
+  \#### Entwurf der Kontextabgrenzung
+
+  * Im Idealfall ist die Kontextabgrenzung ein Ergebnis der Anforderungsanalyse
+  * Zeigen Sie in sämtliche Nachbarsysteme
+  * Alle ein- und aus­gehenden Daten und Ereignisse müssen in der Kontextabgrenzung zu erkennen sein
+
+%section{"data-markdown" => ""}
+  \#### Entwurf der Sichten
+  \### Entwurf der Bausteinsicht
+
+%section{"data-markdown" => ""}
+  \#### Entwurf der Bausteinsicht
+
+  * Der Entwurf der Bausteinsicht ist der Kern der Architekturbeschreibung
+  * Beschreiben Sie exakt, wie das System (strukturell) aufgebaut ist und aus welchen Bausteinen es besteht
+  * Beginnen Sie mit einer Vogelperspektive der Implementierungsbausteine
+  * Zerlegen Sie Ihr System dazu in große Architekturelemente, wie Sub- oder Teilsysteme
+
+  \#### Erinnerung: Der Aufwand macht 60%-80% der Architekturarbeit aus
+
+%section{"data-markdown" => ""}
+  \#### Entwurf der Sichten
+  \### Entwurf der Laufzeitsicht
+
+%section{"data-markdown" => ""}
+  \#### Entwurf der Laufzeitsicht
+
+  * Elemente der Laufzeitsichten sind Instanzen der statischen Architekturbausteine, die Sie in den Bausteinsichten dokumentieren
+  * Ein möglicher Weg zur Laufzeitsicht führt daher über die Bausteinsichten
+  * Beschreiben Sie die Dynamik der statischen Bausteine, beginnend bei den wichtigsten Use-Cases des Gesamtsystems.
+  * Einen weiteren Startpunkt kann die Verteilungs-/Infrastruktursicht bilden
+
+%section{"data-markdown" => ""}
+  \#### Entwurf der Sichten
+  \### Entwurf der Verteilungssicht
+
+%section{"data-markdown" => ""}
+  \#### Entwurf der Verteilungssicht
+
+  * Die Verteilungssicht sollte eine Landkarte der beteiligten Hardware und der externen Systeme beinhalten
+  * Genügen die verfügbare Hardware und die Kommunikationskanäle, oder gibt es potenzielle Engpässe?
+  * Falls Ihre Systeme in verteilten Umgebungen ablaufen, sollten Sie vorhandene Kommunikationsmechanismen, Protokolle und Middleware in die Infrastruktursicht aufnehmen
+
+
+%section{"data-markdown" => ""}
+  \### UML für Softwarearchitekten
+
+%section{"data-markdown" => ""}
+  \#### UML für Softwarearchitekten
+  \### UML Diagrammtypen
+
+%section{"data-markdown" => ""}
+  \#### Strukturdiagramme
+  ![](/images/uml_strukturdiagramme_3.png)
+  ![](/images/uml_strukturdiagramme_2.png)
+  %br
+  Bildquelle: "Effektive Softwarearchitekturen" von Gernot Starke
+
+%section{"data-markdown" => ""}
+  \#### Verhaltensdiagramme
+  ![](/images/uml_verhaltensdiagramme.png)
+  %br
+  Bildquelle: "Effektive Softwarearchitekturen" von Gernot Starke
+
+%section{"data-markdown" => ""}
+  \#### Interaktionsdiagramme
+  ![](/images/uml_interaktionsdiagramme_1.png)
+  %br
+  Bildquelle: "Effektive Softwarearchitekturen" von Gernot Starke
+
+%section{"data-markdown" => ""}
+  \#### Interaktionsdiagramme
+  ![](/images/uml_interaktionsdiagramme_2.png)
+  %br
+  Bildquelle: "Effektive Softwarearchitekturen" von Gernot Starke
+
+%section{"data-markdown" => ""}
+  \#### UML für Softwarearchitekten
+  \### UML Klassen und Objekte
+
+%section{"data-markdown" => ""}
+  \#### Klassen und Objekte
+  ![](/images/uml_klassen_1.png)
+  %br
+  Bildquelle: "Effektive Softwarearchitekturen" von Gernot Starke
+
+%section{"data-markdown" => ""}
+  \#### UML für Softwarearchitekten
+  \### UML Pakete und Komponenten
+
+%section{"data-markdown" => ""}
+  \#### Pakete und Komponenten
+  ![](/images/uml_klassen_2.png)
+  %br
+  Bildquelle: "Effektive Softwarearchitekturen" von Gernot Starke
+
+%section{"data-markdown" => ""}
+  \#### UML für Softwarearchitekten
+  \### UML Schnittstellen
+
+%section{"data-markdown" => ""}
+  \#### Schnittstellen
+  ![](/images/uml_schnittstellen.png)
+  %br
+  Bildquelle: "Effektive Softwarearchitekturen" von Gernot Starke
+
+%section{"data-markdown" => ""}
+  \#### UML für Softwarearchitekten
+  \### Welches UML Diagramm für welche Sicht?
+
+%section{"data-markdown" => ""}
+  \#### UML für Softwarearchitekten
+  \### Baustein-Sicht
+
+  * Gute Namen wählen!
+  * Rollennamen anzugeben, Navigationsrichtung vorschreiben und Multiplizitäten festlegen
+  * Verwenden Sie nur eine Art von Schnittstellendarstellung
+  * Nutzen Sie Stereotypes für verschiedene Arten von fachlichen und technischen Klassen und Komponenten
+
+%section{"data-markdown" => ""}
+  \#### UML für Softwarearchitekten
+  \### Baustein-Sicht
+
+  * Paketdiagramm
+  * Komponentendiagramm
+  * Klassendiagramm
+  * Aktivitätsdiagramm
+  * Zustandsdiagramm
+
+%section{"data-markdown" => ""}
+  \#### Bausteinsicht in UML
+  ![](/images/uml_baustein_paket.png)
+  %br
+  *Paketdiagramm*
+
+%section{"data-markdown" => ""}
+  \#### Bausteinsicht in UML
+  ![](/images/uml_baustein_komponenten.png)
+  %br
+  *Komponentendiagramm*
+
+%section{"data-markdown" => ""}
+  \#### Bausteinsicht in UML
+  ![](/images/uml_baustein_klassen.png)
+  %br
+  *Klassendiagramm*
+
+%section{"data-markdown" => ""}
+  \#### Bausteinsicht in UML
+  ![](/images/uml_baustein_activity.png)
+  %br
+  *Aktivitätsdiagramm*
+
+%section{"data-markdown" => ""}
+  \#### Bausteinsicht in UML
+  ![](/images/uml_baustein_zustand.png)
+  %br
+  *Zustandsdiagramm*
+
+%section{"data-markdown" => ""}
+  \#### UML für Softwarearchitekten
+  \### Verteilungs-Sicht
+
+  * Hauptelemente: Knoten und Kanäle zwischen den Knoten
+  * Knoten sind Standorte, z.B. Cluster, Rechner, Chips, ...
+  * Kanäle sind die physikalischen Übertragungswege, z.B. Kabeln, Bluetooth, Wireless, ...
+
+%section{"data-markdown" => ""}
+  \#### UML für Softwarearchitekten
+  \### Verteilungs-Sicht
+
+  * Verteilungsdiagramm
+  * Kontextdiagramm
+
+%section{"data-markdown" => ""}
+  \#### Verteilungs-Sicht in UML
+  ![](/images/uml_verteilung_komponenten.png)
+  %br
+  *Verteilungsdiagramm*
+
+%section{"data-markdown" => ""}
+  \#### Verteilungs-Sicht in UML
+  ![](/images/uml_verteilung_kontext.png)
+  %br
+  *Kontextdiagramm*
+
+
+%section{"data-markdown" => ""}
+  \#### UML für Softwarearchitekten
+  \### Laufzeitsicht
+
+  * Elemente der Laufzeitsicht sind immer um Instanzen von Bausteinen, die in der Bausteinsicht enthalten sind, also um Objekte zu den Klassen oder um instanziierte Komponenten.
+
+%section{"data-markdown" => ""}
+  \#### UML für Softwarearchitekten
+  \### Laufzeitsicht
+
+  * Objektdiagramm
+  * Kompositionsstrukturdiagramm
+  * Sequenzdiagramm
+  * Laufzeitkontextdiagramm
+  * Kommunikationsdiagramm
+  * Interaktionsdiagramm
+
+%section{"data-markdown" => ""}
+  \#### Laufzeitsicht in UML
+  ![](/images/uml_runtime_objekt.png)
+  %br
+  *Objektdiagramm*
+
+%section{"data-markdown" => ""}
+  \#### Laufzeitsicht in UML
+  ![](/images/uml_runtime_komposition.png)
+  %br
+  *Kompositionsstrukturdiagramm*
+
+%section{"data-markdown" => ""}
+  \#### Laufzeitsicht in UML
+  ![](/images/uml_runtime_sequenz.png)
+  %br
+  *Sequenzdiagramm*
+
+%section{"data-markdown" => ""}
+  \#### Laufzeitsicht in UML
+  ![](/images/uml_runtime_laufzeit.png)
+  %br
+  *Laufzeitkontextdiagramm*
+
+%section{"data-markdown" => ""}
+  \#### Laufzeitsicht in UML
+  ![](/images/uml_runtime_komunikation.png)
+  %br
+  *Kommunikationsdiagramm*
+
+%section{"data-markdown" => ""}
+  \#### Laufzeitsicht in UML
+  ![](/images/uml_runtime_interaktion.png)
+  %br
+  *Interaktionsdiagramm*
+
+%section{"data-markdown" => ""}
+  \#### UML für Softwarearchitekten
+  \### Warum UML?
+
+  * UML hat die Kästchen und Striche für uns standardisiert
+  * Die Bausteine der Architektur lassen sich auf verschiedenen Abstraktionsebenen miteinander in Beziehung setzen
+  * Die Zusammenarbeit wird effektiver, wenn alle hinter den Kästchen und Strichen das Gleiche verstehen
+
+%section{"data-markdown" => ""}
+  \#### UML für Softwarearchitekten
+  \### Praxisrelevanz?
+
+%section{"data-markdown" => ""}
+  \#### UML für Softwarearchitekten
+  \### Klausurrelevanz?
+
+
+
+
+
+%section{"data-markdown" => ""}
   \#### Was ist Softwarearchitektur?
   \#### Geschichte und Trends
   \#### Sichten auf Architekturen
@@ -173,3 +697,9 @@ layout: slide
   \#### Architekturmuster
   \#### Dokumentation von Architekturen
   \#### Technologien und Frameworks
+
+
+%section{"data-markdown" => ""}
+  \## Fragen?
+
+  \##### Unterlagen: [ai2016.nils-loewe.de](https://ai2016.nils-loewe.de)
