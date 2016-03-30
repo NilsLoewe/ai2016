@@ -40,9 +40,9 @@
 6.  Architekturmuster:
 7.  Dokumentation von Architekturen:
 8.  Dokumentation von Architekturen:
-9.  Technologie:
+9.  Technologie: Microservices (Jens)
 10. Technologie: Spring Boot (Jan)
-11. Technologie:
+11. Technologie: ?? Docker (Ben?) ??
 12. Wiederholung, Klausurvorbereitung
 
 

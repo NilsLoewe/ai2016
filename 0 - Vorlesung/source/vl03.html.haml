@@ -23,6 +23,123 @@ layout: slide
   \### Geschichte und Trends
 
 %section{"data-markdown" => ""}
+  \#### Seit wann gibt es den Begriff der Softwarearchitektur?
+
+  \### Konferenz über Softwaretechnik in Rom
+  %br
+  %i Software Engineering Techniques. Report of a Conference Sponsored by the NATO Science Committee. Scientific Affairs Division, NATO, 1970, S. 12.
+
+%section{"data-markdown" => ""}
+  \#### Warum?
+
+  Die Systeme wurden in den 1960ern so komplex, dass sie von mehreren Teams entwickelt werden mussten.
+
+%section
+  %h4 Beispiel: IBM OS/360
+
+  %h3 Planung
+  %ul
+    %li Entwicklungskosten: 40 Mio. USD
+    %li Lines of Code: 1 Mio.
+    %li Fertigstellung: 1965
+
+%section
+
+  %h4 Beispiel: IBM OS/360
+
+  %h3 Realität
+  %ul
+    %li Entwicklungskosten: 500 Mio. USD (Faktor 12,5)
+    %li Lines of Code: 10 Mio. (Faktor 10)
+    %li Fertigstellung: 1967 (2 Jahre zu spät)
+
+%section
+
+  %h4 Beispiel: IBM SYSTEM/360
+
+  %ul
+    %li Mainframes verwalten heute 80 % aller Unternehmensdaten
+    %li Mainframes verarbeiten heute täglich 30 Mrd. Unternehmenstransaktionen (z.B. Banking, Flugbuchungen, ...)
+    %li Modell EC12 (2012): 5,5GHz CMOS Prozessor, 3 TB Ram
+    %li Erstes Modell damals: 0,0018 MIPS, 8 KByte Ram
+    %li Vergleich: Ein iPhone 5S schafft 18200 MIPS
+
+%section{"data-markdown" => ""}
+  \#### Rechenleistung / Softwarenutzung
+  ![](/images/vl02-1.png)
+
+%section{"data-markdown" => ""}
+  \#### Verwendete Betriebssysteme
+  ![](/images/vl02-2.png)
+
+%section{"data-markdown" => ""}
+  \#### Softwarearchitektur im Lauf der Zeit
+
+  \#### Erste Beschreibung von "Dekomposition, Zerlegung, Entwurf"
+
+  * 1970er: Eher im Kontext von Hardware genutzt
+  * 1972:  *"On the criteria to be used in decomposing systems into modules"* von D. L. Parnas
+  * 1975: *"The Mythical Man Month"* von Frederick Brooks
+
+
+%section{"data-markdown" => ""}
+  \#### Softwarearchitektur im Lauf der Zeit
+  \#### Unabhängiges Teilgebiet der Softwaretechnik
+  \#### Konzept der Schnittstellen und Konnektoren
+
+  * 1992: *"Foundations for the Study of Software Architecture"* von Dewayne Perry und Alexander Wolf
+  * 1995: *"Software Architecture Analysis Method"* des Software Engineering Institute
+
+%section{"data-markdown" => ""}
+  \#### Softwarearchitektur im Lauf der Zeit
+  \#### Allgemeine Verbreitung und "Stand der Technik"
+
+  * 2000: *"IEEE 1471:2000 Norm Recommended Practice for Architectural Description of Software-Intensive Systems"*
+  * 2003: Zertifizierung als Softwarearchitekt durch die iSAQB (International Software Architect Qualification Board)
+  * 2003: UML 2.0 ist geeignet um Softwarearchitekturen zu beschreiben
+
+
+
+%section{"data-markdown" => ""}
+  \### Pioniere der Softwarearchitektur
+
+  * Erfindung des *Modulkonzepts* und des *Geheimnisprinzips*
+  * Schaffung der Grundlage der *objektorientierten Programmierung*
+  * Erste Werke über "ehrliches" Projektmanagement
+
+  \#### *“Adding manpower to a late software project makes it later.”*
+  \##### (The Mythical Man Month: Essays on Software Engineering)
+
+%section{"data-markdown" => ""}
+  \### Pioniere der Softwarearchitektur
+
+  * Einführung von Semaphoren zur Synchronisation zwischen Threads
+  * Prägung der Begriffe der strukturierten Programmierung der *Softwarekrise*
+  * Entwicklung von *Concurrent Pascal*, der ersten nebenläufigen Programmiersprache
+  * Erfindung des Stack-Konzepts
+  * 1967: Erste offizielle Informatikvorlesung in Deutschland (TU München)
+  * Erweiterung der formalem Sprache Backus-Naur-Form (BNF), zur Erweiterten Backus-Naur-Form (EBNF)
+
+%section{"data-markdown" => ""}
+  \#### Tools und Frameworks im Laufe der Zeit
+  \### Entwicklung des linux-kernels
+
+  * 1992: V 0.0.1 / 8k LOC / 230 kB
+  * 1994: V 1.0.0 / 170k LOC / 1.2 MB
+  * 1996: V 2.0.0 / 716k LOC / 5.8 MB
+  * 2011: V 3.0.0 / 14.6 Mio. LOC / 96 MB
+  * 2015: V 4.0.0 / 19.3 Mio. LOC / 78 MB
+
+%section{"data-markdown" => ""}
+  \#### Tools und Frameworks im Laufe der Zeit
+  \### Entwicklung von Ruby on Rails
+
+  * 2005: V 1.0.0 / 96k LOC / 3365 Klassen / 8523 Methoden
+  * 2007: V 2.0.0 / 170k LOC / 5255 Klassen / 13260 Methoden
+  * 2010: V 3.0.0 / 230k LOC / 8334 Klassen / 19785 Methoden
+  * 2013: V 4.0.0 / 317k LOC / 9430 Klassen / 24143 Methoden
+
+%section{"data-markdown" => ""}
   \#### Was ist Softwarearchitektur?
   \#### Geschichte und Trends
   \### Sichten auf Architekturen
@@ -34,3 +151,25 @@ layout: slide
 %section{"data-markdown" => ""}
   \### Wiederholung
   \### Sichten auf Architekturen
+
+%section{"data-markdown" => ""}
+  \### Warum überhaupt Sichten?
+  %br
+  \#### *"Es ist eine offensichtliche Wahrheit, dass auch eine perfekte Architektur nutzlos bleibt, wenn sie nicht verstanden wird..."*
+  %br
+  Felix Bachmann und Len Bass in "Software Architecture Documentation in Practice"
+
+%section{"data-markdown" => ""}
+  \## 1.
+  \#### Eine einzelne Darstellung kann die Vielschichtigkeit und Komplexität einer Architektur nicht ausdrücken.
+  %br
+  \#### - Genauso wenig, wie man nur mit einem Grundriss ein Haus bauen kann.
+
+%section{"data-markdown" => ""}
+  \#### Was ist Softwarearchitektur?
+  \#### Geschichte und Trends
+  \#### Sichten auf Architekturen
+  \### Qualiät und andere nichtfunktionale Anforderungen
+  \#### Architekturmuster
+  \#### Dokumentation von Architekturen
+  \#### Technologien und Frameworks
