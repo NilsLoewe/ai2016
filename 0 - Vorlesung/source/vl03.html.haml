@@ -685,10 +685,6 @@ layout: slide
   \#### UML für Softwarearchitekten
   \### Klausurrelevanz?
 
-
-
-
-
 %section{"data-markdown" => ""}
   \#### Was ist Softwarearchitektur?
   \#### Geschichte und Trends
@@ -698,6 +694,82 @@ layout: slide
   \#### Dokumentation von Architekturen
   \#### Technologien und Frameworks
 
+%section{"data-markdown" => ""}
+  \### Was ist Qualität?
+
+%section{"data-markdown" => ""}
+  \##### *Was ist Qualität?*
+  \#### Duden: Qualität=„Beschaffenheit, Güte, Wert“
+
+%section{"data-markdown" => ""}
+  \##### *Was ist Qualität?*
+  \#### Die Qualität stimmt, wenn der Kunde wiederkommt und nicht das Produkt
+
+%section{"data-markdown" => ""}
+  \##### *Was ist Qualität?*
+  ![](/images/triple_constraint.png)
+  %br
+  *Quelle: http://pm-blog.com/*
+
+%section{"data-markdown" => ""}
+  \### Qualität ist ein wichtiges Ziel für Software-Architekten
+
+%section{"data-markdown" => ""}
+  \### Probleme von Qualität
+  * Qualität ist nur indirekt messbar
+  * Qualität ist relativ (jeweils anders für: Anwender, Projektleiter, Betreiber, ...)
+  * Die Qualität der Architektur korreliert nicht notwendigerweise mit der Codequalität
+  * Erfüllung aller funktionalen Anforderungen lässt keinerlei Aussage über die Erreichung der Qualitätsanforderungen zu
+
+%section{"data-markdown" => ""}
+  \### Beispiel funktionale Anforderung „Sortierung von Daten“
+
+  * Kann funktional erfüllt sein, aber nichtfunktional?
+  * Sortierung großer Datenmengen (Terabyte), die nicht mehr zeitgleich im Hauptspeicher gehalten werden können
+  * Sortierung robust gegenüber unterschiedlichen Sortierkriterien (Umlaute, akzentuierte Zeichen, Phoneme, Ähnlichkeitsmaße und anderes)
+  * Sortierung für viele parallele Benutzer
+  * Sortierung unterbrechbar für lang laufende Sortiervorgänge
+  * Erweiterbarkeit um weitere Algorithmen, beispielsweise für ressourcenintensive Vergleichsoperationen
+  * Entwickelbarkeit im räumlich verteilten Team
+
+%section{"data-markdown" => ""}
+  \##### Beispiel funktionale Anforderung „Sortierung von Daten“
+
+  http://www.sorting-algorithms.com/
+
+%section{"data-markdown" => ""}
+  \#### Qualitätsmerkmale nach DIN/ISO 9126
+
+  \### Funktionalität
+  \### Zuverlässigkeit
+  \### Benutzbarkeit
+  \### Effizienz
+  \### Änderbarkeit
+  \### Übertragbarkeit
+
+%section{"data-markdown" => ""}
+  \#### Funktionalität
+  \### Existenz eines Satzes von Funktionen mit spezifizierten Eigenschaften
+
+%section{"data-markdown" => ""}
+  \#### Zuverlässigkeit
+  \### Fähigkeit, Leistungsniveau über einen Zeitraum aufrecht zu erhalten
+
+%section{"data-markdown" => ""}
+  \#### Benutzbarkeit
+  \### Aufwand zur Benutzung und individuelle Beurteilung der Benutzung
+
+%section{"data-markdown" => ""}
+  \#### Effizienz
+  \### Verhältnis Leistungsniveau / eingesetzte Betriebsmittel
+
+%section{"data-markdown" => ""}
+  \#### Änderbarkeit
+  \### Aufwand zur Durchführung von Änderungen
+
+%section{"data-markdown" => ""}
+  \#### Übertragbarkeit
+  \### Eignung zur Übertragung in andere Umgebung
 
 %section{"data-markdown" => ""}
   \## Fragen?
