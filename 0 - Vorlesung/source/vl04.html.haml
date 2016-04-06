@@ -373,10 +373,116 @@ layout: slide
   %p
     %i (1996 / Pattern Oriented Software Architectute)
 
-%section{"data-markdown" => ""}
-  \#### Ein Architekturmuster beschreibt eine bewährte Lösung für ein wiederholt auftretendes Entwurfsproblem
+%section
+  %h4
+    Ein Architekturmuster beschreibt eine bewährte Lösung für ein wiederholt auftretendes Entwurfsproblem
+  %p
+    %i (Effektive Softwarearchitekturen)
 
-  \#### Ein Architekturmuster definiert den Kontext für die Anwendbarkeit der Lösung
+%section
+  %h4
+    Ein Architekturmuster definiert den Kontext für die Anwendbarkeit der Lösung
+  %p
+    %i (Effektive Softwarearchitekturen)
+
+%section{"data-markdown" => ""}
+  \### Warum Architekturmuster?
+
+%section{"data-markdown" => ""}
+  \#### Erfolg kommt von Weisheit.
+  \#### Weisheit kommt von Erfahrung.
+  \#### Erfahrung kommt von Fehlern.
+
+%section{"data-markdown" => ""}
+  \#### Haben Sie jemals einen dummen Fehler zweimal begangen?
+  \#### *– Willkommen in der realen Welt.*
+  \#### Haben Sie diesen Fehler hundertmal hintereinander gemacht?
+  \#### *-Willkommen in der Software-Entwicklung.*
+
+%section{"data-markdown" => ""}
+  Dieses Zitat umschreibt die Erfahrung, dass man aus Fehlern hervorragend lernen kann.
+  Leider sind nur wenige Auftraggeber bereit, die für Ihre Erfahrung als Software-Architekt
+  notwendigen Fehler zu akzeptieren.
+
+%section{"data-markdown" => ""}
+  In dieser Situation helfen Heuristiken. Sie kodifizieren Erfahrungen anderer Architekten und
+  Projekte, auch aus anderen Bereichen der Systemarchitektur.
+
+%section{"data-markdown" => ""}
+  Heuristiken, Abstraktionen von Erfahrung, sind nicht analytisch. Es sind Regeln zur Behand-
+  lung komplexer und wenig strukturierter (= schwieriger) Probleme (für die es meist beliebig
+  viele Lösungsalternativen gibt). Heuristiken können helfen, Komplexität zu reduzieren.
+
+%section{"data-markdown" => ""}
+  Statt Heuristiken können Sie auch die Begriffe „Regel“, „Muster“ oder „Prinzip“ verwenden;
+  im Grunde geht es immer um Ratschläge, die aus konkreten Situationen verallgemeinert oder
+  abstrahiert wurden.
+
+%section{"data-markdown" => ""}
+  Auf dem Weg in den sicheren Hafen (des fertigen Systems) bieten Heuristiken Orientierung
+  im Sinne von Wegweisern, Straßenmarkierungen und Warnschildern. Aber Vorsicht: sie ge-
+  ben lediglich Hinweise und garantieren nichts. Es bleibt in Ihrer Verantwortung, die passen-
+  den Heuristiken für eine bestimmte Situation auszuwählen:
+
+%section{"data-markdown" => ""}
+  Die Kunst der Architektur liegt nicht in der Weisheit der Heuristiken,
+  sondern in der Weisheit, a priori die passenden Heuristiken für das aktuelle Projekt auszuwählen.
+
+%section{"data-markdown" => ""}
+  \### Von der Idee zur Struktur
+
+%section{"data-markdown" => ""}
+  Ein klassischer und systematischer Ansatz der Beherrschung von Komplexität lautet „teile
+  und herrsche“ (divide et impera). Zerlegen Sie Ihr Problem in immer kleinere Teile, bis diese
+  Teilprobleme eine überschaubare Größe annehmen. Diesen Grundsatz der systematischen
+  Vereinfachung können Sie für Software-Architekturen in verschiedenen Ausprägungen an-
+  wenden:
+    „In Scheiben schneiden“: Zerlegen Sie ein System in (horizontale) Schichten.
+  Jede Schicht stellt einige klar definierte Schnittstellen zur Verfügung und nutzt
+  Dienste von darunter liegenden Schichten.
+    „In Stücke schneiden“: Zerlegen Sie ein System in (vertikale) Teile: Jeder Teil
+  übernimmt eine bestimmte fachliche oder technische Funktion.
+  Bei der Vereinfachung durch Zerlegung sollten Sie ein zentrales Prinzip der Informatik beach-
+  ten, die Kapselung (information hiding). Wenn Sie zerlegen, dann kapseln Sie Komplexität in
+  Komponenten.
+  Betrachten Sie diese Komponenten als „black box“, und verschonen Sie die Um­
+  gebung dieser Komponenten durch klar definierte Schnittstellen vom komplexen
+  Innenleben.
+  Wenn Sie die Kapselung missachten, entstehen ungewollte und schwierige Abhängigkeiten
+  zwischen den einzelnen Systemteilen (Subsystemen, Komponenten), die insgesamt zu einer
+  höheren Komplexität führen. Ohne Kapselung erschwert eine Zerlegung des Systems das Pro-
+  blem, statt es zu vereinfachen (denn: was bekannt ist, wird auch ausgenutzt!).
+  Verwenden Sie etablierte und erprobte Strukturen wieder. Erfinden Sie möglichst
+  wenig neu, sondern halten Sie sich an Bewährtes.
+  Entwerfen Sie in Iterationen. Überprüfen Sie die Stärken und Schwächen eines
+  Entwurfes anhand von Prototypen oder „technischen Durchstichen“. Bewerten
+  Sie diese Versuche explizit und überarbeiten daraufhin Ihre Strukturen. Dieses
+  iterative Vorgehen haben Sie in Kapitel 3 (Vorgehen beim Architekturentwurf)
+  bereits kennen gelernt – wenden Sie es beim Entwurf von Strukturen intensiv
+  und dauernd an.
+  Dokumentieren Sie die Entscheidungen, die zu einer bestimmten Struktur führen.
+  Andere Projektbeteiligte werden sie künftig verstehen müssen.
+  Eine Struktur soll geringe Kopplung und hohe Kohäsion besitzen.
+
+    Wählen Sie bei der Zerlegung die Elemente so, dass sie möglichst unabhängig
+  voneinander sind. Wenige Abhängigkeiten deuten häufig auf hohe Flexibilität und
+  leichte Wartbarkeit von Systemen hin. Der ganze Abschnitt 6.4 ist diesem Thema
+  gewidmet. Unabhängig-
+  keit
+    Betrachten Sie Alternativen. Betrachten Sie das Problem von einem anderen
+  Standpunkt aus. Überdenken Sie vermeintlich offensichtliche Ansätze. Alternativen
+  schaffen
+    Eine Struktur sollte spätere Änderungen ermöglichen. Sie erreichen dies, wenn
+  Ihre Entwürfe modular, verständlich und nachvollziehbar bleiben und Sie Verant-
+  wortlichkeiten trennen und kapseln (siehe Abschnitt 6.3.2). Änderungen
+  ermöglichen
+    Komponenten sollen keine Annahmen über die Struktur anderer Komponenten
+  machen.
+%section{"data-markdown" => ""}
+  \#### Wenn Du es nicht in fünf Minuten erklären kannst,
+  \#### hast Du es entweder selbst nicht verstanden,
+  \#### oder es funktioniert nicht.
+
 
 %section{"data-markdown" => ""}
 
@@ -387,7 +493,7 @@ layout: slide
   http://www.enzyklopaedie-der-wirtschaftsinformatik.de/lexikon/is-management/Systementwicklung/Softwarearchitektur/Architekturentwicklung/architekturmuster
   https://de.wikipedia.org/wiki/Architekturmuster
   https://www4.in.tum.de/misc/perlen/perlen-folien/PDW_Architektur_IK_Druckversion.pdf
-  
+
 %section{"data-markdown" => ""}
   \### Einordnung
   \#### Architekturstile und -muster
@@ -408,3 +514,6 @@ layout: slide
   * Betriebssysteme
   * Datenbanken
   ==> Ziel: Bereitstellung allgemeiner Infrastrukturen als Basis für die Implementierung
+
+%section{"data-markdown" => ""}
+  https://www.youtube.com/watch?v=K03JnT0vys4&feature=youtu.be
