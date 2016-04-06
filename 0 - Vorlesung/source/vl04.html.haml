@@ -301,6 +301,9 @@ layout: slide
   \### Praxisrelevanz?
 
 %section{"data-markdown" => ""}
+  \#### Fragen?
+
+%section{"data-markdown" => ""}
   \#### Was ist Softwarearchitektur?
   \#### Geschichte und Trends
   \#### Sichten auf Architekturen
@@ -349,6 +352,15 @@ layout: slide
   \### Effizienz
   \### Änderbarkeit
   \### Übertragbarkeit
+
+%section{"data-markdown" => ""}
+  \#### Die weiteren Details zu Qualität und nichtfunktionalen Anforderungen sind Bestandteil der kommenden Kapitel
+
+%section{"data-markdown" => ""}
+  \### Fragen?
+
+%section{"data-markdown" => ""}
+  [2. Praktikumsaufgabe](p02.html)
 
 %section{"data-markdown" => ""}
   \#### Was ist Softwarearchitektur?
@@ -400,120 +412,279 @@ layout: slide
   \#### *-Willkommen in der Software-Entwicklung.*
 
 %section{"data-markdown" => ""}
-  Dieses Zitat umschreibt die Erfahrung, dass man aus Fehlern hervorragend lernen kann.
-  Leider sind nur wenige Auftraggeber bereit, die für Ihre Erfahrung als Software-Architekt
-  notwendigen Fehler zu akzeptieren.
+  \#### Aus Fehlern kann man hervorragend lernen.
+  Leider akzeptiert kaum ein Kunde Fehler, nur weil Sie Ihre Erfahrung als Software-Architekt sammeln.
 
 %section{"data-markdown" => ""}
-  In dieser Situation helfen Heuristiken. Sie kodifizieren Erfahrungen anderer Architekten und
-  Projekte, auch aus anderen Bereichen der Systemarchitektur.
+  \#### In dieser Situation helfen Heuristiken.
+  Heuristiken kodifizieren Erfahrungen anderer Architekten und Projekte, auch aus anderen Bereichen der Systemarchitektur.
 
 %section{"data-markdown" => ""}
-  Heuristiken, Abstraktionen von Erfahrung, sind nicht analytisch. Es sind Regeln zur Behand-
-  lung komplexer und wenig strukturierter (= schwieriger) Probleme (für die es meist beliebig
-  viele Lösungsalternativen gibt). Heuristiken können helfen, Komplexität zu reduzieren.
+  \#### Heuristiken sind nicht-analytische Abstraktionen von Erfahrung
+  Es sind Regeln zur Behandlung komplexer Probleme,
+  für die es meist beliebig viele Lösungsalternativen gibt.
+  Heuristiken können helfen, Komplexität zu reduzieren.
 
 %section{"data-markdown" => ""}
-  Statt Heuristiken können Sie auch die Begriffe „Regel“, „Muster“ oder „Prinzip“ verwenden;
-  im Grunde geht es immer um Ratschläge, die aus konkreten Situationen verallgemeinert oder
-  abstrahiert wurden.
+  \#### Andere Begriffe für Heuristiken sind auch „Regeln“, „Muster“ oder „Prinzipien“.
+  Es geht immer um Verallgemeinerungen und Abstraktionen von konkreten Situationen.
 
 %section{"data-markdown" => ""}
-  Auf dem Weg in den sicheren Hafen (des fertigen Systems) bieten Heuristiken Orientierung
-  im Sinne von Wegweisern, Straßenmarkierungen und Warnschildern. Aber Vorsicht: sie ge-
-  ben lediglich Hinweise und garantieren nichts. Es bleibt in Ihrer Verantwortung, die passen-
+  \#### Heuristiken bieten Orientierung im Sinne von Wegweisern, Straßenmarkierungen und Warnschildern.
+  Sie geben allerdings lediglich Hinweise und garantieren nichts. Es bleibt in Ihrer Verantwortung, die passen-
   den Heuristiken für eine bestimmte Situation auszuwählen:
 
 %section{"data-markdown" => ""}
-  Die Kunst der Architektur liegt nicht in der Weisheit der Heuristiken,
-  sondern in der Weisheit, a priori die passenden Heuristiken für das aktuelle Projekt auszuwählen.
+  \#### Die Kunst der Architektur liegt nicht in der Weisheit der Heuristiken, sondern in der Weisheit, a priori die passenden Heuristiken für das aktuelle Projekt auszuwählen.
 
 %section{"data-markdown" => ""}
-  \### Von der Idee zur Struktur
-
-%section{"data-markdown" => ""}
+  \### Architektur: Von der Idee zur Struktur
   Ein klassischer und systematischer Ansatz der Beherrschung von Komplexität lautet „teile
-  und herrsche“ (divide et impera). Zerlegen Sie Ihr Problem in immer kleinere Teile, bis diese
-  Teilprobleme eine überschaubare Größe annehmen. Diesen Grundsatz der systematischen
-  Vereinfachung können Sie für Software-Architekturen in verschiedenen Ausprägungen an-
-  wenden:
-    „In Scheiben schneiden“: Zerlegen Sie ein System in (horizontale) Schichten.
-  Jede Schicht stellt einige klar definierte Schnittstellen zur Verfügung und nutzt
-  Dienste von darunter liegenden Schichten.
-    „In Stücke schneiden“: Zerlegen Sie ein System in (vertikale) Teile: Jeder Teil
-  übernimmt eine bestimmte fachliche oder technische Funktion.
-  Bei der Vereinfachung durch Zerlegung sollten Sie ein zentrales Prinzip der Informatik beach-
-  ten, die Kapselung (information hiding). Wenn Sie zerlegen, dann kapseln Sie Komplexität in
-  Komponenten.
-  Betrachten Sie diese Komponenten als „black box“, und verschonen Sie die Um­
-  gebung dieser Komponenten durch klar definierte Schnittstellen vom komplexen
-  Innenleben.
-  Wenn Sie die Kapselung missachten, entstehen ungewollte und schwierige Abhängigkeiten
-  zwischen den einzelnen Systemteilen (Subsystemen, Komponenten), die insgesamt zu einer
-  höheren Komplexität führen. Ohne Kapselung erschwert eine Zerlegung des Systems das Pro-
-  blem, statt es zu vereinfachen (denn: was bekannt ist, wird auch ausgenutzt!).
-  Verwenden Sie etablierte und erprobte Strukturen wieder. Erfinden Sie möglichst
-  wenig neu, sondern halten Sie sich an Bewährtes.
-  Entwerfen Sie in Iterationen. Überprüfen Sie die Stärken und Schwächen eines
-  Entwurfes anhand von Prototypen oder „technischen Durchstichen“. Bewerten
-  Sie diese Versuche explizit und überarbeiten daraufhin Ihre Strukturen. Dieses
-  iterative Vorgehen haben Sie in Kapitel 3 (Vorgehen beim Architekturentwurf)
-  bereits kennen gelernt – wenden Sie es beim Entwurf von Strukturen intensiv
-  und dauernd an.
-  Dokumentieren Sie die Entscheidungen, die zu einer bestimmten Struktur führen.
-  Andere Projektbeteiligte werden sie künftig verstehen müssen.
-  Eine Struktur soll geringe Kopplung und hohe Kohäsion besitzen.
-
-    Wählen Sie bei der Zerlegung die Elemente so, dass sie möglichst unabhängig
-  voneinander sind. Wenige Abhängigkeiten deuten häufig auf hohe Flexibilität und
-  leichte Wartbarkeit von Systemen hin. Der ganze Abschnitt 6.4 ist diesem Thema
-  gewidmet. Unabhängig-
-  keit
-    Betrachten Sie Alternativen. Betrachten Sie das Problem von einem anderen
-  Standpunkt aus. Überdenken Sie vermeintlich offensichtliche Ansätze. Alternativen
-  schaffen
-    Eine Struktur sollte spätere Änderungen ermöglichen. Sie erreichen dies, wenn
-  Ihre Entwürfe modular, verständlich und nachvollziehbar bleiben und Sie Verant-
-  wortlichkeiten trennen und kapseln (siehe Abschnitt 6.3.2). Änderungen
-  ermöglichen
-    Komponenten sollen keine Annahmen über die Struktur anderer Komponenten
-  machen.
-%section{"data-markdown" => ""}
-  \#### Wenn Du es nicht in fünf Minuten erklären kannst,
-  \#### hast Du es entweder selbst nicht verstanden,
-  \#### oder es funktioniert nicht.
-
+  und herrsche“ (divide et impera). Das Problem wird in immer kleinere Teile zerlegt, bis diese
+  Teilprobleme eine überschaubare Größe annehmen.
 
 %section{"data-markdown" => ""}
+  \### Anwendung auf Software-Architekturen:
 
-  http://www.itwissen.info/definition/lexikon/Architekturmuster-architectural-style.html
-  http://www.lab4inf.fh-muenster.de/lab4inf/docs/OO-Systeme/08-ArchitekturMuster.pdf
-  https://www.wi1.uni-muenster.de/pi/lehre/ws0405/seminar/10Architekturmuster.pdf
-  https://www.st.cs.uni-saarland.de/edu/einst/08-arch.pdf
-  http://www.enzyklopaedie-der-wirtschaftsinformatik.de/lexikon/is-management/Systementwicklung/Softwarearchitektur/Architekturentwicklung/architekturmuster
-  https://de.wikipedia.org/wiki/Architekturmuster
-  https://www4.in.tum.de/misc/perlen/perlen-folien/PDW_Architektur_IK_Druckversion.pdf
+  *klassische Architekturmuster*
+  \#### Horizontale Zerlegung: „In Scheiben schneiden“
+  \#### Vertikale Zerlegung: „In Stücke schneiden“
+  *weitere Architekturmuster*
+  \#### Alles ist möglich...
 
 %section{"data-markdown" => ""}
-  \### Einordnung
-  \#### Architekturstile und -muster
-  * Pipes & Filters
-  * Schichtenarchitektur
-  * Model-View-Controller
-  * Broker
-  * ...
-  ==> Ziel: Transparente Darstellung wesentlicher Eigenschaften
-  ==> Grundlage für die Qualität
+  \### Horizontale Zerlegung
+  \#### Jede Schicht stellt einige klar definierte Schnittstellen zur Verfügung und nutzt Dienste von darunter liegenden Schichten.
+
+%section{"data-markdown" => ""}
+  \### Vertikale Zerlegung
+  \#### Jeder Teil übernimmt eine bestimmte fachliche oder technische Funktion.
+
+%section
+  %h4 Prinzipien zur Zerlegung
+
+  %h3 Kapselung (information hiding)
+  %ul
+    %li Kapseln von Komplexität in Komponenten.
+    %li Betrachtung der  Komponenten als „black box“,
+    %li Definition klarer Schnittstellen
+    %li Ohne Kapselung erschwert eine Zerlegung das Problem, statt es zu vereinfachen (was bekannt ist, wird auch ausgenutzt!)
+
+%section
+  %h4 Prinzipien zur Zerlegung
+
+  %h3 Wiederverwendung
+  %ul
+    %li wiederverwendbarkeit verringert den Wartungsaufwand
+    %li Achtung: Nur Dinge wiederverwenden, bei denen es sinnvoll ist
+
+%section
+  %h4 Prinzipien zur Zerlegung
+
+  %h3 Iterativer Entwurf
+  %ul
+    %li Überprüfung eines Entwurfs mit Prototypen oder Durchstichen
+    %li Evaluation der Stärken und Schwächen eines Entwurfes
+    %li Explizite Bewertung und Analyse dieser Versuche
+
+%section
+  %h4 Prinzipien zur Zerlegung
+
+  %h3 Dokumentation von Entscheidungen
+  %ul
+    %li Warum wurde eine Entscheidung so getroffen?
+    %li Welche Alternativen wurden bewertet?
+    %li Andere Projektbeteiligte werden diese Entscheidungen später kritisieren!
+
+%section
+  %h4 Prinzipien zur Zerlegung
+
+  %h3 Unabhängigkeit der Elemente
+  %ul
+    %li Geringe Abhängigkeiten erhöhen die Wartbarkeit und Flexibilität des Systems
+    %li Komponenten sollen keine Annahmen über die Struktur anderer Komponenten machen
+
+%section{"data-markdown" => ""}
+  \### Ein Praxisbericht
+  [Why a service oriented architecture is not the holy grail...](https://www.youtube.com/watch?v=K03JnT0vys4&feature=youtu.be)
+
+%section{"data-markdown" => ""}
+  \#### Überblick über Architekturmuster
+  \### *Arten von Architekturmustern?*
+
+%section{"data-markdown" => ""}
+  \#### Chaos zu Struktur / Mud-to-structure
+  \#### Verteilte Systeme
+  \#### Interaktive Systeme
+  \#### Adaptive Systeme
   \#### Domain-spezifische Architektur
-  * Telekommunikation
-  * Standardarchitekturen im Businessbereich
-  * Avionik, Automotive
-  ==> Ziel: Bereitstellung von Infrastrukturen für spezielle Anwendungsbereiche
-  \#### Architektur-Ausprgungen
-  * Middleware (CORBA, DCOM, Jini, ...)
-  * Betriebssysteme
-  * Datenbanken
-  ==> Ziel: Bereitstellung allgemeiner Infrastrukturen als Basis für die Implementierung
 
 %section{"data-markdown" => ""}
-  https://www.youtube.com/watch?v=K03JnT0vys4&feature=youtu.be
+  \### Chaos zu Struktur / Mud-to-structure
+  \#### Pipes und Filter
+  \#### Blackboard
+  \#### Layers
+  \#### Domain-driven Design
+  \#### Naked Objects
+  \#### Data Context Interaction
+  \#### Command Query Responsibility Segregation
+
+%section{"data-markdown" => ""}
+  \### Verteilte Systeme
+  \#### Serviceorientierte Architektur (SOA)
+  \#### Peer-to-Peer
+  \#### Client-Server
+
+%section{"data-markdown" => ""}
+  \### Interaktive Systeme
+  \#### Model View Controller (MVC)
+  \#### Model View Presenter
+  \#### Presentation-Abstraction-Control (PAC)
+
+%section{"data-markdown" => ""}
+  \### Adaptive Systeme
+  \#### Mikrokernel
+  \#### Reflexion
+  \#### Dependency Injection
+
+%section{"data-markdown" => ""}
+  \### Anti-Patterns
+  \#### The Blob
+  \#### The Golden Hammer
+  \#### Cut-and-Paste Programming
+  \#### Spaghetti Code
+  \#### Mushroom Management
+  \#### Vendor Lock-In
+%section{"data-markdown" => ""}
+  \### Anti-Patterns II
+  \#### Design by Committee
+  \#### Reinvent the Wheel
+  \#### Lava Flow
+  \#### Boat Anchor
+  \#### Dead End
+  \#### Swiss Army Knife
+
+%section{"data-markdown" => ""}
+  \### The Blob
+  Ein Objekt (“Blob“) enthält den Großteil der Verantwortlichkeiten,
+  während die meisten anderen Objekte nur elementare Daten speichern oder elementare Dienste anbieten.
+  \#### Lösung: Code neu strukturieren (Refaktorisierung)
+
+%section{"data-markdown" => ""}
+  \### The Golden Hammer
+  Ein bekanntes Verfahren ( Golden ”Hammer“) wird auf alle moglichen Probleme angewandt
+  Wer als einziges Werkzeug nur einen Hammer kennt, lebt in einer Welt voller Nägel.
+  \#### Lösung: Ausbildung verbessern
+
+%section{"data-markdown" => ""}
+  \### Cut-and-Paste Programming
+  Code wird an zahlreichen Stellen wiederverwendet, indem er kopiert und verändert wird.
+  Dies sorgt für Wartungsprobleme
+  \#### Lösung: Black-Box-Wiederverwendung, Refaktorisierung
+
+%section{"data-markdown" => ""}
+  \### Spaghetti Code
+  Der Code ist weitgehend unstrukturiert; keine Objektorientierung oder Modularisierung: undurchsichtiger Kontrollfluss.
+
+  \#### Lösung: Vorbeugen – Erst entwerfen, dann codieren.
+  \#### Refaktorisierung
+
+%section{"data-markdown" => ""}
+  \### Mushroom Management
+  Entwickler werden systematisch von Endanwendern ferngehalten.
+  \#### Lösung: Kontakte verbessern (Eigeninitiative!)
+
+%section{"data-markdown" => ""}
+  \### Vendor Lock-In
+  Ein System ist weitgehend abhangig von einer proprietaren Architektur oder proprietaren Datenformaten
+  \#### Lösung: Portabilität erhöhen
+  \#### Lösung: Abstraktionen einführen
+
+%section{"data-markdown" => ""}
+  \### Design by Committee
+  Das typische Anti-Muster von Standardisierungsgremien, die dazu neigen, es jedem
+  Teilnehmer recht zu machen und übermäßig komplexe Entwürfe abzuliefern
+  \#### Lösung: Gruppendynamik und Treffen verbessern
+
+%section{"data-markdown" => ""}
+  \### Reinvent the Wheel
+  Da es an Wissen uber vorhandene Produkte und Lösungen (auch innerhalb der Firma) fehlt,wird das Rad stets neu erfunden.
+  Erhöhte Entwicklungskosten und Terminprobleme.
+  \##### Lösung: Wissensmanagement verbessern
+
+%section{"data-markdown" => ""}
+  \### Lava Flow
+  Schnell wechselnder Entwurf, teilweise auch über die Entwicklungsabteilung hinaus.
+
+%section{"data-markdown" => ""}
+  \### Boat Anchor
+  Eine Komponente ohne erkennbaren Nutzen
+
+%section{"data-markdown" => ""}
+  \### Dead End
+  eingekaufte Komponente, die nicht mehr unterstützt wird
+
+%section{"data-markdown" => ""}
+  \### Swiss Army Knife
+  Eine Komponente, die vorgibt, alles tun zu können
+
+%section{"data-markdown" => ""}
+  \##### Hilfreiches Wissen um Anti-Patterns vorzubeugen
+  \### "The Pragmatic Programmer"
+  *(Andy Hunt, Dave Thomas)*
+  \### "Clean Code"
+  *(Uncle Bob Martin)*
+  \### "The Developers Code"
+  *(Ka Wai Cheung)*
+
+%section{"data-markdown" => ""}
+  \## Fragen?
+
+  \##### Unterlagen: [ai2016.nils-loewe.de](https://ai2016.nils-loewe.de)
+
+  -# * Überblick - Welche Arten von Architekturmustern gibt es?
+  -#   * Chaos zu Struktur / Mud-to-structure)
+  -#     * Pipes und Filter
+  -#     * Schwarzes Brett bzw. Blackboard
+  -#     * Schichtenarchitektur
+  -#     * Domain-driven Design
+  -#     * Naked Objects
+  -#     * Data Context Interaction
+  -#     * Command Query Responsibility Segregation
+  -#   * Verteilte Systeme
+  -#     * Serviceorientierte Architektur (SOA)
+  -#     * Peer-to-Peer
+  -#     * Client-Server
+  -#   * Interaktive Systeme
+  -#     * Model View Controller (MVC)
+  -#     * Model View Presenter
+  -#     * Presentation-Abstraction-Control (PAC)
+  -#   * Adaptive Systeme
+  -#     * Mikrokernel
+  -#     * Reflexion
+  -#     * Dependency Injection
+  -#   ==> Ziel: Transparente Darstellung wesentlicher Eigenschaften
+  -#   ==> Grundlage für die Qualität
+  -#   * Domain-spezifische Architektur
+  -#     * Telekommunikation
+  -#     * Standardarchitekturen im Businessbereich
+  -#     * Avionik, Automotive
+  -#   ==> Ziel: Bereitstellung von Infrastrukturen für spezielle Anwendungsbereiche
+  -#   * Architektur-Ausprgungen
+  -#     * Middleware (CORBA, DCOM, Jini, ...)
+  -#     * Betriebssysteme
+  -#     * Datenbanken
+  -#   ==> Ziel: Bereitstellung allgemeiner Infrastrukturen als Basis für die Implementierung
+  -#   * Anti-Patterns
+  -#     * The Blob. Ein Objekt ( Blob“) enthält den Großteil der Verantwortlichkeiten
+  -#     * The Golden Hammer. Ein bekanntes Verfahren ( Golden ”Hammer“) wird auf alle moglichen Probleme angewandt
+  -#     * Cut-and-Paste Programming. Code wird an zahlreichen Stellen wiederverwendet
+  -#     * Spaghetti Code. Der Code ist weitgehend unstrukturiert; keine Objektorientierung oder Modularisierung
+  -#     * Mushroom Management. Entwickler werden systematisch von Endanwendern ferngehalten.
+  -#     * Vendor Lock-In. Ein System ist weitgehend abhangig von einer proprietaren Architektur oder proprietaren Datenformaten.
+  -#     * Design by Committee. Das typische Anti-Muster von Standardisierungsgremien
+  -#     * Reinvent the Wheel. Da es an Wissen über Produkte und Losungen fehlt
+  -#     * Lava Flow (schnell wechselnder Entwurf)
+  -#     * Boat Anchor (Komponente ohne erkennbaren Nutzen)
+  -#     * Dead End (eingekaufte Komponente, die nicht mehr unterstützt wird)
+  -#     * Swiss Army Knife (Komponente, die vorgibt, alles tun zu können)

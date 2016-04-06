@@ -58,18 +58,18 @@
   * Wozu braucht man Softwarearchitektur?
   * Die Rolle des Softwarearchitekten (Status, Aufgaben, Karriere, ...)
 
-### Vorlesung 2
+### Vorlesung 2+3
 
 * Todo: Zettel für Raumänderung
 * Zettel für Umfrage
 
-### Geschichte und Trends
+#### Geschichte und Trends
   * Großrechner mit Thin-clients
   * Personalcompuer
   * Web / Smartphones / Tables -> Browser als OS
   * Internet of Things
 
-### Sichten auf Architekturen
+#### Sichten auf Architekturen
 
   * Motivation: Warum überhaupt Sichten?
   * Überblick über die vier Sichten
@@ -88,7 +88,7 @@
   * Jeweils einige Details wichtig
   * UML als Anwendung der Sichten
 
-### Qualiät und andere nichtfunktionale Anforderungen
+#### Qualiät und andere nichtfunktionale Anforderungen
 
   * Was ist Qualität?
   * Skalierbarkeit
@@ -97,14 +97,61 @@
   * Wartbarkeit
   * Testbarkeit
 
+### Vorlesung 4: Architekturmuster
 
-### Architekturmuster
+http://www.itwissen.info/definition/lexikon/Architekturmuster-architectural-style.html
+http://www.lab4inf.fh-muenster.de/lab4inf/docs/OO-Systeme/08-ArchitekturMuster.pdf
+https://www.wi1.uni-muenster.de/pi/lehre/ws0405/seminar/10Architekturmuster.pdf
+https://www.st.cs.uni-saarland.de/edu/einst/08-arch.pdf
+http://www.enzyklopaedie-der-wirtschaftsinformatik.de/lexikon/is-management/Systementwicklung/Softwarearchitektur/Architekturentwicklung/architekturmuster
+https://de.wikipedia.org/wiki/Architekturmuster
+https://www4.in.tum.de/misc/perlen/perlen-folien/PDW_Architektur_IK_Druckversion.pdf
 
-  * Schichten, speziell MVC
-  * Plugin
-  * Pipes & Filters
-  * ...
-  * -> Ausblick auf Designpatterns
+1. Rückblick
+  * Sichten
+  * Qualität
+2. Praktikumsaufgabe 2
+3. Architekturmuster
+
+  * Einleitung / Intro
+    * Was sind Architekturmuster? -> Verallgemeinertes Wissen, Best Practices
+    * Warum Architekturmuster? -> Ordnung ins Chaos bringen
+    * Wo sind die Grenzen von Architekturmustern? --> Hypes etc.
+    * Video: SoCoded 2015
+  * Überblick - Welche Arten von Architekturmustern gibt es?
+    * Chaos zu Struktur / Mud-to-structure)
+      * Pipes und Filter
+      * Schwarzes Brett bzw. Blackboard
+      * Schichtenarchitektur
+      * Domain-driven Design
+      * Naked Objects
+      * Data Context Interaction
+      * Command Query Responsibility Segregation
+    * Verteilte Systeme
+      * Serviceorientierte Architektur (SOA)
+      * Peer-to-Peer
+      * Client-Server
+    * Interaktive Systeme
+      * Model View Controller (MVC)
+      * Model View Presenter
+      * Presentation-Abstraction-Control (PAC)
+    * Adaptive Systeme
+      * Mikrokernel
+      * Reflexion
+      * Dependency Injection
+    * Anti-Patterns
+      * The Blob. Ein Objekt ( Blob“) enthält den Großteil der Verantwortlichkeiten
+      * The Golden Hammer. Ein bekanntes Verfahren ( Golden ”Hammer“) wird auf alle moglichen Probleme angewandt
+      * Cut-and-Paste Programming. Code wird an zahlreichen Stellen wiederverwendet
+      * Spaghetti Code. Der Code ist weitgehend unstrukturiert; keine Objektorientierung oder Modularisierung
+      * Mushroom Management. Entwickler werden systematisch von Endanwendern ferngehalten.
+      * Vendor Lock-In. Ein System ist weitgehend abhangig von einer proprietaren Architektur oder proprietaren Datenformaten.
+      * Design by Committee. Das typische Anti-Muster von Standardisierungsgremien
+      * Reinvent the Wheel. Da es an Wissen über Produkte und Losungen fehlt
+      * Lava Flow (schnell wechselnder Entwurf)
+      * Boat Anchor (Komponente ohne erkennbaren Nutzen)
+      * Dead End (eingekaufte Komponente, die nicht mehr unterstützt wird)
+      * Swiss Army Knife (Komponente, die vorgibt, alles tun zu können)
 
 ### Dokumentation von Architekturen
 
@@ -126,7 +173,7 @@
   * Beispiele für Frameworks
     * Ruby on Rails
     * .NET
-    * Twitter Bootstrao
+    * Twitter Bootstrap
   * Kriterien für die Auswahl eines Frameworks
     * Funktionale Anforderungen: Wieviel Framework brauche ich?
     * nichtfunktionale Anf.: Was muss das FW noch so können?
