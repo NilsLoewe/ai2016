@@ -505,6 +505,9 @@ layout: slide
     %li Komponenten sollen keine Annahmen über die Struktur anderer Komponenten machen
 
 %section{"data-markdown" => ""}
+  \### Warum sind wir hier?
+
+%section{"data-markdown" => ""}
   \### Ein Praxisbericht
   [Why a service oriented architecture is not the holy grail...](https://www.youtube.com/watch?v=K03JnT0vys4&feature=youtu.be)
 
@@ -519,15 +522,30 @@ layout: slide
   \#### Adaptive Systeme
   \#### Domain-spezifische Architektur
 
+%section
+  %h3 Chaos zu Struktur / Mud-to-structure
+  %ul
+    %li Organisation der Komponenten und Objekte eines Softwaresystems
+    %li Die Funktionalität des Gesamtsystems wird in kooperierende Subsysteme aufgeteilt
+    %li Zu Beginn des Softwareentwurfs werden Anforderungen analysiert und spezifiziert
+    %li Integrierbarkeit, Wartbarkeit, Änderbarkeit, Portierbarkeit und Skalierbarkeit sollen berücksichtigt werden
+
 %section{"data-markdown" => ""}
   \### Chaos zu Struktur / Mud-to-structure
+  \#### Layers
   \#### Pipes und Filter
   \#### Blackboard
-  \#### Layers
   \#### Domain-driven Design
   \#### Naked Objects
   \#### Data Context Interaction
   \#### Command Query Responsibility Segregation
+
+%section
+  %h3 Verteilte Systeme
+  %ul
+    %li Verteilung von Ressourcen und Dienste in Netzwerken
+    %li Kein "zentrales System" mehr
+    %li Basiert auf guter Infrastruktur lokaler Datennetze
 
 %section{"data-markdown" => ""}
   \### Verteilte Systeme
@@ -535,11 +553,25 @@ layout: slide
   \#### Peer-to-Peer
   \#### Client-Server
 
+%section
+  %h3 Interaktive Systeme
+  %ul
+    %li Strukturierung von Mensch-Computer-Interaktionen
+    %li Möglichst gute Schnittstellen für die Benutzer schaffen
+    %li Der eigentliche Systemkern bleibt von der Benutzerschnittstelle unangetastet.
+
 %section{"data-markdown" => ""}
   \### Interaktive Systeme
   \#### Model View Controller (MVC)
   \#### Model View Presenter
   \#### Presentation-Abstraction-Control (PAC)
+
+%section
+  %h3 Adaptive Systeme
+  %ul
+    %li Unterstützung der Erweiterungs- und Anpassungsfähigkeit von Softwaresystemen.
+    %li Das System sollte von vornherein mögliche Erweiterungen unterstützen
+    %li Die Kernfunktionalität sollte davon unberührt bleiben kann.
 
 %section{"data-markdown" => ""}
   \### Adaptive Systeme
@@ -563,6 +595,9 @@ layout: slide
   \#### Boat Anchor
   \#### Dead End
   \#### Swiss Army Knife
+
+%section{"data-markdown" => ""}
+  \### Anti-Patterns?
 
 %section{"data-markdown" => ""}
   \### The Blob
@@ -636,6 +671,131 @@ layout: slide
   *(Uncle Bob Martin)*
   \### "The Developers Code"
   *(Ka Wai Cheung)*
+
+
+%section{"data-markdown" => ""}
+  \### Erste Vorstellung von Architekturmustern
+
+%section{"data-markdown" => ""}
+  \##### Chaos zu Struktur / Mud-to-structure
+  \### Layers
+  \#### Pipes und Filter
+  \#### Blackboard
+  \#### Domain-driven Design
+  \#### Naked Objects
+  \#### Data Context Interaction
+  \#### Command Query Responsibility Segregation
+
+%section{"data-markdown" => ""}
+  \##### Layers
+  Das Layers-Muster trennt eine Architektur in verschiedene Schichten, von denen jede eine Unteraufgabe auf einer bestimmten Abstraktionsebene realisiert.
+
+%section{"data-markdown" => ""}
+  \##### Layers
+  \### Beispiel: ISO/OSI-Referenzmodell
+  Netzwerk-Protokolle sind wahrscheinlich die bekanntesten Beispiele für geschichtete Architekturen.
+  Das ISO/OSI-Referenzmodell teilt Netzwerk-Protokolle in 7 Schichten auf, von denen jede Schicht
+  für eine bestimmte Aufgabe zuständig ist:
+
+%section{"data-markdown" => ""}
+  \##### Beispiel: ISO/OSI-Referenzmodell
+
+  ![](/images/isoosi.png)
+
+%section
+  %h5 Layers
+  %h4 Aufgabe: Folgendes System bauen:
+  %ul
+    %li Aktivitäten auf niederer Ebene wie Hardware-Ansteuerung, Sensoren, Bitverarbeitung
+    %li Aktivitäten auf hoher Ebene wie Planung, Strategien und Anwenderfunktionalität
+    %li Die Aktivitäten auf hoher Ebene werden durch Aktivitäten der niederen Ebenen realisiert
+
+%section
+  %h5 Layers
+  %h4 Dabei sollen folgende Ziele berücksichtigt werden:
+  %ul
+    %li Änderungen am Quellcode sollten möglichst wenige Ebenen betreffen
+    %li Schnittstellen sollten stabil (und möglicherweise standardisiert) sein
+    %li Teile (= Ebenen) sollten austauschbar sein
+    %li Jede Ebene soll separat realisierbar sein
+
+
+%section{"data-markdown" => ""}
+  \##### Layers
+  Das Layers-Muster gliedert ein System in zahlreiche Schichten.
+  Jede Schicht schützt die unteren Schichten vor direktem Zugriff
+  durch höhere Schichten.
+
+%section{"data-markdown" => ""}
+  \##### Layers
+  ![](/images/layers.png)
+
+
+%section{"data-markdown" => ""}
+  \##### Layers
+  \#### Dynamisches Verhalten
+
+  \### Top-Down Anforderung
+  Eine Anforderung des Benutzers wird von der obersten Schicht entgegengenommen.
+  Diese resultiert in Anforderungen der unteren Schichten bis hinunter auf die unterste Ebene.
+  Ggf. werden die Ergebnisse der unteren Schichten wieder nach oben weitergeleitet, bis das letzte
+  Ergebnis an den Benutzer zurückgegeben wird.
+
+%section{"data-markdown" => ""}
+  \##### Layers
+  \#### Dynamisches Verhalten
+
+  \### Bottom-Up Anforderung
+  Hier empfängt die unterste Schicht ein Signal, das an die oberen Schichten weitergeleitet wird.
+  Schließlich benachrichtigt die oberste Schicht den Benutzer.
+
+%section{"data-markdown" => ""}
+  \##### Layers
+  \#### Dynamisches Verhalten: Protokoll Stack
+  In diesem Szenario kommunizieren zwei n-Schichten-Stacks miteinander.
+  Eine Anforderung wandert durch den ersten Stack hinunter, wird übertragen und
+  schließlich als Signal vom zweiten Stack empfangen.
+  Jede Schicht verwaltet dabei ihr eigenes Protokoll.
+
+%section{"data-markdown" => ""}
+  \##### Layers
+  \### Beispiel: TCP/IP
+
+  ![](/images/tcp.png)
+
+%section
+  %h5 Layers
+  %h3 Vorteile
+  %ul
+    %li Wiederverwendung und Austauschbarkeit von Schichten
+    %li Unterstützung von Standards
+    %li Einkapselung von Abhängigkeiten
+
+%section
+  %h5 Layers
+  %h3 Nachteile
+  %ul
+    %li Geringere Effizienz
+    %li Mehrfache Arbeit (z.B. Fehlerkorrektur)
+    %li Schwierigkeit, die richtige Anzahl Schichten zu bestimmen
+
+%section
+  %h5 Layers
+  %h4 Bekannte Einsatzgebiete:
+  %ul
+    %li Application Programmer Interfaces (APIs)
+    %li Datenbanken
+    %li Betriebssysteme
+    %li Kommunikation. . .
+
+%section{"data-markdown" => ""}
+  \#### Was ist Softwarearchitektur?
+  \#### Geschichte und Trends
+  \#### Sichten auf Architekturen
+  \#### Qualiät und andere nichtfunktionale Anforderungen
+  \### Architekturmuster
+  \#### Dokumentation von Architekturen
+  \#### Technologien und Frameworks
 
 %section{"data-markdown" => ""}
   \## Fragen?
