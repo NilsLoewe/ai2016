@@ -28,18 +28,18 @@
 
 ## Plan fürs Semester
 
-1.  Motivation, Überblick, Organisation
-2.  Geschichte, Sichten
-3.  Qualität und andere nichtfunktionale Anforderungen
-4.  Qualität und andere nichtfunktionale Anforderungen
-5.  Architekturmuster:
-6.  Architekturmuster:
-7.  Dokumentation von Architekturen:
-8.  Dokumentation von Architekturen:
-9.  Technologie: Microservices (Jens)
-10. Technologie: Spring Boot (Jan)
-11. Technologie: ?? Docker (Ben?) ??
-12. Wiederholung, Klausurvorbereitung
+1.  17.03.16 - Motivation, Überblick, Organisation
+2.  24.03.16 - Geschichte, Sichten
+3.  31.03.16 - Qualität und andere nichtfunktionale Anforderungen
+4.  07.04.16 - Qualität und andere nichtfunktionale Anforderungen
+5.  14.04.16 - Architekturmuster: Antipatterns, Layers
+6.  21.04.16 - Rückblick 1. Praktikumsaufgabe, Architekturmuster:
+7.  28.04.16 - Dokumentation von Architekturen: arc42
+8.  12.05.16 - Dokumentation von Architekturen: Schnittstellen
+9.  19.05.16 - Technologie: Spring Boot (Jan) | Rails (ich)
+10. 26.05.16 - Technologie: ???               | Docker (Ben)
+11. 02.06.16 - Technologie: ???               | Microservices (Jens)
+12. 09.06.16 - Rückblick, Wiederholung, Klausurvorbereitung
 
 
 ### Vorlesung 1
