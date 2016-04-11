@@ -1,7 +1,512 @@
 ---
-title: Vorlesung X
+title: Vorlesung 5 - Architekturmuster I
 layout: slide
 ---
 
+%section{"data-markdown" => ""}
+  \## Architektur von Informationssystemen
+  \#### Hochschule für angewandte Wissenschaften
+  \#### Sommersemester 2016
+  Nils Löwe / [nils@loewe.io](mailto:nils@loewe.io) / @NilsLoewe
+
+%section{"data-markdown" => ""}
+  \#### Praktikumsaufgabe
+  [2. Praktikumsaufgabe](p02.html)
+
+  \### Fragen?
+
+%section{"data-markdown" => ""}
+  \#### Was ist Softwarearchitektur?
+  \#### Geschichte und Trends
+  \#### Sichten auf Architekturen
+  \#### Qualiät und andere nichtfunktionale Anforderungen
+  \### Architekturmuster
+  \#### Dokumentation von Architekturen
+  \#### Technologien und Frameworks
+
+%section{"data-markdown" => ""}
+  \### Wiederholung
+  \### Architekturmuster
+
+%section{"data-markdown" => ""}
+  \### Was sind Architekturmuster?
+
 %section
-  TBD
+  %h4
+    Ein Architekturmuster beschreibt eine bewährte Lösung für ein wiederholt auftretendes Entwurfsproblem
+  %p
+    %i (Effektive Softwarearchitekturen)
+
+%section{"data-markdown" => ""}
+  \### Warum Architekturmuster?
+
+%section{"data-markdown" => ""}
+  \#### Erfolg kommt von Weisheit.
+  \#### Weisheit kommt von Erfahrung.
+  \#### Erfahrung kommt von Fehlern.
+
+%section{"data-markdown" => ""}
+  \#### Aus Fehlern kann man hervorragend lernen.
+  Leider akzeptiert kaum ein Kunde Fehler, nur weil Sie Ihre Erfahrung als Software-Architekt sammeln.
+
+%section{"data-markdown" => ""}
+  \#### In dieser Situation helfen Heuristiken.
+  Heuristiken kodifizieren Erfahrungen anderer Architekten und Projekte, auch aus anderen Bereichen der Systemarchitektur.
+
+%section{"data-markdown" => ""}
+  \#### Heuristiken bieten Orientierung im Sinne von Wegweisern, Straßenmarkierungen und Warnschildern.
+  Sie geben allerdings lediglich Hinweise und garantieren nichts. Es bleibt in Ihrer Verantwortung, die passen-
+  den Heuristiken für eine bestimmte Situation auszuwählen:
+
+%section{"data-markdown" => ""}
+  \#### Die Kunst der Architektur liegt nicht in der Weisheit der Heuristiken, sondern in der Weisheit, a priori die passenden Heuristiken für das aktuelle Projekt auszuwählen.
+
+%section{"data-markdown" => ""}
+  \### Architektur: Von der Idee zur Struktur
+  Ein klassischer und systematischer Ansatz der Beherrschung von Komplexität lautet „teile
+  und herrsche“ (divide et impera). Das Problem wird in immer kleinere Teile zerlegt, bis diese
+  Teilprobleme eine überschaubare Größe annehmen.
+
+%section{"data-markdown" => ""}
+  \### Horizontale Zerlegung
+  \#### Jede Schicht stellt einige klar definierte Schnittstellen zur Verfügung und nutzt Dienste von darunter liegenden Schichten.
+
+%section{"data-markdown" => ""}
+  \### Vertikale Zerlegung
+  \#### Jeder Teil übernimmt eine bestimmte fachliche oder technische Funktion.
+
+%section
+  %h4 Prinzipien zur Zerlegung
+
+  %h3 Kapselung (information hiding)
+  %h3 Wiederverwendung
+  %h3 Iterativer Entwurf
+  %h3 Dokumentation von Entscheidungen
+  %h3 Unabhängigkeit der Elemente
+
+%section{"data-markdown" => ""}
+  \### Ein Praxisbericht
+  [Why a service oriented architecture is not the holy grail...](https://www.youtube.com/watch?v=K03JnT0vys4&feature=youtu.be)
+
+  %ul
+    %li 1. xyz
+    %li 2. abc
+    %li 3. klm
+
+%section{"data-markdown" => ""}
+  \#### Was ist Softwarearchitektur?
+  \#### Geschichte und Trends
+  \#### Sichten auf Architekturen
+  \#### Qualiät und andere nichtfunktionale Anforderungen
+  \### Architekturmuster
+  \#### Dokumentation von Architekturen
+  \#### Technologien und Frameworks
+
+%section{"data-markdown" => ""}
+  \#### Überblick über Architekturmuster
+  \### *Arten von Architekturmustern?*
+
+%section{"data-markdown" => ""}
+  \#### Chaos zu Struktur / Mud-to-structure
+  \#### Verteilte Systeme
+  \#### Interaktive Systeme
+  \#### Adaptive Systeme
+  \#### Domain-spezifische Architektur
+
+%section
+  %h3 Chaos zu Struktur / Mud-to-structure
+  %ul
+    %li Organisation der Komponenten und Objekte eines Softwaresystems
+    %li Die Funktionalität des Gesamtsystems wird in kooperierende Subsysteme aufgeteilt
+    %li Zu Beginn des Softwareentwurfs werden Anforderungen analysiert und spezifiziert
+    %li Integrierbarkeit, Wartbarkeit, Änderbarkeit, Portierbarkeit und Skalierbarkeit sollen berücksichtigt werden
+
+%section{"data-markdown" => ""}
+  \### Chaos zu Struktur / Mud-to-structure
+  \#### Layers
+  \#### Pipes und Filter
+  \#### Blackboard
+  \#### Domain-driven Design
+  \#### Naked Objects
+  \#### Data Context Interaction
+  \#### Command Query Responsibility Segregation
+
+%section
+  %h3 Verteilte Systeme
+  %ul
+    %li Verteilung von Ressourcen und Dienste in Netzwerken
+    %li Kein "zentrales System" mehr
+    %li Basiert auf guter Infrastruktur lokaler Datennetze
+
+%section{"data-markdown" => ""}
+  \### Verteilte Systeme
+  \#### Serviceorientierte Architektur (SOA)
+  \#### Peer-to-Peer
+  \#### Client-Server
+
+%section
+  %h3 Interaktive Systeme
+  %ul
+    %li Strukturierung von Mensch-Computer-Interaktionen
+    %li Möglichst gute Schnittstellen für die Benutzer schaffen
+    %li Der eigentliche Systemkern bleibt von der Benutzerschnittstelle unangetastet.
+
+%section{"data-markdown" => ""}
+  \### Interaktive Systeme
+  \#### Model View Controller (MVC)
+  \#### Model View Presenter
+  \#### Presentation-Abstraction-Control (PAC)
+
+%section
+  %h3 Adaptive Systeme
+  %ul
+    %li Unterstützung der Erweiterungs- und Anpassungsfähigkeit von Softwaresystemen.
+    %li Das System sollte von vornherein mögliche Erweiterungen unterstützen
+    %li Die Kernfunktionalität sollte davon unberührt bleiben kann.
+
+%section{"data-markdown" => ""}
+  \### Adaptive Systeme
+  \#### Mikrokernel
+  \#### Reflexion
+  \#### Dependency Injection
+
+%section{"data-markdown" => ""}
+  \### Anti-Patterns
+  \#### The Blob
+  \#### The Golden Hammer
+  \#### Cut-and-Paste Programming
+  \#### Spaghetti Code
+  \#### Mushroom Management
+  \#### Vendor Lock-In
+%section{"data-markdown" => ""}
+  \### Anti-Patterns II
+  \#### Design by Committee
+  \#### Reinvent the Wheel
+  \#### Lava Flow
+  \#### Boat Anchor
+  \#### Dead End
+  \#### Swiss Army Knife
+
+%section{"data-markdown" => ""}
+  \### Anti-Patterns?
+
+%section{"data-markdown" => ""}
+  \### The Blob
+  Ein Objekt (“Blob“) enthält den Großteil der Verantwortlichkeiten,
+  während die meisten anderen Objekte nur elementare Daten speichern oder elementare Dienste anbieten.
+  \#### Lösung: Code neu strukturieren (Refaktorisierung)
+
+%section{"data-markdown" => ""}
+  \### The Golden Hammer
+  Ein bekanntes Verfahren ( Golden ”Hammer“) wird auf alle moglichen Probleme angewandt
+  Wer als einziges Werkzeug nur einen Hammer kennt, lebt in einer Welt voller Nägel.
+  \#### Lösung: Ausbildung verbessern
+
+%section{"data-markdown" => ""}
+  \### Cut-and-Paste Programming
+  Code wird an zahlreichen Stellen wiederverwendet, indem er kopiert und verändert wird.
+  Dies sorgt für Wartungsprobleme
+  \#### Lösung: Black-Box-Wiederverwendung, Refaktorisierung
+
+%section{"data-markdown" => ""}
+  \### Spaghetti Code
+  Der Code ist weitgehend unstrukturiert; keine Objektorientierung oder Modularisierung: undurchsichtiger Kontrollfluss.
+
+  \#### Lösung: Vorbeugen – Erst entwerfen, dann codieren.
+  \#### Refaktorisierung
+
+%section{"data-markdown" => ""}
+  \### Mushroom Management
+  Entwickler werden systematisch von Endanwendern ferngehalten.
+  \#### Lösung: Kontakte verbessern (Eigeninitiative!)
+
+%section{"data-markdown" => ""}
+  \### Vendor Lock-In
+  Ein System ist weitgehend abhangig von einer proprietaren Architektur oder proprietaren Datenformaten
+  \#### Lösung: Portabilität erhöhen
+  \#### Lösung: Abstraktionen einführen
+
+%section{"data-markdown" => ""}
+  \### Design by Committee
+  Das typische Anti-Muster von Standardisierungsgremien, die dazu neigen, es jedem
+  Teilnehmer recht zu machen und übermäßig komplexe Entwürfe abzuliefern
+  \#### Lösung: Gruppendynamik und Treffen verbessern
+
+%section{"data-markdown" => ""}
+  \### Reinvent the Wheel
+  Da es an Wissen uber vorhandene Produkte und Lösungen (auch innerhalb der Firma) fehlt,wird das Rad stets neu erfunden.
+  Erhöhte Entwicklungskosten und Terminprobleme.
+  \##### Lösung: Wissensmanagement verbessern
+
+%section{"data-markdown" => ""}
+  \### Lava Flow
+  Schnell wechselnder Entwurf, teilweise auch über die Entwicklungsabteilung hinaus.
+
+%section{"data-markdown" => ""}
+  \### Boat Anchor
+  Eine Komponente ohne erkennbaren Nutzen
+
+%section{"data-markdown" => ""}
+  \### Dead End
+  eingekaufte Komponente, die nicht mehr unterstützt wird
+
+%section{"data-markdown" => ""}
+  \### Swiss Army Knife
+  Eine Komponente, die vorgibt, alles tun zu können
+
+%section{"data-markdown" => ""}
+  \##### Hilfreiches Wissen um Anti-Patterns vorzubeugen
+  \### "The Pragmatic Programmer"
+  *(Andy Hunt, Dave Thomas)*
+  \### "Clean Code"
+  *(Uncle Bob Martin)*
+  \### "The Developers Code"
+  *(Ka Wai Cheung)*
+
+%section{"data-markdown" => ""}
+  \### Warum sind wir hier?
+
+%section{"data-markdown" => ""}
+  \### Softwarearchitektur als Rolle?
+
+%section{"data-markdown" => ""}
+
+%section{"data-markdown" => ""}
+  \##### Chaos zu Struktur / Mud-to-structure
+  \### Layers
+  \#### Pipes und Filter
+  \#### Blackboard
+  \#### Domain-driven Design
+  \#### Naked Objects
+  \#### Data Context Interaction
+  \#### Command Query Responsibility Segregation
+
+%section{"data-markdown" => ""}
+  \##### Layers
+  Das Layers-Muster trennt eine Architektur in verschiedene Schichten, von denen jede eine Unteraufgabe auf einer bestimmten Abstraktionsebene realisiert.
+
+%section{"data-markdown" => ""}
+  \##### Layers
+  \### Beispiel: ISO/OSI-Referenzmodell
+  Netzwerk-Protokolle sind wahrscheinlich die bekanntesten Beispiele für geschichtete Architekturen.
+  Das ISO/OSI-Referenzmodell teilt Netzwerk-Protokolle in 7 Schichten auf, von denen jede Schicht
+  für eine bestimmte Aufgabe zuständig ist:
+
+%section{"data-markdown" => ""}
+  \##### Beispiel: ISO/OSI-Referenzmodell
+
+  ![](/images/isoosi.png)
+
+%section
+  %h5 Layers
+  %h4 Aufgabe: Folgendes System bauen:
+  %ul
+    %li Aktivitäten auf niederer Ebene wie Hardware-Ansteuerung, Sensoren, Bitverarbeitung
+    %li Aktivitäten auf hoher Ebene wie Planung, Strategien und Anwenderfunktionalität
+    %li Die Aktivitäten auf hoher Ebene werden durch Aktivitäten der niederen Ebenen realisiert
+
+%section
+  %h5 Layers
+  %h4 Dabei sollen folgende Ziele berücksichtigt werden:
+  %ul
+    %li Änderungen am Quellcode sollten möglichst wenige Ebenen betreffen
+    %li Schnittstellen sollten stabil (und möglicherweise standardisiert) sein
+    %li Teile (= Ebenen) sollten austauschbar sein
+    %li Jede Ebene soll separat realisierbar sein
+
+
+%section{"data-markdown" => ""}
+  \##### Layers
+  Das Layers-Muster gliedert ein System in zahlreiche Schichten.
+  Jede Schicht schützt die unteren Schichten vor direktem Zugriff
+  durch höhere Schichten.
+
+%section{"data-markdown" => ""}
+  \##### Layers
+  ![](/images/layers.png)
+
+
+%section{"data-markdown" => ""}
+  \##### Layers
+  \#### Dynamisches Verhalten
+
+  \### Top-Down Anforderung
+  Eine Anforderung des Benutzers wird von der obersten Schicht entgegengenommen.
+  Diese resultiert in Anforderungen der unteren Schichten bis hinunter auf die unterste Ebene.
+  Ggf. werden die Ergebnisse der unteren Schichten wieder nach oben weitergeleitet, bis das letzte
+  Ergebnis an den Benutzer zurückgegeben wird.
+
+%section{"data-markdown" => ""}
+  \##### Layers
+  \#### Dynamisches Verhalten
+
+  \### Bottom-Up Anforderung
+  Hier empfängt die unterste Schicht ein Signal, das an die oberen Schichten weitergeleitet wird.
+  Schließlich benachrichtigt die oberste Schicht den Benutzer.
+
+%section{"data-markdown" => ""}
+  \##### Layers
+  \#### Dynamisches Verhalten: Protokoll Stack
+  In diesem Szenario kommunizieren zwei n-Schichten-Stacks miteinander.
+  Eine Anforderung wandert durch den ersten Stack hinunter, wird übertragen und
+  schließlich als Signal vom zweiten Stack empfangen.
+  Jede Schicht verwaltet dabei ihr eigenes Protokoll.
+
+%section{"data-markdown" => ""}
+  \##### Layers
+  \### Beispiel: TCP/IP
+
+  ![](/images/tcp.png)
+
+%section
+  %h5 Layers
+  %h3 Vorteile
+  %ul
+    %li Wiederverwendung und Austauschbarkeit von Schichten
+    %li Unterstützung von Standards
+    %li Einkapselung von Abhängigkeiten
+
+%section
+  %h5 Layers
+  %h3 Nachteile
+  %ul
+    %li Geringere Effizienz
+    %li Mehrfache Arbeit (z.B. Fehlerkorrektur)
+    %li Schwierigkeit, die richtige Anzahl Schichten zu bestimmen
+
+%section
+  %h5 Layers
+  %h4 Bekannte Einsatzgebiete:
+  %ul
+    %li Application Programmer Interfaces (APIs)
+    %li Datenbanken
+    %li Betriebssysteme
+    %li Kommunikation. . .
+
+%section{"data-markdown" => ""}
+  \##### Chaos zu Struktur / Mud-to-structure
+  \#### Layers
+  \### Pipes und Filter
+  \#### Blackboard
+  \#### Domain-driven Design
+  \#### Naked Objects
+  \#### Data Context Interaction
+  \#### Command Query Responsibility Segregation
+
+%section{"data-markdown" => ""}
+  \##### Chaos zu Struktur / Mud-to-structure
+  \#### Layers
+  \#### Pipes und Filter
+  \### Blackboard
+  \#### Domain-driven Design
+  \#### Naked Objects
+  \#### Data Context Interaction
+  \#### Command Query Responsibility Segregation
+
+%section{"data-markdown" => ""}
+  \##### Chaos zu Struktur / Mud-to-structure
+  \#### Layers
+  \#### Pipes und Filter
+  \#### Blackboard
+  \### Domain-driven Design
+  \#### Naked Objects
+  \#### Data Context Interaction
+  \#### Command Query Responsibility Segregation
+
+%section{"data-markdown" => ""}
+  \##### Chaos zu Struktur / Mud-to-structure
+  \#### Layers
+  \#### Pipes und Filter
+  \#### Blackboard
+  \#### Domain-driven Design
+  \### Naked Objects
+  \#### Data Context Interaction
+  \#### Command Query Responsibility Segregation
+
+%section{"data-markdown" => ""}
+  \##### Chaos zu Struktur / Mud-to-structure
+  \#### Layers
+  \#### Pipes und Filter
+  \#### Blackboard
+  \#### Domain-driven Design
+  \#### Naked Objects
+  \### Data Context Interaction
+  \#### Command Query Responsibility Segregation
+
+%section{"data-markdown" => ""}
+  \##### Chaos zu Struktur / Mud-to-structure
+  \#### Layers
+  \#### Pipes und Filter
+  \#### Blackboard
+  \#### Domain-driven Design
+  \#### Naked Objects
+  \#### Data Context Interaction
+  \### Command Query Responsibility Segregation
+
+%section{"data-markdown" => ""}
+  \##### Verteilte Systeme
+  \### Serviceorientierte Architektur (SOA)
+  \#### Peer-to-Peer
+  \#### Client-Server
+
+%section{"data-markdown" => ""}
+  \##### Verteilte Systeme
+  \#### Serviceorientierte Architektur (SOA)
+  \### Peer-to-Peer
+  \#### Client-Server
+
+%section{"data-markdown" => ""}
+  \##### Verteilte Systeme
+  \#### Serviceorientierte Architektur (SOA)
+  \#### Peer-to-Peer
+  \### Client-Server
+
+%section{"data-markdown" => ""}
+  \##### Interaktive Systeme
+  \### Model View Controller (MVC)
+  \#### Model View Presenter
+  \#### Presentation-Abstraction-Control (PAC)
+
+%section{"data-markdown" => ""}
+  \##### Interaktive Systeme
+  \#### Model View Controller (MVC)
+  \### Model View Presenter
+  \#### Presentation-Abstraction-Control (PAC)
+
+%section{"data-markdown" => ""}
+  \##### Interaktive Systeme
+  \#### Model View Controller (MVC)
+  \#### Model View Presenter
+  \### Presentation-Abstraction-Control (PAC)
+
+%section{"data-markdown" => ""}
+  \##### Adaptive Systeme
+  \### Mikrokernel
+  \#### Reflexion
+  \#### Dependency Injection
+
+%section{"data-markdown" => ""}
+  \##### Adaptive Systeme
+  \#### Mikrokernel
+  \### Reflexion
+  \#### Dependency Injection
+
+%section{"data-markdown" => ""}
+  \##### Adaptive Systeme
+  \#### Mikrokernel
+  \#### Reflexion
+  \### Dependency Injection
+
+%section{"data-markdown" => ""}
+  \#### Was ist Softwarearchitektur?
+  \#### Geschichte und Trends
+  \#### Sichten auf Architekturen
+  \#### Qualiät und andere nichtfunktionale Anforderungen
+  \### Architekturmuster
+  \#### Dokumentation von Architekturen
+  \#### Technologien und Frameworks
+
+%section{"data-markdown" => ""}
+  \## Fragen?
+
+  \##### Unterlagen: [ai2016.nils-loewe.de](https://ai2016.nils-loewe.de)
