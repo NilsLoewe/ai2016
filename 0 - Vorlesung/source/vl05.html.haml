@@ -1,5 +1,5 @@
 ---
-title: Vorlesung 5 - Architekturmuster I
+title: Vorlesung 5 - Architekturmuster II
 layout: slide
 ---
 
@@ -89,9 +89,9 @@ layout: slide
   [Why a service oriented architecture is not the holy grail...](https://www.youtube.com/watch?v=K03JnT0vys4&feature=youtu.be)
 
   %ul
-    %li 1. xyz
-    %li 2. abc
-    %li 3. klm
+    %li 1. Die falsche Zerlegung erhöht die Komplexität!
+    %li 2. Microservices sind keine Lösung für organisatorische Probleme
+    %li 3. Neue Probleme ersetzen alte Probleme, z.B. Abhängigkeiten im Deployment
 
 %section{"data-markdown" => ""}
   \#### Was ist Softwarearchitektur?
@@ -128,8 +128,6 @@ layout: slide
   \#### Blackboard
   \#### Domain-driven Design
   \#### Naked Objects
-  \#### Data Context Interaction
-  \#### Command Query Responsibility Segregation
 
 %section
   %h3 Verteilte Systeme
@@ -172,35 +170,160 @@ layout: slide
 
 %section{"data-markdown" => ""}
   \### Anti-Patterns
-  \#### The Blob
-  \#### The Golden Hammer
-  \#### Cut-and-Paste Programming
-  \#### Spaghetti Code
-  \#### Mushroom Management
-  \#### Vendor Lock-In
-%section{"data-markdown" => ""}
-  \### Anti-Patterns II
-  \#### Design by Committee
-  \#### Reinvent the Wheel
-  \#### Lava Flow
-  \#### Boat Anchor
-  \#### Dead End
-  \#### Swiss Army Knife
 
 %section{"data-markdown" => ""}
-  \### Anti-Patterns?
+  \#### Anti-Patterns?
+  Ein Anti-Pattern ist in der Softwareentwicklung ein häufig anzutreffender schlechter Lösungsansatz für
+  ein bestimmtes Problem. Es bildet damit das Gegenstück zu den Mustern (Entwurfsmuster, Analysemuster,
+  Architekturmuster, …), welche allgemein übliche und bewährte Problemlösungsansätze beschreiben.
 
 %section{"data-markdown" => ""}
-  \### The Blob
+  \### Überblick über Antipatterns
+  \#### Projektmanagement Anti-Patterns
+  \#### Architektur Anti-Pattern
+  \#### Code Smells
+  \#### Organisations Anti-Pattern
+
+%section{"data-markdown" => ""}
+  \### Projektmanagement Anti-Patterns
+  \### Blendwerk
+  \### Aufgeblähte Software
+  \### Feature creep
+  \### Scope creep
+  \### Brooks’sches Gesetz
+  \### Death Sprint
+  \### Death March
+
+%section{"data-markdown" => ""}
+  \#### Architektur Anti-Patterns
+  \### Big Ball of Mud
+  \### Gasfabrik
+  \### Gottobjekt
+  \### Innere-Plattform-Effekt
+  \### Spaghetticode
+  \### Sumo-Hochzeit
+
+%section{"data-markdown" => ""}
+  \#### Code Smells
+  \### Zwiebel
+  \### Copy and Paste
+  \### Lavafluss
+  \### Magische Werte
+  \### Reservierte Wörter
+  \### Unbeabsichtigte Komplexität
+
+%section{"data-markdown" => ""}
+  \#### Organisations Anti-Pattern
+  \### Wunderwaffe
+  \### Das Rad neu erfinden
+  \### Das quadratische Rad neu erfinden
+  \### Body ballooning
+  \### Empire building
+  \### Warme Leiche
+  \### Single head of knowledge
+
+%section{"data-markdown" => ""}
+  \#### Organisations Anti-Pattern II
+  \### Management nach Zahlen
+  \### Vendor Lock-In
+  \### Design by Committee
+  \### Boat Anchor
+  \### Dead End
+  \### Swiss Army Knife
+
+%section{"data-markdown" => ""}
+  \### Blendwerk
+  Das Blendwerk (englisch *Smoke and mirrors*) bezeichnet nicht fertige Funktionen, welche als fertig vorgetäuscht werden.
+
+%section{"data-markdown" => ""}
+  \### Aufgeblähte Software
+  Als Bloatware (englisch *„aufblähen“*) wird Software bezeichnet, die mit Funktionen überladen ist
+  bzw. die Anwendungen sehr unterschiedlicher Arbeitsfelder ohne gemeinsamen Nutzen bündelt. Für den
+  Anwender macht dies das Programm unübersichtlich, für Entwickler unwartbar.
+
+%section{"data-markdown" => ""}
+  \### Feature creep
+  bezeichnet es, wenn der Umfang der zu entwickelnden Funktionalität in einem Projektplan
+  festgehalten wird, diese aber dauernd erweitert wird.
+  %p
+  Der Kunde versucht, nach der Erstellung des Projektplanes weitere Funktionalität
+  mit unterzubringen. Dies führt zu Problemen, wenn die in Arbeit befindliche Version nicht das
+  notwendige Design aufweist, Termine nicht eingehalten werden können oder die realen Kosten
+  über die planmäßigen Kosten wachsen.
+
+%section{"data-markdown" => ""}
+  \### Scope creep
+  ist ähnlich wie der Feature creep, jedoch nicht auf Funktionalität bezogen, sondern auf den
+  Anwendungsbereich. Auch hier zeichnet sich der Auftraggeber dadurch aus, dass er geschickt
+  und versteckt den Umfang der Software nachträglich erweitern möchte, ohne dass er dies
+  explizit zugibt.
+
+%section{"data-markdown" => ""}
+  \### Death Sprint
+  Bei einem Death Sprint (Überhitzter Projektplan) wird Software iterativ bereitgestellt. Die Bereitstellung
+  erfolgt hierbei in einer viel zu kurzen Zeitspanne. Nach außen sieht das Projekt zunächst sehr erfolgreich
+  aus, da immer wieder neue Versionen mit neuen Eigenschaften abgeschlossen werden. Allerdings leidet die
+  Qualität des Produktes sowohl nach außen sichtbar, wie auch technisch, was allerdings nur der
+  Entwickler erkennt. Die Qualität nimmt ab mit jeder „erfolgreichen“ neuen Iteration.
+
+%section{"data-markdown" => ""}
+  \### Death March
+  Ein Death March (Todesmarsch; gelegentlich auch Himmelfahrtskommando) ist das Gegenteil von einem
+  Überhitzten Projektplan. Ein Todesmarschprojekt zieht sich ewig hin.
+  %p
+  Ein Todesmarschprojekt kann auch bewusst in Kauf genommen werden, um von Defiziten in der
+  Organisation abzulenken und Entwicklungen zu verschleppen, d. h. so lange an etwas zu
+  entwickeln, bis eine nicht genau spezifizierte Eigenschaft in irgendeiner Form subjektiv funktioniert.
+
+%section{"data-markdown" => ""}
+  \### Brooks’sches Gesetz
+
+  \## “Adding manpower to a late software project makes it later.”
+
+%section{"data-markdown" => ""}
+  \### Big Ball of Mud
+  bezeichnet ein Programm, das keine erkennbare Softwarearchitektur besitzt. Die häufigsten Ursachen dafür
+  sind ungenügende Erfahrung, fehlendes Bewusstsein für Softwarearchitektur, Fluktuation der Mitarbeiter
+  sowie Druck auf die Umsetzungsmannschaft. Obwohl derartige Systeme aus Wartbarkeitsgründen unerwünscht
+  sind, sind sie dennoch häufig anzutreffen.
+
+%section{"data-markdown" => ""}
+  \### Gasfabrik
+  Als Gasfabrik (englisch *Gas factory*) werden unnötig komplexe Systementwürfe für relativ simple Probleme bezeichnet.
+
+%section{"data-markdown" => ""}
+  \### The Blob / Gottobjekt
   Ein Objekt (“Blob“) enthält den Großteil der Verantwortlichkeiten,
   während die meisten anderen Objekte nur elementare Daten speichern oder elementare Dienste anbieten.
-  \#### Lösung: Code neu strukturieren (Refaktorisierung)
 
 %section{"data-markdown" => ""}
-  \### The Golden Hammer
-  Ein bekanntes Verfahren ( Golden ”Hammer“) wird auf alle moglichen Probleme angewandt
-  Wer als einziges Werkzeug nur einen Hammer kennt, lebt in einer Welt voller Nägel.
-  \#### Lösung: Ausbildung verbessern
+  \### Innere-Plattform-Effekt
+  tritt auf wenn ein System derartig weitreichende Konfigurationsmöglichkeiten besitzt, dass es letztlich
+  zu einer schwachen Kopie der Plattform wird, mittels derer es gebaut wurde.
+  %p
+  Ein Beispiel sind Datenmodelle, die auf konkrete (anwendungsbezogene) Datenbanktabellen verzichten
+  und stattdessen mittels allgemeiner Tabellen eine eigene Verwaltungsschicht für die Datenstruktur
+  implementieren mit dem eigentlichen Ziel, die Flexibilität zu erhöhen.
+
+%section{"data-markdown" => ""}
+  \### Spaghetti Code
+  Der Code ist weitgehend unstrukturiert; keine Objektorientierung oder Modularisierung: undurchsichtiger Kontrollfluss.
+
+%section{"data-markdown" => ""}
+  \### Sumo-Hochzeit
+  Als Sumo-Hochzeit bezeichnet man es, wenn ein Fat Client unnatürlich stark abhängig von der Datenbank ist.
+  %p
+  In der Datenbank ist hierbei sehr viel Logik in Form der datenbankeigenen Programmiersprache positioniert.
+  Beispielsweise in Oracle mit der Programmiersprache PL/SQL. Die ganze Architektur ist dadurch sehr unflexibel.
+
+%section{"data-markdown" => ""}
+  \### Zwiebel
+  Als Zwiebel (engl. Onion) bezeichnet man Programmcode, bei dem neue Funktionalität um (oder über) die alte gelegt wird.
+  %p
+  Häufig entstehen Zwiebeln, wenn ein Entwickler ein Programm erweitern soll, das er nicht geschrieben hat.
+  Der Entwickler möchte oder kann die bereits existente Lösung nicht komplett verstehen und setzt seine neue
+  Lösung einfach drüber. Dies führt mit einer Vielzahl von Versionen und unterschiedlichen Entwicklern über
+  die Jahre zu einem Zwiebel-System.
 
 %section{"data-markdown" => ""}
   \### Cut-and-Paste Programming
@@ -209,16 +332,60 @@ layout: slide
   \#### Lösung: Black-Box-Wiederverwendung, Refaktorisierung
 
 %section{"data-markdown" => ""}
-  \### Spaghetti Code
-  Der Code ist weitgehend unstrukturiert; keine Objektorientierung oder Modularisierung: undurchsichtiger Kontrollfluss.
-
-  \#### Lösung: Vorbeugen – Erst entwerfen, dann codieren.
-  \#### Refaktorisierung
+  \### Lava Flow
+  Ein Lavafluss (englisch Lava flow oder Dead Code) beschreibt den Umstand, dass in einer Anwendung immer mehr
+  „toter Quelltext“ herumliegt. Dieser wird nicht mehr genutzt. Statt ihn zu löschen, werden im Programm immer
+  mehr Verzweigungen eingebaut, die um den besagten Quelltext herumlaufen oder auf ihm aufbauen. Redundanter
+  Code ist der Überbegriff zu totem Code.
 
 %section{"data-markdown" => ""}
-  \### Mushroom Management
-  Entwickler werden systematisch von Endanwendern ferngehalten.
-  \#### Lösung: Kontakte verbessern (Eigeninitiative!)
+  \### The Golden Hammer / Wunderwaffe
+  Ein bekanntes Verfahren ( Golden ”Hammer“) wird auf alle moglichen Probleme angewandt
+  Wer als einziges Werkzeug nur einen Hammer kennt, lebt in einer Welt voller Nägel.
+  \#### Lösung: Ausbildung verbessern
+
+%section{"data-markdown" => ""}
+  \### Reinvent the Wheel
+  Da es an Wissen uber vorhandene Produkte und Lösungen (auch innerhalb der Firma) fehlt,wird das Rad stets neu erfunden.
+  Erhöhte Entwicklungskosten und Terminprobleme.
+  \##### Lösung: Wissensmanagement verbessern
+
+%section{"data-markdown" => ""}
+  \### Das quadratische Rad neu erfinden
+  Mit das quadratische Rad neu erfinden (englisch Reinventing the square wheel) bezeichnet man
+  die Bereitstellung einer schlechten Lösung, wenn eine gute Lösung bereits existiert.
+
+%section{"data-markdown" => ""}
+  \### Body ballooning
+  Beim Body ballooning handelt der Vorgesetzte ausschließlich aus der Bestrebung heraus, seine
+  Machtposition auszubauen, welche sich entweder aus der Unternehmensstruktur oder auch rein
+  subjektiv aus der Anzahl der Mitarbeiter unter sich definiert. Dies kann dazu führen,
+  dass der Vorgesetzte bewusst arbeitsintensivere Lösungen und Arbeitstechniken den effizienten vorzieht.
+
+%section{"data-markdown" => ""}
+  \### Empire building
+  Durch sachlich nicht nachvollziehbare, nicht konstruktive Maßnahmen versucht ein einzelner,
+  seine Macht auszubauen bzw. zu erhalten. Dies kann Body ballooning sein, aber auch das ständige
+  Beschuldigen anderer, gerade derer, die nicht mehr für die Unternehmung arbeiten, die Ausführung von
+  pathologischer Politik, Diskreditierung, Mobbing und sonstige Facetten, die nur darauf abzielen,
+  die eigene Position zu stärken bzw. den eigenen Status zu halten.
+
+%section{"data-markdown" => ""}
+  \### Warme Leiche
+  Eine warme Leiche (englisch warm body) bezeichnet eine Person, die einen zweifelhaften oder keinen Beitrag zu einem Projekt leistet.
+
+%section{"data-markdown" => ""}
+  \### Single head of knowledge
+  Ein Single head of knowledge ist ein Individuum, welches zu einer Software, einem Werkzeug oder
+  einem anderen eingesetzten Medium, als einziges unternehmensweit das Wissen besitzt. Dies zeugt
+  häufig von fehlendem Wissensmanagement, mangelndem Austausch zwischen den Kollegen oder Defiziten in
+  der Organisation, kann aber auch von dem Individuum bewusst angestrebt worden sein.
+
+%section{"data-markdown" => ""}
+  \### Management nach Zahlen
+  (englisch *Management by numbers*) ist eine Anspielung auf Malen nach Zahlen. Beim Management nach Zahlen
+  wird ein übermäßiger Schwerpunkt auf das quantitative Management gelegt. Insbesondere wenn Fokus auf
+  Kosten gelegt wird, während andere Faktoren wie Qualität vernachlässigt werden.
 
 %section{"data-markdown" => ""}
   \### Vendor Lock-In
@@ -233,16 +400,6 @@ layout: slide
   \#### Lösung: Gruppendynamik und Treffen verbessern
 
 %section{"data-markdown" => ""}
-  \### Reinvent the Wheel
-  Da es an Wissen uber vorhandene Produkte und Lösungen (auch innerhalb der Firma) fehlt,wird das Rad stets neu erfunden.
-  Erhöhte Entwicklungskosten und Terminprobleme.
-  \##### Lösung: Wissensmanagement verbessern
-
-%section{"data-markdown" => ""}
-  \### Lava Flow
-  Schnell wechselnder Entwurf, teilweise auch über die Entwicklungsabteilung hinaus.
-
-%section{"data-markdown" => ""}
   \### Boat Anchor
   Eine Komponente ohne erkennbaren Nutzen
 
@@ -254,6 +411,7 @@ layout: slide
   \### Swiss Army Knife
   Eine Komponente, die vorgibt, alles tun zu können
 
+
 %section{"data-markdown" => ""}
   \##### Hilfreiches Wissen um Anti-Patterns vorzubeugen
   \### "The Pragmatic Programmer"
@@ -264,12 +422,7 @@ layout: slide
   *(Ka Wai Cheung)*
 
 %section{"data-markdown" => ""}
-  \### Warum sind wir hier?
-
-%section{"data-markdown" => ""}
-  \### Softwarearchitektur als Rolle?
-
-%section{"data-markdown" => ""}
+  \### Warum sind wir nochmal hier?
 
 %section{"data-markdown" => ""}
   \##### Chaos zu Struktur / Mud-to-structure
@@ -278,8 +431,6 @@ layout: slide
   \#### Blackboard
   \#### Domain-driven Design
   \#### Naked Objects
-  \#### Data Context Interaction
-  \#### Command Query Responsibility Segregation
 
 %section{"data-markdown" => ""}
   \##### Layers
@@ -390,8 +541,136 @@ layout: slide
   \#### Blackboard
   \#### Domain-driven Design
   \#### Naked Objects
-  \#### Data Context Interaction
-  \#### Command Query Responsibility Segregation
+
+%section
+  %h5 Pipes and Filters
+  %h4 Eine Pipes-and-Filter Architektur eignet sich für Systeme, die Datenströme verarbeiten.
+
+%section{"data-markdown" => ""}
+  \##### Pipes and Filters
+
+  ![](/images/filters1.png)
+
+%section
+  %h5 Pipes and Filters
+
+  Das Pipes-and-Filters Muster strukturiert Systeme, in dem Kontext „Verarbeitung von
+  Datenströmen“. Die Verarbeitungsschritte werden in Filter eingekapselt und lassen sich
+  so beliebig anordnen und getrennt voneinander entwickeln.
+
+%section
+  %h5 Pipes and Filters
+  Der Kommandointerpreter sowie viele Werkzeuge
+  des Unix Betriebssystems sind nach dem Pipes-and-
+  Filter Muster gebaut. Die Ausgabe des einen dient
+  als Eingabe für das nächste Werkzeug:
+
+%section
+  %h5 Pipes and Filters
+  Anzahl Kommentarzeilen in PHP-Datei ausgeben
+  %pre
+    %code
+      :preserve
+        cat LocalSettings.php | grep "^ * [#|//]" | wc − l
+
+%section
+  %h5 Pipes and Filters
+  Die fünf größten Dateien ausgeben
+  %pre
+    %code
+      :preserve
+        du | sort − rn | head − 5
+%section
+  %h5 Pipes and Filters
+  Alle Prozesse stoppen, die mit p beginnen
+  %pre
+    %code
+      :preserve
+        ps − e | grep " p" | awk '{ print $1 }' | xargs kill
+
+%section{"data-markdown" => ""}
+  \##### Layers
+  \### Beispiel: Compiler
+
+  ![](/images/filters2.png)
+
+%section
+  %h5 Pipes and Filters
+  %h4 Teilnehmer: Filter
+  zuständig für Zusammenarbeit mit Pipe
+  %ul
+    %li Holt Eingabedaten.
+    %li Wendet eine Funktion auf seine Eingabedaten an.
+    %li Liefert Ausgabedaten.
+
+%section
+  %h5 Pipes and Filters
+  %h4 Teilnehmer: Filter
+  Ein Filter kann auf dreierlei Weise mit den Daten umgehen:
+  %ul
+    %li Er kann die Daten anreichern, indem er weitere Informationen berechnet und hinzufügt,
+    %li Er kann die Daten verfeinern, indem er Information konzentriert oder extrahiert
+    %li Er kann die Daten verändern, indem er sie in eine andere Darstellung überführt.
+
+%section
+  %h5 Pipes and Filters
+  %h4 Teilnehmer: Filter
+  Ein Filter kann auf verschiedene Weise aktiv werden:
+  %ul
+    %li Die folgende Pipeline holt Daten aus dem Filter
+    %li Die vorhergehende Pipeline schickt Daten in den Filter
+    %li Meistens ist der Filter jedoch selbst aktiv – er holt Daten aus der vorhergehenden Pipeline und schickt Daten in die folgende Pipeline.
+
+%section
+  %h5 Pipes and Filters
+  %h4 Teilnehmer: Pipe
+  %p Eine Pipe verbindet Filter miteinander. Sie verbindet auch die Datenquelle mit dem ersten Filter und den letzten Filter mit der Datensenke.
+  %p Zuständig für:
+  %ul
+    %li Übermittelt Daten
+    %li Puffert Daten
+    %li Synchronisiert aktive Nachbarn
+  %p Verbindet eine Pipe zwei aktive Komponenten, sichert sie die Synchronisation der Filter.
+
+
+%section
+  %h5 Pipes and Filters
+  %h4 Teilnehmer: Datenquelle, Datensenke
+  %p Diese Komponenten sind die Endstücke der Pipeline und somit die Verbindung zur Aussenwelt.
+  %p  Zuständig für:
+  %ul
+    %li Übermittelt Daten an/aus Pipeline.
+  %p
+    Eine Datenquelle kann entweder aktiv sein (dann reicht sie von sich aus Daten in die Pipeline) oder passiv (dann wartet sie, bis der nächste Filter Daten anfordert).
+    Analog kann die Datensenke aktiv Daten anfordern oder passiv auf Daten warten.
+
+
+%section
+  %h5 Pipes and Filters
+  %h4 Dynamisches Verhalten
+  Zwei aktive Filter sind durch eine Pipe verbunden; beide Filter arbeiten parallel.
+
+
+%section
+  %h5 Pipes and Filters
+  %h4 Vorteile
+  %ul
+    %li Flexibilität durch Austausch und Hinzufügen von Filtern
+    %li Flexibilität durch Neuanordnung
+    %li Wiederverwendung einzelner Filter
+    %li Rapid Prototyping von Pipeline Prototypen
+    %li Zwischendateien sind nicht notwendig aber so gewünscht möglich
+    %li Parallel-Verarbeitung möglich
+
+%section
+  %h5 Pipes and Filters
+  %h4 Nachteile
+  %ul
+    %li Die Kosten der Datenübertragung zwischen den Filtern können je nach Pipe sehr hoch sein
+    %li Häufig überflüssige Datentransformationen zwischen den einzelnen Filterstufen
+    %li Fehlerbehandlung über Filterstufen hinweg ist teilweise schwierig
+    %li Gemeinsamer Zustand (z.B. Symboltabelle in Compilern) ist teuer und unflexibel
+    %li Effizienzsteigerung durch Parallelisierung oft nicht möglich (z.B. da Filter aufeinander warten oder nur ein Prozessor arbeitet)
 
 %section{"data-markdown" => ""}
   \##### Chaos zu Struktur / Mud-to-structure
@@ -400,8 +679,39 @@ layout: slide
   \### Blackboard
   \#### Domain-driven Design
   \#### Naked Objects
-  \#### Data Context Interaction
-  \#### Command Query Responsibility Segregation
+
+%section
+  %h5 Blackboard
+
+  Das Blackboard Muster wird angewendet bei Problemen, die nicht auf eine eindeutige
+  Lösungsstrategie hindeuten. Den Kontext für „Blackboard“ bilden somit Problembereiche,
+  für die es noch keine festgelegten Lösungsstrategien gibt. Beispiele hierfür sind
+  Spracherkennungs-, Bildverarbeitungs-, sowie Überwachungssysteme.
+
+%section{"data-markdown" => ""}
+  \##### Blackboard
+
+  ![](/images/blackboard.png)
+
+%section
+  %h5 Blackboard
+  Das Schwarzes Brett dient als zentrale Datenstruktur. Agenten verarbeiten vorhandenes und
+  bringen neues Wissen. Eine Steuerung entscheidet, welcher Agent die Bedingung zum Ermitteln
+  von neuem Wissen erfüllt und somit das Programm der Lösung einen Schritt näher bringen könnte,
+  dann aktiviert es den Agenten.
+
+%section
+  %h5 Blackboard
+  Die Zugriffe von Agenten auf das schwarze Brett stellen die Konnektoren da. Die Agenten
+  sind völlig entkoppelt und können auch zur Laufzeit hinzugefügt und ausgetauscht
+  werden, ohne dass andere Agenten betroen sind. Die parallele Ausführung von Agenten ist ebenfalls möglich.
+
+%section
+  %h5 Blackboard
+  Das Programmverhalten von Systemen, für die solch eine Architektur eingesetzt wird, ist
+  hochgradig nichtdeterministisch und daher schwer prüfbar. Im Bereich Robotersteuerung und
+  Mustererkennung (Bild, Ton, Sprache, Schrift) wird aufgrund der nichtdeterministischen
+  Problemlösung die Black Board Architektur häufig verwendet.
 
 %section{"data-markdown" => ""}
   \##### Chaos zu Struktur / Mud-to-structure
@@ -410,8 +720,33 @@ layout: slide
   \#### Blackboard
   \### Domain-driven Design
   \#### Naked Objects
-  \#### Data Context Interaction
-  \#### Command Query Responsibility Segregation
+
+%section
+  %h5 Domain-driven Design
+  %p
+    Domain-driven Design ist nicht nur eine Technik oder Methode. Es ist viel mehr eine Denkweise und
+    Priorisierung zur Steigerung der Produktivität von Softwareprojekten im Umfeld komplexer fachlicher
+    Zusammenhänge
+
+%section
+  %h5 Domain-driven Design
+  %p
+    Domain-driven Design basiert auf folgenden zwei Annahmen:
+  %ul
+    %li Der Schwerpunkt des Softwaredesigns liegt auf der Fachlichkeit und der Fachlogik.
+    %li Der Entwurf komplexer fachlicher Zusammenhänge sollte auf einem Modell der Anwendungsdomäne, dem Domänenmodell basieren.
+
+%section
+  %h5 Domain-driven Design
+  %p
+    Domain-driven Design ist an keinen bestimmten Softwareentwicklungsprozess gebunden, orientiert sich aber an agiler Softwareentwicklung. Insbesondere setzt es iterative Softwareentwicklung und eine enge Zusammenarbeit zwischen Entwicklern und Fachexperten voraus.
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+
+  ![](/images/DomainDrivenDesign_map.png)
+
+
 
 %section{"data-markdown" => ""}
   \##### Chaos zu Struktur / Mud-to-structure
@@ -420,91 +755,19 @@ layout: slide
   \#### Blackboard
   \#### Domain-driven Design
   \### Naked Objects
-  \#### Data Context Interaction
-  \#### Command Query Responsibility Segregation
 
-%section{"data-markdown" => ""}
-  \##### Chaos zu Struktur / Mud-to-structure
-  \#### Layers
-  \#### Pipes und Filter
-  \#### Blackboard
-  \#### Domain-driven Design
-  \#### Naked Objects
-  \### Data Context Interaction
-  \#### Command Query Responsibility Segregation
+%section
+  %h5 Naked Objects
+  Alle Geschäftslogik sollte auf die Fachobjekte gekapselt werden. Dieses Prinzip gilt nicht nur für naked objects: es ist nur ein nachdrückliches Bekenntnis zur Kapselung.
 
-%section{"data-markdown" => ""}
-  \##### Chaos zu Struktur / Mud-to-structure
-  \#### Layers
-  \#### Pipes und Filter
-  \#### Blackboard
-  \#### Domain-driven Design
-  \#### Naked Objects
-  \#### Data Context Interaction
-  \### Command Query Responsibility Segregation
+%section
+  %h5 Naked Objects
+  Die Grafische Benutzeroberfläche soll eine direkte Darstellung der Fachobjekte sein, wobei alle Benutzeraktionen explizit in der Erstellung oder dem Abruf von Fachobjekten und/oder Aufrufen von Methoden für diese Objekte bestehen. Dieses Prinzip ist auch nicht einzigartig zu naked objects: es ist nur eine bestimmte Interpretation einer Objektorientierte Benutzeroberfläche (OOUI). Die ursprüngliche Idee in dem naked objects Muster ergibt sich aus der Kombination dieser beiden, die das dritte Prinzip bilden:
 
-%section{"data-markdown" => ""}
-  \##### Verteilte Systeme
-  \### Serviceorientierte Architektur (SOA)
-  \#### Peer-to-Peer
-  \#### Client-Server
+%section
+  %h5 Naked Objects
+  Die Benutzerschnittstelle soll zu 100 % automatisch aus der Definition der Fachobjekte erstellt werden. Dies kann unter Verwendung verschiedener Technologien, einschließlich der Source-Code-Generation durchgeführt werden; Implementierungen der naked objects Muster bis heute haben die Technologie von Reflexion (Programmierung) begünstigt.
 
-%section{"data-markdown" => ""}
-  \##### Verteilte Systeme
-  \#### Serviceorientierte Architektur (SOA)
-  \### Peer-to-Peer
-  \#### Client-Server
-
-%section{"data-markdown" => ""}
-  \##### Verteilte Systeme
-  \#### Serviceorientierte Architektur (SOA)
-  \#### Peer-to-Peer
-  \### Client-Server
-
-%section{"data-markdown" => ""}
-  \##### Interaktive Systeme
-  \### Model View Controller (MVC)
-  \#### Model View Presenter
-  \#### Presentation-Abstraction-Control (PAC)
-
-%section{"data-markdown" => ""}
-  \##### Interaktive Systeme
-  \#### Model View Controller (MVC)
-  \### Model View Presenter
-  \#### Presentation-Abstraction-Control (PAC)
-
-%section{"data-markdown" => ""}
-  \##### Interaktive Systeme
-  \#### Model View Controller (MVC)
-  \#### Model View Presenter
-  \### Presentation-Abstraction-Control (PAC)
-
-%section{"data-markdown" => ""}
-  \##### Adaptive Systeme
-  \### Mikrokernel
-  \#### Reflexion
-  \#### Dependency Injection
-
-%section{"data-markdown" => ""}
-  \##### Adaptive Systeme
-  \#### Mikrokernel
-  \### Reflexion
-  \#### Dependency Injection
-
-%section{"data-markdown" => ""}
-  \##### Adaptive Systeme
-  \#### Mikrokernel
-  \#### Reflexion
-  \### Dependency Injection
-
-%section{"data-markdown" => ""}
-  \#### Was ist Softwarearchitektur?
-  \#### Geschichte und Trends
-  \#### Sichten auf Architekturen
-  \#### Qualiät und andere nichtfunktionale Anforderungen
-  \### Architekturmuster
-  \#### Dokumentation von Architekturen
-  \#### Technologien und Frameworks
 
 %section{"data-markdown" => ""}
   \## Fragen?
