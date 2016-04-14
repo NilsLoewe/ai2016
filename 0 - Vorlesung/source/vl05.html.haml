@@ -127,7 +127,6 @@ layout: slide
   \#### Pipes und Filter
   \#### Blackboard
   \#### Domain-driven Design
-  \#### Naked Objects
 
 %section
   %h3 Verteilte Systeme
@@ -430,7 +429,6 @@ layout: slide
   \#### Pipes und Filter
   \#### Blackboard
   \#### Domain-driven Design
-  \#### Naked Objects
 
 %section{"data-markdown" => ""}
   \##### Layers
@@ -540,7 +538,6 @@ layout: slide
   \### Pipes und Filter
   \#### Blackboard
   \#### Domain-driven Design
-  \#### Naked Objects
 
 %section
   %h5 Pipes and Filters
@@ -678,7 +675,6 @@ layout: slide
   \#### Pipes und Filter
   \### Blackboard
   \#### Domain-driven Design
-  \#### Naked Objects
 
 %section
   %h5 Blackboard
@@ -719,7 +715,6 @@ layout: slide
   \#### Pipes und Filter
   \#### Blackboard
   \### Domain-driven Design
-  \#### Naked Objects
 
 %section
   %h5 Domain-driven Design
@@ -738,36 +733,281 @@ layout: slide
 
 %section
   %h5 Domain-driven Design
+  %h4 Entwicklungsprozess
   %p
-    Domain-driven Design ist an keinen bestimmten Softwareentwicklungsprozess gebunden, orientiert sich aber an agiler Softwareentwicklung. Insbesondere setzt es iterative Softwareentwicklung und eine enge Zusammenarbeit zwischen Entwicklern und Fachexperten voraus.
+    Domain-driven Design ist an keinen bestimmten Softwareentwicklungsprozess gebunden, orientiert sich aber an agiler Softwareentwicklung.
+  %p
+    Insbesondere setzt es iterative Softwareentwicklung und eine enge Zusammenarbeit zwischen Entwicklern und Fachexperten voraus.
+
+%section
+  %h5 Domain-driven Design
+  %h4 Konzepte
+  %p
+    Domain-driven Design basiert auf einer Reihe von Konzepten, welche bei der Modellierung, aber auch
+    anderen Tätigkeiten der Softwareentwicklung, berücksichtigt werden sollten.
+  %p
+    Der Kern ist die Einführung einer allgemein verwendeten (ubiquitous) Sprache, welche in allen Bereichen der
+    Softwareerstellung verwendet werden sollte.
 
 %section{"data-markdown" => ""}
   \##### Domain-driven Design
-
-  ![](/images/DomainDrivenDesign_map.png)
-
-
+  \#### Sprache
+  %p
+    Eine Sprache für die Beschreibung der Fachlichkeit, der Elemente des Domänenmodells, der Klassen und
+    Methoden etc. Sie wird definiert als:
+  %p
+    *“A language structured around the domain model and used by all team members to connect all the activities of the team with the software.”*
 
 %section{"data-markdown" => ""}
-  \##### Chaos zu Struktur / Mud-to-structure
-  \#### Layers
-  \#### Pipes und Filter
-  \#### Blackboard
-  \#### Domain-driven Design
-  \### Naked Objects
+  \##### Domain-driven Design
+  \#### Bestandteile des Domänenmodells
+  %p Domain-driven Design unterscheidet die folgenden Bestandteile des Domänenmodells:
+  %br
+  ![](/images/DomainDrivenDesign_map.png)
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Entitäten *(Entities, reference objects)*
+  %p
+    Objekte des Modelles, welche nicht durch ihre Eigenschaften, sondern durch ihre Identität definiert werden.
+  \#### Beispiel: "Person"
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Wertobjekte *(value objects)*
+  %p
+    Objekte des Modelles, welche keine konzeptionelle Identität haben oder benötigen und somit allein durch ihre Eigenschaften definiert werden.
+  %p
+    Wertobjekte werden üblicherweise als unveränderliche Objekte (immutable objects) modelliert, damit sind sie
+    wiederverwendbar und verteilbar.
+  \#### Beispiel: "Konfiguration"
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Aggregate *(aggregates)*
+  %p
+    Aggregate sind Zusammenfassungen von Entitäten und Wertobjekten und deren Assoziationen untereinander zu
+    einer gemeinsamen transaktionalen Einheit.
+  %p
+    Aggregate definieren genau eine Entität als einzigen Zugriff auf das gesamte Aggregat. Alle anderen
+    Entitäten und Wertobjekte dürfen von außerhalb nicht statisch referenziert werden. Damit wird garantiert,
+    dass alle Invarianten des Aggregats und der einzelnen Bestandteile des Aggregats sichergestellt werden können.
+  \#### Beispiel: "Datenbanktransaktion"
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Assoziationen *(associations)*
+  %p
+    Assoziationen sind, wie bei UML definiert, Beziehungen zwischen zwei oder mehr Objekten des Domänenmodells.
+  %p
+    Hier werden nicht nur statische, durch Referenzen definierte Beziehungen betrachtet, sondern auch dynamische
+    Beziehungen, die beispielsweise erst durch die Abarbeitung von SQL-Queries entstehen.
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Serviceobjekte *(services)*
+  %p
+    Bei Domain-driven Design werden Funktionalitäten, welche ein wichtiges Konzept der Fachlichkeit darstellen und
+    konzeptionell zu mehreren Objekten des Domänenmodells gehören, als eigenständige Serviceobjekte modelliert.
+  %p
+    Serviceobjekte sind üblicherweise zustandslose (eng. stateless) und daher wiederverwendbare Klassen ohne
+    Assoziationen, mit Methoden, die den angebotenen Funktionalitäten entsprechen. Diese Methoden bekommen die
+    Wertobjekte und Entitäten übergeben, die zur Abarbeitung der Funktionalität notwendig sind.
+  \#### Beispiel: "API Wrapper"
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Fachliche Ereignisse *(domain events)*
+  %p
+    Fachliche Ereignisse sind Objekte, welche komplexe, sich unter Umständen dynamisch ändernde, Aktionen des
+    Domänenmodells beschreiben, die ein oder mehrere Aktionen oder Änderungen in den Fachobjekten bewirken.
+  %p
+    Fachliche Ereignisse ermöglichen auch die Modellierung verteilter Systeme. Die einzelnen Subsysteme
+    kommunizieren ausschließlich über fachliche Ereignisse, damit werden sie stark entkoppelt und das
+    gesamte System somit wartbarer und skalierbarer.
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Module *(modules, packages)*
+  %p
+    Module teilen das Domänenmodell in fachliche (nicht technische) Bestandteile. Sie sind gekennzeichnet
+    durch starke innere Kohäsion und geringe Kopplung zwischen den Modulen.
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Fabriken *(factories)*
+  %p
+    Fabriken dienen dazu, die Erzeugung von Fachobjekten in spezielle Fabrik-Objekte auszulagern.
+  %p
+    Dies ist sinnvoll, wenn entweder die Erzeugung komplex ist (und beispielsweise Assoziationen benötigt, die
+    das Fachobjekt selbst nicht mehr benötigt) oder die spezifische Erzeugung der Fachobjekte zur Laufzeit ausgetauscht
+    werden können soll.
+  %p
+    *Fabriken werden üblicherweise durch erzeugende Entwurfsmuster wie abstrakte Fabrik, Fabrikmethode oder Erbauer umgesetzt.*
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Repositories
+  %p
+    Repositories abstrahieren die Persistierung und Suche von Fachobjekten. Mittels Repositories werden die
+    technische Infrastruktur sowie alle Zugriffsmechanismen auf diese von der Geschäftslogikschicht getrennt.
+  %p
+    Für alle Fachobjekte, welche über die Infrastruktur-Schicht geladen werden, wird eine Repository-Klasse
+    bereitgestellt, welche die verwendeten Lade- und Suchtechnologien nach außen abkapselt. Die Repositories
+    selbst sind Teil des Domänenmodells und somit Teil der Geschäftslogikschicht. Sie greifen als einzige
+    auf die Objekte der Infrastruktur-Schicht zu.
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \### Architekturtechniken
+  \#### Evolvierende Struktur (evolving order)
+  \#### Systemmetapher (system metaphor)
+  \#### Verantwortlichkeitsschichten (responsibility layers)
+  \#### Wissenslevel (knowledge level)
+  \#### Erweiterungsframeworks (pluggable component framework)
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Evolvierende Struktur *(evolving order)*
+  Große Strukturen im Domänenmodell sollten idealerweise erst mit der Zeit entstehen, beziehungsweise sich über die Zeit entwickeln.
+  %p
+  Große Strukturen sollten möglichst einfach und mit möglichst wenigen Ausnahmen umgesetzt sein.
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Systemmetapher *(system metaphor)*
+  Die Systemmetapher ist ein Konzept aus Extreme Programming, welche die Kommunikation zwischen allen Beteiligten erleichtert,
+  indem es das System mittels einer Metapher, einer inhaltlich ähnlichen, für alle Seiten verständlichen Alltagsgeschichte
+  beschreibt. Diese sollte möglichst gut passen und zur Stärkung der ubiquitären Sprache verwendet werden.
 
 %section
-  %h5 Naked Objects
-  Alle Geschäftslogik sollte auf die Fachobjekte gekapselt werden. Dieses Prinzip gilt nicht nur für naked objects: es ist nur ein nachdrückliches Bekenntnis zur Kapselung.
+  %h5 Domain-driven Design
+  %h4 Verantwortlichkeitsschichten *(responsibility layers)*
+  %p
+    Aufteilung des Domänenmodells in Schichten gemäß Verantwortlichkeiten.
+    Domain-driven Design schlägt folgende Schichten vor:
+  %ul
+    %li Entscheidungsschicht
+    %li Regelschicht
+    %li Zusagen
+    %li Arbeitsabläufe
+    %li Potential
 
-%section
-  %h5 Naked Objects
-  Die Grafische Benutzeroberfläche soll eine direkte Darstellung der Fachobjekte sein, wobei alle Benutzeraktionen explizit in der Erstellung oder dem Abruf von Fachobjekten und/oder Aufrufen von Methoden für diese Objekte bestehen. Dieses Prinzip ist auch nicht einzigartig zu naked objects: es ist nur eine bestimmte Interpretation einer Objektorientierte Benutzeroberfläche (OOUI). Die ursprüngliche Idee in dem naked objects Muster ergibt sich aus der Kombination dieser beiden, die das dritte Prinzip bilden:
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Wissenslevel *(knowledge level)*
+  %p
+    Wissenslevel beschreibt das explizite Wissen über das Domänenmodell.
+    Es ist in Situationen notwendig, wo die Abhängigkeiten und Rollen zwischen den Entitäten
+    situationsbedingt variieren.
+  %p
+    Das Wissenslevel sollte diese Abhängigkeiten und Rollen
+    von außen anpassbar enthalten, damit das Domänenmodell weiterhin konkret und ohne
+    unnötige Abhängigkeiten bleiben kann.
 
-%section
-  %h5 Naked Objects
-  Die Benutzerschnittstelle soll zu 100 % automatisch aus der Definition der Fachobjekte erstellt werden. Dies kann unter Verwendung verschiedener Technologien, einschließlich der Source-Code-Generation durchgeführt werden; Implementierungen der naked objects Muster bis heute haben die Technologie von Reflexion (Programmierung) begünstigt.
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Erweiterungsframeworks *(pluggable component framework)*
+  ist die Überlegung verschiedene Systeme über ein Komponentenframework miteinander zu verbinden.
 
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \### Vorgehensweisen
+  %p
+    Domain-driven Design definiert eine Reihe von Vorgehensweisen, welche dazu dienen die Integrität
+    der Modelle zu gewährleisten.
+  %p
+    Dies ist insbesondere dann notwendig, wenn mehrere Teams unter
+    unterschiedlichem Management und Koordination an verschiedenen Fachlichkeiten, aber in einem
+    großen Projekt zusammenarbeiten sollen.
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \### Vorgehensweisen
+  ![](/images/Maintaining_Model_Integrity.png)
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Vision der Fachlichkeit *(domain vision statement)*
+  ist eine kurze Beschreibung der hinter der Kernfachlichkeit stehenden Vision und der damit verbundenen Ziele.
+  %p
+    Sie gibt die Entwicklungsrichtung des Domänenmodells vor und dient als Bindeglied zwischen Projektvision/Systemmetapher
+    und den Details der Kernfachlichkeit und des Codes.
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Kontextübersicht *(context map)*
+  dient einer gesamthaften Übersicht über alle Modelle, deren Grenzen und Schnittstellen.
+  %p
+    Dadurch wachsen die Kontexte nicht
+    in Bereiche anderer Kontexte und die Kommunikation zwischen den Kontexten läuft über wohldefinierte Schnittstellen.
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Kontextgrenzen *(bounded context)*
+  beschreiben die Grenzen jedes Kontexts in vielfältiger Hinsicht wie beispielsweise Teamzuordnung, Verwendungszweck,
+  dahinter liegende Datenbankschemata.
+  %p
+    Damit wird klar, wo ein Kontext seine Gültigkeit verliert und potentiell ein anderer Kontext seinen Platz einnimmt.
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Kernfachlichkeit *(core domain)*
+  ist der wertvollste Teil des Domänenmodells, der Teil, welcher am meisten Anwendernutzen stiftet.
+  %p
+    Die anderen Teile des Domänenmodells dienen vor allem dazu die Kernfachlichkeit zu unterstützen und mit
+    weniger wichtigen Funktionen anzureichern.
+  %p
+    Bei der Modellierung sollte besonderes Augenmerk auf die
+    Kernfachlichkeit gelegt werden und sie sollte durch die besten Entwickler umgesetzt werden.
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Geteilter Kern *(shared kernel)*
+  ist ein Teil der Fachlichkeit der zwischen unterschiedlichen Projektteilen geteilt wird.
+  %p
+    Dies ist sinnvoll, wenn die verschiedenen Projektteile nur lose miteinander verbunden sind und
+    das Projekt zu groß ist um in einem Team umgesetzt zu werden. Der geteilte Kern wird hierbei
+    von allen Projektteams, die ihn nützen, gemeinsam entwickelt.
+  %p *Dies benötigt sowohl viel Abstimmungs- als auch Integrationsaufwand.*
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Kunde-Lieferant *(customer-supplier)*
+  ist die Metapher für die Beziehung zwischen Projektteams, bei denen ein Team eine Fachlichkeit umsetzt,
+  auf die das andere Team aufbaut.
+  %p
+    Damit wird sichergestellt, dass das abhängige Team vom umsetzenden Team gut unterstützt wird,
+    da ihre Anforderungen mit derselben Priorität umgesetzt werden, wie die eigentlichen Anforderungen an das Lieferantenteam.
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Separierter Kern *(segregated core)*
+  bezeichnet die Überlegung die Kernfachlichkeit, auch wenn sie eng mit unterstützenden Modellelementen gekoppelt ist,
+  in ein eigenes Modul zu verlagern und die Kopplung mit anderen Modulen zu reduzieren.
+  %p
+    Damit wird die Kernfachlichkeit vor hoher Komplexität bewahrt und die Wartbarkeit erhöht.
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Generische Sub-Fachlichkeiten *(generic subdomains)*
+  bezeichnet die Idee, diejenigen Teile des Domänenmodells, welche nicht zur Kernfachlichkeit gehören, in Form
+  von möglichst generischen Modellen in eigenen Modulen abzulegen.
+  %p
+    Diese könnten, da sie nicht die Kernfachlichkeit repräsentieren und generisch sind, outgesourced
+    entwickelt oder durch Standardsoftware ersetzt werden.
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Kontinuierliche Integration *(continuous integration)*
+  dient beim Domain-driven Design dazu, alle Veränderungen eines Domänenmodells laufend miteinander
+  zu integrieren und gegen bestehende Fachlichkeit automatisiert testen zu können.
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Literatur
+  \### "Domain-Driven Design. Tackling Complexity in the Heart of Software"
+  *(Eric Evans)*
 
 %section{"data-markdown" => ""}
   \## Fragen?
