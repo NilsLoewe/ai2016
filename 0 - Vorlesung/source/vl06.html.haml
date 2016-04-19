@@ -1,64 +1,247 @@
 ---
-title: Vorlesung X
+title: Vorlesung 6 - Architekturmuster
 layout: slide
 ---
 
-%section
-  TBD
+%section{"data-markdown" => ""}
+  \## Architektur von Informationssystemen
+  \#### Hochschule für angewandte Wissenschaften
+  \#### Sommersemester 2016
+  Nils Löwe / [nils@loewe.io](mailto:nils@loewe.io) / @NilsLoewe
 
 %section{"data-markdown" => ""}
-  \##### Verteilte Systeme
-  \### Serviceorientierte Architektur (SOA)
-  \#### Peer-to-Peer
-  \#### Client-Server
+  \#### Praktikumsaufgabe
+  [2. Praktikumsaufgabe](p02.html)
+
+  \### Fragen?
 
 %section{"data-markdown" => ""}
-  \##### Verteilte Systeme
-  \#### Serviceorientierte Architektur (SOA)
-  \### Peer-to-Peer
-  \#### Client-Server
+  \#### 1. Praktikumsaufgabe - Rückblick
+
+  * 13 Kontextdiagramme
+  * 147 Fragen
+  * 18 Technologievorschläge
 
 %section{"data-markdown" => ""}
-  \##### Verteilte Systeme
-  \#### Serviceorientierte Architektur (SOA)
-  \#### Peer-to-Peer
-  \### Client-Server
+  \#### 1. Praktikumsaufgabe - Kontextdiagramme
+  ![](/images/context_01.png)
 
 %section{"data-markdown" => ""}
-  \##### Interaktive Systeme
-  \### Model View Controller (MVC)
-  \#### Model View Presenter
-  \#### Presentation-Abstraction-Control (PAC)
+  \#### 1. Praktikumsaufgabe - Kontextdiagramme
+  ![](/images/context_02.png)
 
 %section{"data-markdown" => ""}
-  \##### Interaktive Systeme
-  \#### Model View Controller (MVC)
-  \### Model View Presenter
-  \#### Presentation-Abstraction-Control (PAC)
+  \#### 1. Praktikumsaufgabe - Kontextdiagramme
+  ![](/images/context_03.png)
 
 %section{"data-markdown" => ""}
-  \##### Interaktive Systeme
-  \#### Model View Controller (MVC)
-  \#### Model View Presenter
-  \### Presentation-Abstraction-Control (PAC)
+  \#### 1. Praktikumsaufgabe - Kontextdiagramme
+  ![](/images/context_04.png)
 
 %section{"data-markdown" => ""}
-  \##### Adaptive Systeme
-  \### Mikrokernel
-  \#### Reflexion
-  \#### Dependency Injection
+  \#### 1. Praktikumsaufgabe - Kontextdiagramme
+  ![](/images/context_05.png)
 
 %section{"data-markdown" => ""}
-  \##### Adaptive Systeme
-  \#### Mikrokernel
-  \### Reflexion
-  \#### Dependency Injection
+  \#### 1. Praktikumsaufgabe - Kontextdiagramme
+  ![](/images/context_06.png)
 
 %section{"data-markdown" => ""}
-  \##### Adaptive Systeme
-  \#### Mikrokernel
-  \#### Reflexion
-  \### Dependency Injection
+  \#### 1. Praktikumsaufgabe - Kontextdiagramme
+  ![](/images/context_07.png)
+
+%section{"data-markdown" => ""}
+  \#### 1. Praktikumsaufgabe - Kontextdiagramme
+  ![](/images/context_08.png)
+
+%section{"data-markdown" => ""}
+  \#### 1. Praktikumsaufgabe - Kontextdiagramme
+  ![](/images/context_09.jpg)
+
+%section{"data-markdown" => ""}
+  \#### 1. Praktikumsaufgabe - Kontextdiagramme
+  ![](/images/context_10.png)
+
+%section{"data-markdown" => ""}
+  \#### 1. Praktikumsaufgabe - Kontextdiagramme
+  ![](/images/context_11.png)
+
+%section{"data-markdown" => ""}
+  \#### 1. Praktikumsaufgabe - Kontextdiagramme
+  ![](/images/context_12.png)
+
+%section{"data-markdown" => ""}
+  \#### 1. Praktikumsaufgabe - Kontextdiagramme
+  ![](/images/context_13.png)
+
+%section{"data-markdown" => ""}
+  \#### 1. Praktikumsaufgabe - Fachliche Fragen
+
+  * Wie	ist	die	aktuelle	Vorgehensweise	bei	der	Verteilung	der Termine?
+  * Wie	werden	die	Aufträge	spezifiziert?
+  * Nach	welche	Kriterien	werden	die	Servicekräfte	eingeteilt?
+  * Wie	lange	dauert	eine	Wartung?
+  * Soll	ein	bestimmter	(halb-)	Tag	freigehalten	werden	für	Notfälle
+  * Wie	groß	ist	der	Intervall	zwischen	den	Wartungsterminen?
+  * Was geschieht tatsächlich automatisch und wo ist das Zutun eines Mitarbeiters notwendig?
+  * Wer benutzt das System?
+  * Wer kann und darf was?
+  * Wie werden Notfälle gemeldet?
+  * Kann jede Servicekraft jede Anlage warten? (verschiedene Hersteller)
+
+%section{"data-markdown" => ""}
+  \#### 1. Praktikumsaufgabe - Fachliche Fragen
+
+  * In welchem Zeitrahmen soll das Projekt abgewickelt werden?
+  * Woher kommen die Termine? Welche Informationen beinhalten diese?
+  * Gibt es ein System, das einen Notfall meldet, oder erfolgt das per Anruf, Mail, etc.?
+  * Sollen die Wochenpläne automatisch oder manuell erstellt werden?
+  * Soll unsere Firma in Zukunft die Wartung der Software übernehmen?
+  * Haben Anlagenbetreiber Zugriff auf das System, oder wie sollen Fragen, Termine etc. geklärt werden?
+  * Gibt es eine Controlling-Abteilung?
+  * Brauchen die Mitarbeiter Zugriff auf das System?
+  * Bedarf es für unterschiedliche Anlagentypen (Nordex, Enercon, etc.) verschiedene Qualifikationen der Servicekräfte?
+  * Wie lange ist mindestens ein Sachbearbeiter verfügbar?
+  * Wie gelangen die Informationen an die Servicekräfte?
+
+%section{"data-markdown" => ""}
+  \#### 1. Praktikumsaufgabe - Fachliche Fragen
+
+  * Gibt es Bereitschaftsdienste für Servicekräfte und Sachbearbeiter?
+  * Wie ist der Prozess vom manuellen Planen derzeit?
+  * Wie lange dauern die Einsätze für gewöhnlich?
+  * Wie sollen Servicekräfte auf anfallende Termine aufmerksam gemacht werden?
+  * Wie präzise müssen die Termine sein?
+  * In welchen Zeiten finden normale Termine statt?
+  * Können normale Termine für Notfalltermine verschoben werden
+  * Was für Informationen gehören neben Datum und Uhrzeit in einen Termin/Wochenplan/Notfalltermin?
+  * Was unterscheidet einen normalen Termin von einem Notfalltermin?
+  * Sollen die Wochenpläne automatisch aus den Terminen und Notfallterminen erstellt werden?
+  * Wann sollen die Wochenpläne erstellt werden?
+
+%section{"data-markdown" => ""}
+  \#### 1. Praktikumsaufgabe - Fachliche Fragen
+
+  * Wie sollen die Servicekräfte den Terminplan bekommen?
+  * Sollen die Servicekräfte die Möglichkeit haben die zugeteilten Termine abzulehnen?
+  * Sollen abgelehnte Termine automatisch anderen zugewiesen werden?
+  * Wie werden die regelmäßigen Wartungsintervalle festgelegt?
+  * Übernimmt Planungssystem andere Aufgaben als reine Planung, zb. Informieren der Mitarbeiter?
+  * Wer ist für Installation zuständig?
+  * Haben Mitarbeiter verschiedene Zeitkontingente?
+  * Gibt es Qualifizierungs-Unterschiede zwischen den Mitarbeitern?
+  * Steht im Notfall-Fall jeder Mitarbeiter zur Verfügung oder gibt es Bereitschaftzeiten?
+  * Wie lange soll im Voraus geplant werden?
+  * Welche Reaktionszeit im Notfall?
+
+%section{"data-markdown" => ""}
+  \#### 1. Praktikumsaufgabe - Fachliche Fragen
+
+  * Gibt es Bereitschafts-/Springerdienste (für Notfälle/Krankheitsvertretung etc.)?
+  * Gibt es individuellen Mitarbeiterkalender (Urlaubstage etc.)?
+  * Gibt es Präferenzen, welcher Mitarbeiter bei welchem Kunden/Anlage eingesetzt werden soll? Bzw. andere Dinge als Verfügbarkeit bei der Planung zu beachten?
+  * Wie gut muss die automatische Planung optimiert werden?
+  * Kennen Sie bereits eine Planungssoftware die Ihnen gut gefällt?
+  * Sollen nur Arbeitseinsätze geplant werden? Oder auch generelle Arbeitszeit, Urlaub, Abrechnungen etc. ?
+  * Fahrwege der Mitarbeiter?
+  * Wie werden diese Hersteller bezogenen Daten gepflegt?
+  * Werden in Zukunft Hersteller hinzukommen oder wegfallen?
+  * Wie ist das Vorgehen bei Ausfall von Mitarbeitern?
+  * Gibt es immer ein Mitarbeiter pro Anlage oder kann das jeder machen?
+
+%section{"data-markdown" => ""}
+  \#### 1. Praktikumsaufgabe - Fachliche Fragen
+
+  * Sollen Termine manuell verändert werden können?
+  * Können wir uns persönlich treffen?
+  * Welche Möglichkeiten haben wir die Spezifikation zu erarbeiten?
+  * Wer ist Ansprechpartner für fachliche/technische/organisatorische Fragen?
+
+%section{"data-markdown" => ""}
+  \#### 1. Praktikumsaufgabe - Nicht-Funktionale Fragen
+
+  * Anzahl	der	Benutzer	des	zukünftigen	Systems?
+  * Über	wie	viele	Kundendatensätze	verfügen	Sie?
+  * Zahl der betreuten Kunden, Anlagen, …​
+  * wie lang darf die Berechnung der Wochenpläne dauern?
+  * in welchem Maße wird das Unternehmen in Zukunft voraussichtlich wachsen?
+  * Ausfall des Systems gefährdet potentiell das Kapital der betreuten Kunden?
+  * Benutzbarkeit - Besondere Anforderungen?
+  * Erfüllung von DIN-Normen gewünscht/erforderlich?
+  * wie wahrscheinlich ist eine Änderung der Anforderungen in der Zukunft?
+  * rechtliche Rahmenbedingungen?
+  * besondere Anforderungen an die Benutzerauthentifizierung?
+
+%section{"data-markdown" => ""}
+  \#### 1. Praktikumsaufgabe - Nicht-Funktionale Fragen
+
+  * Wie viele Nutzer greifen zeitgleich zu?
+  * Welche Nutzergruppen gibt es?
+  * Welche Performanceanforderungen gibt es? Zum Beispiel Zeit zum Laden einer Seite
+  * Gibt es Benutzer mit Behinderungen? Wenn ja, welche?
+  * Welche Sicherheitsstandards müssen erfüllt werden?
+  * Müssen Lizenzen gekauft oder eingebunden werden?
+  * Welche SLAs mit den Kunden gibt es?
+  * Wie technikaffin sind die Benutzer?
+  * Gibt es Gestaltungsvorlagen / -anforderungen für die GUI?
+  * Welchen Informationsgehalt hat ein Kalendereintrag?
+  * Welche Antwortzeiten sind erwartet?
+
+%section{"data-markdown" => ""}
+  \#### 1. Praktikumsaufgabe - Nicht-Funktionale Fragen
+
+  * Service-Level-Agreement?
+  * Mobile Benutzbarkeit?
+  * wie schnell sollen Notfalltermine berechnet und verteilt werden?
+  * gibt es Anforderungen an die Programmiersprache/ Systemarchitektur?
+  * gibt es rechtliche Einschränkungen? (Datenschutz, unternehmensspezifische Rechte)
+  * welches Budget steht zur Verfügung?
+  * gibt es eine Deadline?
+  * soll es einen anschließenden Supportvertrag geben?
+  * SaaS oder Selbsthosting?
+  * Wie viele Pläne muss die Software verwalten können?
+  * Was für eine Datenmenge muss verarbeitet werden? (Anzahl Kunden/Mitarbeiter)
+
+%section{"data-markdown" => ""}
+  \#### 1. Praktikumsaufgabe - Nicht-Funktionale Fragen
+
+  * Was für Antwortzeiten werden erwartet? (Für Wochenplan und Notfalltermin)
+  * Muss das System skalierbar sein?
+  * Welche Ansprüche bestehen für das Look and Feel?
+  * Welche Ressourcen stehen zur Verfügung? (Hardware)
+  * Muss das System erweiterbar sein?
+  * Gibt es konkrete Sicherheitsanforderungen?
+  * Gibt es GUI? Falls ja, welche Anforderungen gibt es daran?
+  * Wieviele Zugriffe pro Tag/Stunde/Minute?
+  * Zeitanforderungen (Echtzeit, Batchorientiert?)
+  * Wieviele Daten werden im Durchschnitt übertragen?
+
+%section{"data-markdown" => ""}
+  \#### 1. Praktikumsaufgabe - Technische Fragen
+
+  * Welche	Fremdsysteme	nutzen	Sie	neben	dem	CRM-Tool	und	der DB?
+  * Wird	zusätzlich	ein	Rechnungs- /	Buchhaltungssystem	benötigt?
+  * Wie	ist	die	Rechteverteilung	bei	der	Auftragserstellung	geregelt?
+  * Welche	Betriebssprachen	haben	Sie?
+  * Arbeiten	sie	International	z.B. auch	in	Englisch
+  * Wo	soll	die	Software	gehostet	werden?
+  * Sind Server vorhanden?
+
+%section{"data-markdown" => ""}
+  \#### 1. Praktikumsaufgabe - Nicht-Funktionale Fragen
+
+  * Welches CRM? Welche Personaldatenbank? Was ist alles erfasst?
+  * Sollen CRM und Personaldatenbank aus dem System heraus veränderbar sein oder gibt es nur Lesezugriff?
+  * Soll das System permanent erreichbar sein?
+  * Auf wie vielen Systemen soll die Software laufen?
+  * Welche Betriebssysteme auf welcher Hardware müssen unterstützt werden?
+  * welche Endgeräte sind bei Ihnen im Einsatz? (Plattform)
+  * Wie ist die Infrastruktur ?Wie ist die Software-Umgebung für das Zielsystem?
+
+%section{"data-markdown" => ""}
+  \#### 1. Praktikumsaufgabe - Rückblick
+
+  \### Fragen?
 
 %section{"data-markdown" => ""}
   \#### Was ist Softwarearchitektur?
@@ -68,3 +251,934 @@ layout: slide
   \### Architekturmuster
   \#### Dokumentation von Architekturen
   \#### Technologien und Frameworks
+
+%section{"data-markdown" => ""}
+  \### Wiederholung
+  \### Architekturmuster
+
+%section
+  %h4
+    Ein Architekturmuster beschreibt eine bewährte Lösung für ein wiederholt auftretendes Entwurfsproblem
+  %p
+    %i (Effektive Softwarearchitekturen)
+
+%section{"data-markdown" => ""}
+  \### Warum Architekturmuster?
+
+%section{"data-markdown" => ""}
+  \#### Erfolg kommt von Weisheit.
+  \#### Weisheit kommt von Erfahrung.
+  \#### Erfahrung kommt von Fehlern.
+
+%section{"data-markdown" => ""}
+  \#### Aus Fehlern kann man hervorragend lernen.
+  Leider akzeptiert kaum ein Kunde Fehler, nur weil Sie Ihre Erfahrung als Software-Architekt sammeln.
+
+%section{"data-markdown" => ""}
+  \### Architektur: Von der Idee zur Struktur
+  Ein klassischer und systematischer Ansatz der Beherrschung von Komplexität lautet „teile
+  und herrsche“ (divide et impera). Das Problem wird in immer kleinere Teile zerlegt, bis diese
+  Teilprobleme eine überschaubare Größe annehmen.
+
+%section{"data-markdown" => ""}
+  \### Horizontale Zerlegung
+  \#### Jede Schicht stellt einige klar definierte Schnittstellen zur Verfügung und nutzt Dienste von darunter liegenden Schichten.
+
+%section{"data-markdown" => ""}
+  \### Vertikale Zerlegung
+  \#### Jeder Teil übernimmt eine bestimmte fachliche oder technische Funktion.
+
+%section
+  %h4 Prinzipien zur Zerlegung
+
+  %h3 Kapselung (information hiding)
+  %h3 Wiederverwendung
+  %h3 Iterativer Entwurf
+  %h3 Dokumentation von Entscheidungen
+  %h3 Unabhängigkeit der Elemente
+
+%section{"data-markdown" => ""}
+  \#### Chaos zu Struktur / Mud-to-structure
+  \#### Verteilte Systeme
+  \#### Interaktive Systeme
+  \#### Adaptive Systeme
+  \#### Domain-spezifische Architektur
+
+%section
+  %h3 Chaos zu Struktur / Mud-to-structure
+  %ul
+    %li Organisation der Komponenten und Objekte eines Softwaresystems
+    %li Die Funktionalität des Gesamtsystems wird in kooperierende Subsysteme aufgeteilt
+    %li Zu Beginn des Softwareentwurfs werden Anforderungen analysiert und spezifiziert
+    %li Integrierbarkeit, Wartbarkeit, Änderbarkeit, Portierbarkeit und Skalierbarkeit sollen berücksichtigt werden
+
+%section{"data-markdown" => ""}
+  \### Chaos zu Struktur / Mud-to-structure
+  \#### Layers
+  \#### Pipes und Filter
+  \#### Blackboard
+  \#### Domain-driven Design
+
+%section
+  %h3 Verteilte Systeme
+  %ul
+    %li Verteilung von Ressourcen und Dienste in Netzwerken
+    %li Kein "zentrales System" mehr
+    %li Basiert auf guter Infrastruktur lokaler Datennetze
+
+%section{"data-markdown" => ""}
+  \### Verteilte Systeme
+  \#### Serviceorientierte Architektur (SOA)
+  \#### Peer-to-Peer
+  \#### Client-Server
+
+%section
+  %h3 Interaktive Systeme
+  %ul
+    %li Strukturierung von Mensch-Computer-Interaktionen
+    %li Möglichst gute Schnittstellen für die Benutzer schaffen
+    %li Der eigentliche Systemkern bleibt von der Benutzerschnittstelle unangetastet.
+
+%section{"data-markdown" => ""}
+  \### Interaktive Systeme
+  \#### Model View Controller (MVC)
+  \#### Model View Presenter
+  \#### Presentation-Abstraction-Control (PAC)
+
+%section
+  %h3 Adaptive Systeme
+  %ul
+    %li Unterstützung der Erweiterungs- und Anpassungsfähigkeit von Softwaresystemen.
+    %li Das System sollte von vornherein mögliche Erweiterungen unterstützen
+    %li Die Kernfunktionalität sollte davon unberührt bleiben kann.
+
+%section{"data-markdown" => ""}
+  \### Adaptive Systeme
+  \#### Mikrokernel
+  \#### Reflexion
+  \#### Dependency Injection
+
+%section{"data-markdown" => ""}
+  \### Anti-Patterns
+
+%section{"data-markdown" => ""}
+  \#### Anti-Patterns?
+  Ein Anti-Pattern ist in der Softwareentwicklung ein häufig anzutreffender schlechter Lösungsansatz für
+  ein bestimmtes Problem. Es bildet damit das Gegenstück zu den Mustern (Entwurfsmuster, Analysemuster,
+  Architekturmuster, …), welche allgemein übliche und bewährte Problemlösungsansätze beschreiben.
+
+%section{"data-markdown" => ""}
+  \### Blendwerk
+  Das Blendwerk (englisch *Smoke and mirrors*) bezeichnet nicht fertige Funktionen, welche als fertig vorgetäuscht werden.
+
+%section{"data-markdown" => ""}
+  \### Aufgeblähte Software
+  Als Bloatware (englisch *„aufblähen“*) wird Software bezeichnet, die mit Funktionen überladen ist
+  bzw. die Anwendungen sehr unterschiedlicher Arbeitsfelder ohne gemeinsamen Nutzen bündelt. Für den
+  Anwender macht dies das Programm unübersichtlich, für Entwickler unwartbar.
+
+%section{"data-markdown" => ""}
+  \### Feature creep
+  bezeichnet es, wenn der Umfang der zu entwickelnden Funktionalität in einem Projektplan
+  festgehalten wird, diese aber dauernd erweitert wird.
+  %p
+  Der Kunde versucht, nach der Erstellung des Projektplanes weitere Funktionalität
+  mit unterzubringen. Dies führt zu Problemen, wenn die in Arbeit befindliche Version nicht das
+  notwendige Design aufweist, Termine nicht eingehalten werden können oder die realen Kosten
+  über die planmäßigen Kosten wachsen.
+
+%section{"data-markdown" => ""}
+  \### Scope creep
+  ist ähnlich wie der Feature creep, jedoch nicht auf Funktionalität bezogen, sondern auf den
+  Anwendungsbereich. Auch hier zeichnet sich der Auftraggeber dadurch aus, dass er geschickt
+  und versteckt den Umfang der Software nachträglich erweitern möchte, ohne dass er dies
+  explizit zugibt.
+
+%section{"data-markdown" => ""}
+  \### Death Sprint
+  Bei einem Death Sprint (Überhitzter Projektplan) wird Software iterativ bereitgestellt. Die Bereitstellung
+  erfolgt hierbei in einer viel zu kurzen Zeitspanne. Nach außen sieht das Projekt zunächst sehr erfolgreich
+  aus, da immer wieder neue Versionen mit neuen Eigenschaften abgeschlossen werden. Allerdings leidet die
+  Qualität des Produktes sowohl nach außen sichtbar, wie auch technisch, was allerdings nur der
+  Entwickler erkennt. Die Qualität nimmt ab mit jeder „erfolgreichen“ neuen Iteration.
+
+%section{"data-markdown" => ""}
+  \### Death March
+  Ein Death March (Todesmarsch; gelegentlich auch Himmelfahrtskommando) ist das Gegenteil von einem
+  Überhitzten Projektplan. Ein Todesmarschprojekt zieht sich ewig hin.
+  %p
+  Ein Todesmarschprojekt kann auch bewusst in Kauf genommen werden, um von Defiziten in der
+  Organisation abzulenken und Entwicklungen zu verschleppen, d. h. so lange an etwas zu
+  entwickeln, bis eine nicht genau spezifizierte Eigenschaft in irgendeiner Form subjektiv funktioniert.
+
+%section{"data-markdown" => ""}
+  \### Brooks’sches Gesetz
+
+  \## “Adding manpower to a late software project makes it later.”
+
+%section{"data-markdown" => ""}
+  \### Big Ball of Mud
+  bezeichnet ein Programm, das keine erkennbare Softwarearchitektur besitzt. Die häufigsten Ursachen dafür
+  sind ungenügende Erfahrung, fehlendes Bewusstsein für Softwarearchitektur, Fluktuation der Mitarbeiter
+  sowie Druck auf die Umsetzungsmannschaft. Obwohl derartige Systeme aus Wartbarkeitsgründen unerwünscht
+  sind, sind sie dennoch häufig anzutreffen.
+
+%section{"data-markdown" => ""}
+  \### Gasfabrik
+  Als Gasfabrik (englisch *Gas factory*) werden unnötig komplexe Systementwürfe für relativ simple Probleme bezeichnet.
+
+%section{"data-markdown" => ""}
+  \### The Blob / Gottobjekt
+  Ein Objekt (“Blob“) enthält den Großteil der Verantwortlichkeiten,
+  während die meisten anderen Objekte nur elementare Daten speichern oder elementare Dienste anbieten.
+
+%section{"data-markdown" => ""}
+  \### Zwiebel
+  Als Zwiebel (engl. Onion) bezeichnet man Programmcode, bei dem neue Funktionalität um (oder über) die alte gelegt wird.
+  %p
+  Häufig entstehen Zwiebeln, wenn ein Entwickler ein Programm erweitern soll, das er nicht geschrieben hat.
+  Der Entwickler möchte oder kann die bereits existente Lösung nicht komplett verstehen und setzt seine neue
+  Lösung einfach drüber. Dies führt mit einer Vielzahl von Versionen und unterschiedlichen Entwicklern über
+  die Jahre zu einem Zwiebel-System.
+
+%section{"data-markdown" => ""}
+  \### Cut-and-Paste Programming
+  Code wird an zahlreichen Stellen wiederverwendet, indem er kopiert und verändert wird.
+  Dies sorgt für Wartungsprobleme
+  \#### Lösung: Black-Box-Wiederverwendung, Refaktorisierung
+
+%section{"data-markdown" => ""}
+  \### Lava Flow
+  Ein Lavafluss (englisch Lava flow oder Dead Code) beschreibt den Umstand, dass in einer Anwendung immer mehr
+  „toter Quelltext“ herumliegt. Dieser wird nicht mehr genutzt. Statt ihn zu löschen, werden im Programm immer
+  mehr Verzweigungen eingebaut, die um den besagten Quelltext herumlaufen oder auf ihm aufbauen. Redundanter
+  Code ist der Überbegriff zu totem Code.
+
+%section{"data-markdown" => ""}
+  \### The Golden Hammer / Wunderwaffe
+  Ein bekanntes Verfahren ( Golden ”Hammer“) wird auf alle moglichen Probleme angewandt
+  Wer als einziges Werkzeug nur einen Hammer kennt, lebt in einer Welt voller Nägel.
+  \#### Lösung: Ausbildung verbessern
+
+%section{"data-markdown" => ""}
+  \### Reinvent the Wheel
+  Da es an Wissen uber vorhandene Produkte und Lösungen (auch innerhalb der Firma) fehlt,wird das Rad stets neu erfunden.
+  Erhöhte Entwicklungskosten und Terminprobleme.
+  \##### Lösung: Wissensmanagement verbessern
+
+%section{"data-markdown" => ""}
+  \### Das quadratische Rad neu erfinden
+  Mit das quadratische Rad neu erfinden (englisch Reinventing the square wheel) bezeichnet man
+  die Bereitstellung einer schlechten Lösung, wenn eine gute Lösung bereits existiert.
+
+%section{"data-markdown" => ""}
+  \### Body ballooning
+  Beim Body ballooning handelt der Vorgesetzte ausschließlich aus der Bestrebung heraus, seine
+  Machtposition auszubauen, welche sich entweder aus der Unternehmensstruktur oder auch rein
+  subjektiv aus der Anzahl der Mitarbeiter unter sich definiert. Dies kann dazu führen,
+  dass der Vorgesetzte bewusst arbeitsintensivere Lösungen und Arbeitstechniken den effizienten vorzieht.
+
+%section{"data-markdown" => ""}
+  \### Empire building
+  Durch sachlich nicht nachvollziehbare, nicht konstruktive Maßnahmen versucht ein einzelner,
+  seine Macht auszubauen bzw. zu erhalten. Dies kann Body ballooning sein, aber auch das ständige
+  Beschuldigen anderer, gerade derer, die nicht mehr für die Unternehmung arbeiten, die Ausführung von
+  pathologischer Politik, Diskreditierung, Mobbing und sonstige Facetten, die nur darauf abzielen,
+  die eigene Position zu stärken bzw. den eigenen Status zu halten.
+
+%section{"data-markdown" => ""}
+  \### Warme Leiche
+  Eine warme Leiche (englisch warm body) bezeichnet eine Person, die einen zweifelhaften oder keinen Beitrag zu einem Projekt leistet.
+
+%section{"data-markdown" => ""}
+  \### Single head of knowledge
+  Ein Single head of knowledge ist ein Individuum, welches zu einer Software, einem Werkzeug oder
+  einem anderen eingesetzten Medium, als einziges unternehmensweit das Wissen besitzt. Dies zeugt
+  häufig von fehlendem Wissensmanagement, mangelndem Austausch zwischen den Kollegen oder Defiziten in
+  der Organisation, kann aber auch von dem Individuum bewusst angestrebt worden sein.
+
+%section{"data-markdown" => ""}
+  \##### Chaos zu Struktur / Mud-to-structure
+  \### Layers
+  \#### Pipes und Filter
+  \#### Blackboard
+  \#### Domain-driven Design
+
+%section{"data-markdown" => ""}
+  \##### Layers
+  Das Layers-Muster trennt eine Architektur in verschiedene Schichten, von denen jede eine Unteraufgabe auf einer bestimmten Abstraktionsebene realisiert.
+
+%section{"data-markdown" => ""}
+  \##### Layers
+  Das Layers-Muster gliedert ein System in zahlreiche Schichten.
+  Jede Schicht schützt die unteren Schichten vor direktem Zugriff
+  durch höhere Schichten.
+
+%section{"data-markdown" => ""}
+  \##### Layers
+  ![](/images/layers.png)
+
+
+%section{"data-markdown" => ""}
+  \##### Layers
+  \#### Dynamisches Verhalten
+
+  \### Top-Down Anforderung
+  Eine Anforderung des Benutzers wird von der obersten Schicht entgegengenommen.
+  Diese resultiert in Anforderungen der unteren Schichten bis hinunter auf die unterste Ebene.
+  Ggf. werden die Ergebnisse der unteren Schichten wieder nach oben weitergeleitet, bis das letzte
+  Ergebnis an den Benutzer zurückgegeben wird.
+
+%section{"data-markdown" => ""}
+  \##### Layers
+  \#### Dynamisches Verhalten
+
+  \### Bottom-Up Anforderung
+  Hier empfängt die unterste Schicht ein Signal, das an die oberen Schichten weitergeleitet wird.
+  Schließlich benachrichtigt die oberste Schicht den Benutzer.
+
+%section{"data-markdown" => ""}
+  \##### Layers
+  \#### Dynamisches Verhalten: Protokoll Stack
+  In diesem Szenario kommunizieren zwei n-Schichten-Stacks miteinander.
+  Eine Anforderung wandert durch den ersten Stack hinunter, wird übertragen und
+  schließlich als Signal vom zweiten Stack empfangen.
+  Jede Schicht verwaltet dabei ihr eigenes Protokoll.
+
+%section
+  %h5 Layers
+  %h3 Vorteile
+  %ul
+    %li Wiederverwendung und Austauschbarkeit von Schichten
+    %li Unterstützung von Standards
+    %li Einkapselung von Abhängigkeiten
+
+%section
+  %h5 Layers
+  %h3 Nachteile
+  %ul
+    %li Geringere Effizienz
+    %li Mehrfache Arbeit (z.B. Fehlerkorrektur)
+    %li Schwierigkeit, die richtige Anzahl Schichten zu bestimmen
+
+%section
+  %h5 Layers
+  %h4 Bekannte Einsatzgebiete:
+  %ul
+    %li Application Programmer Interfaces (APIs)
+    %li Datenbanken
+    %li Betriebssysteme
+    %li Kommunikation. . .
+
+%section{"data-markdown" => ""}
+  \##### Chaos zu Struktur / Mud-to-structure
+  \#### Layers
+  \### Pipes und Filter
+  \#### Blackboard
+  \#### Domain-driven Design
+
+%section
+  %h5 Pipes and Filters
+  %h4 Eine Pipes-and-Filter Architektur eignet sich für Systeme, die Datenströme verarbeiten.
+
+%section{"data-markdown" => ""}
+  \##### Pipes and Filters
+
+  ![](/images/filters1.png)
+
+%section
+  %h5 Pipes and Filters
+
+  Das Pipes-and-Filters Muster strukturiert Systeme, in dem Kontext „Verarbeitung von
+  Datenströmen“. Die Verarbeitungsschritte werden in Filter eingekapselt und lassen sich
+  so beliebig anordnen und getrennt voneinander entwickeln.
+
+%section
+  %h5 Pipes and Filters
+  Der Kommandointerpreter sowie viele Werkzeuge
+  des Unix Betriebssystems sind nach dem Pipes-and-
+  Filter Muster gebaut. Die Ausgabe des einen dient
+  als Eingabe für das nächste Werkzeug:
+
+%section
+  %h5 Pipes and Filters
+  Anzahl Kommentarzeilen in PHP-Datei ausgeben
+  %pre
+    %code
+      :preserve
+        cat LocalSettings.php | grep "^ * [#|//]" | wc − l
+
+%section
+  %h5 Pipes and Filters
+  %h4 Vorteile
+  %ul
+    %li Flexibilität durch Austausch und Hinzufügen von Filtern
+    %li Flexibilität durch Neuanordnung
+    %li Wiederverwendung einzelner Filter
+    %li Rapid Prototyping von Pipeline Prototypen
+    %li Zwischendateien sind nicht notwendig aber so gewünscht möglich
+    %li Parallel-Verarbeitung möglich
+
+%section
+  %h5 Pipes and Filters
+  %h4 Nachteile
+  %ul
+    %li Die Kosten der Datenübertragung zwischen den Filtern können je nach Pipe sehr hoch sein
+    %li Häufig überflüssige Datentransformationen zwischen den einzelnen Filterstufen
+    %li Fehlerbehandlung über Filterstufen hinweg ist teilweise schwierig
+    %li Gemeinsamer Zustand (z.B. Symboltabelle in Compilern) ist teuer und unflexibel
+    %li Effizienzsteigerung durch Parallelisierung oft nicht möglich (z.B. da Filter aufeinander warten oder nur ein Prozessor arbeitet)
+
+%section{"data-markdown" => ""}
+  \##### Chaos zu Struktur / Mud-to-structure
+  \#### Layers
+  \#### Pipes und Filter
+  \### Blackboard
+  \#### Domain-driven Design
+
+%section
+  %h5 Blackboard
+
+  Das Blackboard Muster wird angewendet bei Problemen, die nicht auf eine eindeutige
+  Lösungsstrategie hindeuten. Den Kontext für „Blackboard“ bilden somit Problembereiche,
+  für die es noch keine festgelegten Lösungsstrategien gibt. Beispiele hierfür sind
+  Spracherkennungs-, Bildverarbeitungs-, sowie Überwachungssysteme.
+
+%section{"data-markdown" => ""}
+  \##### Blackboard
+
+  ![](/images/blackboard.png)
+
+%section{"data-markdown" => ""}
+  \##### Chaos zu Struktur / Mud-to-structure
+  \#### Layers
+  \#### Pipes und Filter
+  \#### Blackboard
+  \### Domain-driven Design
+
+%section
+  %h5 Domain-driven Design
+  %p
+    Domain-driven Design ist nicht nur eine Technik oder Methode. Es ist viel mehr eine Denkweise und
+    Priorisierung zur Steigerung der Produktivität von Softwareprojekten im Umfeld komplexer fachlicher
+    Zusammenhänge
+
+%section
+  %h5 Domain-driven Design
+  %p
+    Domain-driven Design basiert auf folgenden zwei Annahmen:
+  %ul
+    %li Der Schwerpunkt des Softwaredesigns liegt auf der Fachlichkeit und der Fachlogik.
+    %li Der Entwurf komplexer fachlicher Zusammenhänge sollte auf einem Modell der Anwendungsdomäne, dem Domänenmodell basieren.
+
+%section
+  %h5 Domain-driven Design
+  %h4 Konzepte
+  %p
+    Domain-driven Design basiert auf einer Reihe von Konzepten, welche bei der Modellierung, aber auch
+    anderen Tätigkeiten der Softwareentwicklung, berücksichtigt werden sollten.
+  %p
+    Der Kern ist die Einführung einer allgemein verwendeten (ubiquitous) Sprache, welche in allen Bereichen der
+    Softwareerstellung verwendet werden sollte.
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Bestandteile des Domänenmodells
+  %p Domain-driven Design unterscheidet die folgenden Bestandteile des Domänenmodells:
+  %br
+  ![](/images/DomainDrivenDesign_map.png)
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Entitäten *(Entities, reference objects)*
+  %p
+    Objekte des Modelles, welche nicht durch ihre Eigenschaften, sondern durch ihre Identität definiert werden.
+  \#### Beispiel: "Person"
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Wertobjekte *(value objects)*
+  %p
+    Objekte des Modelles, welche keine konzeptionelle Identität haben oder benötigen und somit allein durch ihre Eigenschaften definiert werden.
+  %p
+    Wertobjekte werden üblicherweise als unveränderliche Objekte (immutable objects) modelliert, damit sind sie
+    wiederverwendbar und verteilbar.
+  \#### Beispiel: "Konfiguration"
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Aggregate *(aggregates)*
+  %p
+    Aggregate sind Zusammenfassungen von Entitäten und Wertobjekten und deren Assoziationen untereinander zu
+    einer gemeinsamen transaktionalen Einheit.
+  %p
+    Aggregate definieren genau eine Entität als einzigen Zugriff auf das gesamte Aggregat. Alle anderen
+    Entitäten und Wertobjekte dürfen von außerhalb nicht statisch referenziert werden. Damit wird garantiert,
+    dass alle Invarianten des Aggregats und der einzelnen Bestandteile des Aggregats sichergestellt werden können.
+  \#### Beispiel: "Datenbanktransaktion"
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Assoziationen *(associations)*
+  %p
+    Assoziationen sind, wie bei UML definiert, Beziehungen zwischen zwei oder mehr Objekten des Domänenmodells.
+  %p
+    Hier werden nicht nur statische, durch Referenzen definierte Beziehungen betrachtet, sondern auch dynamische
+    Beziehungen, die beispielsweise erst durch die Abarbeitung von SQL-Queries entstehen.
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Serviceobjekte *(services)*
+  %p
+    Bei Domain-driven Design werden Funktionalitäten, welche ein wichtiges Konzept der Fachlichkeit darstellen und
+    konzeptionell zu mehreren Objekten des Domänenmodells gehören, als eigenständige Serviceobjekte modelliert.
+  %p
+    Serviceobjekte sind üblicherweise zustandslose (eng. stateless) und daher wiederverwendbare Klassen ohne
+    Assoziationen, mit Methoden, die den angebotenen Funktionalitäten entsprechen. Diese Methoden bekommen die
+    Wertobjekte und Entitäten übergeben, die zur Abarbeitung der Funktionalität notwendig sind.
+  \#### Beispiel: "API Wrapper"
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Fachliche Ereignisse *(domain events)*
+  %p
+    Fachliche Ereignisse sind Objekte, welche komplexe, sich unter Umständen dynamisch ändernde, Aktionen des
+    Domänenmodells beschreiben, die ein oder mehrere Aktionen oder Änderungen in den Fachobjekten bewirken.
+  %p
+    Fachliche Ereignisse ermöglichen auch die Modellierung verteilter Systeme. Die einzelnen Subsysteme
+    kommunizieren ausschließlich über fachliche Ereignisse, damit werden sie stark entkoppelt und das
+    gesamte System somit wartbarer und skalierbarer.
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Module *(modules, packages)*
+  %p
+    Module teilen das Domänenmodell in fachliche (nicht technische) Bestandteile. Sie sind gekennzeichnet
+    durch starke innere Kohäsion und geringe Kopplung zwischen den Modulen.
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Fabriken *(factories)*
+  %p
+    Fabriken dienen dazu, die Erzeugung von Fachobjekten in spezielle Fabrik-Objekte auszulagern.
+  %p
+    Dies ist sinnvoll, wenn entweder die Erzeugung komplex ist (und beispielsweise Assoziationen benötigt, die
+    das Fachobjekt selbst nicht mehr benötigt) oder die spezifische Erzeugung der Fachobjekte zur Laufzeit ausgetauscht
+    werden können soll.
+  %p
+    *Fabriken werden üblicherweise durch erzeugende Entwurfsmuster wie abstrakte Fabrik, Fabrikmethode oder Erbauer umgesetzt.*
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Repositories
+  %p
+    Repositories abstrahieren die Persistierung und Suche von Fachobjekten. Mittels Repositories werden die
+    technische Infrastruktur sowie alle Zugriffsmechanismen auf diese von der Geschäftslogikschicht getrennt.
+  %p
+    Für alle Fachobjekte, welche über die Infrastruktur-Schicht geladen werden, wird eine Repository-Klasse
+    bereitgestellt, welche die verwendeten Lade- und Suchtechnologien nach außen abkapselt. Die Repositories
+    selbst sind Teil des Domänenmodells und somit Teil der Geschäftslogikschicht. Sie greifen als einzige
+    auf die Objekte der Infrastruktur-Schicht zu.
+
+%section{"data-markdown" => ""}
+  \##### Chaos zu Struktur / Mud-to-structure
+  \#### Layers
+  \#### Pipes und Filter
+  \#### Blackboard
+  \### Domain-driven Design
+
+%section{"data-markdown" => ""}
+  \### Fragen?
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \### Architekturtechniken
+  \#### Evolvierende Struktur (evolving order)
+  \#### Systemmetapher (system metaphor)
+  \#### Verantwortlichkeitsschichten (responsibility layers)
+  \#### Wissenslevel (knowledge level)
+  \#### Erweiterungsframeworks (pluggable component framework)
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Evolvierende Struktur *(evolving order)*
+  Große Strukturen im Domänenmodell sollten idealerweise erst mit der Zeit entstehen, beziehungsweise sich über die Zeit entwickeln.
+  %p
+  Große Strukturen sollten möglichst einfach und mit möglichst wenigen Ausnahmen umgesetzt sein.
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Systemmetapher *(system metaphor)*
+  Die Systemmetapher ist ein Konzept aus Extreme Programming, welche die Kommunikation zwischen allen Beteiligten erleichtert,
+  indem es das System mittels einer Metapher, einer inhaltlich ähnlichen, für alle Seiten verständlichen Alltagsgeschichte
+  beschreibt. Diese sollte möglichst gut passen und zur Stärkung der ubiquitären Sprache verwendet werden.
+
+%section
+  %h5 Domain-driven Design
+  %h4 Verantwortlichkeitsschichten *(responsibility layers)*
+  %p
+    Aufteilung des Domänenmodells in Schichten gemäß Verantwortlichkeiten.
+    Domain-driven Design schlägt folgende Schichten vor:
+  %ul
+    %li Entscheidungsschicht
+    %li Regelschicht
+    %li Zusagen
+    %li Arbeitsabläufe
+    %li Potential
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Wissenslevel *(knowledge level)*
+  %p
+    Wissenslevel beschreibt das explizite Wissen über das Domänenmodell.
+    Es ist in Situationen notwendig, wo die Abhängigkeiten und Rollen zwischen den Entitäten
+    situationsbedingt variieren.
+  %p
+    Das Wissenslevel sollte diese Abhängigkeiten und Rollen
+    von außen anpassbar enthalten, damit das Domänenmodell weiterhin konkret und ohne
+    unnötige Abhängigkeiten bleiben kann.
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Erweiterungsframeworks *(pluggable component framework)*
+  ist die Überlegung verschiedene Systeme über ein Komponentenframework miteinander zu verbinden.
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \### Vorgehensweisen
+  %p
+    Domain-driven Design definiert eine Reihe von Vorgehensweisen, welche dazu dienen die Integrität
+    der Modelle zu gewährleisten.
+  %p
+    Dies ist insbesondere dann notwendig, wenn mehrere Teams unter
+    unterschiedlichem Management und Koordination an verschiedenen Fachlichkeiten, aber in einem
+    großen Projekt zusammenarbeiten sollen.
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \### Vorgehensweisen
+  ![](/images/Maintaining_Model_Integrity.png)
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Vision der Fachlichkeit *(domain vision statement)*
+  ist eine kurze Beschreibung der hinter der Kernfachlichkeit stehenden Vision und der damit verbundenen Ziele.
+  %p
+    Sie gibt die Entwicklungsrichtung des Domänenmodells vor und dient als Bindeglied zwischen Projektvision/Systemmetapher
+    und den Details der Kernfachlichkeit und des Codes.
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Kontextübersicht *(context map)*
+  dient einer gesamthaften Übersicht über alle Modelle, deren Grenzen und Schnittstellen.
+  %p
+    Dadurch wachsen die Kontexte nicht
+    in Bereiche anderer Kontexte und die Kommunikation zwischen den Kontexten läuft über wohldefinierte Schnittstellen.
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Kontextgrenzen *(bounded context)*
+  beschreiben die Grenzen jedes Kontexts in vielfältiger Hinsicht wie beispielsweise Teamzuordnung, Verwendungszweck,
+  dahinter liegende Datenbankschemata.
+  %p
+    Damit wird klar, wo ein Kontext seine Gültigkeit verliert und potentiell ein anderer Kontext seinen Platz einnimmt.
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Kernfachlichkeit *(core domain)*
+  ist der wertvollste Teil des Domänenmodells, der Teil, welcher am meisten Anwendernutzen stiftet.
+  %p
+    Die anderen Teile des Domänenmodells dienen vor allem dazu die Kernfachlichkeit zu unterstützen und mit
+    weniger wichtigen Funktionen anzureichern.
+  %p
+    Bei der Modellierung sollte besonderes Augenmerk auf die
+    Kernfachlichkeit gelegt werden und sie sollte durch die besten Entwickler umgesetzt werden.
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Geteilter Kern *(shared kernel)*
+  ist ein Teil der Fachlichkeit der zwischen unterschiedlichen Projektteilen geteilt wird.
+  %p
+    Dies ist sinnvoll, wenn die verschiedenen Projektteile nur lose miteinander verbunden sind und
+    das Projekt zu groß ist um in einem Team umgesetzt zu werden. Der geteilte Kern wird hierbei
+    von allen Projektteams, die ihn nützen, gemeinsam entwickelt.
+  %p *Dies benötigt sowohl viel Abstimmungs- als auch Integrationsaufwand.*
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Kunde-Lieferant *(customer-supplier)*
+  ist die Metapher für die Beziehung zwischen Projektteams, bei denen ein Team eine Fachlichkeit umsetzt,
+  auf die das andere Team aufbaut.
+  %p
+    Damit wird sichergestellt, dass das abhängige Team vom umsetzenden Team gut unterstützt wird,
+    da ihre Anforderungen mit derselben Priorität umgesetzt werden, wie die eigentlichen Anforderungen an das Lieferantenteam.
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Separierter Kern *(segregated core)*
+  bezeichnet die Überlegung die Kernfachlichkeit, auch wenn sie eng mit unterstützenden Modellelementen gekoppelt ist,
+  in ein eigenes Modul zu verlagern und die Kopplung mit anderen Modulen zu reduzieren.
+  %p
+    Damit wird die Kernfachlichkeit vor hoher Komplexität bewahrt und die Wartbarkeit erhöht.
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Generische Sub-Fachlichkeiten *(generic subdomains)*
+  bezeichnet die Idee, diejenigen Teile des Domänenmodells, welche nicht zur Kernfachlichkeit gehören, in Form
+  von möglichst generischen Modellen in eigenen Modulen abzulegen.
+  %p
+    Diese könnten, da sie nicht die Kernfachlichkeit repräsentieren und generisch sind, outgesourced
+    entwickelt oder durch Standardsoftware ersetzt werden.
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Kontinuierliche Integration *(continuous integration)*
+  dient beim Domain-driven Design dazu, alle Veränderungen eines Domänenmodells laufend miteinander
+  zu integrieren und gegen bestehende Fachlichkeit automatisiert testen zu können.
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Literatur
+  \### "Domain-Driven Design. Tackling Complexity in the Heart of Software"
+  *(Eric Evans)*
+
+
+%section{"data-markdown" => ""}
+  \### Fragen?
+
+%section{"data-markdown" => ""}
+  \#### Chaos zu Struktur / Mud-to-structure
+  \### Verteilte Systeme
+  \#### Interaktive Systeme
+  \#### Adaptive Systeme
+  \#### Domain-spezifische Architektur
+
+
+%section{"data-markdown" => ""}
+  \##### Verteilte Systeme
+  \### Serviceorientierte Architektur (SOA)
+  \#### Peer-to-Peer
+  \#### Client-Server
+
+%section{"data-markdown" => ""}
+  \#### Serviceorientierte Architektur (SOA)
+
+  \### "SOA ist ein Paradigma für die Strukturierung und Nutzung verteilter Funktionalität, die von unterschiedlichen Besitzern verantwortet wird."
+
+%section{"data-markdown" => ""}
+  \#### Serviceorientierte Architektur (SOA)
+
+  * SOA soll Dienste von IT-Systemen strukturieren und zugänglich machen.
+  * SOA orientiert sich an Geschäftsprozessen
+  * Geschäftsprozesse sind die Grundlage für konkrete Serviceimplementierungen
+
+%section{"data-markdown" => ""}
+  \#### Serviceorientierte Architektur (SOA)
+
+  \#### Beispiel für einen Geschäftsprozess: **„Vergib einen Kredit“**
+
+  * Auf einer hohen Ebene angesiedelt
+  * Zusammengesetzt aus
+  * _„Eröffnen der Geschäftsbeziehung“_
+  * _„Eröffnen eines oder mehrerer Konten“_
+  * _„Kreditvertrag“_
+
+%section{"data-markdown" => ""}
+  \#### Serviceorientierte Architektur (SOA)
+
+  \#### Beispiel für einen Geschäftsprozess: **„Trage den Kunden ins Kundenverzeichnis ein“**
+
+  * Auf einer niedrigeren Ebene angesiedelt.
+  * Durch Zusammensetzen (Orchestrierung) von Services niedriger Abstraktionsebenen können flexibel und wiederverwendbar Services höherer Abstraktionsebenen geschaffen werden.
+
+%section{"data-markdown" => ""}
+  \#### Serviceorientierte Architektur (SOA)
+
+  Maßgeblich sind nicht technische Einzelaufgaben wie Datenbankabfragen, Berechnungen
+  und Datenaufbereitungen, sondern die Zusammenführung dieser IT-Leistungen zu
+  „höheren Zwecken“, die eine Organisationsabteilung anbietet.
+
+%section{"data-markdown" => ""}
+  \#### Serviceorientierte Architektur (SOA)
+
+  Bei SOA handelt es sich um eine Struktur, welche die Unternehmensanwendungsintegration
+  ermöglicht, indem die Komplexität der einzelnen Anwendungen („Applications“) hinter den
+  standardisierten Schnittstellen verborgen wird.
+
+%section{"data-markdown" => ""}
+  \#### Serviceorientierte Architektur (SOA)
+
+  * Eine technische Form der Umsetzung von SOA ist das Anbieten dieser Dienste im Internet oder in der Cloud.
+  * Die Kommunikation zwischen solchen angebotenen Diensten kann über  SOAP, REST, XML-RPC oder ähnliche Protokolle erfolgen.
+
+%section{"data-markdown" => ""}
+  \#### Serviceorientierte Architektur (SOA)
+
+  * Der Nutzer dieser Dienste weiß nur, dass der Dienst angeboten wird, welche Eingaben er erfordert und welcher Art das Ergebnis ist.
+  * Details über die Art und Weise der Ergebnisermittlung müssen nicht bekannt sein.
+
+%section{"data-markdown" => ""}
+  \#### Serviceorientierte Architektur (SOA)
+
+  * Ein Dienst ist eine IT-Repräsentation von fachlicher Funktionalität.
+  * Ein Dienst ist in sich abgeschlossen (autark) und kann eigenständig genutzt werden.
+  * Ein Dienst ist in einem Netzwerk verfügbar.
+  * Ein Dienst hat eine wohldefinierte veröffentlichte Schnittstelle (Vertrag). Für die Nutzung reicht es, die Schnittstelle zu kennen. Kenntnisse über die Details der Implementierung sind hingegen nicht erforderlich.
+
+%section{"data-markdown" => ""}
+  \#### Serviceorientierte Architektur (SOA)
+
+  * Ein Dienst ist plattformunabhängig, d. h. Anbieter und Nutzer eines Dienstes können in unterschiedlichen Programmiersprachen auf verschiedenen Plattformen realisiert sein.
+  * Ein Dienst ist in einem Verzeichnis registriert.
+  * Ein Dienst ist dynamisch gebunden, d. h. bei der Erstellung einer Anwendung, die einen Dienst nutzt, braucht der Dienst nicht vorhanden zu sein. Er wird erst bei der Ausführung lokalisiert und eingebunden.
+  * Ein Dienst sollte grobgranular sein, um die Abhängigkeit zwischen verteilten Systemen zu senken.
+
+%section{"data-markdown" => ""}
+  \#### Serviceorientierte Architektur (SOA)
+
+  \### Vorteile
+  * Eine agile IT-Umgebung, die schnell auf geschäftliche Veränderungen reagieren kann
+  * Niedrigere Gesamtbetriebskosten durch die Wiederverwendung von Services
+  * Höhere Leistung, größere Skalierbarkeit und Transparenz
+  * Dienstleistungen und Produkte können schneller auf den Markt gebracht werden
+
+%section{"data-markdown" => ""}
+  \#### Serviceorientierte Architektur (SOA)
+
+  \### Nachteile
+  * SOA wird von Marketingabteilungen gehyped: Einführung von SOA ist die Lösung aller bisherigen Probleme
+  * SOA generiert einen höheren Aufwand als bisherige monolithische Programmstrukturen.
+  * SOA erzeugt im Code wesentlich komplexere Abläufe
+  * SOA setzt für die beteiligten Entwickler ein erhebliches Know-how voraus.
+  * _Somit sind Entwickler auch nicht so einfach ersetzbar, und die Abhängigkeit der Unternehmen von einzelnen Entwicklern steigt deutlich._
+
+
+%section{"data-markdown" => ""}
+  \##### Verteilte Systeme
+  \#### Serviceorientierte Architektur (SOA)
+  \### Peer-to-Peer
+  \#### Client-Server
+
+%section{"data-markdown" => ""}
+  \#### Peer-to-Peer
+
+  \### In einem reinen Peer-to-Peer-Netz sind alle Computer gleichberechtigt und können sowohl Dienste in Anspruch nehmen, als auch zur Verfügung stellen.
+
+%section{"data-markdown" => ""}
+  \#### Peer-to-Peer
+  ![](/images/PeerToPeer.jpg)
+
+%section{"data-markdown" => ""}
+  \#### Peer-to-Peer
+
+  In modernen P2P-Netzwerken werden die Netzwerkteilnehmer abhängig von ihrer Qualifikation in verschiedene
+  Gruppen eingeteilt, die spezifische Aufgaben übernehmen. Kernkomponente aller modernen Peer-to-Peer-Architekturen,
+  ist daher ein zweites internes Overlay-Netz, welches normalerweise aus den besten Computern des Netzwerks besteht
+  und die Organisation der anderen Computer sowie die Bereitstellung der Such-Funktion übernimmt.
+
+%section{"data-markdown" => ""}
+  \#### Peer-to-Peer
+
+  * Mit der Suchfunktion ("lookup") können Peers im Netzwerk diejenigen Peers identifizieren, die für ein bestimmtes Objekt zuständig sind.
+  * Strukturierte Peer-to-Peer Netze: Die Verantwortlichkeit für jedes einzelne Objekt ist mindestens einem Peer fest zugeteilt
+  * Unstrukturierte Peer-to-Peer Netze: Es gibt für die Objekte im P2P-System keine Zuordnungsstruktur
+
+%section{"data-markdown" => ""}
+  \#### Peer-to-Peer
+
+  * Sobald die Peers, die die gesuchten Objekte halten, identifiziert wurden, wird die Datei (in Dateitauschbörsen) direkt von Peer zu Peer übertragen.
+  * Es existieren unterschiedliche Verteilungsstrategien, welche Teile der Datei von welchem Peer heruntergeladen werden soll, z. B. BitTorrent.
+
+%section{"data-markdown" => ""}
+  \#### Peer-to-Peer
+
+  \#### Typische Eigenschaften:
+
+  * Hohe Heterogenität bezüglich der Bandbreite, Rechenkraft, Online-Zeit
+  * Die Verfügbarkeit und Verbindungsqualität der Peers kann nicht vorausgesetzt werden
+  * Peers bieten Dienste und Ressourcen an und nehmen Dienste anderer Peers in Anspruch
+  * Dienste und Ressourcen können zwischen allen teilnehmenden Peers ausgetauscht werden.
+  * Peers haben eine signifikante Autonomie (über die Ressourcenbereitstellung).
+  * Das P2P-System ist selbstorganisierend.
+
+%section{"data-markdown" => ""}
+  \#### Peer-to-Peer
+
+  \### Vorteile
+  * alle Computer sind gleichberechtigt
+  * Kostengünstiger als Servernetzwerke
+  * Kein leistungsstarker zentraler Server erforderlich
+  * Keine spezielle Netzwerksoftware erforderlich
+  * Benutzer verwalten sich selbst
+  * Keine hierarchische Netzwerkstruktur
+
+%section{"data-markdown" => ""}
+  \#### Peer-to-Peer
+
+  \### Nachteile
+  * Zentrale Sicherheitsaspekte sind nicht von Bedeutung
+  * Sehr schwer zu administrieren
+  * kein einziges Glied im System ist verlässlich
+
+%section{"data-markdown" => ""}
+  \##### Verteilte Systeme
+  \#### Serviceorientierte Architektur (SOA)
+  \#### Peer-to-Peer
+  \### Client-Server
+
+%section{"data-markdown" => ""}
+  \#### Client-Server
+
+  \### Das Client-Server-Modell verteilt Aufgaben und Dienstleistungen innerhalb eines Netzwerkes.
+
+%section{"data-markdown" => ""}
+  \#### Client-Server
+
+  * Der Client kann auf Wunsch einen Dienst vom Server anfordern
+  * Der Server beantwortet die Anforderung.
+  * Üblicherweise kann ein Server gleichzeitig für mehrere Clients arbeiten.
+
+%section{"data-markdown" => ""}
+  \#### Client-Server
+  ![](/images/client-server.jpg)
+
+%section{"data-markdown" => ""}
+  \#### Client-Server
+  Das Client-Server-Modell ist das Standardkonzept für die Verteilung von Aufgaben
+  innerhalb eines Netzwerks. Aufgaben werden mittels Server auf verschiedene Rechner
+  verteilt und können bei Bedarf von mehreren Clients zur Lösung ihrer eigenen Aufgaben
+  oder Teilen davon angefordert werden. Bei den Aufgaben kann es sich um Standardaufgaben
+  (E-Mail-Versand, E-Mail-Empfang, Web-Zugriff, etc.) oder um spezifische Aufgaben
+  einer Software oder eines Programms handeln. Eine Aufgabe wird im Client-Server-Modell
+  als Dienst bezeichnet.
+
+%section{"data-markdown" => ""}
+  \#### Client-Server
+  Ein Server ist ein Programm, das einen Dienst (Service) anbietet. Im Rahmen des Client-Server-Konzepts kann ein anderes Programm, der Client, diesen Dienst nutzen. Die Kommunikation zwischen Client und Server ist abhängig vom Dienst, das heißt, der Dienst bestimmt, welche Daten zwischen beiden ausgetauscht werden. Der Server ist in Bereitschaft, um jederzeit auf die Kontaktaufnahme eines Clients reagieren zu können. Im Unterschied zum Client, der aktiv einen Dienst anfordert, verhält sich der Server passiv und wartet auf Anforderungen. Die Regeln der Kommunikation für einen Dienst (Format, Aufruf des Servers, Bedeutung der zwischen Server und Client ausgetauschten Daten), werden durch ein für den jeweiligen Dienst spezifisches Protokoll festgelegt.
+
+%section{"data-markdown" => ""}
+  \#### Client-Server
+  Clients und Server können als Programme auf verschiedenen Rechnern oder auf demselben Rechner ablaufen. Allgemein kann das Konzept ausgebaut werden zu einer Gruppe von Servern (Software), die eine Gruppe von Diensten anbietet. Beispiele: Mail-Server, (erweiterter) Web-Server, Anwendungsserver, Datenbank-Server.
+
+%section{"data-markdown" => ""}
+  \#### Client-Server
+  Da in der Praxis diese Server meist gesammelt auf bestimmten Rechnern laufen, hat es sich eingebürgert, diese Rechner selbst als Server zu bezeichnen. Die gleichen Beispiele: Mail-Server, Web-Server, Anwendungsserver, Datenbank-Server.
+
+%section{"data-markdown" => ""}
+  \#### Client-Server
+  \### Vorteile
+  * Gute Skalierbarkeit
+  * Einheitliches Auffinden von Objekten
+
+%section{"data-markdown" => ""}
+  \#### Client-Server
+  \### Nachteile
+  * Der Server muss immer in Betrieb sein
+  * Der Server muss gegen Ausfall und Datenverlust gesichert werden
+
+
+
+%section{"data-markdown" => ""}
+  \## Fragen?
+
+  \##### Unterlagen: [ai2016.nils-loewe.de](https://ai2016.nils-loewe.de)

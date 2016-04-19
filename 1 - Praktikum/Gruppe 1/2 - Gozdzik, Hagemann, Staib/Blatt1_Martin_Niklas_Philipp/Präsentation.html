@@ -1,0 +1,92 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="author" content="Martin, Niklas, Philipp"><title>Zeitplanungssystem - Analyse der Kundenanfrage</title><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"><link href="reveal.js/css/reveal.css" rel="stylesheet"><link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme"><link href="reveal.js/lib/css/zenburn.css" rel="stylesheet"><script>document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );</script></head><body><div class="reveal"><div class="slides"><section><h1>Zeitplanungssystem - Analyse der Kundenanfrage</h1><p><small>Martin, Niklas, Philipp</small></p></section><section id="_das_vorhaben"><h2>Das Vorhaben</h2><div class="paragraph"><p>Wir entwickeln eine Software, mit welcher</p></div>
+<div class="ulist"><ul><li class="fragment"><p>die Einsätze von Servicekräften</p></li><li class="fragment"><p>eines Wartungsunternehmens für Windenergieanlagen</p></li><li class="fragment"><p>weitestgehend automatisch geplant</p></li></ul></div>
+<div class="paragraph"><p>werden können.</p></div></section>
+<section id="_ist_zustand"><h2>Ist-Zustand</h2><div class="ulist"><ul><li class="fragment"><p>Manuelle Planung von</p><div class="ulist"><ul><li class="fragment"><p>regelmäßigen Wartungsterminen</p></li><li class="fragment"><p>Notfalleinsätzen</p></li><li class="fragment"><p>Rund-um-die-Uhr-Service</p></li></ul></div></li><li class="fragment"><p>Kunden sind in einem CRM-Tool erfasst</p></li><li class="fragment"><p>Servicekräfte sind in einer Personaldatenbank erfasst</p></li></ul></div></section>
+<section id="_unser_verständnis_des_solls"><h2>Unser Verständnis des Solls</h2><div class="paragraph"><p>Das System&#8230;&#8203;</p></div>
+<div class="ulist"><ul><li class="fragment"><p>plant die Wartungstermine automatisch und weist sie Servicekräften zu</p></li><li class="fragment"><p>erstellt Wochenpläne für die Servicekräfte</p></li><li class="fragment"><p>weist Notfalleinsätze der jeweils nächstgelegenen Servicekraft zu</p></li><li class="fragment"><p>bezieht Kunden- und Personaldaten aus CRM und Personaldatenbank</p></li></ul></div></section>
+<section id="_unmittelbar_aufgeworfene_fragen"><h2>Unmittelbar aufgeworfene Fragen</h2><div class="ulist"><ul><li class="fragment"><p>Was geschieht tatsächlich automatisch und wo ist das Zutun eines Mitarbeiters notwendig?</p></li><li class="fragment"><p>Wer benutzt das System?</p><div class="ulist"><ul><li class="fragment"><p>ACME-Schichtplaner, Servicekraft, Anlagenbetreiber? Wer kann und darf was?</p></li></ul></div></li><li class="fragment"><p>Welches CRM? Welche Personaldatenbank? Was ist alles erfasst?</p></li></ul></div></section>
+<section><div class="ulist"><ul><li class="fragment"><p>Sollen CRM und Personaldatenbank aus dem System heraus veränderbar sein oder gibt es nur Lesezugriff?</p></li><li class="fragment"><p>Wie werden Notfälle gemeldet?</p></li><li class="fragment"><p>Kann jede Servicekraft jede Anlage warten? (verschiedene Hersteller)</p></li><li class="fragment"><p>In welchem Zeitrahmen soll das Projekt abgewickelt werden?</p></li><li class="fragment"><p>&#8230;&#8203;offensichtlich noch hoher Klärungsbedarf hinsichtlich der gewünschten Funktionalität - Analyse von Geschäftsprozessen und Anwendungsfällen!</p></li></ul></div></section>
+<section id="_kontext_diagramm"><h2>Kontext-Diagramm</h2><div class="imageblock" style=""><div class="content"><img src="Kontextdiagramm.png" alt="Kontextdiagramm"></div></div></section>
+<section id="_bewertung_nicht_funktionaler_anforderungen"><h2>Bewertung nicht-funktionaler Anforderungen</h2><div class="ulist"><ul><li class="fragment"><p>Ressourcenbedarf</p><div class="ulist"><ul><li class="fragment"><p>abhängig von Zahl der betreuten Kunden, Anlagen, &#8230;&#8203;</p></li><li class="fragment"><p>abhängig von anderen nicht-funktionalen Anforderungen</p></li></ul></div></li><li class="fragment"><p>Performance</p><div class="ulist"><ul><li class="fragment"><p>wie lang darf die Berechnung der Wochenpläne dauern?</p></li></ul></div></li></ul></div></section>
+<section><div class="ulist"><ul><li class="fragment"><p>Skalierbarkeit</p><div class="ulist"><ul><li class="fragment"><p>in welchem Maße wird das Unternehmen in Zukunft voraussichtlich wachsen?</p></li></ul></div></li><li class="fragment"><p>Zuverlässigkeit</p><div class="ulist"><ul><li class="fragment"><p>Ausfall des Systems gefährdet potentiell das Kapital der betreuten Kunden</p></li><li class="fragment"><p>Anforderungen an die Zuverlässigkeit eher hoch</p></li></ul></div></li></ul></div></section>
+<section><div class="ulist"><ul><li class="fragment"><p>Benutzbarkeit</p><div class="ulist"><ul><li class="fragment"><p>Besondere Anforderungen?</p></li><li class="fragment"><p>Erfüllung von DIN-Normen gewünscht/erforderlich?</p></li></ul></div></li><li class="fragment"><p>Flexibilität und Wartbarkeit</p><div class="ulist"><ul><li class="fragment"><p>wie wahrscheinlich ist eine Änderung der Anforderungen in der Zukunft?</p><div class="ulist"><ul><li class="fragment"><p>rechtliche Rahmenbedingungen</p></li><li class="fragment"><p>Ausdifferenzierung des Geschäftsfelds</p></li></ul></div></li></ul></div></li></ul></div></section>
+<section><div class="ulist"><ul><li class="fragment"><p>Sicherheitsanforderungen</p><div class="ulist"><ul><li class="fragment"><p>besondere Anforderungen an die Benutzerauthentifizierung?</p></li><li class="fragment"><p>infrastrukturelle Anforderungen?</p></li></ul></div></li></ul></div></section>
+<section id="_eingrenzung_der_technologien"><h2>Eingrenzung der Technologien</h2><div class="ulist"><ul><li class="fragment"><p>aufgrund des hohen Klärungsbedarfs noch keine Technologiewahl möglich</p></li><li class="fragment"><p>bei mehreren Nutzergruppen: Web-Anwendung sinnvoll</p><div class="ulist"><ul><li class="fragment"><p>einfache Anpassbarkeit an verschiedene Geräte</p></li><li class="fragment"><p>verschiedene Sichten der Nutzergruppen leicht umsetzbar</p></li></ul></div></li></ul></div></section>
+<section id="_danke_für_ihre_aufmerksamkeit"><h2>Danke für Ihre Aufmerksamkeit</h2><div class="paragraph"><p>Fragen und Anmerkungen?</p></div></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+Reveal.initialize({
+  // Display controls in the bottom right corner
+  controls: true,
+  // Display a presentation progress bar
+  progress: true,
+  // Display the page number of the current slide
+  slideNumber: false,
+  // Push each slide change to the browser history
+  history: false,
+  // Enable keyboard shortcuts for navigation
+  keyboard: true,
+  // Enable the slide overview mode
+  overview: true,
+  // Vertical centering of slides
+  center: true,
+  // Enables touch navigation on devices with touch input
+  touch: true,
+  // Loop the presentation
+  loop: false,
+  // Change the presentation direction to be RTL
+  rtl: false,
+  // Turns fragments on and off globally
+  fragments: true,
+  // Flags if the presentation is running in an embedded mode,
+  // i.e. contained within a limited portion of the screen
+  embedded: false,
+  // Number of milliseconds between automatically proceeding to the
+  // next slide, disabled when set to 0, this value can be overwritten
+  // by using a data-autoslide attribute on your slides
+  autoSlide: 0,
+  // Stop auto-sliding after user input
+  autoSlideStoppable: true,
+  // Enable slide navigation via mouse wheel
+  mouseWheel: false,
+  // Hides the address bar on mobile devices
+  hideAddressBar: true,
+  // Opens links in an iframe preview overlay
+  previewLinks: false,
+  // Theme (e.g., beige, black, league, night, serif, simple, sky, solarized, white)
+  // NOTE setting the theme in the config no longer works in reveal.js 3.x
+  //theme: Reveal.getQueryHash().theme || 'black',
+  // Transition style (e.g., none, fade, slide, convex, concave, zoom)
+  transition: Reveal.getQueryHash().transition || 'slide',
+  // Transition speed (e.g., default, fast, slow)
+  transitionSpeed: 'default',
+  // Transition style for full page slide backgrounds (e.g., none, fade, slide, convex, concave, zoom)
+  backgroundTransition: 'fade',
+  // Number of slides away from the current that are visible
+  viewDistance: 3,
+  // Parallax background image (e.g., "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'")
+  parallaxBackgroundImage: '',
+  // Parallax background size in CSS syntax (e.g., "2100px 900px")
+  parallaxBackgroundSize: '',
+
+  // The "normal" size of the presentation, aspect ratio will be preserved
+  // when the presentation is scaled to fit different resolutions. Can be
+  // specified using percentage units.
+  width: 960,
+  height: 700,
+
+  // Factor of the display size that should remain empty around the content
+  margin: 0.1,
+
+  // Bounds for smallest/largest possible scale to apply to content
+  minScale: 0.2,
+  maxScale: 1.5,
+
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+      { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      
+      { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+});</script></body></html>

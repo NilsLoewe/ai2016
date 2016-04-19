@@ -1,7 +1,134 @@
 ---
-title: Vorlesung X
+title: Vorlesung 7 - Architekturmuster
 layout: slide
 ---
 
 %section
   TBD
+
+%section{"data-markdown" => ""}
+  \## Architektur von Informationssystemen
+  \#### Hochschule für angewandte Wissenschaften
+  \#### Sommersemester 2016
+  Nils Löwe / [nils@loewe.io](mailto:nils@loewe.io) / @NilsLoewe
+
+%section{"data-markdown" => ""}
+  \#### Chaos zu Struktur / Mud-to-structure
+  \#### Verteilte Systeme
+  \### Interaktive Systeme
+  \#### Adaptive Systeme
+  \#### Domain-spezifische Architektur
+
+%section{"data-markdown" => ""}
+  \##### Interaktive Systeme
+  \### Model View Controller (MVC)
+  \#### Model View Presenter
+  \#### Presentation-Abstraction-Control (PAC)
+
+%section{"data-markdown" => ""}
+  \#### Model View Controller (MVC)
+
+  Das MVC-Pattern ist eine spezielle Variante des Layers-Pattern, die sich aus den
+  drei Schichten Datenhaltung (Model), Programmlogik (Controller) und Präsenta-
+  tion (View) zusammensetzt. Das Model ist dabei für die Speicherung der Daten
+  zuständig und stellt Zugrismethoden für diese bereit, der/die View(s) übernimmt
+  die Darstellung der Daten und der Controller regelt, welcher View aufgerufen wird
+  und wie Datenmanipulationen am Model vorgenommen werden.
+
+%section{"data-markdown" => ""}
+  \##### Interaktive Systeme
+  \#### Model View Controller (MVC)
+  \### Model View Presenter
+  \#### Presentation-Abstraction-Control (PAC)
+
+%section{"data-markdown" => ""}
+  \#### Model View Presenter
+
+%section{"data-markdown" => ""}
+  \##### Interaktive Systeme
+  \#### Model View Controller (MVC)
+  \#### Model View Presenter
+  \### Presentation-Abstraction-Control (PAC)
+
+%section{"data-markdown" => ""}
+  \#### Presentation-Abstraction-Control (PAC)
+
+%section{"data-markdown" => ""}
+  \#### Chaos zu Struktur / Mud-to-structure
+  \#### Verteilte Systeme
+  \#### Interaktive Systeme
+  \### Adaptive Systeme
+  \#### Domain-spezifische Architektur
+
+%section{"data-markdown" => ""}
+  \##### Adaptive Systeme
+  \### Mikrokernel
+  \#### Reflexion
+  \#### Dependency Injection
+
+%section{"data-markdown" => ""}
+  \#### Mikrokernel
+
+  Software Systeme, die wechselnden Systemanorderungen genügen müssen, benutzen
+  das Microkernel Muster. Der Mikrokern stellt hierbei die Basis für mögliche
+  Erweiterungen dar und koordiniert gleichzeitig ihre Zusammenarbeit. Eine solche
+  Architektur soll es verschiedenen Anwendungen ermöglichen auf einer Maschine und
+  dessen funktionalen Kern zu laufen, obwohl die zugrunde liegenden Betriebssysteme
+  unterschiedlich sind. In diesem Kontext sind mehrere Probleme zu lösen. Damit nicht
+  nur die heutige Technik integriert werden kann, muss das System auch zukünftigen
+  Hard- und Software- Entwicklungen standhalten können und sich dementsprechend
+  erweitern und anpassen lassen, um verschiedene Anwendungsplattformen emulieren zu
+  können.
+
+%section{"data-markdown" => ""}
+  \##### Adaptive Systeme
+  \#### Mikrokernel
+  \### Reflexion
+  \#### Dependency Injection
+
+%section{"data-markdown" => ""}
+  \#### Reflexion
+
+  Systeme verfügen über spezifische Eigenschaften, die sich in ihrem Verhalten und ihrer Struktur wiederspiegeln. Das Reflection Muster benutzt für die Beschreibung der
+  aktuellen Eigenschaften eine Metaebene. Die Anwendungslogik befindet sich auf der so genannten Basisebene und ändert sich
+  abhängig von den beschriebenen Systemeigenschaften auf der Metaebene. Den Kontext bei Reflection bilden Systeme, die sich ihrer selbst bewusst sind (Metaebene) und eine Anpassbarkeit dadurch und im Allgemeinen unterstützen
+
+%section{"data-markdown" => ""}
+  \##### Adaptive Systeme
+  \#### Mikrokernel
+  \#### Reflexion
+  \### Dependency Injection
+
+%section{"data-markdown" => ""}
+  \#### Dependency Injection
+
+%section{"data-markdown" => ""}
+  \### Fragen?
+
+%section{"data-markdown" => ""}
+  \#### Chaos zu Struktur / Mud-to-structure
+  \#### Verteilte Systeme
+  \#### Interaktive Systeme
+  \#### Adaptive Systeme
+  \### Domain-spezifische Architektur
+
+%section{"data-markdown" => ""}
+  \### Domain-spezifische Architektur
+
+  * Telekommunikation
+  * Avionik
+  * Automotive
+
+%section{"data-markdown" => ""}
+  \#### Was ist Softwarearchitektur?
+  \#### Geschichte und Trends
+  \#### Sichten auf Architekturen
+  \#### Qualiät und andere nichtfunktionale Anforderungen
+  \### Architekturmuster
+  \#### Dokumentation von Architekturen
+  \#### Technologien und Frameworks
+
+%section{"data-markdown" => ""}
+  \## Fragen?
+
+  \##### Unterlagen: [ai2016.nils-loewe.de](https://ai2016.nils-loewe.de)
