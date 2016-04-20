@@ -1144,25 +1144,21 @@ layout: slide
 
 %section{"data-markdown" => ""}
   \#### Client-Server
-  Das Client-Server-Modell ist das Standardkonzept für die Verteilung von Aufgaben
-  innerhalb eines Netzwerks. Aufgaben werden mittels Server auf verschiedene Rechner
-  verteilt und können bei Bedarf von mehreren Clients zur Lösung ihrer eigenen Aufgaben
-  oder Teilen davon angefordert werden. Bei den Aufgaben kann es sich um Standardaufgaben
-  (E-Mail-Versand, E-Mail-Empfang, Web-Zugriff, etc.) oder um spezifische Aufgaben
-  einer Software oder eines Programms handeln. Eine Aufgabe wird im Client-Server-Modell
-  als Dienst bezeichnet.
+
+  * Ein Server ist ein Programm, das einen Dienst (Service) anbietet.
+  * Ein anderes Programm, der Client, kann diesen Dienst nutzen.
+  * Die Kommunikation zwischen Client und Server ist abhängig vom Dienst
+  * Der Dienst bestimmt, welche Daten zwischen beiden ausgetauscht werden.
+  * Der Server ist in Bereitschaft, um jederzeit auf die Kontaktaufnahme eines Clients reagieren zu können.
+  * Der Server ist passiv und wartet auf Anforderungen.
+  * Die Regeln der Kommunikation für einen Dienst werden durch ein für den jeweiligen Dienst spezifisches Protokoll festgelegt.
 
 %section{"data-markdown" => ""}
   \#### Client-Server
-  Ein Server ist ein Programm, das einen Dienst (Service) anbietet. Im Rahmen des Client-Server-Konzepts kann ein anderes Programm, der Client, diesen Dienst nutzen. Die Kommunikation zwischen Client und Server ist abhängig vom Dienst, das heißt, der Dienst bestimmt, welche Daten zwischen beiden ausgetauscht werden. Der Server ist in Bereitschaft, um jederzeit auf die Kontaktaufnahme eines Clients reagieren zu können. Im Unterschied zum Client, der aktiv einen Dienst anfordert, verhält sich der Server passiv und wartet auf Anforderungen. Die Regeln der Kommunikation für einen Dienst (Format, Aufruf des Servers, Bedeutung der zwischen Server und Client ausgetauschten Daten), werden durch ein für den jeweiligen Dienst spezifisches Protokoll festgelegt.
 
-%section{"data-markdown" => ""}
-  \#### Client-Server
-  Clients und Server können als Programme auf verschiedenen Rechnern oder auf demselben Rechner ablaufen. Allgemein kann das Konzept ausgebaut werden zu einer Gruppe von Servern (Software), die eine Gruppe von Diensten anbietet. Beispiele: Mail-Server, (erweiterter) Web-Server, Anwendungsserver, Datenbank-Server.
-
-%section{"data-markdown" => ""}
-  \#### Client-Server
-  Da in der Praxis diese Server meist gesammelt auf bestimmten Rechnern laufen, hat es sich eingebürgert, diese Rechner selbst als Server zu bezeichnen. Die gleichen Beispiele: Mail-Server, Web-Server, Anwendungsserver, Datenbank-Server.
+  * Clients und Server können als Programme auf verschiedenen Rechnern oder auf demselben Rechner ablaufen.
+  * Das Konzept kann zu einer Gruppe von Servern ausgebaut werden, die eine Gruppe von Diensten anbietet.
+  * In der Praxis laufen Server-Dienste meist gesammelt auf bestimmten Rechnern, die dann selber "Server" genannt werden
 
 %section{"data-markdown" => ""}
   \#### Client-Server
