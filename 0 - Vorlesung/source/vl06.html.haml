@@ -115,30 +115,34 @@ layout: slide
   * In welchen Zeiten finden normale Termine statt?
   * Können normale Termine für Notfalltermine verschoben werden
   * Was für Informationen gehören neben Datum und Uhrzeit in einen Termin/Wochenplan/Notfalltermin?
-  * Was unterscheidet einen normalen Termin von einem Notfalltermin?
-  * Sollen die Wochenpläne automatisch aus den Terminen und Notfallterminen erstellt werden?
-  * Wann sollen die Wochenpläne erstellt werden?
 
 %section{"data-markdown" => ""}
   \#### 1. Praktikumsaufgabe - Fachliche Fragen
 
+  * Was unterscheidet einen normalen Termin von einem Notfalltermin?
+  * Sollen die Wochenpläne automatisch aus den Terminen und Notfallterminen erstellt werden?
+  * Wann sollen die Wochenpläne erstellt werden?
   * Wie sollen die Servicekräfte den Terminplan bekommen?
   * Sollen die Servicekräfte die Möglichkeit haben die zugeteilten Termine abzulehnen?
   * Sollen abgelehnte Termine automatisch anderen zugewiesen werden?
   * Wie werden die regelmäßigen Wartungsintervalle festgelegt?
   * Übernimmt Planungssystem andere Aufgaben als reine Planung, zb. Informieren der Mitarbeiter?
+
+%section{"data-markdown" => ""}
+  \#### 1. Praktikumsaufgabe - Fachliche Fragen
+
   * Wer ist für Installation zuständig?
   * Haben Mitarbeiter verschiedene Zeitkontingente?
   * Gibt es Qualifizierungs-Unterschiede zwischen den Mitarbeitern?
   * Steht im Notfall-Fall jeder Mitarbeiter zur Verfügung oder gibt es Bereitschaftzeiten?
   * Wie lange soll im Voraus geplant werden?
   * Welche Reaktionszeit im Notfall?
+  * Gibt es Bereitschafts-/Springerdienste (für Notfälle/Krankheitsvertretung etc.)?
+  * Gibt es individuellen Mitarbeiterkalender (Urlaubstage etc.)?
 
 %section{"data-markdown" => ""}
   \#### 1. Praktikumsaufgabe - Fachliche Fragen
 
-  * Gibt es Bereitschafts-/Springerdienste (für Notfälle/Krankheitsvertretung etc.)?
-  * Gibt es individuellen Mitarbeiterkalender (Urlaubstage etc.)?
   * Gibt es Präferenzen, welcher Mitarbeiter bei welchem Kunden/Anlage eingesetzt werden soll? Bzw. andere Dinge als Verfügbarkeit bei der Planung zu beachten?
   * Wie gut muss die automatische Planung optimiert werden?
   * Kennen Sie bereits eine Planungssoftware die Ihnen gut gefällt?
@@ -147,11 +151,11 @@ layout: slide
   * Wie werden diese Hersteller bezogenen Daten gepflegt?
   * Werden in Zukunft Hersteller hinzukommen oder wegfallen?
   * Wie ist das Vorgehen bei Ausfall von Mitarbeitern?
-  * Gibt es immer ein Mitarbeiter pro Anlage oder kann das jeder machen?
 
 %section{"data-markdown" => ""}
   \#### 1. Praktikumsaufgabe - Fachliche Fragen
 
+  * Gibt es immer ein Mitarbeiter pro Anlage oder kann das jeder machen?
   * Sollen Termine manuell verändert werden können?
   * Können wir uns persönlich treffen?
   * Welche Möglichkeiten haben wir die Spezifikation zu erarbeiten?
@@ -168,30 +172,34 @@ layout: slide
   * Ausfall des Systems gefährdet potentiell das Kapital der betreuten Kunden?
   * Benutzbarkeit - Besondere Anforderungen?
   * Erfüllung von DIN-Normen gewünscht/erforderlich?
-  * wie wahrscheinlich ist eine Änderung der Anforderungen in der Zukunft?
-  * rechtliche Rahmenbedingungen?
-  * besondere Anforderungen an die Benutzerauthentifizierung?
 
 %section{"data-markdown" => ""}
   \#### 1. Praktikumsaufgabe - Nicht-Funktionale Fragen
 
+  * wie wahrscheinlich ist eine Änderung der Anforderungen in der Zukunft?
+  * rechtliche Rahmenbedingungen?
+  * besondere Anforderungen an die Benutzerauthentifizierung?
   * Wie viele Nutzer greifen zeitgleich zu?
   * Welche Nutzergruppen gibt es?
   * Welche Performanceanforderungen gibt es? Zum Beispiel Zeit zum Laden einer Seite
   * Gibt es Benutzer mit Behinderungen? Wenn ja, welche?
   * Welche Sicherheitsstandards müssen erfüllt werden?
+
+%section{"data-markdown" => ""}
+  \#### 1. Praktikumsaufgabe - Nicht-Funktionale Fragen
+
   * Müssen Lizenzen gekauft oder eingebunden werden?
   * Welche SLAs mit den Kunden gibt es?
   * Wie technikaffin sind die Benutzer?
   * Gibt es Gestaltungsvorlagen / -anforderungen für die GUI?
   * Welchen Informationsgehalt hat ein Kalendereintrag?
   * Welche Antwortzeiten sind erwartet?
+  * Service-Level-Agreement?
+  * Mobile Benutzbarkeit?
 
 %section{"data-markdown" => ""}
   \#### 1. Praktikumsaufgabe - Nicht-Funktionale Fragen
 
-  * Service-Level-Agreement?
-  * Mobile Benutzbarkeit?
   * wie schnell sollen Notfalltermine berechnet und verteilt werden?
   * gibt es Anforderungen an die Programmiersprache/ Systemarchitektur?
   * gibt es rechtliche Einschränkungen? (Datenschutz, unternehmensspezifische Rechte)
@@ -200,11 +208,11 @@ layout: slide
   * soll es einen anschließenden Supportvertrag geben?
   * SaaS oder Selbsthosting?
   * Wie viele Pläne muss die Software verwalten können?
-  * Was für eine Datenmenge muss verarbeitet werden? (Anzahl Kunden/Mitarbeiter)
 
 %section{"data-markdown" => ""}
   \#### 1. Praktikumsaufgabe - Nicht-Funktionale Fragen
 
+  * Was für eine Datenmenge muss verarbeitet werden? (Anzahl Kunden/Mitarbeiter)
   * Was für Antwortzeiten werden erwartet? (Für Wochenplan und Notfalltermin)
   * Muss das System skalierbar sein?
   * Welche Ansprüche bestehen für das Look and Feel?
@@ -212,9 +220,24 @@ layout: slide
   * Muss das System erweiterbar sein?
   * Gibt es konkrete Sicherheitsanforderungen?
   * Gibt es GUI? Falls ja, welche Anforderungen gibt es daran?
+
+%section{"data-markdown" => ""}
+  \#### 1. Praktikumsaufgabe - Nicht-Funktionale Fragen
+
   * Wieviele Zugriffe pro Tag/Stunde/Minute?
   * Zeitanforderungen (Echtzeit, Batchorientiert?)
   * Wieviele Daten werden im Durchschnitt übertragen?
+  * Welches CRM? Welche Personaldatenbank? Was ist alles erfasst?
+  * Sollen CRM und Personaldatenbank aus dem System heraus veränderbar sein oder gibt es nur Lesezugriff?
+  * Soll das System permanent erreichbar sein?
+
+%section{"data-markdown" => ""}
+  \#### 1. Praktikumsaufgabe - Nicht-Funktionale Fragen
+
+  * Auf wie vielen Systemen soll die Software laufen?
+  * Welche Betriebssysteme auf welcher Hardware müssen unterstützt werden?
+  * welche Endgeräte sind bei Ihnen im Einsatz? (Plattform)
+  * Wie ist die Infrastruktur ?Wie ist die Software-Umgebung für das Zielsystem?
 
 %section{"data-markdown" => ""}
   \#### 1. Praktikumsaufgabe - Technische Fragen
@@ -228,15 +251,22 @@ layout: slide
   * Sind Server vorhanden?
 
 %section{"data-markdown" => ""}
-  \#### 1. Praktikumsaufgabe - Nicht-Funktionale Fragen
+  \#### 1. Praktikumsaufgabe - Technologievorschläge
 
-  * Welches CRM? Welche Personaldatenbank? Was ist alles erfasst?
-  * Sollen CRM und Personaldatenbank aus dem System heraus veränderbar sein oder gibt es nur Lesezugriff?
-  * Soll das System permanent erreichbar sein?
-  * Auf wie vielen Systemen soll die Software laufen?
-  * Welche Betriebssysteme auf welcher Hardware müssen unterstützt werden?
-  * welche Endgeräte sind bei Ihnen im Einsatz? (Plattform)
-  * Wie ist die Infrastruktur ?Wie ist die Software-Umgebung für das Zielsystem?
+  * "Web Application"
+  * Das bestehende CRM erweitern
+  * Java Desktop Anwendung
+  * OpenSkedge verwenden
+  * "Keine Aussage möglich" (5)
+  * Java Swing Anwendung
+  * php/laravel
+  * AngularJS + Spring
+  * Java Play
+  * JS/HTML/CSS
+  * Python Django
+  * REST Architektur
+  * ...
+
 
 %section{"data-markdown" => ""}
   \#### 1. Praktikumsaufgabe - Rückblick
