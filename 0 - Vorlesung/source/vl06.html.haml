@@ -1172,7 +1172,299 @@ layout: slide
   * Der Server muss immer in Betrieb sein
   * Der Server muss gegen Ausfall und Datenverlust gesichert werden
 
+%section{"data-markdown" => ""}
+  \## Fragen?
 
+%section{"data-markdown" => ""}
+  \#### Chaos zu Struktur / Mud-to-structure
+  \#### Verteilte Systeme
+  \### Interaktive Systeme
+  \#### Adaptive Systeme
+  \#### Domain-spezifische Architektur
+
+%section{"data-markdown" => ""}
+  \##### Interaktive Systeme
+  \### Model View Controller (MVC)
+  \#### Model View Presenter
+  \#### Presentation-Abstraction-Control (PAC)
+
+%section{"data-markdown" => ""}
+  \#### Model View Controller (MVC)
+
+  Das MVC-Pattern ist eine spezielle Variante des Layers-Pattern, die sich aus den
+  drei Schichten Datenhaltung (Model), Programmlogik (Controller) und Präsenta-
+  tion (View) zusammensetzt.
+
+%section{"data-markdown" => ""}
+  \#### Model View Controller (MVC)
+
+  * Model: Speicherung und Zugriffskontrolle von Daten
+  * View: Darstellung der Daten für die Anwender
+  * Controller: Vermittlung zwischen View und Model
+
+%section{"data-markdown" => ""}
+  \#### Model View Controller (MVC)
+  ![](/images/mvc.png)
+
+
+%section{"data-markdown" => ""}
+  \#### Model View Controller (MVC)
+  \### Einsatzgebiete / Gründe
+
+  * Benutzerschnittstellen sind besonders häufig von Änderungen betroffen
+  * Information auf verschiedene Weise darstellen
+  * Änderungen an den Daten sofort in unterschiedlichen Darstellungen sichtbar machen
+  * Verschiedene Benutzerschnittstellen unterstützen, ohne den Kern der Anwendung zu verändern?
+
+%section{"data-markdown" => ""}
+  \#### Model View Controller (MVC)
+  \### Teilnehmer: Model
+
+  * Das Modell kapselt Kerndaten und Funktionalität.
+  * Das Modell ist unabhängig von einer bestimmten Darstellung der Ausgabe oder einem bestimmten Verhalten der Eingabe.
+  * Das Modell bildet die Kernfunktionalität der Anwendung ab.
+  * (Das Modell benachrichtigt registrierte bei Datenänderungen.)
+
+%section{"data-markdown" => ""}
+  \#### Model View Controller (MVC)
+  \### Teilnehmer: View
+
+  * Die Sicht (view) zeigt dem Benutzer Informationen an.
+  * Es kann mehrere Sichten pro Modell geben.
+  * Ggf. zugeordnete Eingabeelemente anzeigen
+
+%section{"data-markdown" => ""}
+  \#### Model View Controller (MVC)
+  \### Teilnehmer: Controller
+
+  * Der Controller verarbeitet Eingaben und ruft passende Dienste der zugeordeten Sicht oder des Modells auf.
+  * Jede Controller ist einer Sicht zugeordnet
+  * Es kann mehrere Controller pro Modell geben.
+
+
+%section{"data-markdown" => ""}
+  \#### Model View Controller (MVC)
+  \### Vorteile
+
+  * Mehrere Sichten desselben Modells
+  * Automatische Synchronisation aller Views
+  * Austauschbarkeit von Views und Controllern
+  * Gute Trennung von Modell und View
+  * Potential für vorgefertigte Frameworks
+
+%section{"data-markdown" => ""}
+  \#### Model View Controller (MVC)
+  \### Nachteile
+  * Erhöhte Komplexität
+  * Starke Kopplung zwischen Modell und View
+  * Starke Kopplung zwischen Modell und Controller
+  * Potential für unnötig häufige Aktualisierungen
+  * Häufig ineffizienter Datenzugriff auf das Modell.
+  * View und Controller sind schwer zu portieren.
+
+%section{"data-markdown" => ""}
+  \##### Interaktive Systeme
+  \#### Model View Controller (MVC)
+  \### Model View Presenter
+  \#### Presentation-Abstraction-Control (PAC)
+
+%section{"data-markdown" => ""}
+  \#### Model View Presenter
+
+  \### Hervorgegangen aus dem Model-View-Controller (MVC) Architekturmuster.
+
+  Vollständige Trennung von Model und View, Verbindung über einen Presenter.
+
+%section{"data-markdown" => ""}
+  \#### Model View Presenter
+
+  * Vollständige Trennung von Model und View
+  * Deutlich verbesserte Testbarkeit
+  * Strenge Trennung der einzelnen Komponenten
+
+%section{"data-markdown" => ""}
+  \#### Model View Presenter (MVP)
+  ![](/images/mvp.png)
+
+%section{"data-markdown" => ""}
+  \#### Model View Presenter (MVP)
+
+  MVP basiert wie MVC auch auf drei Komponenten:
+
+  * Model
+  * View
+  * Presenter
+
+%section{"data-markdown" => ""}
+  \#### Model View Presenter (MVP)
+
+  \### Teilnehmer: Model
+
+  * Stellt die Logik der Ansicht dar (dies kann auch die Geschäftslogik sein)
+  * Über das Modell muss alle Funktionalität erreichbar sein, um die Views betreiben zu können.
+  * Die Steuerung des Modells erfolgt allein vom Presenter
+  * Das Modell selbst kennt weder die View, noch den Presenter
+
+%section{"data-markdown" => ""}
+  \#### Model View Presenter (MVP)
+
+  \### Teilnehmer: View
+  * Enthält keinerlei steuernde Logik
+  * Allein für die Darstellung und die Ein- und Ausgaben zuständig
+  * Erhält weder Zugriff auf die Funktionalität des Presenters, noch auf das Model
+  * Sämtliche Steuerung der View erfolgt vom Presenter
+
+%section{"data-markdown" => ""}
+  \#### Model View Presenter (MVP)
+
+  \### Teilnehmer: Presenter
+  * Bindeglied zwischen Modell und Ansicht
+  * Steuert die logischen Abläufe zwischen den beiden anderen Schichten
+  * Sorgt dafür, dass die Ansicht ihre Funktionalität erfüllen kann.
+
+%section{"data-markdown" => ""}
+  \#### Model View Presenter (MVP)
+
+  \### Bedingungen
+
+  * Model und View verwenden jeweils eigene Schnittstellen
+  * Die Schnittstellen definieren den genauen Aufbau beider Schichten
+  * Der Präsentator verknüpft lediglich die Schnittstellen miteinander
+
+
+%section{"data-markdown" => ""}
+  \#### Model View Controller (MVC)
+  \### Vorteile
+
+  * Mehrere Sichten desselben Modells
+  * Automatische Synchronisation aller Views
+  * Vollständige Austausch- und Wiederverwertbarkeit des Modells und der Ansicht
+  * Gute Testbarkeit der View durch 'doubles'
+
+%section{"data-markdown" => ""}
+  \#### Model View Controller (MVC)
+  \### Nachteile
+  * Erhöhte Komplexität
+  * Potential für unnötig häufige Aktualisierungen
+  * Häufig ineffizienter Datenzugriff auf das Modell.
+  * Kompliziert umsetzbar
+
+
+%section{"data-markdown" => ""}
+  \##### Interaktive Systeme
+  \#### Model View Controller (MVC)
+  \#### Model View Presenter
+  \### Presentation-Abstraction-Control (PAC)
+
+%section{"data-markdown" => ""}
+  \#### Presentation-Abstraction-Control (PAC)
+
+  \### Hohe Flexibilität für ein System, das aus vielen autarken Einzelsystemen zusammengesetzt ist.
+
+%section{"data-markdown" => ""}
+  \#### Presentation-Abstraction-Control (PAC)
+  ![](/images/pac.png)
+
+%section{"data-markdown" => ""}
+  \#### Presentation-Abstraction-Control (PAC)
+
+  * Große Systeme, für die das Model-View-Controller-Muster nicht ausreicht
+  * Aufteilung des Systems in zwei Richtungen
+  * --> In die drei Einheiten Presentation, Control und Abstraction (ähnlich dem MVC)
+  * --> Hierarchisch in verschiedene Teile („Agenten“), die jeweils einen Teil der Aufgaben des Systems anbieten
+
+%section{"data-markdown" => ""}
+  \#### Presentation-Abstraction-Control (PAC)
+
+  \### Agenten
+
+  * Stellen die erste Stufe der Strukturierung während des Architekturentwurfes dar
+  * Aufteilung der gesamten Anforderungen auf einzelne Agenten
+  * Aufbau der hierarchischen Struktur
+  * Für jeden Agenten erfolgt dann eine Aufteilung in Presentation, Abstraction und Control
+
+%section{"data-markdown" => ""}
+  \#### Presentation-Abstraction-Control (PAC)
+
+  \### Hierarchie: Drei Schichten
+
+  * Top-Level-Agent: Globale Aufgaben
+  * Intermediate-Level-Agenten: Strukturierung der Bottom-Level-Agenten
+  * Bottom-Level-Agenten: Konkrete, abgeschlossene Aufgaben
+
+%section{"data-markdown" => ""}
+  \#### Presentation-Abstraction-Control (PAC)
+
+  \### Top-Level-Agent
+
+  * Kommt nur einmal in einem System vor
+  * Übernimmt alle globalen Aufgaben, wie z. B. den Datenbankzugriff
+
+%section{"data-markdown" => ""}
+  \#### Presentation-Abstraction-Control (PAC)
+
+  \### Intermediate-Level-Agent
+
+  * Bieten die eigentlichen Funktionen des interaktiven Systems an
+  * Eigene, möglichst abgeschlossene, Funktion
+  * Keine Abhängigkeiten zu anderen Bottom-Level-Agenten
+
+%section{"data-markdown" => ""}
+  \#### Presentation-Abstraction-Control (PAC)
+
+  \### Bottom-Level-Agent
+
+  * Bilden die Schnittstelle zwischen der untersten (Bottom-Level) und der obersten (Top-Level) Schicht
+  * Fassen mehrere Bottom-Level-Agenten zu einem Teilsystem zusammen
+  * Teilsysteme auch weiter hierarchisch aufgeteilt werden
+  * Ein Teilsystem kann aus einem oder mehreren anderen Teilsystemen bestehen
+
+%section{"data-markdown" => ""}
+  \#### Presentation-Abstraction-Control (PAC)
+
+  \### Architekturentwurf
+
+  * Aufteilung der geforderten Funktionalität auf mehrere Bottom-Level-Agenten
+  * Daraus: Top-Level-Agent definieren
+  * Intermediate-Level-Agenten definieren, die dann die Hierarchie bilden
+
+
+%section{"data-markdown" => ""}
+  \#### Presentation-Abstraction-Control (PAC)
+
+  \### Aufteilung der Agenten
+
+  * Jeder einzelne Agent wird in die drei Komponenten strukturiert.
+  * --> Presentation: Graphische Benutzeroberfläche, komplette Ein- und Ausgabe
+  * --> Abstraction: Realisiert das Datenmodell des Agenten realisiert
+  * -->Control: Stellt die Verbindung zwischen den beiden anderen Komponenten her und ermöglicht die Kommunikation mit anderen Agenten.
+
+  Die 'Controls' sind damit die zentrale Schnittstelle, die die Zusammenarbeit der einzelnen Teile eines PAC-Systems ermöglichen.
+
+%section{"data-markdown" => ""}
+  \#### Presentation-Abstraction-Control (PAC)
+
+  \### Aufteilung der Agenten
+
+  * Nicht jeder Agent muss alle drei Komponenten implementieren
+  * Jeder Agent bringt die Benutzerschnittstelle und das Datenmodell für seine Aufgabe mit
+  * Jeder Agent muss die Control implementieren, um über sie die Kommunikation mit anderen Agenten und zwischen den Komponenten zu ermöglichen
+
+%section{"data-markdown" => ""}
+  \#### Presentation-Abstraction-Control (PAC)
+
+  \### Vorteile
+  * Zerlegung der Funktionen des Gesamtsystems in einzelne semantisch getrennte Teile
+  * Gute Erweiterbarkeit durch neue Agenten
+  * Gute Wartbarkeit ist durch die interne Struktur der Agenten
+
+%section{"data-markdown" => ""}
+  \#### Presentation-Abstraction-Control (PAC)
+
+  \### Nachteile
+  * Erhöhte Systemkomplexität
+  * Erhöhter Koordinations- und Kommunikationsaufwand zwischen den Agenten
+  * Die Steuerungskomponenten können eine hohe Komplexität erreichen
 
 %section{"data-markdown" => ""}
   \## Fragen?
