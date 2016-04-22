@@ -1,0 +1,146 @@
+---
+title: Praktikum 3: Architekturentwurf
+---
+.boxed.push-down-45
+  .row
+    .col-xs-12.col-sm-10.col-sm-offset-1
+      .slides-box
+        %h3 Praktikum Architektur von Informationssystemen
+        %h5 Sommersemester 2016 – Aufgabe 3
+        %p
+          Nils Löwe <nils.loewe@haw-hamburg.de>, Tel. 0176 / 574 550 65
+
+        %h5 Rahmenbedingungen für das Praktikum
+
+        %p
+          %ul
+            %li Die Bearbeitung findet in 3er-Gruppen statt.
+            %li Die Präsentation Ihrer Lösungen erfolgt im Rahmen der Praktikumstermine.
+            %li Jede Gruppe hat dazu 20-25 Minuten Zeit. Bereiten Sie hierzu Folien und ggf. eine Live-Demonstration Ihres Systems vor.
+            %li Zu einigen der Praktikumsaufgaben gehört eine Implementierung. Sofern in der Aufgabe nicht explizit anders angegeben, dürfen Sie Programmiersprache, Frameworks und Entwicklungsumgebung frei wählen.
+            %li Fangen Sie frühzeitig mit der Bearbeitung Ihrer Aufgabe an; insbesondere nicht erst am Tag oder in der Nacht zuvor.
+
+        %h5 Aufgabe 3: Architekturentwurf
+
+        %p
+          Hintergrund: Für das Projekt wurden mehrere Technologien erprobt. Nun soll
+          die Software 'richtig' entwickelt werden und Sie sollen dazu den ersten Architekturentwurf
+          erstellen.
+
+        %p
+          Der Rahmen des Projekts ist die zuvor beschriebene Zeitplanungssoftware für einen
+          Anbieter von Wartungen von Windenergieanlagen. Die Software hat eine Anbindung
+          die Kundendatenbank und die Mitarbeiterdatenbank. Als Kundendatenbank wird "SugarCRM"
+          eingesetzt und die Mitarbeiterdatenbank ist eine einfache MySQL Datenbank.
+
+        %p
+          Das Ergebnis dieser Aufgabe soll wieder eine reine Präsentation sein, es muss kein
+          Code geschrieben werden
+
+        .color-box
+          %h5 Aufgabenbeschreibung
+
+          %p
+            Erstellen Sie einen Architekturentwurf für das Planungssystem. Ergänzend zu den Angaben
+            aus den vergangenen Praktika gelten folgende Annahmen über das System.
+
+          %p
+            %b Use Cases
+
+            Die folgenden Use Cases sollen durch das System abgedeckt sein.
+
+            %ul
+              %li Eine Servicekraft greift lesend auf seinen Wochenplan zu.
+              %li Ein "Planer" erstellt 1x/Woche die Wochenpläne.
+              %li Servicekräfte werden per E-Mail über neue Pläne, bzw. Änderungen informiert.
+
+          %p
+            %b Funktion: Zugriff auf die Pläne
+
+            %ul
+              %li Die Pläne sollen über ein Web-Interface mit user/Passwort login lesbar sein.
+              %li Die user/passwort Informationen stehen in der MySQL Datenbank
+              %li Die Pläne sollen zusätzlich über eine REST API abrufbar sein, um ggf. Android/iPhone Apps zu unterstützen.
+
+          %p
+            %b Funktion: Erstellen der Pläne
+
+            %ul
+              %li Die Pläne sollen teil-automatisiert erstellt werden. Basierend auf den Vorgaben macht die Software einen ersten Vorschlag, der dann manuell geprüft und vervollständigt wird.
+              %li Die Vorgaben für die Pläne bestehen aus der Verfügbarkeit der Servicekräfte, den anstehenden Wartungsterminen für die Woche und dem prozentualen Puffer, der für jede Servicekraft für Notfälle vorgehalten werden soll.
+              %li Die Verfügbarkeit und der Puffer werden direkt aus der MySQL Datenbank gelesen.
+              %li Die Wartungstermine werden per REST API aus dem SugarCRM ausgelesen. Ein Wartungstermin enthält u.a. die Angaben über Anfahrtdauer und Dauer der Wartung (1 Stunde min / 2 Tage max.)
+              %li Ist ein Plan fertig, soll das System eine E-Mail an die Servicekraft versenden.
+
+          %p
+            %b Einschränkungen
+
+            %ul
+              %li Notfälle werden NICHT über die Planungssoftware behandelt, sie sind nicht weiter relevant
+
+          %p
+            %b
+
+            %ul
+              %li
+
+          %p
+            %b Nutzergruppen
+
+            %ul
+              %li Etwa 150 User greifen als Wartungspersonal auf ihre Wochenpläne zu. Es erfolgt ein einfacher, lesender Zugriff
+              %li 1-3 Planer erstellen die Pläne 1x/Woche
+              %li Bei den Servicekräften wird mit einem jährlichen Wachstum von 10-20 Personen gerechnet
+
+          %p
+            %b CRM-Tool
+
+            Als CRM Tool wird die OpenSource Software Sugar CRM eingesetet. Im CRM Tool sind
+
+            %ul
+              %li
+              %li Doku: http://support.sugarcrm.com/Documentation/Sugar_Developer/Sugar_Developer_Guide_7.5/API/Web_Services/REST/
+
+          %p
+            %b Personaldatenbank
+
+            In der Personalabteilung wird eine proprietäre Software eingesetzt, die auf einer
+            MySQL Datenbank arbeitet. Diese Software bietet keine API an, so dass Sie zum Zugriff
+            auf die Personaldaten direkt auf die Datenbank zugreifen müssen.
+
+            %ul
+              %li
+
+
+          %p
+            %b Einige Fragen als Startpunkte für den Architekturentwurf
+
+            %ul
+              %li Greifen Sie direkt in die Datenbank, oder erstellen Sie einen Wrapper-Service oder ORM?
+              %li Sind Erstellung der Pläne und Zugriff auf die Pläne in der gleichen Software umgesetzt, oder gibt es hier eine Trennung?
+              %li Wenn die Pläne per user/pass aus dem Internet zugreifbar sind, wo und wie sorgen Sie für eine Absicherung der Personal- und Kundendaten? Beide Systeme sind bisher nur intern erreichbar.
+
+          %p
+
+          %p
+            Suchen Sie eine oder mehrere geeignete Technologie aus. Die späteren Nutzer werden über native Apps (iOS, Android), bzw. über
+            eine Web-App auf die Wochenpläne zugreifen. Eine REST Schnittstelle ist daher eine vorgegebene Anforderung. Es gibt
+            Frameworks mit denen sich sehr einfach APIs direkt erstellen lassen (z.B. Ruby on Rails 5), sowie Tools wie swagger.io,
+            mit denen sich Server Code für diverse Sprachen generieren lässt. Auch mit C, C++ oder Assembler lassen sich Http/REST APIs
+            implementieren, der Aufwand ist jedoch ungleich höher...
+
+          %p
+            Erstellen Sie für den Praktikumstermin eine Präsentation in der Sie die getroffenen Architekturentscheidungen
+            vorstellen, sowie einen kleinen Überblick über die verwendeten Frameworks geben.
+
+          %ul
+            %li Warum wurden genau diese Sprache/Framework ausgewählt
+            %li Warum dieser Provider
+            %li Was lief gut, was lief schlecht bei der Implementierung?
+            %li Was würden Sie wieder so entscheiden, was nicht?
+            %li Kurze Demo der entstandenen API
+
+        %p
+          %b
+            Die Präsentation ist bis zum Praktikumstermin per Mail an nils@loewe.io abzugeben. In der Praktikumszeit sind
+            keine Änderungen mehr vorgesehen.
