@@ -44,103 +44,93 @@ title: Praktikum 3: Architekturentwurf
             Erstellen Sie einen Architekturentwurf für das Planungssystem. Ergänzend zu den Angaben
             aus den vergangenen Praktika gelten folgende Annahmen über das System.
 
+          %h4 Use Cases
           %p
-            %b Use Cases
 
             Die folgenden Use Cases sollen durch das System abgedeckt sein.
 
             %ul
-              %li Eine Servicekraft greift lesend auf seinen Wochenplan zu.
+              %li Eine Servicekraft greift nur lesend auf seinen Wochenplan zu.
               %li Ein "Planer" erstellt 1x/Woche die Wochenpläne.
               %li Servicekräfte werden per E-Mail über neue Pläne, bzw. Änderungen informiert.
 
+          %h4 Funktion: Zugriff auf die Pläne
           %p
-            %b Funktion: Zugriff auf die Pläne
-
             %ul
               %li Die Pläne sollen über ein Web-Interface mit user/Passwort login lesbar sein.
-              %li Die user/passwort Informationen stehen in der MySQL Datenbank
               %li Die Pläne sollen zusätzlich über eine REST API abrufbar sein, um ggf. Android/iPhone Apps zu unterstützen.
 
+          %h4 Funktion: Erstellen der Pläne
           %p
-            %b Funktion: Erstellen der Pläne
-
             %ul
               %li Die Pläne sollen teil-automatisiert erstellt werden. Basierend auf den Vorgaben macht die Software einen ersten Vorschlag, der dann manuell geprüft und vervollständigt wird.
+              %li Die Pläne werden an einem Bürorechner erstellt, ob die Software eine Webanwendung oder eine Desktopanwendung ist, ist dabei egal.
               %li Die Vorgaben für die Pläne bestehen aus der Verfügbarkeit der Servicekräfte, den anstehenden Wartungsterminen für die Woche und dem prozentualen Puffer, der für jede Servicekraft für Notfälle vorgehalten werden soll.
               %li Die Verfügbarkeit und der Puffer werden direkt aus der MySQL Datenbank gelesen.
               %li Die Wartungstermine werden per REST API aus dem SugarCRM ausgelesen. Ein Wartungstermin enthält u.a. die Angaben über Anfahrtdauer und Dauer der Wartung (1 Stunde min / 2 Tage max.)
               %li Ist ein Plan fertig, soll das System eine E-Mail an die Servicekraft versenden.
 
+          %h4 Nutzergruppen
           %p
-            %b Einschränkungen
-
-            %ul
-              %li Notfälle werden NICHT über die Planungssoftware behandelt, sie sind nicht weiter relevant
-
-          %p
-            %b
-
-            %ul
-              %li
-
-          %p
-            %b Nutzergruppen
-
             %ul
               %li Etwa 150 User greifen als Wartungspersonal auf ihre Wochenpläne zu. Es erfolgt ein einfacher, lesender Zugriff
               %li 1-3 Planer erstellen die Pläne 1x/Woche
               %li Bei den Servicekräften wird mit einem jährlichen Wachstum von 10-20 Personen gerechnet
 
+
+          %h4 CRM-Tool
           %p
-            %b CRM-Tool
+            Als CRM Tool wird die OpenSource Software Sugar CRM eingesetet. Im CRM Tool sind neben den
+            eigentlichen Kundendaten auch alle Anlagen inkl. deren Wartungsterminen hinterlegt.
 
-            Als CRM Tool wird die OpenSource Software Sugar CRM eingesetet. Im CRM Tool sind
+            %a{href: "http://support.sugarcrm.com/Documentation/Sugar_Developer/Sugar_Developer_Guide_7.5/API/Web_Services/REST/"} SugarCRM Doku
 
-            %ul
-              %li
-              %li Doku: http://support.sugarcrm.com/Documentation/Sugar_Developer/Sugar_Developer_Guide_7.5/API/Web_Services/REST/
 
+          %h4 Personaldatenbank
           %p
-            %b Personaldatenbank
 
             In der Personalabteilung wird eine proprietäre Software eingesetzt, die auf einer
             MySQL Datenbank arbeitet. Diese Software bietet keine API an, so dass Sie zum Zugriff
-            auf die Personaldaten direkt auf die Datenbank zugreifen müssen.
+            auf die Personaldaten direkt auf die Datenbank zugreifen müssen. Das konkrete Schema ist bekannt,
+            für den aktuellen Stand aber irrelevant.
+
+
+          %h4 Einschränkungen
+          %p
 
             %ul
-              %li
+              %li Notfälle werden NICHT über die Planungssoftware behandelt, sie sind nicht weiter relevant
+              %li Die Verfügbarkeit soll für die Pläne soll 99,9% nicht unterschreiten.
+              %li Die Planerstellung muss nur tagsüber zu den normalen Büroarbeitszeiten verfügbar sein.
 
 
+          %h4 Einige Fragen als Startpunkte für den Architekturentwurf
           %p
-            %b Einige Fragen als Startpunkte für den Architekturentwurf
-
             %ul
               %li Greifen Sie direkt in die Datenbank, oder erstellen Sie einen Wrapper-Service oder ORM?
               %li Sind Erstellung der Pläne und Zugriff auf die Pläne in der gleichen Software umgesetzt, oder gibt es hier eine Trennung?
               %li Wenn die Pläne per user/pass aus dem Internet zugreifbar sind, wo und wie sorgen Sie für eine Absicherung der Personal- und Kundendaten? Beide Systeme sind bisher nur intern erreichbar.
+              %li Wo legen Sie die user/pass Daten ab? Erweitern Sie die Personaldatenbank? Bauen Sie einen eigenen Service? Wo wird die Kontrolle der Zugriffsrechte (Planer vs. Servicekraft) geregelt?
+              %li Gibt es Teile, die sich gut outsourcen lassen würden? Kann man Teile des Systems mit Standardsoftware umsetzen?
 
-          %p
 
-          %p
-            Suchen Sie eine oder mehrere geeignete Technologie aus. Die späteren Nutzer werden über native Apps (iOS, Android), bzw. über
-            eine Web-App auf die Wochenpläne zugreifen. Eine REST Schnittstelle ist daher eine vorgegebene Anforderung. Es gibt
-            Frameworks mit denen sich sehr einfach APIs direkt erstellen lassen (z.B. Ruby on Rails 5), sowie Tools wie swagger.io,
-            mit denen sich Server Code für diverse Sprachen generieren lässt. Auch mit C, C++ oder Assembler lassen sich Http/REST APIs
-            implementieren, der Aufwand ist jedoch ungleich höher...
-
+          %h4 Ihre Aufgabe
           %p
             Erstellen Sie für den Praktikumstermin eine Präsentation in der Sie die getroffenen Architekturentscheidungen
-            vorstellen, sowie einen kleinen Überblick über die verwendeten Frameworks geben.
+            vorstellen, sowie einen kleinen Überblick über die vorgeschlagenen Technologien und Frameworks geben.
 
           %ul
-            %li Warum wurden genau diese Sprache/Framework ausgewählt
-            %li Warum dieser Provider
-            %li Was lief gut, was lief schlecht bei der Implementierung?
-            %li Was würden Sie wieder so entscheiden, was nicht?
-            %li Kurze Demo der entstandenen API
+            %li Kontextsicht des Systems
+            %li Bausteinsicht(en): Wie werden die Funktionen innerhalb der einzelnen Systembestandteile geschnitten?
+            %li Verteilungssicht: Wie ist das System physikalisch verteilt?
+            %li Welche Fragen sind von hier aus zu stellen, um konkrete Teile des Systems implementieren zu können?
+
+          %p
+            Stellen Sie sich vor, dass ausgehend von diesem Architekturentwurf konkrete Arbeitspakete an
+            Entwickler oder Teams verteilt werden sollen.
+
+
 
         %p
-          %b
-            Die Präsentation ist bis zum Praktikumstermin per Mail an nils@loewe.io abzugeben. In der Praktikumszeit sind
-            keine Änderungen mehr vorgesehen.
+          Die Präsentation ist bis zum Praktikumstermin per Mail an nils@loewe.io abzugeben. In der Praktikumszeit sind
+          keine Änderungen mehr vorgesehen.
