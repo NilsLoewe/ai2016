@@ -19,6 +19,11 @@ layout: slide
   \#### Technologien und Frameworks
 
 %section{"data-markdown" => ""}
+  \## 3. Praktikum
+  [Praktikum 3: Architekturentwurf](https://ai2016.nils-loewe.de/p03.html)
+  \### Fragen?
+
+%section{"data-markdown" => ""}
   \### Wiederholung
   \### Architekturmuster
 
@@ -389,14 +394,34 @@ layout: slide
 
 %section{"data-markdown" => ""}
   \#### DDD - Ein Beispiel
-  http://blog.mirkosertic.de/architecturedesign/dddexample
-  A company provides IT Body Leasing. They have some Employees, and also a lot of Freelancers as Subcontractors. Currently, they use Excel sheets to manage their Customers, Freelancers, Timesheets and so on. The Excel solution does not scale well. It is not multi-user ready and also does not provide security and audit logs. So they decided to build a new web based solution. Here are the core requirements:
-  A searchable catalog of Freelancer must be provided
-  The new solution must allow do store the different Communication Channels available to contact a Freelancer
-  A searchable catalog of Projects must be provided
-  A searchable catalog of Customers must be provided
-  The Timesheets for the Freelancers under contract must be maintained
-  Based on these requirements the development team decided to model everything using UML to get a big picture of the new solution. Now let's see what they did.
+
+  \### Eine Firma bietet Softwareentwicklung als Dienstleistung an.
+
+  * Aufwand wird nach Stunden verrechnet
+  * Es gibt festangestellte Softwareentwickler
+  * Es gibt einen Pool von Freelancern.
+  * Bisher wird die Zuordnung von Entwicklern zu Projekten in einem Excel-Sheet organisiert
+
+  (Quelle: http://blog.mirkosertic.de/architecturedesign/dddexample)
+
+%section{"data-markdown" => ""}
+  \#### DDD - Ein Beispiel
+
+  \### Probleme mit dem Excel-Ansatz
+
+  * Excel skaliert nicht auf mehrere Anwender
+  * Keine Sicherheit
+  * Kein Logging
+
+%section{"data-markdown" => ""}
+  \#### DDD - Ein Beispiel
+  \### Lösung: Neue Software bauen
+
+  * Durchsuchbarer Katalog von Freelancern
+  * Mehrere Kontaktmöglichkeiten pro Freelancer
+  * Durchsuchbarer Katalog von Projekten
+  * Durchsuchbarer Katalog von Projekten
+  * Timesheets für jeden Freelancer (pro Projekt)
 
 %section{"data-markdown" => ""}
   \#### DDD - Ein Beispiel

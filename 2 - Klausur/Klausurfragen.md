@@ -28,6 +28,8 @@ Architekten bewerten die Güte der Architektur
 
 ### Was besagt das Brook'sche Gesetz?
 * Adding manpower to a late project makes it later
+
+
 ## Sichten
 ### Welche Arten von Sichten gibt es?
 
@@ -36,8 +38,7 @@ Architekten bewerten die Güte der Architektur
 * Laufzeitsicht: Wie läuft das System ab?
 * Verteilungssicht / Infrastruktursicht: In welcher Umgebung läuft das System ab?
 
-# Architekturmuster
-
+## Architekturmuster
 ### Nennen und erläutern Sie drei Anti-Patterns
 
 * God-Object / Blob
