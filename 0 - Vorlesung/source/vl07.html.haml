@@ -397,12 +397,13 @@ layout: slide
 
   \### Eine Firma bietet Softwareentwicklung als Dienstleistung an.
 
+  \###### http://blog.mirkosertic.de/architecturedesign/dddexample
+
   * Aufwand wird nach Stunden verrechnet
   * Es gibt festangestellte Softwareentwickler
   * Es gibt einen Pool von Freelancern.
   * Bisher wird die Zuordnung von Entwicklern zu Projekten in einem Excel-Sheet organisiert
 
-  (Quelle: http://blog.mirkosertic.de/architecturedesign/dddexample)
 
 %section{"data-markdown" => ""}
   \#### DDD - Ein Beispiel
@@ -431,53 +432,68 @@ layout: slide
 %section{"data-markdown" => ""}
   \#### DDD - Ein Beispiel
 
-  This is pretty straight forward. There are Customers, Freelancers, Projects and Timesheets. There is also a kind of user management to support role based security. But wait, something is wrong here. There are some well hidden design flaws. Can you see them? Here they are:
-  It is a very big object graph. If they do not use Hibernate/ JPA lazy loading here, it will pretty sure run out of memory under heavy load
-  Why is the association between User and Role bi-directional?`
-  The ContactType has some boolean flags to show what type is it, email, phone, mobile
-  The Freelancer class holds a list of Projects. This also means that Projects cannot be added without modifying the Freelancer object. This can cause transaction failure under heavy load, as possibly multiple users are adding Projects for the same Customer.
-  What does ContactInformation mean? The requirements stated “Communication Channel”. Is it the same?
-  The whole model seems to be more a kind of Entiy-Relationship-Diagram instead of a software model. Also, were is the business logic? The team wanted to create some Business-Services around the model to store and retrieve data, the Entities are just POJOs managed by JPA.
-  The hole solution is a big code smell, an anemic domain model . The team does this recognize, too. But what can be the solution? Well, a senior team member suggested to use Domain-driven Design principles to model the solution. Ok, now let's see how DDD can improve the design.
+  \### Straight forward Ansatz
+  * Kunden
+  * Freelancer
+  * Projekte
+  * Timesheets
+  * User Management: Rolle
 
 %section{"data-markdown" => ""}
-  \#### DDD - Ein Beispiel
-
-  The DDD way
-  Before we start in deep to look at Domain-driven Design, we should talk a little about the principles behind DDD.
-
-  One principle behind DDD is to bridge the gap between domain experts and developers by using the same language to create the same understanding. Another principle is to reduce complexity by applying object oriented design and design patters to avoid reinventing the wheel.
-
-  But what is a Domain? A Domain is a “sphere of knowledge”, for instance the business the company runs. A Domain is also called a “problem space”, so the problem for which we have to design a solution.
-
-  Ok, let's look at the requirements. We could think that there is a “Body Leasing” Domain, and that is completely right. But if we look deeper into the Domain, we see something that is called “Subdomain”. The following Subdomains might be possible:
-
-  Identity and Access Management Subdomain
-  Freelancer Management Subdomain
-  Customer Management Subdomain
-  Project Management Subdomain
-  Ahh! We can split the big problem into smaller ones. This can help us to design a better solution.
-
-  The separated Domain can easily be visualized. In DDD terms this is called a Context Map, and it is the starting point for any further modeling.
-
+  \#### Straight forward Ansatz
+  \### Probleme?
 
 %section{"data-markdown" => ""}
-  \#### DDD - Ein Beispiel
+  \#### Straight forward Ansatz: Probleme
+  \### Großer Objektgraph: Performance Probleme unter Last
+  Framework wie Hibernate wäre notwendig um das zu vermeiden
 
+%section{"data-markdown" => ""}
+  \#### Straight forward Ansatz: Probleme
+  \### Warum die bidirektionale Verknüpfung zwischen User und Rolle?
+
+%section{"data-markdown" => ""}
+  \#### Straight forward Ansatz: Probleme
+  \### Boolean-Flags um den Kontakttypen zu unterscheiden
+
+%section{"data-markdown" => ""}
+  \#### Straight forward Ansatz: Probleme
+  \### Projekt-Liste in der Freelancer-Klasse:
+  \#### Freelancer verändern um Projekte zuzufügen
+  Potentielle Transaktionsprobleme unter Last (mehrere Leute legen gleichzeitig Projekte für den gleichen Kunden an)
+
+%section{"data-markdown" => ""}
+  \#### Straight forward Ansatz: Probleme
+  * Kontaktinformation == Kommunikationskanal?
+  * Das Diagramm ist eher ein Entiy-Relationship-Diagram als ein Software Modell
+  * Wo ist die Businesslogik?
+
+%section{"data-markdown" => ""}
+  \### DDD nutzen
+
+  * Gemeinsame Sprache schaffen um zwischen Entwicklern und Domänenexperten zu vermitteln
+  * Komplexität reduzieren durch OO-Design Prinzipien
+
+%section{"data-markdown" => ""}
+  \#### DDD nutzen
+  \#### Anforderungen: "Body Leasing Domain"
+  \### **Context-Map: Komplexität reduzieren durch Subdomains**
+
+  * Identität und Access Management Subdomain
+  * Freelancer Management Subdomain
+  * Kundenmanagement Subdomain
+  * Projektmanagement Subdomain
+
+%section{"data-markdown" => ""}
+  \#### DDD - Context Map
   ![](/images/dddcontextmap.png)
 
 %section{"data-markdown" => ""}
-  \#### DDD - Ein Beispiel
+  \#### DDD - Bounded Context
 
-  Now we need to align the Subdomain aka problem space to our solution design, we need to form a solution space. A solution space in DDD lingo is also called a Bounded Context, and it is the best to align one problem space/Subdomain with one solution space/Bounded Context.
-
-  Building blocks
-  The building blocks of Domain-driven Design are split into tactical and strategical patterns. I wrote an Article about DDD building blocks so if you want to dive deeper please visit this article.
-
-  Please note that the following architecture patterns and class diagrams are not technology dependent. This solution can be implemented using Java SE/EE, C# or even JavaScript. It does not matter, we can archive the same benefit with every target technology.
-
-  The new Big Picture
-  Ok, now let's see the new big picture of the domain model:
+  * Zuordnen von Subdomains zu Teilen der Lösung
+  * *Building blocks* nutzen (Design Pattern anwenden)
+  * Die DDD Architekturpattern sind nicht technologieabhängig!
 
 %section{"data-markdown" => ""}
   \#### DDD - Ein Beispiel
@@ -485,45 +501,62 @@ layout: slide
   ![](/images/dddrevised.png)
 
 %section{"data-markdown" => ""}
-  \#### DDD - Ein Beispiel
+  \#### DDD - Ein erster Ansatz
 
-  Okay, what happened here? There are now Bounded Contexts for every identified Subdomain. The Bounded Contexts are isolated, they know nothing of each other. They are only glued together by a set of common types, like UserId, ProjectId and CustomerId. In DDD this is called a “Generic Subdomain”
-
-  We applied a set of tactical and strategical patterns to the model. These patterns help us to build a better model, improve fault tolerance and also to increase maintainability.
-
-  Within each Bounded Context there are Aggregates and Value Objects. Aggregates are object hierarchies, but only the root of the hierarchy is accessible from outside of the Aggregate. Aggregates take care of business invariants. Every access to the object tree must go thru the Aggregate and not over one element within. This greatly increases encapsulation.
-
-  Aggregates and Entites are things with an unique id in our model. Value Objects are not things, they are values or measures, like a UserId. Value Objects are designed to be immutable, they cannot change their state. Every state changing method returns a new instance of the value Object. This helps us to eliminate unwanted side effects.
-
-  Designing behavior
-  Let's design some behavior, the “Freelancer moved to new location” use case. Without DDD in mind, we could create a simple POJO as follows:
+  * Bounded Contexts für jede Subdomain
+  * Bounded Contexts sind isoliert und unabhängig
+  * Verbindungen durch common types (UserId, ProjectId, CustomerId): “Generic Subdomain”
 
 %section{"data-markdown" => ""}
-  \#### DDD - Ein Beispiel
+  \#### DDD - Ein erster Ansatz
+
+  * Jeder Bounded Context enthält Aggregates und Wertobjekte
+  * Aggregates sind Objekthierarchien
+  * Nur das Root-Objekt eines Aggregates ist von außen zugreifbar
+  * Jeder Zugriff auf ein Objekt passiert durch die Aggregates: Bessere Kapselung
+  * Aggregates und Entites besitzen eine ID
+  * Wertobjekte haben keine ID und können ihren Zustand nicht ändern
+  * Jede Zustandsänderung erzeugt ein neues Wertobjekt: Vermeiden von Seiteneffekten
+
+%section{"data-markdown" => ""}
+  \#### DDD - Beschreibung von Verhalten
+
+  \### Use Case: “Freelancer zieht um”
+
+%section{"data-markdown" => ""}
+  \#### Entwurf ohne DDD
 
   ![](/images/dddbehavior.png)
 
 %section{"data-markdown" => ""}
-  \#### DDD - Ein Beispiel
+  \#### DDD - Probleme
 
-  We can change the name of the Freelancer by calling the setter of the instance. But wait! Where is our use case? The setter might be called from other places. And implementing role based security might become cumbersome. as we do not have the invocation context when a setter is invoked. Also, there is a missing concept in this model, the Address. It is modeled in a very implicit way, just by simple properties of the Freelancer class.
-
-  By applying Domain-driven Design, we get the following:
+  * Name etc. ändern durch Setter-Methoden
+  * Setter können von diversen Orten aufgerufen werden
+  * Rollenbasierte Security schwer umsetzbar
+  * Kein Kontext des Aufrufers bekannt
+  * Kein "Adress-Konzept", lediglich einzelne Felder
 
 %section{"data-markdown" => ""}
-  \#### DDD - Ein Beispiel
+  \#### Entwurf mit DDD
 
   ![](/images/dddbehaviorrevised.png)
 
 %section{"data-markdown" => ""}
-  \#### DDD - Ein Beispiel
+  \#### DDD Ansatz - Vorteile
 
-  Now, the Freelancer Aggregate has only one Attribute, its Address. The Address is modeled as immutable. It cannot change its state, every state changing method returns a new instance of Address with changed state. Please also note the getAddress() and moveTo(Address) methods of Freelancer. We can only get an immutable instance of Address from the Freelancer, and change the Address by invoking the moveTo() method. This method explicitly models the “freelancer moved to new location” use case. We can also apply role based security to this method. This explicit concept make the API and the intention of the model clear. By just returning immutable objects out of the Aggregate we can make sure that nothing can change the internal state of the Aggregate except the Aggregate itself. Also note that most of the business logic is part of a Value Object, not an Aggregate. As a rule of thumb, Value Objects are the work horses of our model, and we should use them to implement most business logic.
+  * Der Freelancer hat nur ein Attribut: Die Adresse
+  * Eine Adresse ist immutable, Änderungen erzeugen neue Adress-Objekte
+  * getAdress gibt ein immutable Adress-Objekt zurück
+  * movedTo(Adress) bildet explizit den UseCase ab
+  * Rollenbasierte Security ist möglich
 
-  A complete Use Case and Persistence
-  Ok, we continue to model the “freelancer moved to new location” use case. First of all, we need a kind of storage for our Freelancer Aggregate. DDD calls such storage a Repository. Using a Repository, we can search a Freelancer for instance by name, load an existing Freelancer by Id, remove it from Storage or add a new Freelancer to the storage. As a rule of thumb, there should be one Repository for every type of Aggregate. Please note that a Repository is an interface described in business terms. We will talk about the implementation in the next chapter.
+%section{"data-markdown" => ""}
+  \#### Vollständiger UseCase mit Persistenz
 
-  The following diagram shows the modeled use case. You will see some new artifacts. First of all the user interface, the client of our domain model. A client can be everything, from JSF 2.0 front end to SOAP webservices or a REST resource. So please think about the client in a general way. The client sends a command to the ApplicationService. The ApplicationService translates the command to a Domain Model use case invocation. So the FreelancerApplicationService will load the Freelancer Aggregate from the FreelancerRepository and invoke the moveTo() operation on the Freelancer Aggregate. The FreelancerApplicationService forms also the transaction boundary. Every invocation results in a new transaction. Role based security can also be implemented using the FreelancerApplicationService. It is always a good choice to keep transaction control out of the domain model. Transaction control is more a technical issue than a business thing, so it should not be implemented in the domain model.
+  * Persistenz in DDD wird mit "Repositories" umgesetet
+  * Ein Repository ist durchsuchbar, kann Instanzen liefern und löschen, sowie neue Instanzen ablegen
+  * Es sollte ein Repository für jedes Aggregate geben
 
 %section{"data-markdown" => ""}
   \#### DDD - Ein Beispiel
@@ -531,36 +564,77 @@ layout: slide
   ![](/images/dddusecasepersistence.png)
 
 %section{"data-markdown" => ""}
-  \#### DDD - Ein Beispiel
+  \#### Vollständiger UseCase mit Persistenz
 
-  Application Architecture
-  Ok, now let's take a look at application architecture. For every Bounded Context, there should be a separate Deployment Unit. This can be a Java WAR file or an EJB JAR. This depends on your implementation technology. We designed the Bounded Context to be independent from each other, and this design goal should also be reflected in independent Deployment Units.
-
-  Every Deployment Unit contains the following parts:
-
-  A Domain Layer
-  An Infrastructure Layer
-  and an Application Layer
-  The Domain Layer contains the infrastructure independent domain logic as we modeled before in this example. The Infrastructure Layer provides the technology dependent artifacts, like the Hibernate based FreelancerRepository implementation. The Application Layer acts as a gateway to business logic with integrated transaction control.
+  * Ein Client ist ein abstraktes Konzept
+  * Ein Client kann alles von einem Frontend über einen SOAP Webservice zu einer REST Ressource sein
+  * Ein Client sendet Befehle an den ApplciationService
 
 %section{"data-markdown" => ""}
-  \#### DDD - Ein Beispiel
+  \#### Vollständiger UseCase mit Persistenz
 
-  ![](/images/dddlayeredarchitecture.png)
+  * Der ApplicationService setzt die Befehle in UseCases um
+  * Der FreelancerApplicationService lädt dasFreelancer Aggregate aus dem FreelancerRepository und ruft moveTo() auf dem FreelancerAggregate auf
+  * Der FreelancerApplicationService bildet dabei die Transactionsgrenzen.
+  * Jeder Aufruf erzeugt eine neue Transaktion
 
 %section{"data-markdown" => ""}
-  \#### DDD - Ein Beispiel
+  \#### DDD - Applikations-Architektur
 
-  Using this style of architecture, the Domain Layer of our business logic does not depend on anything. We can change the Repository implementations from Hibernate to JPA or even NoSQL ones like Riak or MongoDB for instance without affecting any business logic.
+  * Jeder Bounded Context sollte eine "Deployment Unit" bilden, z.B. ein Java WAR file oder ein EJB JAR
+  * Die Bounded Contexts sind unabhängig designt, sie sollten daher auch unabhängig implementiert werden
 
-  Domain Layer
-  The Domain Layer contains the real business logic, but does not contain any infrastructure specific code. The infrastructure specific implementation is provided by the Infrastructure Layer. The Domain Model should be designed as described by the CQS(Command-Query-Separation) principle. There can be query methods which do just return data without affecting state, and there are command methods, which affect state but do not return anything.
+%section{"data-markdown" => ""}
+  \#### DDD - Applikations-Architektur
 
-  Application Layer
-  The Application Layer takes commands from the User Interface Layer and translates these commands to use case invocations on the domain layer. The Application Layer also provides transaction control for business operations. The application layer is responsible to translate Aggregate data into the client specific presentation model by a Mediator or Data Transformer pattern.
+  \### Jede Deployment Unit enthält die folgenden Elemente:
 
-  Infrastructure Layer
-  The Infrastructure Layer provides the infrastructure dependent parts for all other layers, like a Hibernate or JPA backed implementation. Aggregate data can be stored in an RDMBS like Oracle or MySQL, or it can be stored as XML/JSON or even Google ProtocolBuffers serialized objects in a key-value or document based NoSQL engine. This is up to you, as long the storage provides transaction control and guarantees consistency. Infrastructure can be best described as “Everything around the domain model”, so databases, file system resources or even WebService consumers if we interact with other systems.
+  * Domain Layer: Domänenlogik
+  * Infrastructure Layer: Technologieabhängige Artefakte (z.B. Hibernate für Repository)
+  * Application Layer: Gateway zur Businesslogik mit Transaktionskontrolle
+
+%section{"data-markdown" => ""}
+  \#### DDD - Layers
+
+  ![](/images/dddlayer1.png)
+
+%section{"data-markdown" => ""}
+  \#### DDD - Layers
+
+  ![](/images/dddlayer2.png)
+
+%section{"data-markdown" => ""}
+  \#### DDD - Vorteile
+
+  * Der Domain Layer basiert nicht auf anderen Teilen der Architektur
+  * Die Repository Implementierung kann getauscht werden, ohne die Businesslogik zu beeinflusseng any business logic.
+
+%section{"data-markdown" => ""}
+  \#### DDD -  Domain Layer
+
+  * Enthält die Businesslogik, keine Abhängigkeiten der Infrastruktur
+  * Die Modelle sollten nach dem CQS(Command-Query-Separation) Prinzip entworfen werden
+  * --> Query Methoden geben lediglich Daten zurück ohne Zustände zu ändern
+  * --> Command Methoden ändern den Stade
+
+%section{"data-markdown" => ""}
+  \#### DDD - Application Layer
+
+  * Der Application Layer nimmt Kommandos des User Interface Layer an
+  * Der Application Layer ruft UseCase Implementierungen im Domain layer auf
+  * Der Application Layer biete Transactioskontrolle für Business Operationen
+
+TBD:
+  * DDD Beispiel fertig
+  * Rückblick auf Architekturmuster
+  * Landkarte: Wie wähle ich denn nun das passende Muster aus?
+  * Wie entwerfe ich die Architektur? --> Motivation für Dokumentation
+
+%section{"data-markdown" => ""}
+  \#### DDD - Infrastructure Layer
+
+  * Der Infrastructure Layer bietet Infrastrukturabhängige Teile für alle anderen Layer
+
 
   Client / User Interface Layer
   The Client Layer consumes Application Services and invokes business logic on these services. Every invocation is a new transaction.
