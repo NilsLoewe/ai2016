@@ -414,7 +414,7 @@ layout: slide
   * Der Microkernel koordiniert die Zusammenarbeit.
 
 %section{"data-markdown" => ""}
-  \#### Mikrokernel
+  \#### Microkernel
   \### Herausforderung
 
   ![](/images/microkernel.png)
@@ -466,7 +466,8 @@ layout: slide
   \### Fragen?
 
 %section{"data-markdown" => ""}
-  \### Domain Driven Design: Ein Beispiel
+  \### Domain Driven Design
+  \## Ein Beispiel
 
 %section{"data-markdown" => ""}
   \#### DDD - Ein Beispiel
@@ -703,113 +704,207 @@ layout: slide
 %section{"data-markdown" => ""}
   \#### DDD - Infrastructure Layer
 
-  * Der Infrastructure Layer bietet Infrastrukturabhängige Teile für alle anderen Layer
+  Der Infrastructure Layer bietet Infrastrukturabhängige Teile für alle anderen Layer
 
-
-  Client / User Interface Layer
-  The Client Layer consumes Application Services and invokes business logic on these services. Every invocation is a new transaction.
-
-  The Client Layer can be almost anything, starting from an JSF 2.0 Backing Bean as the view controller to a SOAP webservice endpoint or a RESTful web resource. Even Swing, AWT or OpenDolphin/JavaFX can be used to create the user interface.
-
-  Context Integration
-  Now I want to write about Context Integration. What is this all about? Consider the following requirements of the body leasing domain:
-
-  A Customer can only be deleted if there is no Project assigned
-  Once a Timesheet is entered, the Customer needs to be billed
-  Synchronous Integration
-  Let's start with the first one. In this case, the Customer Management Bounded Context needs to check if there is a Project registered for a given Customer before a Customer can be deleted. This requires a kind of Synchronous Integration of the two Bounded Contexts.
-
-  There are a lot of opportunities. First of all, we want to keep the context independent of each other. So how can we deal with that? Here is a design for the customer Bounded Context to interact with the Project Management Bounded Context:
 
 %section{"data-markdown" => ""}
-  \#### DDD - Ein Beispiel
+  \#### DDD - User Interface Layer
+
+  * Der User Interface Layer konsumiert Application Services und ruft Funktionalität der Businesslogik auf diesen Services auf.
+  * Jeder Aufruf ist eine neue Transaktion
+  * Der User Interface Layer kann beliebig implementiert sein, z.B. ein SOAP webservice, eine REST Resource oder eine Swing/AWT GUI
+
+%section{"data-markdown" => ""}
+  \#### DDD - Context Integration
+
+  \### Anforderungen:
+  * Ein Kunde kann nur gelöscht werden, wenn er keinem aktiven Projekt zugeordnet ist
+  * Wenn ein Timesheet erstellt wurde, muss eine Rechnung erstellt werden
+
+%section{"data-markdown" => ""}
+  \#### DDD - Context Integration
+
+  * *Customer Management Bounded Context* prüft ob ein Projekt für den übergebenen Kunden existiert, bevor der Kunde gelöscht werden kann.
+  * Ziel: *Bounded Contexts* sollen unabhängig bleiben
+
+%section{"data-markdown" => ""}
+  \#### DDD - Ein Beispiel (synchron)
 
   ![](/images/dddsyncexample1.png)
 
 %section{"data-markdown" => ""}
-  \#### DDD - Ein Beispiel
+  \#### DDD - *Domain Service*
 
-  There is a new term: a Domain Service. What is a Domain Service? A Domain Service implements business logic which cannot be implemented by an Entity, Aggregate or ValueObject, because it does not belong there. For instance if the business logic invocation includes operation across multiple Domain Objects or in this case integration with another Bounded Context.
+  * Ein *Domain Service* implementiert Business Logik, die nicht durch eine Entity, Aggragate oder ValueObject implementiert werden kann.
+  * Z.B. wenn Business Logik Operationen betreffen mehrere *Domain Objects* oder Interaktionen mit anderen *Bounded Contexts*
 
-  The ApplicationService invokes the deleteCustomerById method of the CustomerService. The CustomerService asks the ProjectManagementAdapter by calling customerExists() if a Project exists for the given CustomerId. Only if it returns false, the Customer is removed from the CustomerRepository.
-
-  There are two implementations of ProjectManagementAdapter available, a SOAP and a REST based one. We can either use SOAP to invoke a full webservice operation with XML marshalling and using the full JAX-WS stack, or we could use REST and call http://example.com/customers/customerId/projects and get a 404(not found) or 20x(Ok) HTTP response code. This is up to you, but the REST one would be less complicated, easier to integrate and also scales better. Also we can start with REST and switch to SOAP if it is required. It is quite easy to change the implementation without affecting the domain layer, we just use another implementation of the adapter.
-
-  At the Project Management Bounded Context side, there is an ApplicationWebService exposed as a REST resource or SOAP service implementing the server part of the communication. This service or resource delegates to the ProjectApplication Serviec, which delegates to ProjectDomainService asking if there is a Project registered for a given CustomerId.
+  * *ApplicationService* ruft *deleteCustomerById* des *CustomerService* auf
+  * *CustomerService* ruft *ProjectManagementAdapter* durch *customerExists()* auf
+  * Ein Kunde wird nur aus dem CustomerRepository gelöscht, wenn *customerExists()* false zurückgibt.
 
 %section{"data-markdown" => ""}
-  \#### DDD - Ein Beispiel
+  \#### DDD - *Domain Service*
+
+  * Es existieren zwei Implementierungen des *ProjectManagementAdapter*, basierend auf SOAP und REST
+  * Die Implementierung kann leicht verändert werden ohne den DomainLayer zu beeinflussen
+
+%section{"data-markdown" => ""}
+  \#### DDD - Ein Beispiel (synchron)
 
   ![](/images/dddsyncexample2.png)
 
 %section{"data-markdown" => ""}
-  \#### DDD - Ein Beispiel
+  \#### DDD - Transaktionsgrenzen
 
-  In any case we have to take care of transaction boundaries. WebService or REST resource invocation do not promote transactions out of the box, and using XA/two-phase-commit would increase complexity and reduce scalability. It would be the best to not delete a customer physically and instead mark it as logically deleted. In case of transaction failure or concurrency issues it would be easy to restore the customer to its original state.
-
-  Here you see also the reason why the Infrastructure Layer is located above all others. It must be able to delegate to it or implement technology specific artifacts based on interfaces defined in layers below.
-
-  An asynchronous example
-  Ok, now we continue with a more complex example. Consider the requirement, that once a Timesheet is entered, a Customer needs to be billed.
-
-  This is a very interesting one. It is interesting because it does not require synchronous invocation. The bill can be sent just in time, or a few hours later or at the end of the month together with other bills. Or the bill can be enriched by the Customer's Key Account Manager or whatever, the Freelancer management context just does not care.
-
-  How can we model this with DDD patterns? The key here is the phrase “once a Timesheet is…”, this is a business relevant Event in our domain, and such Events can be modeled as Domain Events!
-
-  A Domain Event is created and forwarded to an Event Store and stored there for further processing. The EventStore is part of the Bounded Context Deployment Unit and storing the Event in the store is done under the running transaction managed by an ApplicationService. At infrastructure side, there is a Timer forwarding the stored Events to the final messaging infrastructure, for instance JMS or AMQP based, even invocation of a REST resource can be considered as message delivery.
-
-  So why do we need the local EventStore? Well, the messaging infrastructure might become unavailable temporarily, but this should not affect our running Bounded Context. So the Events will be queued and delivered when the infrastructure is available again. If we would couple the messaging infrastructure directly with the Event producer, the producer might fail to send in case of an infrastructure error. Even if we use messaging, this might case a ripple effect over the whole infrastructure if something goes wrong, and this is the reason we use messaging: system decoupling
-
-  Here is how the Freelancer Management Bounded Context is modeled:
-
+  * WebService oder REST Ressourcen bieten keine automatischen Transaktionen
+  * XA/two-phase-commit erhöht die Komplexität und rediziert die Skalierbarkeit
+  * Besser wäre es, Kunden nicht zu löschen, sondern als logisch gelöscht zu markieren
+  * --> Bei Transaktionsfehlern lässt sich der originale Zustand wiederherstellen
 
 %section{"data-markdown" => ""}
-  \#### DDD - Ein Beispiel
+  \#### DDD - Ein komplexeres Beispiel
+
+  \### Wenn ein Timesheet abgegeben wurde, soll eine Rechnung erstellt werden
+
+  * Synchronität ist nicht notwendig: Die Rechnung kann auch Stunden später oder am Monatsende erstellt werden.
+  * Die Rechnung kann in einem anderen System weiterverarbeitet werden, das nicht Teil unseres Systems ist
+
+%section{"data-markdown" => ""}
+  \#### DDD - Ein komplexeres Beispiel
+
+  \#### "Wenn ein Timesheet abgegeben wurde..." ist ein Business-Event
+
+  * Domain Events werden erzeugt und im Event Store gespeichert und von dort weiterverarbeitet
+  * Der Event Store ist Teil des Bounded Context
+  * Das Bearbeiten von Domain-Events in einer Transaktion ist ist Aufgabe des ApplicationService
+  * Auf Seite der Infrastruktur werden gespeicherte Events mit einer Messaging Technologie wie JMS oder AMQP ausgeliefert
+
+%section{"data-markdown" => ""}
+  \#### DDD - Wozu ein lokaler Eventstore?
+
+  * Die Messaging Infrastruktur könnte ausgefallen sein
+  * Der Bounded Context sollte nicht abhängig von Infrastrukturproblemen sein
+  * --> Events werden gespeichert bis die Infrastruktur wieder verfügbar ist
+  * Messaging vermeidet unnötig enge Kopplung von Systemen
+
+%section{"data-markdown" => ""}
+  \#### DDD - Ein Beispiel (asynchron)
 
   ![](/images/dddasyncexample1.png)
 
 %section{"data-markdown" => ""}
   \#### DDD - Ein Beispiel
 
-  The FreelancerService creates a TimesheetEntered Domain Event and forwards it to the EventStore, which is basically another Repository. Then, the JMSMessagingAdapter takes the pending Events from the EventStore and tries to forward them to the target messaging infrastructure till delivery succeeds. But this forwarding is handled in another transaction, and can be triggered by a timer, for instance.
-
-  Ok, how does the Customer Management Context handle the Events? This is modeled as follows:
-
+  * Der *FreelancerService* erzeugt ein *TimesheetEntered*  Domain-Event
+  * Das Event wird zum *EventStore* weitergeleitet
+  * Der *JMSMessagingAdapter* nimmt Events aus dem EventStore und leitet sie an die Messaging-Infrastruktur weiter
 
 %section{"data-markdown" => ""}
-  \#### DDD - Ein Beispiel
+  \#### DDD - Ein Beispiel (asynchron)
 
   ![](/images/dddasyncexample2.png)
 
 %section{"data-markdown" => ""}
-  \#### DDD - Ein Beispiel
+  \#### DDD - Ein Beispiel (asynchron)
 
-  Again, the Infrastructure Layer must be located all other layers as it must in case of context integration invoke the application service.
-
-  Here is the origin the JMSMessageReceiver located in the infrastructure layer. The MessageReceiver is also responsible for Event de-duplication. This can happen in case of system failure, when already delivered Events are redelivered or something else went wrong. Since the Infrastructure Layer is located above the Application Layer, it can invoke the CustomerApplicationService, which itself calls the CustomerService, which implements the business logic to send a bill.
-
-  In this scenario, the transaction boundaries are at the ApplicationService. We can argue that the JMSMessageReceiver might call the CustomerService, and do it around a JMSTransaction. This is also a viable solution.
-
-  The tricky part is Event de-duplication. This can happen in case of infrastructure failure or system outage. This can be avoided by giving every Event an unique id, and track which ids were already processed.
-
-  Another tricky part is Event ordering. This depends on the messaging infrastructure. If the infrastructure supports Event ordering, everything is alright. If not, this must be implemented by ourselves. In any case it is a good practice to design Events as an idempotent operation. This means that every Event can be processed multiple times, and every time with the same result without unwanted side effects.
-
-  Query data from multiple Bounded Contexts or Aggregates
-  Sometimes we need to collect data spread over multiple Aggregates or even Bounded Contexts. This can be a tough task. Within one Bounded Context we could use specialized database views and retrieve data using Hibernate or JPA, but getting data spread over multiple Bounded Contexts can lead to a lot of remote method invocations and other issues; this solution might not scale well. We have also to consider that using a view might break the business invariance of a well designed Aggregate. This is an issue we really have to take care of!
-
-  Now, what might be a solution? We can think about CQRS or Command-Query Responsibility Segregation! Basically we divide the model into a command model, which contains business logic, and a query model, which is used to retrieve data. So for this example, the command model would consist of all the Bounded Contexts we want to query, and a query model, which is used to query aggregated data(and is optimized to query data effectively). The command model and query model are synchronized using Domain Events! Once a business operation is triggered in the command model, a Domain Event is issued and processed by the Query Model, and the data is updated.
-
-  Using CQRS, we can design high performance data processing systems and also integrating with Business Intelligence is no problem anymore. Think about it: the query model can basically be a data warehouse.
-
-  Final words
-  I really like the idea behind Domain-driven Design. Using this technique, even very complex domain logic can be easily distilled and modeled. This leads to better systems, improved user experience and also more reliable and maintainable solutions. Thanks to Eric Evans and Vaughn Vernon! DDD / Domain-driven Design is object oriented programming done right.
+  * Auch hier muss der Infrastruktur-Layer global verfügbar sein
+  * Der *JMSMessageReceiver* liegt im Infrastruktur-Layer
+  * Der *CustomerApplicationService* benutzt den *CustomerService*
+  * Die Transaktionsgrenzen sind der *ApplicationService*
 
 %section{"data-markdown" => ""}
-  TBD:
-  * DDD Beispiel fertig
-  * Rückblick auf Architekturmuster
-  * Landkarte: Wie wähle ich denn nun das passende Muster aus?
-  * Wie entwerfe ich die Architektur? --> Motivation für Dokumentation
+  \#### DDD - Event de-duplication
+
+  * Bei Infrastruktur-Problemen können Events doppelt versendet werden
+  * Lösung: Eindeutige ID für Events + Tracking der verarbeiteten Events
+
+%section{"data-markdown" => ""}
+  \#### DDD - Zusammenfassung
+
+  * Auch sehr komplexe Domänenlogik kann relativ einfach modelliert werden
+  * Die Systeme werden besser entkoppelt und wartbar
+
+%section{"data-markdown" => ""}
+  \#### DDD - Zusammenfassung
+
+  \### Domain-driven Design is object oriented programming done right. *(Eric Evans)*
+
+%section{"data-markdown" => ""}
+  \### Rückblick auf Architekturmuster
+
+%section{"data-markdown" => ""}
+  \#### Chaos zu Struktur / Mud-to-structure
+  \#### Verteilte Systeme
+  \#### Interaktive Systeme
+  \#### Adaptive Systeme
+  \#### Domain-spezifische Architektur
+
+%section
+  %h3 Chaos zu Struktur / Mud-to-structure
+  %ul
+    %li Organisation der Komponenten und Objekte eines Softwaresystems
+    %li Die Funktionalität des Gesamtsystems wird in kooperierende Subsysteme aufgeteilt
+    %li Zu Beginn des Softwareentwurfs werden Anforderungen analysiert und spezifiziert
+    %li Integrierbarkeit, Wartbarkeit, Änderbarkeit, Portierbarkeit und Skalierbarkeit sollen berücksichtigt werden
+
+%section{"data-markdown" => ""}
+  \### Chaos zu Struktur / Mud-to-structure
+  \#### Layers
+  \#### Pipes und Filter
+  \#### Blackboard
+  \#### Domain-driven Design
+
+%section
+  %h3 Verteilte Systeme
+  %ul
+    %li Verteilung von Ressourcen und Dienste in Netzwerken
+    %li Kein "zentrales System" mehr
+    %li Basiert auf guter Infrastruktur lokaler Datennetze
+
+%section{"data-markdown" => ""}
+  \### Verteilte Systeme
+  \#### Serviceorientierte Architektur (SOA)
+  \#### Peer-to-Peer
+  \#### Client-Server
+
+%section
+  %h3 Interaktive Systeme
+  %ul
+    %li Strukturierung von Mensch-Computer-Interaktionen
+    %li Möglichst gute Schnittstellen für die Benutzer schaffen
+    %li Der eigentliche Systemkern bleibt von der Benutzerschnittstelle unangetastet.
+
+%section{"data-markdown" => ""}
+  \### Interaktive Systeme
+  \#### Model View Controller (MVC)
+  \#### Model View Presenter
+  \#### Presentation-Abstraction-Control (PAC)
+
+%section
+  %h3 Adaptive Systeme
+  %ul
+    %li Unterstützung der Erweiterungs- und Anpassungsfähigkeit von Softwaresystemen.
+    %li Das System sollte von vornherein mögliche Erweiterungen unterstützen
+    %li Die Kernfunktionalität sollte davon unberührt bleiben kann.
+
+%section{"data-markdown" => ""}
+  \### Adaptive Systeme
+  \#### Mikrokernel
+  \#### Reflexion
+  \#### Dependency Injection
+
+
+%section{"data-markdown" => ""}
+  \### Wie wähle ich denn nun das passende Muster aus?
+
+%section{"data-markdown" => ""}
+  TBD
+
+%section{"data-markdown" => ""}
+  \### Wie entwerfe ich nun eine Architektur?
+
+%section{"data-markdown" => ""}
+  TBD (Motivation für Dokumentation)
 
 %section{"data-markdown" => ""}
   \#### Was ist Softwarearchitektur?
@@ -819,6 +914,20 @@ layout: slide
   \### Architekturmuster
   \#### Dokumentation von Architekturen
   \#### Technologien und Frameworks
+
+%section{"data-markdown" => ""}
+  \## Fragen?
+
+%section{"data-markdown" => ""}
+
+  \#### Vorbereitung auf Klausuraufgaben
+
+  * Nennen Sie drei typische Aufgaben von Softwarearchitekten
+  * Welche Arten von Sichten gibt es?
+  * Welche nicht-funktionalen Anforderungen sollten Sie beim Architekturentwurf ggf. berücksichtigen?
+  * Was besagt das Brook'sche Gesetz?
+  * Nennen und erläutern Sie drei Anti-Patterns
+  * Für welche Systeme würden Sie eine Blackboard-Architektur verwenden?
 
 %section{"data-markdown" => ""}
   \## Fragen?
