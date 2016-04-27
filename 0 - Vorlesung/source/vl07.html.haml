@@ -10,6 +10,11 @@ layout: slide
   Nils Löwe / [nils@loewe.io](mailto:nils@loewe.io) / @NilsLoewe
 
 %section{"data-markdown" => ""}
+  \## 3. Praktikum
+  [Praktikum 3: Architekturentwurf](https://ai2016.nils-loewe.de/p03.html)
+  \### Fragen?
+
+%section{"data-markdown" => ""}
   \#### Was ist Softwarearchitektur?
   \#### Geschichte und Trends
   \#### Sichten auf Architekturen
@@ -17,11 +22,6 @@ layout: slide
   \### Architekturmuster
   \#### Dokumentation von Architekturen
   \#### Technologien und Frameworks
-
-%section{"data-markdown" => ""}
-  \## 3. Praktikum
-  [Praktikum 3: Architekturentwurf](https://ai2016.nils-loewe.de/p03.html)
-  \### Fragen?
 
 %section{"data-markdown" => ""}
   \### Wiederholung
@@ -893,41 +893,181 @@ layout: slide
   \#### Reflexion
   \#### Dependency Injection
 
-
 %section{"data-markdown" => ""}
   \### Wie wähle ich denn nun das passende Muster aus?
-
-%section{"data-markdown" => ""}
-  TBD
-
-%section{"data-markdown" => ""}
-  \### Wie entwerfe ich nun eine Architektur?
-
-%section{"data-markdown" => ""}
-  TBD (Motivation für Dokumentation)
 
 %section{"data-markdown" => ""}
   \#### Was ist Softwarearchitektur?
   \#### Geschichte und Trends
   \#### Sichten auf Architekturen
   \#### Qualiät und andere nichtfunktionale Anforderungen
-  \### Architekturmuster
-  \#### Dokumentation von Architekturen
+  \#### Architekturmuster
+  \### Dokumentation von Architekturen
   \#### Technologien und Frameworks
 
 %section{"data-markdown" => ""}
+  \#### Dokumentation von Architekturen
+  \### Nutzen von Templates
+
+  Beispiele:
+  * arc42
+  * Normen
+  * ...
+
+%section{"data-markdown" => ""}
+  \### ARC42
+  \#### (Dr. Gernot Starke / Dr. Peter Hruschka)
+  http://www.arc42.de/
+
+  \#### *arc42 unterstützt Software- und Systemarchitekten. Es kommt aus der Praxis und basiert auf Erfahrungen internationaler Architekturprojekte und Rückmeldungen vieler Anwender.*
+
+%section{"data-markdown" => ""}
+  \#### Dokumentation von Architekturen
+  \### ARC42
+
+  1. Einführung und Ziele
+  2. Randbedingungen
+  3. Kontextabgrenzung
+  4. Lösungsstrategie
+  5. Bausteinsicht
+  6. Laufzeitsicht
+  7. Verteilungssicht
+  8. Querschnittliche Konzepte/Muster
+  9. Entwurfsentscheidungen
+  10. Qualitätsszenarien
+  11. Risiken
+  12. Glossar
+
+%section{"data-markdown" => ""}
+  \#### ARC42
+  ![](/images/arc42.png)
+
+%section{"data-markdown" => ""}
+  \#### ARC42
+  \#### 1. Einführung und Ziele
+  * Aufgabenstellung
+  * Qualitätsziele
+  * eine Kurzfassung der architekturrelevanten Anforderungen (insb. die nichtfunktionalen)
+  * Stakeholder
+
+%section{"data-markdown" => ""}
+  \#### ARC42
+  \#### 2. Randbedingungen
+  Welche Leitplanken schränken die Entwurfsentscheidungen ein?
+  * Technische Randbedingungen
+  * Organisatorische Randbedingungen
+  * Konventionen
+
+%section{"data-markdown" => ""}
+  \#### ARC42
+  \#### 3. Kontextabgrenzung
+  * Fachlicher Kontext
+  * Technischer- oder Verteilungskontext
+
+%section{"data-markdown" => ""}
+  \#### ARC42
+  \#### 4. Lösungsstrategie
+  Wie funktioniert die Lösung? Was sind die fundamentalen Lösungsansätze?
+
+%section{"data-markdown" => ""}
+  \#### ARC42
+  \#### 5. Bausteinsicht
+  Die statische Struktur des Systems, der Aufbau aus Implementierungsteilen.
+
+%section{"data-markdown" => ""}
+  \#### ARC42
+  \#### 6. Laufzeitsicht
+  Zusammenwirken der Bausteine zur Laufzeit, gezeigt an exemplarischen Abläufen ("Szenarien")
+
+%section{"data-markdown" => ""}
+  \#### ARC42
+  \#### 7. Verteilungssicht
+  Deployment: Auf welcher Hardware werden die Bausteine betrieben?
+
+%section{"data-markdown" => ""}
+  \#### ARC42
+  \#### 8. Querschnittliche Konzepte und Muster
+  * Wiederkehrende Muster und Strukturen
+  * Fachliche Strukturen
+  * Querschnittliche, übergreifende Konzepte
+  * Nutzungs- oder Einsatzanleitungen für Technologien
+  * Oftmals projekt-/systemübergreifend verwendbar!
+
+%section{"data-markdown" => ""}
+  \#### ARC42
+  \#### 9. Entwurfsentscheidungen
+  ![](/images/entscheidung.png)
+
+%section{"data-markdown" => ""}
+  \#### ARC42
+  \#### 10. Qualitätsszenarien
+  Qualitätsbaum sowie dessen Konkretisierung durch Szenarien
+
+%section{"data-markdown" => ""}
+  \#### ARC42
+  \#### 11. Risiken
+
+  Eine nach Prioritäten geordnete Liste der erkannten Risiken
+
+  \#### "Risikomanagement ist Projektmanagement für Erwachsene"
+
+%section{"data-markdown" => ""}
+  \#### ARC42
+  \#### 12. Glossar
+  Die wichtigsten Begriffe der Software-Architektur in alphabetischer Reihenfolge
+
+%section{"data-markdown" => ""}
+  \#### ARC42
   \## Fragen?
+
+%section{"data-markdown" => ""}
+  \### IEEE Standards
+
+  **IEEE Standards** documents are developed within the IEEE Societies and the Standards Coordinating Committees of
+  the IEEE Standards Association (IEEE-SA) Standards Board. The IEEE develops its standards through a consensus
+  development process, approved by the American National Standards Institute, which brings together volunteers representing
+  varied viewpoints and interests to achieve the final product. Volunteers are not necessarily members of the
+  Institute and serve without compensation. While the IEEE administers the process and establishes rules to promote
+  fairness in the consensus development process, the IEEE does not independently evaluate, test, or verify the accuracy
+  of any of the information contained in its standards or implementations thereof.
+
+%section{"data-markdown" => ""}
+  \### IEEE Standards
+
+  * IEEE 802:    LAN
+  * IEEE 802.3:  Carrier sense multiple access with collision detection (CSMA/CD)
+  * IEEE 802.11: Wireless LAN
+  * IEEE 830:    Recommended Practice for Software Requirements Specifications
+  * IEEE 1394:   FireWire/i.Link Bussysteme
+  * IEEE 1471:   Recommended Practice for Architectural Description of Software-Intensive Systems
+  * IEEE 9945:   Portable Operating System Interface (POSIX®)
+
+%section{"data-markdown" => ""}
+  \### IEEE 830-1998
+
+%section{"data-markdown" => ""}
+  \#### IEEE
+  \## Fragen?
+
+%section{"data-markdown" => ""}
+  \#### Was ist Softwarearchitektur?
+  \#### Geschichte und Trends
+  \#### Sichten auf Architekturen
+  \#### Qualiät und andere nichtfunktionale Anforderungen
+  \#### Architekturmuster
+  \### Dokumentation von Architekturen
+  \#### Technologien und Frameworks
 
 %section{"data-markdown" => ""}
 
   \#### Vorbereitung auf Klausuraufgaben
 
-  * Nennen Sie drei typische Aufgaben von Softwarearchitekten
-  * Welche Arten von Sichten gibt es?
-  * Welche nicht-funktionalen Anforderungen sollten Sie beim Architekturentwurf ggf. berücksichtigen?
-  * Was besagt das Brook'sche Gesetz?
-  * Nennen und erläutern Sie drei Anti-Patterns
-  * Für welche Systeme würden Sie eine Blackboard-Architektur verwenden?
+  * Was waren die Gründe für Softwarearchitektur?
+  * Was sollte eine Kontext-Sicht enthalten?
+  * In welcher Beziehung stehen Architektur und Design?
+  * Was besagt 'Conways Law'?
+  * Nennen und erläutern Sie drei Arten von Architekturmustern
+  * Für welche Systeme wird das MVC Muster typischerweise verwendet?
 
 %section{"data-markdown" => ""}
   \## Fragen?
