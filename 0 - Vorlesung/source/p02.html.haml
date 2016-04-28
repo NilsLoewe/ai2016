@@ -1,5 +1,5 @@
 ---
-title: Praktikum 2: Entwurf einer REST API
+title: Praktikum 2 - Entwurf einer REST API
 ---
 .boxed.push-down-45
   .row
@@ -62,7 +62,7 @@ title: Praktikum 2: Entwurf einer REST API
             %ul
               %li POST mit content: Erstellen eines neuen Wochenplans
               %li GET mit ID: Abrufen eines Wochenplans mit gegebener ID
-              %li POST mit ID und content: Updaten eines bestehenden Wochenplans
+              %li PUT/PATCH mit ID und content: Updaten eines bestehenden Wochenplans
               %li DELETE mit ID: Löschen eines Wochenplans mit ID
           %p
             %h5 Erstellen / POST mit content
@@ -77,7 +77,7 @@ title: Praktikum 2: Entwurf einer REST API
             Response Codes:
             %ul
               %li 200: OK, Plan erstellt
-              %li 405: Invalid Input (kein Content)
+              %li 400: Invalid Input (kein Content)
 
           %p
             %h5 Abrufen / GET mit ID
@@ -90,21 +90,21 @@ title: Praktikum 2: Entwurf einer REST API
             Response Codes:
             %ul
               %li 200: OK, Response body enthält den Content als JSON
-              %li 405: Invalid Input (keine ID)
+              %li 400: Invalid Input (keine ID)
 
           %p
-            %h5 Updaten / POST mit ID und Content
+            %h5 Updaten / PUT/PATCH mit ID und Content
             Die Http GET Operation ruft einen Wochenplan mit der gegebenen ID ab.
 
             %pre
               %code
                 :preserve
-                  curl -X POST --header 'Content-Type: application/json' -d 'content=HalloWelt' 'http://your-api.tld/plan/42'
+                  curl -X PUT --header 'Content-Type: application/json' -d 'content=HalloWelt' 'http://your-api.tld/plan/42'
             Response Codes:
             %ul
               %li 200: OK
+              %li 400: Invalid Input (keine ID oder kein Content)
               %li 404: ID nicht gefunden
-              %li 405: Invalid Input (keine ID oder kein Content)
 
           %p
             %h5 Löschen / DELETE mit ID
@@ -118,8 +118,8 @@ title: Praktikum 2: Entwurf einer REST API
             Response Codes:
             %ul
               %li 200: OK
+              %li 400: Keine/Ungültige ID gegeben
               %li 404: ID nicht gefunden
-              %li 405: Keine/Ungültige ID gegeben
 
           %h5 Bearbeitung
 
