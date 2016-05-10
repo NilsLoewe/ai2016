@@ -42,9 +42,16 @@ title: Praktikum 4 - Architekturbewertung
 
           %p
             Bewerten Sie den unten vorgeschlagenen Architekturentwurf in Bezug auf die folgenden Kriterien:
-            * Eignung der vorgeschlagenen Technologien
-            * Vollständigkeit des Entwurfs (inhaltliche Anforderungen)
-            * Können die nichtfunktionalen Anforderungen erfüllt werden?
+            %ul
+              %li Vollständigkeit des Entwurfs (inhaltliche Anforderungen)
+              %li Können die nichtfunktionalen Anforderungen erfüllt werden?
+              %li Eignung der vorgeschlagenen Technologien
+              %li Komplexität des Entwurfs
+              %li Umsetzbarkeit in mehreren Teams
+
+
+
+
 
 
           %h4 Use Cases
@@ -81,58 +88,14 @@ title: Praktikum 4 - Architekturbewertung
               %li Bei den Servicekräften wird mit einem jährlichen Wachstum von 10-20 Personen gerechnet
 
 
-          %h4 CRM-Tool
-          %p
-            Als CRM Tool wird die OpenSource Software Sugar CRM eingesetet. Im CRM Tool sind neben den
-            eigentlichen Kundendaten auch alle Anlagen inkl. deren Wartungsterminen hinterlegt.
 
-            %a{href: "http://support.sugarcrm.com/Documentation/Sugar_Developer/Sugar_Developer_Guide_7.5/API/Web_Services/REST/"} SugarCRM Doku
-
-
-          %h4 Personaldatenbank
-          %p
-
-            In der Personalabteilung wird eine proprietäre Software eingesetzt, die auf einer
-            MySQL Datenbank arbeitet. Diese Software bietet keine API an, so dass Sie zum Zugriff
-            auf die Personaldaten direkt auf die Datenbank zugreifen müssen. Das konkrete Schema ist bekannt,
-            für den aktuellen Stand aber irrelevant.
-
-
-          %h4 Einschränkungen
-          %p
-
-            %ul
-              %li Notfälle werden NICHT über die Planungssoftware behandelt, sie sind nicht weiter relevant
-              %li Die Verfügbarkeit soll für die Pläne soll 99,9% nicht unterschreiten.
-              %li Die Planerstellung muss nur tagsüber zu den normalen Büroarbeitszeiten verfügbar sein.
-
-
-          %h4 Einige Fragen als Startpunkte für den Architekturentwurf
-          %p
-            %ul
-              %li Greifen Sie direkt in die Datenbank, oder erstellen Sie einen Wrapper-Service oder ORM?
-              %li Sind Erstellung der Pläne und Zugriff auf die Pläne in der gleichen Software umgesetzt, oder gibt es hier eine Trennung?
-              %li Wenn die Pläne per user/pass aus dem Internet zugreifbar sind, wo und wie sorgen Sie für eine Absicherung der Personal- und Kundendaten? Beide Systeme sind bisher nur intern erreichbar.
-              %li Wo legen Sie die user/pass Daten ab? Erweitern Sie die Personaldatenbank? Bauen Sie einen eigenen Service? Wo wird die Kontrolle der Zugriffsrechte (Planer vs. Servicekraft) geregelt?
-              %li Gibt es Teile, die sich gut outsourcen lassen würden? Kann man Teile des Systems mit Standardsoftware umsetzen?
 
 
           %h4 Ihre Aufgabe
           %p
-            Erstellen Sie für den Praktikumstermin eine Präsentation in der Sie die getroffenen Architekturentscheidungen
-            vorstellen, sowie einen kleinen Überblick über die vorgeschlagenen Technologien und Frameworks geben.
-
-          %ul
-            %li Kontextsicht des Systems
-            %li Bausteinsicht(en): Wie werden die Funktionen innerhalb der einzelnen Systembestandteile geschnitten?
-            %li Verteilungssicht: Wie ist das System physikalisch verteilt?
-            %li Welche Fragen sind von hier aus zu stellen, um konkrete Teile des Systems implementieren zu können?
-
-          %p
-            Stellen Sie sich vor, dass ausgehend von diesem Architekturentwurf konkrete Arbeitspakete an
-            Entwickler oder Teams verteilt werden sollen.
-
-
+            Analysieren Sie den vorgeschlagenen Entwurf in Bezug auf Vor-/Nachteile und auf die Eignung zur
+            Erfüllung der funktionalen und nichtfunktionalen Anforderungen der vergangenen Aufgabenstellung.class_selector
+            Erstellen Sie für den Praktikumstermin eine Präsentation in der Sie die Ergebnisse Ihrer Analyse vorstellen.
 
         %p
           Die Präsentation ist bis zum Praktikumstermin per Mail an nils@loewe.io abzugeben. In der Praktikumszeit sind

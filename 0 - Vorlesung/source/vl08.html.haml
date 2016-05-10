@@ -14,16 +14,489 @@ layout: slide
   [Praktikum 3: Architekturentwurf](https://ai2016.nils-loewe.de/p03.html)
   \### Fragen?
 
-  * Wiederholung Letzte Woche
-  * Klausurfragen der letzten Woche
-  * Beispiel für ARC42 Doku
-  * Beispiel für Guidebook Doku
-  * Start in Technologien
-  ** Wie wähle ich ein Framework aus?
-  ** Aktuelle Technologien
-  *** REST/HTTP
-  *** AMQP
-  ** Frameworks
-  *** Ruby on Rails
-  *** Twitter Bootstrap
-  *** NodeJS
+%section{"data-markdown" => ""}
+  \## 4. Praktikum
+  Frage: Alle Präsentationen in der 12. Vorlesungswoche?
+
+%section{"data-markdown" => ""}
+  \## Wiederholung
+
+%section{"data-markdown" => ""}
+  \#### Was ist Softwarearchitektur?
+  \#### Geschichte und Trends
+  \#### Sichten auf Architekturen
+  \#### Qualiät und andere nichtfunktionale Anforderungen
+  \### Architekturmuster
+  \#### Dokumentation von Architekturen
+  \#### Technologien und Frameworks
+
+%section{"data-markdown" => ""}
+  \##### Adaptive Systeme
+  \### Mikrokernel
+  \#### Reflexion
+  \#### Dependency Injection
+
+%section{"data-markdown" => ""}
+  \#### Mikrokernel
+
+  \### Ziel: Änderung von Systemanforderungen zur Laufzeit dynamisch begegnen.
+
+%section{"data-markdown" => ""}
+  \#### Mikrokernel
+
+  \### Aufgaben
+  * Der Mikrokernel bietet die Basis für mögliche Erweiterungen
+  * Der Microkernel koordiniert die Zusammenarbeit.
+
+%section{"data-markdown" => ""}
+  \#### Microkernel
+  \### Herausforderung
+
+  ![](/images/microkernel.png)
+
+%section{"data-markdown" => ""}
+  \#### Mikrokernel
+  \### Beispiele: Microkernel
+
+  * Minix Kernel
+  * GNU Mach
+  * AmigaOS
+  * SymbianOS
+
+%section{"data-markdown" => ""}
+  \#### Mikrokernel
+  \### Beispiele: Monolithische Kernels
+
+  * Linux
+  * Android
+  * Windows bis Win98 (DOS Kernel)
+
+%section{"data-markdown" => ""}
+  \#### Mikrokernel
+  \### Beispiele: Hybrid-Kernels
+
+  * MacOS X (Darwin)
+  * Windows NT (oft als Microkernel bezeichnet)
+
+
+%section{"data-markdown" => ""}
+  \#### Mikrokernel
+  \### Vorteile
+
+  * Separierte Komponenten: Austauschbarkeit
+  * Treiber im Benutzer-Modus: Sicherheit
+  * kleine Trusted Computing Base
+  * Skalierbarkeit
+  * Zuverlässigkeit
+  * Transparenz
+
+%section{"data-markdown" => ""}
+  \#### Mikrokernel
+  \### Nachteile
+
+  * Leistung
+  * Komplexität
+
+%section{"data-markdown" => ""}
+  \### Domain Driven Design
+  \## Ein Beispiel
+
+%section{"data-markdown" => ""}
+  \#### DDD - Ein Beispiel
+
+  \### Eine Firma bietet Softwareentwicklung als Dienstleistung an.
+
+  \###### http://blog.mirkosertic.de/architecturedesign/dddexample
+
+  * Aufwand wird nach Stunden verrechnet
+  * Es gibt festangestellte Softwareentwickler
+  * Es gibt einen Pool von Freelancern.
+  * Bisher wird die Zuordnung von Entwicklern zu Projekten in einem Excel-Sheet organisiert
+
+
+%section{"data-markdown" => ""}
+  \#### DDD - Ein Beispiel
+
+  \### Probleme mit dem Excel-Ansatz
+
+  * Excel skaliert nicht auf mehrere Anwender
+  * Keine Sicherheit
+  * Kein Logging
+
+%section{"data-markdown" => ""}
+  \#### DDD - Ein Beispiel
+  \### Lösung: Neue Software bauen
+
+  * Durchsuchbarer Katalog von Freelancern
+  * Mehrere Kontaktmöglichkeiten pro Freelancer
+  * Durchsuchbarer Katalog von Projekten
+  * Durchsuchbarer Katalog von Projekten
+  * Timesheets für jeden Freelancer (pro Projekt)
+
+%section{"data-markdown" => ""}
+  \#### DDD - Ein Beispiel
+
+  ![](/images/dddfirstrun.png)
+
+%section{"data-markdown" => ""}
+  \#### Straight forward Ansatz
+  \### Probleme?
+
+%section{"data-markdown" => ""}
+  \#### Straight forward Ansatz: Probleme
+  \### Großer Objektgraph: Performance Probleme unter Last
+  Framework wie Hibernate wäre notwendig um das zu vermeiden
+
+%section{"data-markdown" => ""}
+  \#### Straight forward Ansatz: Probleme
+  \### Warum die bidirektionale Verknüpfung zwischen User und Rolle?
+
+%section{"data-markdown" => ""}
+  \#### Straight forward Ansatz: Probleme
+  \### Boolean-Flags um den Kontakttypen zu unterscheiden
+
+%section{"data-markdown" => ""}
+  \#### Straight forward Ansatz: Probleme
+  \### Projekt-Liste in der Freelancer-Klasse:
+  \#### Freelancer verändern um Projekte zuzufügen
+  Potentielle Transaktionsprobleme unter Last (mehrere Leute legen gleichzeitig Projekte für den gleichen Kunden an)
+
+%section{"data-markdown" => ""}
+  \#### Straight forward Ansatz: Probleme
+  * Kontaktinformation == Kommunikationskanal?
+  * Das Diagramm ist eher ein Entiy-Relationship-Diagram als ein Software Modell
+  * Wo ist die Businesslogik?
+
+%section{"data-markdown" => ""}
+  \#### DDD nutzen
+  \#### Anforderungen: "Body Leasing Domain"
+  \### **Context-Map: Komplexität reduzieren durch Subdomains**
+
+  * Identität und Access Management Subdomain
+  * Freelancer Management Subdomain
+  * Kundenmanagement Subdomain
+  * Projektmanagement Subdomain
+
+%section{"data-markdown" => ""}
+  \#### DDD - Context Map
+  ![](/images/dddcontextmap.png)
+
+%section{"data-markdown" => ""}
+  \#### DDD - Bounded Context
+
+  * Zuordnen von Subdomains zu Teilen der Lösung
+  * *Building blocks* nutzen (Design Pattern anwenden)
+  * Die DDD Architekturpattern sind nicht technologieabhängig!
+
+%section{"data-markdown" => ""}
+  \#### DDD - Ein erster Ansatz
+
+  * Jeder Bounded Context enthält Aggregates und Wertobjekte
+  * Aggregates sind Objekthierarchien
+  * Nur das Root-Objekt eines Aggregates ist von außen zugreifbar
+  * Jeder Zugriff auf ein Objekt passiert durch die Aggregates: Bessere Kapselung
+  * Aggregates und Entites besitzen eine ID
+  * Wertobjekte haben keine ID und können ihren Zustand nicht ändern
+  * Jede Zustandsänderung erzeugt ein neues Wertobjekt: Vermeiden von Seiteneffekten
+
+%section{"data-markdown" => ""}
+  \#### Vollständiger UseCase mit Persistenz
+
+  * Persistenz in DDD wird mit "Repositories" umgesetet
+  * Ein Repository ist durchsuchbar, kann Instanzen liefern und löschen, sowie neue Instanzen ablegen
+  * Es sollte ein Repository für jedes Aggregate geben
+
+%section{"data-markdown" => ""}
+  \#### Vollständiger UseCase mit Persistenz
+
+  * Ein Client ist ein abstraktes Konzept
+  * Ein Client kann alles von einem Frontend über einen SOAP Webservice zu einer REST Ressource sein
+  * Ein Client sendet Befehle an den ApplciationService
+
+%section{"data-markdown" => ""}
+  \#### Vollständiger UseCase mit Persistenz
+
+  * Der ApplicationService setzt die Befehle in UseCases um
+  * Der FreelancerApplicationService lädt dasFreelancer Aggregate aus dem FreelancerRepository und ruft moveTo() auf dem FreelancerAggregate auf
+  * Der FreelancerApplicationService bildet dabei die Transactionsgrenzen.
+  * Jeder Aufruf erzeugt eine neue Transaktion
+
+%section{"data-markdown" => ""}
+  \#### DDD - Applikations-Architektur
+
+  * Jeder Bounded Context sollte eine "Deployment Unit" bilden, z.B. ein Java WAR file oder ein EJB JAR
+  * Die Bounded Contexts sind unabhängig designt, sie sollten daher auch unabhängig implementiert werden
+
+%section{"data-markdown" => ""}
+  \#### DDD - Layers
+
+  ![](/images/dddlayer1.png)
+
+%section{"data-markdown" => ""}
+  \#### DDD - Layers
+
+  ![](/images/dddlayer2.png)
+
+%section{"data-markdown" => ""}
+  \#### DDD - Vorteile
+
+  * Der Domain Layer basiert nicht auf anderen Teilen der Architektur
+  * Die Repository Implementierung kann getauscht werden, ohne die Businesslogik zu beeinflussen
+
+%section{"data-markdown" => ""}
+  \#### DDD -  Domain Layer
+
+  * Enthält die Businesslogik, keine Abhängigkeiten der Infrastruktur
+  * Die Modelle sollten nach dem CQS(Command-Query-Separation) Prinzip entworfen werden
+  * --> Query Methoden geben lediglich Daten zurück ohne Zustände zu ändern
+  * --> Command Methoden ändern den State
+
+%section{"data-markdown" => ""}
+  \#### DDD - Application Layer
+
+  * Der Application Layer nimmt Kommandos des User Interface Layer an
+  * Der Application Layer ruft UseCase Implementierungen im Domain layer auf
+  * Der Application Layer biete Transactioskontrolle für Business Operationen
+
+%section{"data-markdown" => ""}
+  \#### DDD - Infrastructure Layer
+
+  Der Infrastructure Layer bietet Infrastrukturabhängige Teile für alle anderen Layer
+
+
+%section{"data-markdown" => ""}
+  \#### DDD - User Interface Layer
+
+  * Der User Interface Layer konsumiert Application Services und ruft Funktionalität der Businesslogik auf diesen Services auf.
+  * Jeder Aufruf ist eine neue Transaktion
+  * Der User Interface Layer kann beliebig implementiert sein, z.B. ein SOAP webservice, eine REST Resource oder eine Swing/AWT GUI
+
+%section{"data-markdown" => ""}
+  \#### DDD - Zusammenfassung
+
+  \### Domain-driven Design is object oriented programming done right. *(Eric Evans)*
+
+%section{"data-markdown" => ""}
+  \### Rückblick auf Architekturmuster
+
+%section{"data-markdown" => ""}
+  \#### Chaos zu Struktur / Mud-to-structure
+  \#### Verteilte Systeme
+  \#### Interaktive Systeme
+  \#### Adaptive Systeme
+  \#### Domain-spezifische Architektur
+
+%section
+  %h3 Chaos zu Struktur / Mud-to-structure
+  %ul
+    %li Organisation der Komponenten und Objekte eines Softwaresystems
+    %li Die Funktionalität des Gesamtsystems wird in kooperierende Subsysteme aufgeteilt
+    %li Zu Beginn des Softwareentwurfs werden Anforderungen analysiert und spezifiziert
+    %li Integrierbarkeit, Wartbarkeit, Änderbarkeit, Portierbarkeit und Skalierbarkeit sollen berücksichtigt werden
+
+%section{"data-markdown" => ""}
+  \### Chaos zu Struktur / Mud-to-structure
+  \#### Layers
+  \#### Pipes und Filter
+  \#### Blackboard
+  \#### Domain-driven Design
+
+%section
+  %h3 Verteilte Systeme
+  %ul
+    %li Verteilung von Ressourcen und Dienste in Netzwerken
+    %li Kein "zentrales System" mehr
+    %li Basiert auf guter Infrastruktur lokaler Datennetze
+
+%section{"data-markdown" => ""}
+  \### Verteilte Systeme
+  \#### Serviceorientierte Architektur (SOA)
+  \#### Peer-to-Peer
+  \#### Client-Server
+
+%section
+  %h3 Interaktive Systeme
+  %ul
+    %li Strukturierung von Mensch-Computer-Interaktionen
+    %li Möglichst gute Schnittstellen für die Benutzer schaffen
+    %li Der eigentliche Systemkern bleibt von der Benutzerschnittstelle unangetastet.
+
+%section{"data-markdown" => ""}
+  \### Interaktive Systeme
+  \#### Model View Controller (MVC)
+  \#### Model View Presenter
+  \#### Presentation-Abstraction-Control (PAC)
+
+%section
+  %h3 Adaptive Systeme
+  %ul
+    %li Unterstützung der Erweiterungs- und Anpassungsfähigkeit von Softwaresystemen.
+    %li Das System sollte von vornherein mögliche Erweiterungen unterstützen
+    %li Die Kernfunktionalität sollte davon unberührt bleiben kann.
+
+%section{"data-markdown" => ""}
+  \### Adaptive Systeme
+  \#### Mikrokernel
+  \#### Reflexion
+  \#### Dependency Injection
+
+%section{"data-markdown" => ""}
+  \#### Was ist Softwarearchitektur?
+  \#### Geschichte und Trends
+  \#### Sichten auf Architekturen
+  \#### Qualiät und andere nichtfunktionale Anforderungen
+  \#### Architekturmuster
+  \### Dokumentation von Architekturen
+  \#### Technologien und Frameworks
+
+%section{"data-markdown" => ""}
+  \#### Dokumentation von Architekturen
+  \### Nutzen von Templates
+
+  Beispiele:
+  * arc42
+  * Normen
+  * Software Guidebook
+
+%section{"data-markdown" => ""}
+  \### ARC42
+  \#### (Dr. Gernot Starke / Dr. Peter Hruschka)
+  http://www.arc42.de/
+
+  \#### *arc42 unterstützt Software- und Systemarchitekten. Es kommt aus der Praxis und basiert auf Erfahrungen internationaler Architekturprojekte und Rückmeldungen vieler Anwender.*
+
+%section{"data-markdown" => ""}
+  \#### Dokumentation von Architekturen
+  \### ARC42
+
+  1. Einführung und Ziele
+  2. Randbedingungen
+  3. Kontextabgrenzung
+  4. Lösungsstrategie
+  5. Bausteinsicht
+  6. Laufzeitsicht
+  7. Verteilungssicht
+  8. Querschnittliche Konzepte/Muster
+  9. Entwurfsentscheidungen
+  10. Qualitätsszenarien
+  11. Risiken
+  12. Glossar
+
+%section{"data-markdown" => ""}
+  \#### ARC42
+  ![](/images/arc42.png)
+
+%section{"data-markdown" => ""}
+  \### IEEE Standards
+
+  **IEEE Standards** documents are developed within the IEEE Societies and the Standards Coordinating Committees of
+  the IEEE Standards Association (IEEE-SA) Standards Board. The IEEE develops its standards through a consensus
+  development process, approved by the American National Standards Institute, which brings together volunteers representing
+  varied viewpoints and interests to achieve the final product. Volunteers are not necessarily members of the
+  Institute and serve without compensation. While the IEEE administers the process and establishes rules to promote
+  fairness in the consensus development process, the IEEE does not independently evaluate, test, or verify the accuracy
+  of any of the information contained in its standards or implementations thereof.
+
+%section{"data-markdown" => ""}
+  \### IEEE Standards
+
+  * IEEE 802:    LAN
+  * IEEE 802.3:  Carrier sense multiple access with collision detection (CSMA/CD)
+  * IEEE 802.11: Wireless LAN
+  * IEEE 830:    Recommended Practice for Software Requirements Specifications
+  * IEEE 1394:   FireWire/i.Link Bussysteme
+  * IEEE 1471:   Recommended Practice for Architectural Description of Software-Intensive Systems
+  * IEEE 9945:   Portable Operating System Interface (POSIX®)
+
+%section{"data-markdown" => ""}
+  \### Software Guidebook
+
+  * Template von Simon Brown aus dem Buch *"Software Architecture for Developers"*
+  * Buch: https://leanpub.com/software-architecture-for-developers
+  * Beispiel: https://leanpub.com/techtribesje (kostenlos)
+
+%section{"data-markdown" => ""}
+  \### Software Guidebook
+
+  \#### Welche Informationen wünsche ich mir, wenn ich in ein neues Projekt komme?
+
+  * Karten
+  * Sichten
+  * Geschichte
+  * Praktische Informationen!
+
+%section{"data-markdown" => ""}
+  \### Software Guidebook
+  \## Product vs project documentation
+
+%section{"data-markdown" => ""}
+  \### Software Guidebook
+  1.  Context
+  2. Functional Overview
+  3. Quality Attributes
+  4. Constraints
+  5. Principles
+  6. Software Architecture
+  7. External Interfaces
+  8. Code
+  9. Data
+  10. Infrastructure Architecture
+  11. Deployment
+  12. Operation and Support
+  13. Development Environment
+
+%section{"data-markdown" => ""}
+
+  \#### Vorbereitung auf Klausuraufgaben
+
+  * Was waren die Gründe für Softwarearchitektur?
+  * Was sollte eine Kontext-Sicht enthalten?
+  * In welcher Beziehung stehen Architektur und Design?
+  * Was besagt 'Conways Law'?
+  * Nennen und erläutern Sie drei Arten von Architekturmustern
+  * Für welche Systeme wird das MVC Muster typischerweise verwendet?
+
+%section{"data-markdown" => ""}
+  \## Fragen?
+
+%section{"data-markdown" => ""}
+  \#### Was ist Softwarearchitektur?
+  \#### Geschichte und Trends
+  \#### Sichten auf Architekturen
+  \#### Qualiät und andere nichtfunktionale Anforderungen
+  \#### Architekturmuster
+  \### Dokumentation von Architekturen
+  \#### Technologien und Frameworks
+
+%section{"data-markdown" => ""}
+  \## Beispiel für ARC42 Doku
+
+%section{"data-markdown" => ""}
+  \## Beispiel für Guidebook Doku
+
+%section{"data-markdown" => ""}
+  \## Fragen?
+
+%section{"data-markdown" => ""}
+  \#### Was ist Softwarearchitektur?
+  \#### Geschichte und Trends
+  \#### Sichten auf Architekturen
+  \#### Qualiät und andere nichtfunktionale Anforderungen
+  \#### Architekturmuster
+  \#### Dokumentation von Architekturen
+  \### Technologien und Frameworks
+
+%section{"data-markdown" => ""}
+  \## Start in Technologien
+  Wie wähle ich ein Framework aus?
+
+%section{"data-markdown" => ""}
+  \## Aktuelle Technologien
+  * REST/HTTP
+  * AMQP
+
+%section{"data-markdown" => ""}
+  \## Frameworks
+  * Ruby on Rails
+  * Twitter Bootstrap
+  * NodeJS
