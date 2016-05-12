@@ -673,12 +673,260 @@ layout: slide
   \## Fragen?
 
 %section{"data-markdown" => ""}
-  \### Ruby on Rails
-  TBD
+  \## Ruby on Rails
 
 %section{"data-markdown" => ""}
-  \### Vorstellung konkreter Frameworks
-  https://github.com/railstutorial/sample_app_rails_4
+  \#### Ruby on Rails
+  \### Ruby: Überblick
+
+  * Erste Version 1993
+  * Verbreitet seit 2006 (durch Rails)
+  * Objektorientiert
+  * Interpretiert
+  * Dynamisch getypt
+  * "Script Sprache"
+
+%section{"data-markdown" => ""}
+  \#### Ruby on Rails
+  \### Ruby: Tradeoffs
+
+  * Flexibilität vs. Sicherheit
+  * Laufzeit-Effizienz vs. Produktivität
+
+%section
+  %h4 Ruby on Rails
+  %h3 Ruby: Beispielcode
+  %pre
+    %code
+      :preserve
+        >> properties = ['object oriented', 'duck typed', 'productive', 'fun']
+        => ["object oriented", "duck typed", "productive", "fun"]
+        >> properties.each {|property| puts "Ruby is \#{property}."}
+        Ruby is object oriented.
+        Ruby is duck typed.
+        Ruby is productive.
+        Ruby is fun.
+
+%section{"data-markdown" => ""}
+  \#### Ruby on Rails
+  \### Ruby: Installation
+
+  Installation via
+  * OS Paketmanager
+  * rvm
+  * rbenv
+
+
+%section
+  %h4 Ruby on Rails
+  %h3 Ruby: Programming Model
+  %pre
+    %code
+      :preserve
+        >> 4
+        => 4
+        >> 4.class
+        => Fixnum
+        >> 4 + 4
+        => 8
+        >> 4.methods
+        => ["inspect", "%", "<<", "singleton_method_added", "numerator", ...
+        "*", "+", "to_i", "methods", ...
+        ]
+  %h4 Alles ist ein Objekt
+
+%section
+  %h4 Ruby on Rails
+  %h3 Ruby: Programming Model
+  %pre
+    %code
+      :preserve
+        >> x = 4
+        => 4
+        >> x < 5
+        => true
+        >> x <= 4
+        => true
+        >> x > 4
+        => false
+        >> false.class
+        => FalseClass
+        >> true.class
+        => TrueClass
+  %h4 Alles ist ein Objekt
+
+%section
+  %h4 Ruby on Rails
+  %h3 Ruby: Programming Model
+  %pre
+    %code
+      :preserve
+        >> 4 + 'four'
+        TypeError: String can't be coerced into Fixnum
+        from (irb):51:in `+'
+        from (irb):51
+        >>
+        =>
+        >>
+        =>
+        4.class
+        Fixnum
+        (4.0).class
+        Float
+        >> 4 + 4.0
+        => 8.0
+  %h4 Duck Typing
+
+%section
+  %h5 Ruby on Rails
+  %h4 Ruby: Programming Model
+  %pre
+    %code
+      :preserve
+        If it walks like a duck and quacks like a duck, it’s a duck.
+  %ul
+    %li Dynamische Typisierung: Zur Ausführungszeit interpretiert
+    %li Starke Typisierung: Typsicherheit
+
+%section{"data-markdown" => ""}
+  \#### Ruby on Rails
+  \### Ruby: Metamodel
+  ![](/images/metamodel.png)
+
+%section
+  %h5 Ruby on Rails
+  %h4 Ruby: Programming Model
+  %pre
+    %code
+      :preserve
+        class Tree
+          attr_accessor :children, :node_name
+
+          def initialize(name, children=[])
+            @children = children
+            @node_name = name
+          end
+
+          def visit_all(&block)
+            visit &block
+            children.each {|c| c.visit_all &block}
+          end
+
+          def visit(&block)
+            block.call self
+          end
+        end
+
+
+%section
+  %h5 Ruby on Rails
+  %h4 Ruby: Programming Model
+  %pre
+    %code
+      :preserve
+        module ToFile
+          def filename
+            "object_#{self.object_id}.txt"
+          end
+          def to_f
+            File.open(filename, 'w') {|f| f.write(to_s)}
+          end
+        end
+
+        class Person
+          include ToFile
+          attr_accessor :name
+
+          def initialize(name)
+            @name = name
+          end
+          def to_s
+            name
+          end
+        end
+
+%section{"data-markdown" => ""}
+  \### Ruby: Literaturempfelungen
+
+  * Programming Ruby 1.9 & 2.0 (Dave Thomas / Andy Hunt)
+  * Practical Object-Oriented Design in Ruby (Sandy Metz)
+  * Confident Ruby: 32 Patterns for Joyful Coding (Avdi Grimm)
+
+%section{"data-markdown" => ""}
+  \#### Ruby on Rails: Geschichte
+
+  * 2004: Entwickelt als Basis für *Basecamp*
+  * Version 1.0 (2005)
+  * Version 1.1 (2006) - Scripting Engines, Performance
+  * Version 1.2 (2007) - REST Support, MIME-type routing, UTF-8
+  * Version 2.0 (2007) - REST als Default
+  * Version 2.1 (2008) - Named Scopes, Migrationen mit Timestamp
+  * Version 2.2 (2008) - Internationalisierung, Threadsicherheit
+  * Version 2.3 (2009) - Template Engine
+  * Version 3.0 (2010) - Modularisierung: Einzelne Teile verwendbar
+  * Version 3.1 (2011) - Asset Pipeline
+  * Version 4.0 (2013)
+  * Version 5.0 (2016)
+
+%section{"data-markdown" => ""}
+  \#### Ruby on Rails: Bestandteile
+
+  * Active Support: Ruby-Erweiterungen von Rails
+  * Active Record: Objektabstraktionsschicht (ORM)
+  * Action Pack: Request-Behandlung und Response-Ausgabe.
+  * Action View: Templates
+  * Action Mailer: E-Mail-Versand und -Empfang
+  * Active Resource: Routing, REST, XML-RPC
+
+%section{"data-markdown" => ""}
+  \#### Ruby on Rails: Grundlagen
+
+  * Basiert auf Ruby
+  * Model-View-Controller Architektur
+  * „Don’t repeat yourself“
+  * „Convention over Configuration“
+  * Scaffolding
+  * Datenbankmigrationen
+
+%section{"data-markdown" => ""}
+  \#### Ruby on Rails: Grundlagen
+  \### „Don’t repeat yourself“
+
+  * Jede Information sollte nur ein einziges Mal vorhanden sein
+  * z.B. ActiveRecord liest das DB-Scheme direkt aus der DB
+  * z.B. Rails erstellt für das Model automatisch Getter- und Setter-Methoden
+  * Vorteil: Informationen werden nicht inkonsistent wenn eine Stelle verändert wird
+
+
+%section{"data-markdown" => ""}
+  \#### Ruby on Rails: Grundlagen
+  \### „Convention over configuration“
+
+  * Rails erwartet sinnvolle Standardwerte
+  * --> z.B. Primärschlüssel einer Tabelle ist ID vom Typ Integer
+  * --> ein Modell mit dem Namen Customer liegt in der Datei \#{Rails.root}/app/models/customer.rb
+  * --> Die zugehörige Tabelle heißt customers heißt
+
+%section{"data-markdown" => ""}
+  \#### Ruby on Rails: Grundlagen
+  \### Scaffolding
+
+  * Es gibt Generatoren für alle Standardfälle
+  * Models, Controller, Views, Mailer, Migrationen, ...
+  * Konventionen werden eingehalten
+  * Web-Anwendungen lassen sich sehr schnell entwickeln
+  * Wenn in der Datenbank etwa ein Feld hinzugefügt wird, erscheint es auch sofort in der entsprechenden View/New/Edit-Ansicht.
+  * Scaffolding ist vor allem für Prototyping gedacht
+
+%section{"data-markdown" => ""}
+  \#### Ruby on Rails: Ein Beispiel
+
+  * https://github.com/railstutorial/sample_app_rails_4
+  * https://www.railstutorial.org/
+  * https://www.railstutorial.org/book
+
+%section{"data-markdown" => ""}
+  \## Fragen?
 
 %section{"data-markdown" => ""}
 
