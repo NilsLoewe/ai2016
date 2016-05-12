@@ -919,6 +919,45 @@ layout: slide
   * Scaffolding ist vor allem für Prototyping gedacht
 
 %section{"data-markdown" => ""}
+  \#### Ruby on Rails: Grundlagen
+  \### Webserver-Unterstützung
+
+  * Integrierter Application-Server: WEBrick
+  * Für Produktion: Apache, Nginx, Lighttpd, ... z.B. mit Phusion Passenger
+
+%section{"data-markdown" => ""}
+  \#### Ruby on Rails: Grundlagen
+  \### Schichten: Model
+
+  * Typischerweise basierend auf einer relationalen Datenbank
+  * Zugriff mit Hilfe von ActiveRecord hergestellt (ORM-Schicht)
+  * --> Klasse <> Tabelle
+  * --> Attribut <> Spalte
+  * --> Objekt <> Zeile
+  * Support für: SQLite, DB2, Informix, MySQL, Oracle, PostgreSQL, Microsoft SQL Server, Sybase, ...
+  * Alternativen: Sequel, Datamapper, XML, ...
+
+%section{"data-markdown" => ""}
+  \#### Ruby on Rails: Grundlagen
+  \### Schichten: Controller
+
+  * Basiert auf *ActionController*, Bestandteil von *ActionPack*
+  * Ein Controller kapselt die Geschäftslogik im Model von der Darstellung der View
+  * Ruby-Code
+
+%section{"data-markdown" => ""}
+  \#### Ruby on Rails: Grundlagen
+  \### Schichten: View
+
+  * Präsentationsschicht *ActionView*, Bestandteil von *ActionPack*
+  * Diverse Ausgabeformate/Template-Engines werden unterstützt:
+  * -> HTML. ERB, Slim, Haml, Sass, CoffeeScript, ...
+  * -> XML – z. B. für XHTML und Web Services
+  * -> JSON
+  * -> JavaScript – RJS-Templates
+  * -> Binärdaten
+
+%section{"data-markdown" => ""}
   \#### Ruby on Rails: Ein Beispiel
 
   * https://github.com/railstutorial/sample_app_rails_4
