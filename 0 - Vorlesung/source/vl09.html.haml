@@ -404,140 +404,163 @@ layout: slide
   \#### Twitter Bootstrap
 
 %section{"data-markdown" => ""}
-  \### NodeJS
+  \## Node.js
 
-  The Node.js project maintains multiple types of releases:
+%section{"data-markdown" => ""}
+  \#### Node.js
 
-  Current: Released from active development branches of this repository, versioned by SemVer and signed by a member of the Release Team. Code for Current releases is organized in this repository by major version number, For example: v4.x. The major version number of Current releases will increment every 6 months allowing for breaking changes to be introduced. This happens in April and October every year. Current release lines beginning in October each year have a maximum support life of 8 months. Current release lines beginning in April each year will convert to LTS (see below) after 6 months and receive further support for 30 months.
-  LTS: Releases that receive Long-term Support, with a focus on stability and security. Every second Current release line (major version) will become an LTS line and receive 18 months of Active LTS support and a further 12 months of Maintenance. LTS release lines are given alphabetically ordered codenames, beginning with v4 Argon. LTS releases are less frequent and will attempt to maintain consistent major and minor version numbers, only incrementing patch version numbers. There are no breaking changes or feature additions, except in some special circumstances. More information can be found in the LTS README.
-  Nightly: Versions of code in this repository on the current Current branch, automatically built every 24-hours where changes exist. Use with caution.
+  \#### Node.js ist eine serverseitige Plattform für Netzwerk-Anwendungen, die auf der Google Chrome JavaScript Engine (V8 Engine) basiert.
 
-  2009.06.11, Version 0.0.3
-  59 unstable Releases
-  2011.09.15, Version 0.4.12 (stable)
-  2011.10.21, Version 0.5.10 (unstable)
-  2012.07.10 Version 0.6.20 (maintenance)
-  2012.06.19, Version 0.7.12 (unstable)
-  2013.06.13, Version 0.8.25 (maintenance)
-  2013.03.06, Version 0.9.12 (Unstable)
-  2013.03.11, Version 0.10.0 (Stable)
-  2016-05-05, Version 4.4.4 (LTS)
+  * easily build fast and scalable network applications
+  * event-driven, non-blocking I/O model
+  * lightweight, efficient, perfect for data-intensive real-time applications
+  * large JavaScript Library
+
+%section{"data-markdown" => ""}
+  \#### Node.js
+
+  \### Node.js = Runtime Environment + JavaScript Library
+
+  https://github.com/nodejs/node
+
+%section{"data-markdown" => ""}
+  \#### Node.js
+  \### Releases
+
+  * Current: Released from active development branches of this repository
+  * LTS: Releases that receive Long-term Support, with a focus on stability and security
+  * Nightly: Versions of code in this repository on the current Current branch
+
+%section{"data-markdown" => ""}
+  \#### Node.js
+  \### LTS Releases
+
+  * Every second Current release line (major version) will become an LTS line
+  * 18 months of Active LTS support
+  * Additional 12 months of Maintenance
+  * LTS releases are less frequent and will attempt to maintain consistent major and minor version numbers
+  * There are no breaking changes or feature additions, except in some special circumstances
+
+%section{"data-markdown" => ""}
+  \#### Node.js
+  \### Releases
+
+  * 06/2009: Version 0.0.3
+  * 59 unstable Releases
+  * 2013: Version 0.10.x
+  * 2015: Version 0.12.x
+  * 2015: Version 1.0.x
+  * 2015: Version 2.0.x
+  * 2015: Version 3.0.x
+  * 2015: Version 4.0.x (LTS)
+  * 2015: Version 5.0.x
+  * 2016: Version 6.0.x (LTS)
 
 %section{"data-markdown" => ""}
   ![](/images/node_schedule.png)
 
-  What is Node.js?
-  Node.js is a server side platform built on Google Chrome's JavaScript Engine (V8 Engine). Node.js was developed by Ryan Dahl in 2009 and its latest version is v0.10.36. The definition of Node.js as supplied by its official documentation is as follows −
-
-  Node.js is a platform built on Chrome's JavaScript runtime for easily building fast and scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.
-
 %section{"data-markdown" => ""}
-  https://github.com/nodejs/node
+  \#### Node.js
+  \#### Chrome V8: Google's high performance, open source, JavaScript engine.
 
-%section{"data-markdown" => ""}
-  Chrome V8
-  Google's high performance, open source, JavaScript engine.
-  V8 is Google's open source high-performance JavaScript engine, written in C++ and used in Google Chrome, the open source browser from Google. It implements ECMAScript as specified in ECMA-262, 3rd edition, and runs on Windows XP or later, Mac OS X 10.5+, and Linux systems that use IA-32, ARM or MIPS processors. V8 can run standalone, or can be embedded into any C++ application.
+  * Open source, high-performance JavaScript engine
+  * Written in C++
+  * Used in Google Chrome
+  * It implements ECMAScript as specified in ECMA-262, 3rd edition
+  * Runs on Windows XP or later, Mac OS X 10.5+, and Linux systems that use IA-32, ARM or MIPS processors
+  * V8 can run standalone, or can be embedded into any C++ application
 
 
 %section{"data-markdown" => ""}
-  Node.js is an open source, cross-platform runtime environment for developing server-side and networking applications. Node.js applications are written in JavaScript, and can be run within the Node.js runtime on OS X, Microsoft Windows, and Linux.
+  \#### Node.js
+  \### Features of Node.js
 
-  Node.js also provides a rich library of various JavaScript modules which simplifies the development of web applications using Node.js to a great extent.
-
-  Node.js = Runtime Environment + JavaScript Library
-
-%section{"data-markdown" => ""}
-  Features of Node.js
-  Following are some of the important features that make Node.js the first choice of software architects.
-
-  Asynchronous and Event Driven All APIs of Node.js library are asynchronous that is, non-blocking. It essentially means a Node.js based server never waits for an API to return data. The server moves to the next API after calling it and a notification mechanism of Events of Node.js helps the server to get a response from the previous API call.
-
-  Very Fast Being built on Google Chrome's V8 JavaScript Engine, Node.js library is very fast in code execution.
-
-  Single Threaded but Highly Scalable - Node.js uses a single threaded model with event looping. Event mechanism helps the server to respond in a non-blocking way and makes the server highly scalable as opposed to traditional servers which create limited threads to handle requests. Node.js uses a single threaded program and the same program can provide service to a much larger number of requests than traditional servers like Apache HTTP Server.
-
-  No Buffering - Node.js applications never buffer any data. These applications simply output the data in chunks.
-
-  License - Node.js is released under the MIT license.
+  * Asynchronous and Event Driven
+  * Very Fast, being built on Google Chrome's V8 JavaScript Engine
+  * Single Threaded but Highly Scalable: Single threaded model with event looping
+  * No Buffering: Node.js applications never buffer any data
+  * Node.js is released under the MIT license.
 
 %section{"data-markdown" => ""}
-  Who Uses Node.js?
-  Following is the link on github wiki containing an exhaustive list of projects, application and companies which are using Node.js. This list includes eBay, General Electric, GoDaddy, Microsoft, PayPal, Uber, Wikipins, Yahoo!, and Yammer to name a few.
+  \#### Node.js
+  \###  Who Uses Node.js?
+
+  * eBay
+  * General Electric
+  * GoDaddy
+  * Microsoft
+  * PayPal
+  * Uber
+  * Wikipins
+  * Yahoo!
+  * ...
 
 %section{"data-markdown" => ""}
-  Concepts
-  The following diagram depicts some important parts of Node.js which we will discuss in detail in the subsequent chapters.
+  \#### Node.js
+  \###  Concepts
 
-%section{"data-markdown" => ""}
   ![](/images/nodejs_concepts.jpg)
 
 %section{"data-markdown" => ""}
-  Where to Use Node.js?
-  Following are the areas where Node.js is proving itself as a perfect technology partner.
+  \#### Node.js
+  \###  Anwendungsfälle
 
-  I/O bound Applications
-
-  Data Streaming Applications
-
-  Data Intensive Real time Applications (DIRT)
-
-  JSON APIs based Applications
-
-  Single Page Applications
+  * I/O bound Applications
+  * Data Streaming Applications
+  * Data Intensive Real time Applications (DIRT)
+  * JSON APIs based Applications
+  * Single Page Applications
 
 %section{"data-markdown" => ""}
-  Where Not to Use Node.js?
-  It is not advisable to use Node.js for CPU intensive applications.
+  \#### Node.js
+  \###  Grenzen
+
+  * CPU intensive applications
 
 %section{"data-markdown" => ""}
+  \#### Node.js
+  \###  Installation
 
   * Install the Distro-Stable Version (linux, MacOS)
   * Install Using NVM (linux, MacOS)
   * Install from source/tar (linux, MacOS, Windows, FreeBSD, OpenBSD, AIX, ARM, ...)
 
 %section{"data-markdown" => ""}
-  REPL stands for Read Eval Print Loop and it represents a computer environment like a window console or Unix/Linux shell where a command is entered and system responds with an output in interactive mode. Node.js or Node comes bundled with a REPL environment. It performs the following desired tasks.
+  \#### Node.js
+  \###  REPL: Read Eval Print Loop
 
-  Read - Reads user's input, parse the input into JavaScript data-structure and stores in memory.
+  * Read - Reads user's input, parse the input into JavaScript data-structure and stores in memory.
+  * Eval - Takes and evaluates the data structure
+  * Print - Prints the result
+  * Loop - Loops the above command until user press ctrl-c twice.
 
-  Eval - Takes and evaluates the data structure
+%section
+  %h4 Node.js
+  %h3 REPL: Read Eval Print Loop
+  %ul
+    %li REPL feature of Node is very useful in experimenting with Node.js codes and to debug JavaScript codes.
+    %li REPL can be started by simply running node on shell/console without any argument as follows.
+  %pre
+    %code
+      :preserve
+        $ node
+        >
 
-  Print - Prints the result
-
-  Loop - Loops the above command until user press ctrl-c twice.
-
-  REPL feature of Node is very useful in experimenting with Node.js codes and to debug JavaScript codes.
-
-  REPL can be started by simply running node on shell/console without any argument as follows.
-
-  $ node
-  You will see the REPL Command prompt > where you can type any Node.js command:
-
-  $ node
-  >
 
 %section{"data-markdown" => ""}
-  REPL Commands
-  ctrl + c - terminate the current command.
+  \#### Node.js
+  \###  REPL Commands
 
-  ctrl + c twice - terminate the Node REPL.
-
-  ctrl + d - terminate the Node REPL.
-
-  Up/Down Keys - see command history and modify previous commands.
-
-  tab Keys - list of current commands.
-
-  .help - list of all commands.
-
-  .break - exit from multiline expression.
-
-  .clear - exit from multiline expression
-
-  .save filename - save current Node REPL session to a file.
-
-  .load filename - load file content in current Node REPL session.
+  * ctrl + c - terminate the current command.
+  * ctrl + c twice - terminate the Node REPL.
+  * ctrl + d - terminate the Node REPL.
+  * Up/Down Keys - see command history and modify previous commands.
+  * tab Keys - list of current commands.
+  * .help - list of all commands.
+  * .break - exit from multiline expression.
+  * .clear - exit from multiline expression
+  * .save filename - save current Node REPL session to a file.
+  * .load filename - load file content in current Node REPL session.
 
 
 %section{"data-markdown" => ""}
