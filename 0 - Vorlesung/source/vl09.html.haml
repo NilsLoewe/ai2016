@@ -16,8 +16,7 @@ layout: slide
 
 %section{"data-markdown" => ""}
   \## 4. Praktikum
-  \#### Frage: Alle Präsentationen in der 12. Vorlesungswoche?
-  \### JA
+  ![](/images/p4.png)
 
 %section{"data-markdown" => ""}
   \## Wiederholung
@@ -373,17 +372,6 @@ layout: slide
   \### Fragen?
 
 %section{"data-markdown" => ""}
-
-  \#### Vorbereitung auf Klausuraufgaben
-
-  * Was waren die Gründe für Softwarearchitektur?
-  * Was sollte eine Kontext-Sicht enthalten?
-  * In welcher Beziehung stehen Architektur und Design?
-  * Was besagt 'Conways Law'?
-  * Nennen und erläutern Sie drei Arten von Architekturmustern
-  * Für welche Systeme wird das MVC Muster typischerweise verwendet?
-
-%section{"data-markdown" => ""}
   \#### Was ist Softwarearchitektur?
   \#### Geschichte und Trends
   \#### Sichten auf Architekturen
@@ -586,12 +574,10 @@ layout: slide
 
 %section
   %h4 Node.js
-  %h3 package.json
-
-  As a bare minimum, a package.json must have:
+  %h3 package.json: Minimum
 
   %ul
-    %li "name" - all lowercaseone word, no spaces, dashes and underscores allowed
+    %li "name"
     %li "version"
 
   %pre
@@ -604,7 +590,7 @@ layout: slide
 
 %section{"data-markdown" => ""}
   \#### Node.js
-  \### package.json -- Attributes
+  \### package.json: Attribute
 
   * name
   * version
@@ -612,9 +598,9 @@ layout: slide
   * homepage
   * author
   * contributors
-  * dependencies - npm automatically installs all the dependencies mentioned here in the node_module folder
-  * repository - repository type and url of the package
-  * main - entry point of the package
+  * dependencies - *npm automatically installs all the dependencies mentioned here in the node_module folder*
+  * repository - *repository type and url of the package*
+  * main - *entry point of the package*
   * keywords
 
 
@@ -637,120 +623,144 @@ layout: slide
 
         Press ^C at any time to quit.
         name: (webmaster)
-        You will need to provide all the required information about your module. YOu can take help from the above mentioned package.json file to understand the meanings of various information demanded. Once package.json is generated. Use the following command to register yourself with npm repository site using a valid email address.
+        ...
+
+        $ npm adduser
+        Username: abcdefg
+        Password:
+        Email: (this IS public) abcdefg@gmail.com
+
+        $ npm publish
+
+
+%section{"data-markdown" => ""}
+  \#### Node.js
+  \### Callbacks
+
+  * Asynchronous equivalent for a function
+  * A callback function is called at the completion of a given task
+  * All APIs of Node are written is such a way that they supports callbacks.
 
 %section
   %h4 Node.js
-  %h3 Create a module
+  %h3 Callbacks: Blocking Example
+  main.js
+  %pre
+    %code
+      :preserve
+        var fs = require("fs");
+
+        var data = fs.readFileSync('input.txt');
+
+        console.log(data.toString());
+        console.log("Program Ended");
+
+  input.txt
+  %pre
+    %code
+      :preserve
+        This is the input.txt file
 
   %pre
     %code
       :preserve
-        $ npm adduser
-        Username: mcmohd
-        Password:
-        Email: (this IS public) mcmohd@gmail.com
-        Now its time to publish your module:
+        $ node main.js
+        This is the input.txt file
+        Program Ended
 
-        $ npm publish
-        If everything is fine with your module, then it will be published in the reporsitory and will be accessible to install using npm like any other other Node.js module.
+%section
+  %h4 Node.js
+  %h3 Callbacks: Non-Blocking Example
 
+  main.js
+  %pre
+    %code
+      :preserve
+        var fs = require("fs");
 
-%section{"data-markdown" => ""}
-  What is Callback?
-  Callback is an asynchronous equivalent for a function. A callback function is called at the completion of a given task. Node makes heavy use of callbacks. All APIs of Node are written is such a way that they supports callbacks.
+        fs.readFile('input.txt', function (err, data) {
+        if (err) return console.error(err);
+        console.log(data.toString());
+        });
 
-  For example, a function to read a file may start reading file and return the control to execution environment immidiately so that next instruction can be executed. Once file I/O is complete, it will call the callback function while passing the callback function, the content of the file as parameter. So there is no blocking or wait for File I/O. This makes Node.js highly scalable, as it can process high number of request without waiting for any function to return result.
+        console.log("Program Ended");
 
-  Blocking Code Example
-  Create a text file named input.txt having following content
+  input.txt
+  %pre
+    %code
+      :preserve
+        This is the input.txt file
 
-  Tutorials Point is giving self learning content
-  to teach the world in simple and easy way!!!!!
-  Create a js file named main.js which has the following code:
-
-  var fs = require("fs");
-
-  var data = fs.readFileSync('input.txt');
-
-  console.log(data.toString());
-  console.log("Program Ended");
-  Now run the main.js to see the result:
-
-  $ node main.js
-  Verify the Output
-
-  Tutorials Point is giving self learning content
-  to teach the world in simple and easy way!!!!!
-  Program Ended
-  Non-Blocking Code Example
-  Create a text file named input.txt having following content
-
-  Tutorials Point is giving self learning content
-  to teach the world in simple and easy way!!!!!
-  Update main.js file to have following code:
-
-  var fs = require("fs");
-
-  fs.readFile('input.txt', function (err, data) {
-  if (err) return console.error(err);
-  console.log(data.toString());
-  });
-
-  console.log("Program Ended");
-  Now run the main.js to see the result:
-
-  $ node main.js
-  Verify the Output
-
-  Program Ended
-  Tutorials Point is giving self learning content
-  to teach the world in simple and easy way!!!!!
-  These two examples explain the concept of blocking and non-blocking calls. First example shows that program blocks until it reads the file and then only it proceeds to end the program where as in second example, program does not wait for file reading but it just proceeded to print "Program Ended" and same time program without blocking continues reading the file.
-
-  Thus, a blocking program executes very much in sequence and from programming point of view its easier to implement the logic but non-blocking programs does not execute in sequence, so in case a program needs to use any data to be processed, it should be kept with-in the same block to make it sequential execution.
+  %pre
+    %code
+      :preserve
+        $ node main.js
+        Program Ended
+        This is the input.txt file
 
 %section{"data-markdown" => ""}
-  Node js is a single threaded application but it support concurrency via concept of event and callbacks. As every API of Node js are asynchronous and being a single thread, it uses async function calls to maintain the concurrency. Node uses observer pattern. Node thread keeps an event loop and whenever any task get completed, it fires the corresponding event which signals the event listener function to get executed.
+  \#### Node.js
+  \### Concurrency
 
-  Event Driven Programming
-  Node.js uses events heavily and it is also one of the reasons why Node.js is pretty fast compared to other similar technologies. As soon as Node starts its server, it simply initiates its variables, delcares functions and then simply waits for event to occur.
-
-  In an event-driven application, there is generally a main loop that listens for events, and then triggers a callback function when one of those events is detected.
+  * Node js is a single threaded application
+  * Concurrency is implemented via events and callbacks
+  * As every API of Node js is asynchronous and single threaded
+  * Async function calls maintain the concurrency.
+  * Node uses the observer pattern for events
 
 %section{"data-markdown" => ""}
+  \#### Node.js
+  \### Event Driven Programming
+
+  \#### In an event-driven application, there is generally a main loop that listens for events, and then triggers a callback function when one of those events is detected.
+
+%section{"data-markdown" => ""}
+  \#### Node.js
+  \### Event Driven Programming
   ![](/images/event_loop.jpg)
 
 %section{"data-markdown" => ""}
-  Event Loop
-  While Events seems similar to what callbacks are. The difference lies in the fact that callback functions are called when an asynchronous function returns its result where as event handling works on the observer pattern. The functions which listens to events acts as Observers. Whenever an event gets fired, its listener function starts executing. Node.js has multiple in-built events available through events module and EventEmitter class which is used to bind events and event listeners as follows:
+  \#### Node.js
+  \### Event Driven Programming
+  * The functions which listens to events act as Observers
+  * When an event gets fired, its listener functions start executing
+  * Node.js has multiple in-built events available through the **events module** and **EventEmitter class**
 
-  // Import events module
-  var events = require('events');
+%section
+  %h4 Node.js
+  %h3 Event Loop
 
-  // Create an eventEmitter object
-  var eventEmitter = new events.EventEmitter();
-  Following is the syntax to bind event handler with an event:
+  %pre
+    %code
+      :preserve
+        // Import events module
+        var events = require('events');
 
-  // Bind event and even handler as follows
-  eventEmitter.on('eventName', eventHandler);
-  We can fire an event programatically as follows:
+        // Create an eventEmitter object
+        var eventEmitter = new events.EventEmitter();
 
-  // Fire an event
-  eventEmitter.emit('eventName');
-%section{"data-markdown" => ""}
-  Many objects in Node emit events for example a net.Server emits an event each time a peer connects to it, a fs.readStream emits an event when the file is opened. All objects which emit events are instances of events.EventEmitter.
+        // Bind event and even handler as follows
+        eventEmitter.on('eventName', eventHandler);
 
-  EventEmitter Class
-  As we have seen in previous section, EventEmitter class lies in events module. It is accessibly via following syntax:
+        // Fire an event
+        eventEmitter.emit('eventName');
 
-  // Import events module
-  var events = require('events');
-  // Create an eventEmitter object
-  var eventEmitter = new events.EventEmitter();
-  When an EventEmitter instance faces any error, it emits an 'error' event. When new listener is added, 'newListener' event is fired and when a listener is removed, 'removeListener' event is fired.
 
-  EventEmitter provides multiple properties like on and emit. on property is used to bind a function with the event and emit is used to fire an event.
+%section
+  %h4 Node.js
+  %h3 Event Loop
+  All objects which emit events are instances of events.EventEmitter.
+  %pre
+    %code
+      :preserve
+        // Import events module
+        var events = require('events');
+        // Create an eventEmitter object
+        var eventEmitter = new events.EventEmitter();
+  %ul
+    %li When an instance faces any error, it emits an 'error' event.
+    %li When new listener is added, 'newListener' event is fired
+    %li When a listener is removed, 'removeListener' event is fired.
 
 %section{"data-markdown" => ""}
   \#### Node.js
@@ -819,11 +829,19 @@ layout: slide
   * Packaging and encryption of source files and other assets
 
 %section{"data-markdown" => ""}
+  \#### Node.js
+  \### Beispiel
+
+%section{"data-markdown" => ""}
   \## Fragen?
 
 %section{"data-markdown" => ""}
+
   \#### Vorbereitung auf Klausuraufgaben
 
+  * In welcher Beziehung stehen Architektur und Design?
+  * Was besagt 'Conways Law'?
+  * Nennen und erläutern Sie drei Arten von Architekturmustern
   * Was sind zwei Grundprinzipien, die hinter Ruby on Rails stecken?
   * Nennen sie drei Nachteile für die Verwendung von Frameworks!
   * Wann ist die Verwendung eines Frameworks nicht sinnvoll?
