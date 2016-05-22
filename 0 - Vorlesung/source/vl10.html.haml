@@ -410,12 +410,11 @@ layout: slide
   \####  AngularJS
   \### Controller
 
-  clientseitiges Model mit der Logik in einem Controller definiert.
-  Die Controller werden anschließend zu einem Modul zusammengefasst.
-  Die Module werden mit Hilfe eines integrierten Dependency-Injection-Containers in die Applikation eingebunden.
-  Dabei wird die View mit dem Model verbunden.
-  Diese Datenbindung ist bidirektional, das heißt, Benutzereingaben wirken sich auf das Model aus,
-  programmatische Änderungen am Model aber auch auf die Benutzeransicht.
+  * Clientseitiges Model
+  * Controller werden zu einem Modul zusammengefasst
+  * Module werden mittels eines Dependency-Injection-Containers in die Applikation eingebunden
+  * -> Dabei wird die View mit dem Model verbunden
+  * -> Bidirektionale Datenbindung
 
 %section{"data-markdown" => ""}
   \####  AngularJS
@@ -431,33 +430,43 @@ layout: slide
   \####  AngularJS
   \### Interpolation
 
-  Mit Hilfe von doppelten geschwungenen Klammern (double-curly syntax) können JavaScript-Ausdrücke im HTML-Code eingebettet werden.
-  Hierbei werden jedoch keine Sprunganweisungen unterstützt. Mit dem Pipe-Operator | können Filter hinzugefügt werden, die
-  sich auf das angezeigte Resultat auswirken.
-
-  Alternativ kann auch ng-bind verwendet werden. Die Befehle <span ng-bind="name"></span> und <span>{{name}}</span>
-  führen beide dazu, dass der Wert der Variable name angezeigt wird. Mit ng-bind wird jedoch verhindert, dass der
-  Browser beim erstmaligen Laden die Vorlage anzeigt, falls AngularJS die Daten nicht schnell genug geladen und damit die Vorlage ersetzt hat.
-
+  * Mit doppelten geschwungenen Klammern können JavaScript-Ausdrücke ins HTML eingebettet werden
+  * Mit dem Pipe-Operator | können Filter hinzugefügt werden
 
 %section{"data-markdown" => ""}
   \####  AngularJS
   \### Services
 
-  * Services enthalten die Geschäftslogik
-  * Services binden externe Ressourcen wie z.B. REST-Webservices ein
-  * Services werden als Singleton instanziiert.
-  * Services können selbst programmiert werden oder von Drittanbietern übernommen werden
-   am $-Präfix) zur Verfügung. Dazu zählen beispielsweise $http und $resource, die zum Durchführen von AJAX-Anfragen dienen. Beide greifen intern auf das XMLHttpRequest-Objekt zu und unterscheiden sich im Abstraktionsgrad. Während $http beliebige HTTP-Anfragen durchführen kann, ist $resource auf REST-Services spezialisiert.
+  * enthalten die Geschäftslogik
+  * binden externe Ressourcen wie z.B. REST-Webservices ein
+  * werden als Singleton instanziiert
+  * können selbst implementiert werden oder von Dritten eingebunden werden (Beispiele $http und $resource)
 
 %section{"data-markdown" => ""}
   \####  AngularJS
-  Routen in Single-Page-Applikationen[Bearbeiten | Quelltext bearbeiten]
-  In Single-Page-Applikationen werden mit Routen die Zuordnung von URLs zu spezifischen Ansichten festgelegt. Zu diesem Zweck stellt AngularJS das ngRoute-Modul[4] bereit. Damit können innerhalb der globalen HTML-Vorlage verschiedene Ansichten (HTML-Fragmente) dynamisch in ein Element mit der ng-view-Direktive[5] nachgeladen werden.
+  \### Routen
 
-  Dabei kann man nur eine einzelne ng-view-Direktive pro Seite angeben. Abhilfe schafft hier der alternative UI-Router des AngularUI-Projekts, dessen Funktionsumfang weitaus größer ist[6][7][8], sowie das Modul Angular-Route-Segment, welches leichtgewichtiger ist und die Schnittstelle des vorhandenen AngularJS-Routers lediglich erweitert.[9][10]
+  * Zuordnung von URLs zu Views mittels *ngRoute*
+  * Unterschiedliche HTML Seiten können mittels *ng-view* nachgeladen werden.
+  * Eine *ng-view* Direktive pro Seite
+  * Das *$location* Objekt erlaubt die direkte Verarbeitung der Browser-URL
 
-  Das $location-Objekt[11] erlaubt die direkte Verarbeitung der Browser-URL, so dass eine Seitennavigation simuliert werden kann.
+%section{"data-markdown" => ""}
+  \####  AngularJS
+  \### Vorteile
+  * Testbarkeit
+  * Refaktorisierbarkeit
+  * Wiederverwendbarkeit
+  * Verwendung das Javascript Datentypen
+
+%section{"data-markdown" => ""}
+  \####  AngularJS
+  \### Nachteile
+
+  * Erstmal nur clientseitig
+  * Breaking Changes von V1 auf V2
+  * Performance
+  * Relativ komplex -> Viele Möglichkeiten Dinge falsch zu machen
 
 %section
   %h4 AngularJS
@@ -474,20 +483,25 @@ layout: slide
     %li=link_to 'Beispiel Code [github]', 'https://github.com/tastejs/todomvc'
 
 %section{"data-markdown" => ""}
-  \## Fragen?
+  \####  AngularJS
+  \### Quellen
+  * https://angularjs.org
+  * https://github.com/angular/angular.js
+  * https://docs.angularjs.org/guide
 
+%section{"data-markdown" => ""}
+  \## Fragen?
 
 %section{"data-markdown" => ""}
 
   \#### Vorbereitung auf Klausuraufgaben
-
-  * Was ist Dependencz Injection?
+  * Was ist Dependency Injection?
   * Nennen Sie drei Beispiele für Crosscutting Concerns
   * Wo wird NodeJS typischerweise eingesetzt?
   * Was ist das grundlegende Konzept einer NodeJS Anwendung?
   * Wo sollte NodeJS eher nicht eingesetzt werden?
+  * Für welche Art von Anwendungen wird AngularJS verwendet?
 
 %section{"data-markdown" => ""}
   \## Fragen?
-
   \##### Unterlagen: [ai2016.nils-loewe.de](https://ai2016.nils-loewe.de)
