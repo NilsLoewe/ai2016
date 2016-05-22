@@ -1,18 +1,493 @@
 ---
-title: Vorlesung X
+title: Vorlesung 10 - AngularJS
 layout: slide
 ---
 
+%section{"data-markdown" => ""}
+  \## Architektur von Informationssystemen
+  \#### Hochschule für angewandte Wissenschaften
+  \#### Sommersemester 2016
+  Nils Löwe / [nils@loewe.io](mailto:nils@loewe.io) / @NilsLoewe
+
+%section{"data-markdown" => ""}
+  \## 4. Praktikum
+  [Praktikum 4: Architekturentwurf](https://ai2016.nils-loewe.de/p04.html)
+  \### Fragen?
+
+%section{"data-markdown" => ""}
+  \## Wiederholung
+
+%section{"data-markdown" => ""}
+  \#### Was ist Softwarearchitektur?
+  \#### Geschichte und Trends
+  \#### Sichten auf Architekturen
+  \#### Qualiät und andere nichtfunktionale Anforderungen
+  \#### Architekturmuster
+  \#### Dokumentation von Architekturen
+  \### Technologien und Frameworks
+
+%section{"data-markdown" => ""}
+  \#### Ruby on Rails
+  \###  Spring Boot (moovel Group GmbH)
+  \#### NodeJS
+  \#### AngularJS
+  \#### Docker (Akra GmbH)
+  \#### AMQP
+  \#### Twitter Bootstrap
+  \#### Microservices (Wer liefert was GmbH)
+
+%section{"data-markdown" => ""}
+  \### Spring Boot (moovel Group GmbH)
+  http://blog.jan-ahrens.eu/spring-boot-intro/#/
+
+%section{"data-markdown" => ""}
+  \##### Spring Boot (moovel Group GmbH)
+
+  \### DEPENDENCY INJECTION (DI)
+  \#### Also known as inversion of control (IoC)
+  \#### Hollywood principle: "Don't call us, we call you"
+
+%section{"data-markdown" => ""}
+  \##### Spring Boot (moovel Group GmbH)
+
+  \### BENEFITS OF DI
+  \#### Modularization
+  \#### Testable code
+  \#### Decrease coupling
+  \#### Behavior can be changed
+
+%section{"data-markdown" => ""}
+  \##### Spring Boot (moovel Group GmbH)
+
+  \### ASPECT ORIENTED PROGRAMMING (AOP)
+  \#### Separate cross-cutting concerns
+  \#### In plain English: reduce duplications
+  \#### Aspect = concern
+
+%section{"data-markdown" => ""}
+  \##### Spring Boot (moovel Group GmbH)
+
+  \#### *EXAMPLES FOR CROSS-CUTTING CONCERNS*
+  \##### Logging
+  \##### Transaction management
+  \##### Authentication
+
+%section{"data-markdown" => ""}
+  \##### Spring Boot (moovel Group GmbH)
+
+  \### THE SPRING FRAMEWORK
+
+  \#### Convention over configuration
+  \#### Easily extensible through "Starter POMs"
+  \#### Micro-framework paradigm
+
+
+%section{"data-markdown" => ""}
+  \##### Spring Boot (moovel Group GmbH)
+
+  \### FURTHER READING
+  \#### http://start.spring.io
+  \#### http://spring.io/guides
+  \#### http://docs.spring.io/spring-boot/docs/current/reference/html
+  \#### http://ratpack.io
+
+
+%section{"data-markdown" => ""}
+  \#### Ruby on Rails
+  \#### Spring Boot (moovel Group GmbH)
+  \###  NodeJS
+  \#### AngularJS
+  \#### Docker (Akra GmbH)
+  \#### AMQP
+  \#### Twitter Bootstrap
+  \#### Microservices (Wer liefert was GmbH)
+
+%section{"data-markdown" => ""}
+  \## Node.js
+
+%section{"data-markdown" => ""}
+  \#### Node.js
+
+  \#### Node.js ist eine serverseitige Plattform für Netzwerk-Anwendungen, die auf der Google Chrome JavaScript Engine (V8 Engine) basiert.
+
+  * easily build fast and scalable network applications
+  * event-driven, non-blocking I/O model
+  * lightweight, efficient, perfect for data-intensive real-time applications
+  * large JavaScript Library
+
+%section{"data-markdown" => ""}
+  \#### Node.js
+
+  \### Node.js = Runtime Environment + JavaScript Library
+
+  https://github.com/nodejs/node
+
+%section{"data-markdown" => ""}
+  \#### Node.js
+  \### Releases
+
+  * Current: Released from active development branches of this repository
+  * LTS: Releases that receive Long-term Support, with a focus on stability and security
+  * Nightly: Versions of code in this repository on the current Current branch
+
+%section{"data-markdown" => ""}
+  \#### Node.js
+  \### Chrome V8
+  \####Google's high performance, open source, JavaScript engine.
+
+  * Open source, high-performance JavaScript engine
+  * Written in C++
+  * Used in Google Chrome
+  * It implements ECMAScript as specified in ECMA-262, 3rd edition
+  * Runs on Windows XP or later, Mac OS X 10.5+, and Linux systems that use IA-32, ARM or MIPS processors
+  * V8 can run standalone, or can be embedded into any C++ application
+
+
+%section{"data-markdown" => ""}
+  \#### Node.js
+  \###  Anwendungsfälle
+
+  * I/O bound Applications
+  * Data Streaming Applications
+  * Data Intensive Real time Applications (DIRT)
+  * JSON APIs based Applications
+  * Single Page Applications
+
+%section{"data-markdown" => ""}
+  \#### Node.js
+  \###  Grenzen
+
+  * CPU intensive applications
+
+%section{"data-markdown" => ""}
+  \#### Node.js
+  \###  REPL: Read Eval Print Loop
+
+  * Read - Reads user's input, parse the input into JavaScript data-structure and stores in memory.
+  * Eval - Takes and evaluates the data structure
+  * Print - Prints the result
+  * Loop - Loops the above command until user press ctrl-c twice.
+
 %section
-  TBD
+  %h4 Node.js
+  %h3 REPL: Read Eval Print Loop
+  %ul
+    %li REPL feature of Node is very useful in experimenting with Node.js codes and to debug JavaScript codes.
+    %li REPL can be started by simply running node on shell/console without any argument as follows.
+  %pre
+    %code
+      :preserve
+        $ node
+        >
 
 %section{"data-markdown" => ""}
-  \## Aktuelle Technologien
-  * REST/HTTP
-  * AMQP
+  \#### Node.js: NPM
+  \###  Node Package Manager
+
+  * https://www.npmjs.com/
+  * Find, share, and reuse packages of code from hundreds of thousands of developers
+  * 3 million developers and thousands of companies use npm
 
 %section{"data-markdown" => ""}
-  \## Frameworks
-  * Ruby on Rails
-  * Twitter Bootstrap
-  * NodeJS
+  \#### Node.js: NPM
+  \###  Statistiken (Stand 13.05.2016)
+
+  * 283,432 total packages
+  * 57,724,266 downloads in the last day
+  * 1,040,776,238 downloads in the last week
+  * 4,169,158,104 downloads in the last month
+
+%section{"data-markdown" => ""}
+  \#### Node.js: NPM
+  \###  Geschäftsmodell
+
+  * Open Source: FREE
+  * Private Account:  $7 per user / month
+  * Orgs: $16 per user / month
+  * Enterprise: $2000 per year
+  * npm Enterprise Pro
+
+%section{"data-markdown" => ""}
+  \#### Node.js
+  \###  Concepts
+
+  ![](/images/nodejs_concepts.jpg)
+
+
+%section{"data-markdown" => ""}
+  \#### Node.js
+  \### Callbacks
+
+  * Asynchronous equivalent for a function
+  * A callback function is called at the completion of a given task
+  * All APIs of Node are written is such a way that they supports callbacks.
+
+%section
+  %h4 Node.js
+  %h3 Callbacks: Blocking Example
+  main.js
+  %pre
+    %code
+      :preserve
+        var fs = require("fs");
+
+        var data = fs.readFileSync('input.txt');
+
+        console.log(data.toString());
+        console.log("Program Ended");
+
+  input.txt
+  %pre
+    %code
+      :preserve
+        This is the input.txt file
+
+  %pre
+    %code
+      :preserve
+        $ node main.js
+        This is the input.txt file
+        Program Ended
+
+%section
+  %h4 Node.js
+  %h3 Callbacks: Non-Blocking Example
+
+  main.js
+  %pre
+    %code
+      :preserve
+        var fs = require("fs");
+
+        fs.readFile('input.txt', function (err, data) {
+        if (err) return console.error(err);
+        console.log(data.toString());
+        });
+
+        console.log("Program Ended");
+
+  input.txt
+  %pre
+    %code
+      :preserve
+        This is the input.txt file
+
+  %pre
+    %code
+      :preserve
+        $ node main.js
+        Program Ended
+        This is the input.txt file
+
+%section{"data-markdown" => ""}
+  \#### Node.js
+  \### Event Driven Programming
+  * The functions which listens to events act as Observers
+  * When an event gets fired, its listener functions start executing
+  * Node.js has multiple in-built events available through the **events module** and **EventEmitter class**
+
+%section{"data-markdown" => ""}
+  \#### Node.js
+  \### Streams
+
+  \#### Streams are objects that let you read data from a source or write data to a destination in continous fashion.
+
+%section{"data-markdown" => ""}
+  \#### Node.js
+  \### Streams
+
+  \#### In Node.js, there are four types of streams.
+
+  * Readable  - used for read operation.
+  * Writable  - used for write operation.
+  * Duplex    - can be used for both read and write operation.
+  * Transform - A type of duplex stream where the output is computed based on input.
+
+%section{"data-markdown" => ""}
+  \#### Node.js
+  \### Streams
+
+  \### Each type of Stream is an EventEmitter instance and throws several events
+
+  * data - fired when there is data is available to read.
+  * end  - fired when there is no more data to read.
+  * error - fired when there is any error receiving or writing data.
+  * finish - fired when all data has been flushed to underlying system
+
+%section{"data-markdown" => ""}
+  \#### Node.js
+  \### File System
+
+  * Node implements File I/O using simple wrappers around standard POSIX functions
+  * Every method in fs module have synchronous as well as asynchronous form
+  * Asynchronous methods take a parameter as "completion function callback"
+  * It is preferred to use asynchronous methods instead of synchronous methods
+
+%section{"data-markdown" => ""}
+  \#### Node.js
+  \### Standard Modules
+
+  * OS Module: Provides basic operating-system related utility functions.
+  * Path Module: Utilities for handling and transforming file paths.
+  * Net Module: Servers and clients as streams
+  * DNS Module: DNS lookup, operating system name resolution functionalities
+  * Domain Module: I/O operations as a single group.
+  * http module: Create either HTTP client of server
+
+%section{"data-markdown" => ""}
+  \#### Node.js
+  \### Express
+
+  * Minimal and flexible Node.js web application framework
+  * Robust set of features to develop web and mobile applications
+  * Allows to set up middlewares to respond to HTTP Requests
+  * Defines a routing table for actions based on HTTP Method and URL
+  * Allows to dynamically render HTML Pages based on passing arguments to templates
+
+%section{"data-markdown" => ""}
+  \#### Node.js
+  \### JXcore
+
+  * Compile and distribute it a Node.js app
+  * Open source project
+  * Packaging and encryption of source files and other assets
+
+
+%section{"data-markdown" => ""}
+  \## Fragen?
+
+%section{"data-markdown" => ""}
+  \#### Ruby on Rails
+  \#### Spring Boot (moovel Group GmbH)
+  \#### NodeJS
+  \###  AngularJS
+  \#### Docker (Akra GmbH)
+  \#### AMQP
+  \#### Twitter Bootstrap
+  \#### Microservices (Wer liefert was GmbH)
+
+%section{"data-markdown" => ""}
+  \#####  AngularJS
+
+  \#### AngularJS ist ein clientseitiges JavaScript-Webframework für Single-page-Webanwendungen nach dem Model-View-ViewModel-Muster
+
+%section{"data-markdown" => ""}
+  \###  AngularJS
+
+  * Clientseitige Generierung von HTML-Seiten
+  * Funktionalität ohne DOM-Manipulation via jQuery
+  * Datenvalidierung von Eingabeformularen als Funktionalität
+
+%section{"data-markdown" => ""}
+  \####  AngularJS
+  \### Komponenten
+  \#### Die Strukturierung eines Angular-Webclients erfolgt auf Basis von
+
+  * Modulen
+  * View-Templates
+  * Controllern
+  * Scopes
+  * Filtern
+  * Providern (Factory, Service)
+
+%section{"data-markdown" => ""}
+  \####  AngularJS
+  \### Datenbindung
+
+  * Datenbindung nach dem MVVM-Muster: Einfache Synchronisation zwischen View und Anwendungslogik
+  * Deklarative Beschreibungen von Datenbindungen innerhalb der View
+  * Event-Schleife fängt jede Eingabe ab und aktualisiert ggf. Teile der View
+  * Nicht editierbare Daten können mittels One-Time-Binding von weiteren Aktualisierungen ausgeschlossen werden.
+
+%section{"data-markdown" => ""}
+  \####  AngularJS
+  \### Mocking-Modul
+
+  * Standardfunktionalitäten wie $http können für Tests ersetzt werden
+  * Umsetzung von isolierten Testfällen
+
+%section{"data-markdown" => ""}
+  \####  AngularJS
+  \### Controller
+
+  clientseitiges Model mit der Logik in einem Controller definiert.
+  Die Controller werden anschließend zu einem Modul zusammengefasst.
+  Die Module werden mit Hilfe eines integrierten Dependency-Injection-Containers in die Applikation eingebunden.
+  Dabei wird die View mit dem Model verbunden.
+  Diese Datenbindung ist bidirektional, das heißt, Benutzereingaben wirken sich auf das Model aus,
+  programmatische Änderungen am Model aber auch auf die Benutzeransicht.
+
+%section{"data-markdown" => ""}
+  \####  AngularJS
+
+  \### Direktiven
+
+  * benutzerdefinierte HTML-Elemente und -Attribute
+  * Vordefinierte Direktiven sind am ng-Namensraum erkennbar
+  * Um Elemente auszuwählen, verwendet AngularJS ein integriertes jQuery Lite (jqLite)
+  * Wird jQuery in das HTML-DOM eingebunden, wird dieses statt jQuery Lite verwendet.
+
+%section{"data-markdown" => ""}
+  \####  AngularJS
+  \### Interpolation
+
+  Mit Hilfe von doppelten geschwungenen Klammern (double-curly syntax) können JavaScript-Ausdrücke im HTML-Code eingebettet werden.
+  Hierbei werden jedoch keine Sprunganweisungen unterstützt. Mit dem Pipe-Operator | können Filter hinzugefügt werden, die
+  sich auf das angezeigte Resultat auswirken.
+
+  Alternativ kann auch ng-bind verwendet werden. Die Befehle <span ng-bind="name"></span> und <span>{{name}}</span>
+  führen beide dazu, dass der Wert der Variable name angezeigt wird. Mit ng-bind wird jedoch verhindert, dass der
+  Browser beim erstmaligen Laden die Vorlage anzeigt, falls AngularJS die Daten nicht schnell genug geladen und damit die Vorlage ersetzt hat.
+
+
+%section{"data-markdown" => ""}
+  \####  AngularJS
+  \### Services
+
+  * Services enthalten die Geschäftslogik
+  * Services binden externe Ressourcen wie z.B. REST-Webservices ein
+  * Services werden als Singleton instanziiert.
+  * Services können selbst programmiert werden oder von Drittanbietern übernommen werden
+   am $-Präfix) zur Verfügung. Dazu zählen beispielsweise $http und $resource, die zum Durchführen von AJAX-Anfragen dienen. Beide greifen intern auf das XMLHttpRequest-Objekt zu und unterscheiden sich im Abstraktionsgrad. Während $http beliebige HTTP-Anfragen durchführen kann, ist $resource auf REST-Services spezialisiert.
+
+%section{"data-markdown" => ""}
+  \####  AngularJS
+  Routen in Single-Page-Applikationen[Bearbeiten | Quelltext bearbeiten]
+  In Single-Page-Applikationen werden mit Routen die Zuordnung von URLs zu spezifischen Ansichten festgelegt. Zu diesem Zweck stellt AngularJS das ngRoute-Modul[4] bereit. Damit können innerhalb der globalen HTML-Vorlage verschiedene Ansichten (HTML-Fragmente) dynamisch in ein Element mit der ng-view-Direktive[5] nachgeladen werden.
+
+  Dabei kann man nur eine einzelne ng-view-Direktive pro Seite angeben. Abhilfe schafft hier der alternative UI-Router des AngularUI-Projekts, dessen Funktionsumfang weitaus größer ist[6][7][8], sowie das Modul Angular-Route-Segment, welches leichtgewichtiger ist und die Schnittstelle des vorhandenen AngularJS-Routers lediglich erweitert.[9][10]
+
+  Das $location-Objekt[11] erlaubt die direkte Verarbeitung der Browser-URL, so dass eine Seitennavigation simuliert werden kann.
+
+%section
+  %h4 AngularJS
+  %h3 Minimales Beispiel
+
+  =link_to 'Angular minimales Beispiel', 'angular_min.html'
+
+%section
+  %h4  AngularJS
+  %h3 Komplexeres Beispiel
+
+  %ul
+    %li=link_to 'TodoList Beispiel', 'http://todomvc.com/examples/angularjs/#/'
+    %li=link_to 'Beispiel Code [github]', 'https://github.com/tastejs/todomvc'
+
+%section{"data-markdown" => ""}
+  \## Fragen?
+
+
+%section{"data-markdown" => ""}
+
+  \#### Vorbereitung auf Klausuraufgaben
+
+  * Was ist Dependencz Injection?
+  * Nennen Sie drei Beispiele für Crosscutting Concerns
+  * Wo wird NodeJS typischerweise eingesetzt?
+  * Was ist das grundlegende Konzept einer NodeJS Anwendung?
+  * Wo sollte NodeJS eher nicht eingesetzt werden?
+
+%section{"data-markdown" => ""}
+  \## Fragen?
+
+  \##### Unterlagen: [ai2016.nils-loewe.de](https://ai2016.nils-loewe.de)
