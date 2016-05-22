@@ -16,9 +16,9 @@ title: Praktikum 4 - Architekturbewertung
           %ul
             %li Die Bearbeitung findet in 3er-Gruppen statt.
             %li Die Präsentation Ihrer Lösungen erfolgt im Rahmen der Praktikumstermine.
-            %li Jede Gruppe hat dazu 20-25 Minuten Zeit. Bereiten Sie hierzu Folien und ggf. eine Live-Demonstration Ihres Systems vor.
-            %li Zu einigen der Praktikumsaufgaben gehört eine Implementierung. Sofern in der Aufgabe nicht explizit anders angegeben, dürfen Sie Programmiersprache, Frameworks und Entwicklungsumgebung frei wählen.
-            %li Fangen Sie frühzeitig mit der Bearbeitung Ihrer Aufgabe an; insbesondere nicht erst am Tag oder in der Nacht zuvor.
+            %li Jede Gruppe hat dazu 15-20 Minuten Zeit. Bereiten Sie hierzu Folien vor.
+
+        %h4 ACHTUNG: Alle Gruppen präsentieren Ihre Lösung in der letzten Vorlesungswoche am 9.6.!
 
         %h5 Aufgabe 4: Architekturbewertung
 
@@ -48,19 +48,16 @@ title: Praktikum 4 - Architekturbewertung
               %li Eignung der vorgeschlagenen Technologien
               %li Komplexität des Entwurfs
               %li Umsetzbarkeit in mehreren Teams
+            Vergleichen Sie anschließend den vorgeschlagenen Architekturentwurf mt Ihrem eigenen aus dem
+            letzten Praktikum und stellen Sie die Unterschiede heraus. Wo hat der vorgeschlagene Entwurf
+            Stärken und wo hat er Schwächen gegenüber Ihrem eigenen Entwurf?
 
-
-
-
-
-
+          %hr
+          %h2 Aufgabe der geplanten Softwrae
           %h4 Use Cases
           %p
-
-            Die folgenden Use Cases sollen durch das System abgedeckt sein.
-
             %ul
-              %li Eine Servicekraft greift nur lesend auf seinen Wochenplan zu.
+              %li Eine Servicekraft greift lesend auf seinen/ihren Wochenplan zu.
               %li Ein "Planer" erstellt 1x/Woche die Wochenpläne.
               %li Servicekräfte werden per E-Mail über neue Pläne, bzw. Änderungen informiert.
 
@@ -87,15 +84,97 @@ title: Praktikum 4 - Architekturbewertung
               %li 1-3 Planer erstellen die Pläne 1x/Woche
               %li Bei den Servicekräften wird mit einem jährlichen Wachstum von 10-20 Personen gerechnet
 
+          %hr
+          %h2 Architekturentwurf
+          %h4 Überblick
+          %p
+            Die geforderte Software wird als Microservice Architektur entwickelt. Um die geforderten Funktionen
+            zu gewährleisten, wird die folgende Gruppe von Services entwickelt:
 
+            %ul
+              %li User-Service: Synchronisation mit der Personal-DB über AMQP, Login, Authentication
+              %li Customer-Service: Synchronisation mit dem SugarCRM über AMQP
+              %li Plan-UI: Web-App zum Erstellen (Plan-Service) und Lesen der Pläne (Plan-DB)
+              %li Plan-Service: Teilautomatisierte Erstellung der Pläne mittels Blackboard Agenten
+              %li Plan-DB: Speicherung der erstellten Pläne
+              %li Email-Service: Senden von Emails an Servicekräfte
+              %li External API: Zugriff für mobile Apps
 
+          %h4 Kontextsicht
+          %img{src: "images/p4-kontext.png", width: "100%"}
 
+          %h4 Eingesetzte Technologien
+          %h5 User-Service
+          %p
+            Der User-Service wird als NodeJS App in Javascript implementiert. Eine interne API bietet Login/Logout und Userdaten an.
+            Mittels AMQP wird jede Nacht die Datenbank des User-Service mit der MySQL Personaldatenbank synchronosiert.
 
-          %h4 Ihre Aufgabe
+          %h5 Customer-Service
+          %p
+            Der Customer-Service wird als Phoenix App in Elixir implementiert. Der Service stellt im Wesentlichen ein Abbild
+            der benötigten Daten aus dem SugarCRM zur Verfügung, die damit innerhalb der Planungssoftware gespiegelt werden.
+            Mittels AMQP wird jede Nacht die Datenbank des Customer-Service mit dem SugarCRM synchronosiert.
+
+          %h5 Plan-UI
+          %p
+            Die Plan-UI wird als RubyOnRails App implementiert. Als Frontend wird Twitter Bootstrap zusammen mit jQuery
+            eingesetzt.
+
+          %h5 Plan-Service
+          %p
+            Der Planungs-Service wird als NodeJS App in Javascript implementiert.
+
+          %h5 Plan-DB
+          %p
+            Die Plan-DB wird als PostgreSQL Datenbank umgesetzt, da sich diese einfach als Master/Slave Konfiguration spiegeln lässt.
+            Um die Plan-DB einfach zugreifbar zu machen, wird eine RubyOnRails App um die Datenbank herum gebaut.
+
+          %h5 Email-Service
+          %p
+            Der Email-Service wird als NodeJS Service in Javascrip implementiert.
+
+          %h5 External API
+          %p
+            Die External API wird als mit Yesod in Haskell implementiert. Die API bietet lediglich einen Lesezugriff auf die Plan-DB und nutzt zur Authentication den User-Service.
+
+          %h4 Verteilungssicht
+          %img{src: "images/p4-deploy.png", width: "100%"}
+
+          %h4 Verfügbarkeit
+          %p
+            Um die Verfügbarkeit von 99,9% zu sichern, wird folgendes Setup vorgeschlagen
+          %ul
+            %li Einsatz von Docker / Docker Swarm als Deployment Plattform
+            %li Betrieb von drei unabhängigen "Swarms" aus jeweils vier Servern in drei Zonen
+            %li Einsatz von "Consul" als Discovery und Management Service
+            %li Datenbanken als Master/Slave über alls drei Zonen gespiegelt
+            %li Als Hoster wird Amazon AWS vorgeschlagen
+
+          %h4 Sicherheit
+          %p
+            Nach außen ist nur die External API erreichbar. Während der Entwicklung wird ein besonderer Fokus
+            in der Code Reviewws auf die Sicherheit der API gelegt. Die Plan-UI ist nur aus dem Intranet
+            erreichbar.
+          %p
+            Alle Verbindungen zwischen den Services werden mit SSL verschlüsselt.
+          %p
+            Für die API wird oAuth2 aus Sicherung eingesetzt.
+
+          %hr
+          %h2 Ihre Aufgabe
           %p
             Analysieren Sie den vorgeschlagenen Entwurf in Bezug auf Vor-/Nachteile und auf die Eignung zur
-            Erfüllung der funktionalen und nichtfunktionalen Anforderungen der vergangenen Aufgabenstellung.class_selector
+            Erfüllung der funktionalen und nichtfunktionalen Anforderungen der vergangenen Aufgabenstellung.
+
+          %p
             Erstellen Sie für den Praktikumstermin eine Präsentation in der Sie die Ergebnisse Ihrer Analyse vorstellen.
+            Beantworten Sie dabei die folgenden Fragen:
+          %ul
+            %li Erfüllt der Entwurf alle funktionalen Anforderungen?
+            %li Erfüllt der Entwurf alle nichtfunktionalen Anforderungen?
+            %li Erscheint Ihnen der Entwurf angemessen komplex? Ist er zu kompliziert und vereinfacht er zu stark?
+            %li Lässt sich die Software ggf. in mehreren parallelen Teams entwickeln, oder ist die Kopplung der Komponenten zu eng?
+            %li Wo hat der Entwurf Vor- und Nachteile gegenüber Ihrem Entwurf aus der letzten Aufgabe?
 
         %p
           Die Präsentation ist bis zum Praktikumstermin per Mail an nils@loewe.io abzugeben. In der Praktikumszeit sind
