@@ -1,7 +1,350 @@
 ---
-title: Vorlesung X
+title: Vorlesung 11 - AMQP
 layout: slide
 ---
 
+%section{"data-markdown" => ""}
+  \## Architektur von Informationssystemen
+  \#### Hochschule für angewandte Wissenschaften
+  \#### Sommersemester 2016
+  Nils Löwe / [nils@loewe.io](mailto:nils@loewe.io) / @NilsLoewe
+
+%section{"data-markdown" => ""}
+  \## 4. Praktikum
+  [Praktikum 4: Architekturentwurf](https://ai2016.nils-loewe.de/p04.html)
+  \### Fragen?
+
+%section{"data-markdown" => ""}
+  \## Wiederholung
+
+%section{"data-markdown" => ""}
+  \#### Was ist Softwarearchitektur?
+  \#### Geschichte und Trends
+  \#### Sichten auf Architekturen
+  \#### Qualiät und andere nichtfunktionale Anforderungen
+  \#### Architekturmuster
+  \#### Dokumentation von Architekturen
+  \### Technologien und Frameworks
+
+%section{"data-markdown" => ""}
+  \#### Ruby on Rails
+  \#### Spring Boot (moovel Group GmbH)
+  \#### NodeJS
+  \###  AngularJS
+  \#### Docker (Akra GmbH)
+  \#### AMQP
+  \#### Twitter Bootstrap
+  \#### Microservices (Wer liefert was GmbH)
+
+%section{"data-markdown" => ""}
+  \#####  AngularJS
+
+  \#### AngularJS ist ein clientseitiges JavaScript-Webframework für Single-page-Webanwendungen nach dem Model-View-ViewModel-Muster
+
+%section{"data-markdown" => ""}
+  \###  AngularJS
+
+  * Clientseitige Generierung von HTML-Seiten
+  * Funktionalität ohne DOM-Manipulation via jQuery
+  * Datenvalidierung von Eingabeformularen als Funktionalität
+
+%section{"data-markdown" => ""}
+  \####  AngularJS
+  \### Komponenten
+  \#### Die Strukturierung eines Angular-Webclients erfolgt auf Basis von
+
+  * Modulen
+  * View-Templates
+  * Controllern
+  * Scopes
+  * Filtern
+  * Providern (Factory, Service)
+
+%section{"data-markdown" => ""}
+  \####  AngularJS
+  \### Datenbindung
+
+  * Datenbindung nach dem MVVM-Muster: Einfache Synchronisation zwischen View und Anwendungslogik
+  * Deklarative Beschreibungen von Datenbindungen innerhalb der View
+  * Event-Schleife fängt jede Eingabe ab und aktualisiert ggf. Teile der View
+  * Nicht editierbare Daten können mittels One-Time-Binding von weiteren Aktualisierungen ausgeschlossen werden.
+
+%section{"data-markdown" => ""}
+  \####  AngularJS
+  \### Controller
+
+  * Clientseitiges Model
+  * Controller werden zu einem Modul zusammengefasst
+  * Module werden mittels eines Dependency-Injection-Containers in die Applikation eingebunden
+  * -> Dabei wird die View mit dem Model verbunden
+  * -> Bidirektionale Datenbindung
+
+%section{"data-markdown" => ""}
+  \####  AngularJS
+
+  \### Direktiven
+
+  * benutzerdefinierte HTML-Elemente und -Attribute
+  * Vordefinierte Direktiven sind am ng-Namensraum erkennbar
+  * Um Elemente auszuwählen, verwendet AngularJS ein integriertes jQuery Lite (jqLite)
+  * Wird jQuery in das HTML-DOM eingebunden, wird dieses statt jQuery Lite verwendet.
+
+%section{"data-markdown" => ""}
+  \####  AngularJS
+  \### Interpolation
+
+  * Mit doppelten geschwungenen Klammern können JavaScript-Ausdrücke ins HTML eingebettet werden
+  * Mit dem Pipe-Operator | können Filter hinzugefügt werden
+
+%section{"data-markdown" => ""}
+  \####  AngularJS
+  \### Services
+
+  * enthalten die Geschäftslogik
+  * binden externe Ressourcen wie z.B. REST-Webservices ein
+  * werden als Singleton instanziiert
+  * können selbst implementiert werden oder von Dritten eingebunden werden (Beispiele $http und $resource)
+
+%section{"data-markdown" => ""}
+  \####  AngularJS
+  \### Routen
+
+  * Zuordnung von URLs zu Views mittels *ngRoute*
+  * Unterschiedliche HTML Seiten können mittels *ng-view* nachgeladen werden.
+  * Eine *ng-view* Direktive pro Seite
+  * Das *$location* Objekt erlaubt die direkte Verarbeitung der Browser-URL
+
+%section{"data-markdown" => ""}
+  \####  AngularJS
+  \### Quellen
+  * https://angularjs.org
+  * https://github.com/angular/angular.js
+  * https://docs.angularjs.org/guide
+
+
+%section{"data-markdown" => ""}
+  \## Fragen?
+
+%section{"data-markdown" => ""}
+  \#### Was ist Softwarearchitektur?
+  \#### Geschichte und Trends
+  \#### Sichten auf Architekturen
+  \#### Qualiät und andere nichtfunktionale Anforderungen
+  \#### Architekturmuster
+  \#### Dokumentation von Architekturen
+  \### Technologien und Frameworks
+
+%section{"data-markdown" => ""}
+  \#### Ruby on Rails
+  \#### Spring Boot (moovel Group GmbH)
+  \#### NodeJS
+  \#### AngularJS
+  \#### Docker (Akra GmbH)
+  \###  AMQP
+  \#### Twitter Bootstrap
+  \#### Microservices (Wer liefert was GmbH)
+
+%section{"data-markdown" => ""}
+  \### AMQP
+
+  Das Advanced Message Queuing Protocol (AMQP) ist ein offener Standard und stellt ein binäres Netzwerkprotokoll auf Anwendungsebene für eine Message-orientierte Middleware (MOM) dar.[1]
+
+  Bisher wurde Messaging immer mit einer Programmierschnittstelle (API) für eine bestimmte Programmiersprache gelöst (z. B. JMS).
+
+  AMQP stellt ein binäres Netzwerkprotokoll dar, das unabhängig von der Programmiersprache ist. Um der großen Verbreitung von JMS Rechnung zu tragen, sind alle Funktionen von JMS in dem Protokoll eingearbeitet worden. Dies ermöglicht es den Entwicklern, weiter die JMS-Schnittstelle zu nutzen, während sich MOMs untereinander mit AMQP verständigen können.
+
+  Entstehung[Bearbeiten | Quelltext bearbeiten]
+  AMQP wurde durch ein Konsortium kreiert, das sich aus Finanzinstitutionen und Softwaredienstleistern zusammensetzt. Dazu zählen Bank of America, JPMorgan Chase, Barclays Bank, Goldman Sachs, Credit Suisse, Deutsche Börse und Red Hat, VMware, Microsoft, INETCO - Systems, IONA Technologies, Cisco Systems und andere.[2] Im Juni 2006 wurde hierzu eine Arbeitsgruppe gegründet[3] und im Mai 2010 wurde der Draft (Entwurf) der Version 1 veröffentlicht.
+
+  AMQP 1.0 Broker Implementierungen[Bearbeiten | Quelltext bearbeiten]
+  SwiftMQ, ein JMS, AMQP 1.0 und AMQP 0.9.1 Broker (frei und kommerziell) und freier AMQP 1.0 Client.
+  Microsoft Windows Azure Service Bus, Microsoft's cloud based messaging service
+  Apache Qpid, ein Open Source-Projekt der Apache Software Foundation.
+  RabbitMQ, eine in der Programmiersprache Erlang durchgeführte Implementierung von VMware in 2010.
+  Red Hat Enterprise MRG, basiert auf Apache Qpid.
+  Client Unterstützung[Bearbeiten | Quelltext bearbeiten]
+  SwiftMQ AMQP 1.0 Java Client ein freier Java Client für AMQP 1.0.
+  DE.SETF.AMQP, ein Common Lisp Client Library für AMQP 0-9-1.
+  Für das Spring-Framework existiert mit Spring AMQP ebenfalls Unterstützung für AMQP 0-9-1
+
+  http://www.rabbitmq.com/devtools.html
+
+
+%section{"data-markdown" => ""}
+  \## Fragen?
+
+%section{"data-markdown" => ""}
+  \#### Was ist Softwarearchitektur?
+  \#### Geschichte und Trends
+  \#### Sichten auf Architekturen
+  \#### Qualiät und andere nichtfunktionale Anforderungen
+  \#### Architekturmuster
+  \#### Dokumentation von Architekturen
+  \### Technologien und Frameworks
+
+%section{"data-markdown" => ""}
+  \#### Ruby on Rails
+  \#### Spring Boot (moovel Group GmbH)
+  \#### NodeJS
+  \#### AngularJS
+  \#### Docker (Akra GmbH)
+  \#### AMQP
+  \###  Twitter Bootstrap
+  \#### Microservices (Wer liefert was GmbH)
+
+%section{"data-markdown" => ""}
+  \#### Twitter Bootstrap
+  \### Bootstrap ist ein freies HTML/CSS-Framework.
+
+%section{"data-markdown" => ""}
+  \#### Twitter Bootstrap
+
+  * Typografie
+  * Formulare
+  * Buttons
+  * Tabellen
+  * Grid-Systeme
+  * Navigation
+  * optionale JavaScript-Erweiterungen
+
+%section{"data-markdown" => ""}
+  \#### Twitter Bootstrap
+
+  \### HTML5 doctype
+  Bootstrap verwendet an vielen Stellen HTML und CSS Elemente von HTML5.
+
+%section{"data-markdown" => ""}
+  \#### Twitter Bootstrap
+
+  \### Mobile first
+  Seit Version 3 ist 'mobile first' der Grundgedanke des Frameworks.
+
+%section{"data-markdown" => ""}
+  \#### Twitter Bootstrap
+
+  \### Typography and links
+  Bootstrap sets basic global display, typography, and link styles. Specifically, we:
+
+%section{"data-markdown" => ""}
+  \#### Twitter Bootstrap
+
+  \### Normalize.css
+  Normalize.css sorgt für Browser-Unabhängigkeit.
+
+%section{"data-markdown" => ""}
+  \#### Twitter Bootstrap
+
+  \### Containers
+  Ein Container-Element bildet den Rahmen für das Grid System. Contailer können eine fixe Breite haben oder die ganze Seite füllen.
+
+%section{"data-markdown" => ""}
+  \#### Twitter Bootstrap
+
+  \### Grid system
+
+  * Responsive
+  * Mobile first
+  * Fluid scaling: Bis zu 12 Spalten je nach viewport
+  * Definierte CSS Klassen für Layouts
+
+%section{"data-markdown" => ""}
+  \#### Twitter Bootstrap
+  \### Grid system
+  http://getbootstrap.com/css/#grid-intro
+
 %section
-  TBD
+  %h4 Bootstrap
+  %h3 Media queris
+  Media queries sind die technische Grundlage für das Grid System.
+  %pre
+    %code
+      :preserve
+        /* Extra small devices (phones, less than 768px) */
+        /* No media query since this is the default in Bootstrap */
+
+        /* Small devices (tablets, 768px and up) */
+        @media (min-width: @screen-sm-min) { ... }
+
+        /* Medium devices (desktops, 992px and up) */
+        @media (min-width: @screen-md-min) { ... }
+
+        /* Large devices (large desktops, 1200px and up) */
+        @media (min-width: @screen-lg-min) { ... }
+
+%section{"data-markdown" => ""}
+  \#### Twitter Bootstrap
+  \### CSS Komponenten
+
+  * Dropdowns
+  * Button groups
+  * Button dropdowns
+  * Input groups
+  * Navbar
+  * Breadcrumbs
+  * Pagination
+  * Labels
+
+%section{"data-markdown" => ""}
+  \#### Twitter Bootstrap
+  \### CSS Komponenten
+
+  * Badges
+  * Page header
+  * Thumbnails
+  * Alerts
+  * Progress bars
+  * Panels
+  * ...
+
+%section{"data-markdown" => ""}
+  \#### Twitter Bootstrap
+  \### CSS Komponenten
+  http://getbootstrap.com/components/
+
+%section{"data-markdown" => ""}
+  \#### Twitter Bootstrap
+  \### Javascript Komponenten
+  * Transitions
+  * Modal
+  * Dropdown
+  * Tab
+  * Tooltip
+  * Popover
+  * Alert
+  * Collapse
+  * Carousel
+  * ...
+
+%section{"data-markdown" => ""}
+  \#### Twitter Bootstrap
+  \### Javascript Komponenten
+  http://getbootstrap.com/javascript/
+
+%section{"data-markdown" => ""}
+  \#### Twitter Bootstrap
+  \### Beispiele
+
+  http://getbootstrap.com/getting-started/#examples
+
+%section{"data-markdown" => ""}
+  \## Fragen?
+
+%section{"data-markdown" => ""}
+  \### Technology Radar
+  \##### https://www.thoughtworks.com/radar
+
+%section{"data-markdown" => ""}
+  \## Fragen?
+
+%section{"data-markdown" => ""}
+
+  \#### Vorbereitung auf Klausuraufgaben
+  * Für welche Anwendungen wird AngularJS eingesetzt?
+  * Nennen sie drei Vorteile für die Verwendung von Frameworks!
+  * Was ist Twitter Bootstrap?
+  * Was ist AMQP?
+  * Wo sollte NodeJS eher nicht eingesetzt werden?
+
+%section{"data-markdown" => ""}
+  \## Fragen?
+  \##### Unterlagen: [ai2016.nils-loewe.de](https://ai2016.nils-loewe.de)
