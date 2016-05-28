@@ -121,18 +121,23 @@ layout: slide
   * https://github.com/angular/angular.js
   * https://docs.angularjs.org/guide
 
+%section{"data-markdown" => ""}
+  \#### Ruby on Rails
+  \#### Spring Boot (moovel Group GmbH)
+  \#### NodeJS
+  \#### AngularJS
+  \### Docker (Akra GmbH)
+  \####  AMQP
+  \#### Twitter Bootstrap
+  \#### Microservices (Wer liefert was GmbH)
+
+%section{"data-markdown" => ""}
+  \#### Docker (Akra GmbH)
+
+  http://akra.github.io/docker-university-intro-slides/#/
 
 %section{"data-markdown" => ""}
   \## Fragen?
-
-%section{"data-markdown" => ""}
-  \#### Was ist Softwarearchitektur?
-  \#### Geschichte und Trends
-  \#### Sichten auf Architekturen
-  \#### Qualiät und andere nichtfunktionale Anforderungen
-  \#### Architekturmuster
-  \#### Dokumentation von Architekturen
-  \### Technologien und Frameworks
 
 %section{"data-markdown" => ""}
   \#### Ruby on Rails
@@ -147,40 +152,74 @@ layout: slide
 %section{"data-markdown" => ""}
   \### AMQP
 
-  Das Advanced Message Queuing Protocol (AMQP) ist ein offener Standard und stellt ein binäres Netzwerkprotokoll auf Anwendungsebene für eine Message-orientierte Middleware (MOM) dar.[1]
+  Das Advanced Message Queuing Protocol (AMQP) ist ein offenes Netzwerkprotokoll eine Message-orientierte Middleware.
+
+%section{"data-markdown" => ""}
+  \### AMQP: Warum?
 
   Bisher wurde Messaging immer mit einer Programmierschnittstelle (API) für eine bestimmte Programmiersprache gelöst (z. B. JMS).
 
-  AMQP stellt ein binäres Netzwerkprotokoll dar, das unabhängig von der Programmiersprache ist. Um der großen Verbreitung von JMS Rechnung zu tragen, sind alle Funktionen von JMS in dem Protokoll eingearbeitet worden. Dies ermöglicht es den Entwicklern, weiter die JMS-Schnittstelle zu nutzen, während sich MOMs untereinander mit AMQP verständigen können.
+%section{"data-markdown" => ""}
+  \### AMQP
 
-  Entstehung[Bearbeiten | Quelltext bearbeiten]
-  AMQP wurde durch ein Konsortium kreiert, das sich aus Finanzinstitutionen und Softwaredienstleistern zusammensetzt. Dazu zählen Bank of America, JPMorgan Chase, Barclays Bank, Goldman Sachs, Credit Suisse, Deutsche Börse und Red Hat, VMware, Microsoft, INETCO - Systems, IONA Technologies, Cisco Systems und andere.[2] Im Juni 2006 wurde hierzu eine Arbeitsgruppe gegründet[3] und im Mai 2010 wurde der Draft (Entwurf) der Version 1 veröffentlicht.
+  * AMQP ist unabhängig von der Programmiersprache
+  * Alle Funktionen von JMS sind enthalten
+  * -> Abwärtskompatibel zur JMS-Schnittstelle zu nutzen
 
-  AMQP 1.0 Broker Implementierungen[Bearbeiten | Quelltext bearbeiten]
-  SwiftMQ, ein JMS, AMQP 1.0 und AMQP 0.9.1 Broker (frei und kommerziell) und freier AMQP 1.0 Client.
-  Microsoft Windows Azure Service Bus, Microsoft's cloud based messaging service
-  Apache Qpid, ein Open Source-Projekt der Apache Software Foundation.
-  RabbitMQ, eine in der Programmiersprache Erlang durchgeführte Implementierung von VMware in 2010.
-  Red Hat Enterprise MRG, basiert auf Apache Qpid.
-  Client Unterstützung[Bearbeiten | Quelltext bearbeiten]
-  SwiftMQ AMQP 1.0 Java Client ein freier Java Client für AMQP 1.0.
-  DE.SETF.AMQP, ein Common Lisp Client Library für AMQP 0-9-1.
-  Für das Spring-Framework existiert mit Spring AMQP ebenfalls Unterstützung für AMQP 0-9-1
+%section{"data-markdown" => ""}
+  \### AMQP
+  \#### 2006 - 2010 entstanden in Zusammenarbeit von
 
-  http://www.rabbitmq.com/devtools.html
+  * Bank of America
+  * JPMorgan Chase
+  * Barclays Bank
+  * Goldman Sachs
+  * Credit Suisse
+  * Deutsche Börse
+  * Red Hat
+  * VMware
+  * Cisco Systems
+  * Microsoft
+  * ...
 
+%section{"data-markdown" => ""}
+  \### AMQP
+
+  * Messaging enables software applications to connect and scale
+  * Applications can connect to each other, as components of a larger application, or to user devices and data
+  * Messaging is asynchronous, decoupling applications by separating sending and receiving data.
+  * data delivery
+  * non-blocking operations
+  * push notifications
+  * publish / subscribe
+  * asynchronous processing
+  * work queues
+  * -> All these are patterns, and they form part of messaging.
+
+%section{"data-markdown" => ""}
+  \### AMQP
+
+  * AMQP is a messaging broker - an intermediary for messaging
+  * It gives your applications a common platform to send and receive messages
+  * and your messages a safe place to live until received.
+
+
+%section{"data-markdown" => ""}
+  \### AMQP
+  \### AMQP Broker Implementierungen existieren für:
+
+  * SwiftMQ für JMS (frei und kommerziell)
+  * Microsoft Windows Azure Service Bus
+  * Apache Qpid (Open Source)
+  * RabbitMQ (Implementierung von VMware)
+  * Red Hat Enterprise MRG
+
+%section{"data-markdown" => ""}
+  \### AMQP: Beispiele
+  https://www.rabbitmq.com/getstarted.html
 
 %section{"data-markdown" => ""}
   \## Fragen?
-
-%section{"data-markdown" => ""}
-  \#### Was ist Softwarearchitektur?
-  \#### Geschichte und Trends
-  \#### Sichten auf Architekturen
-  \#### Qualiät und andere nichtfunktionale Anforderungen
-  \#### Architekturmuster
-  \#### Dokumentation von Architekturen
-  \### Technologien und Frameworks
 
 %section{"data-markdown" => ""}
   \#### Ruby on Rails
