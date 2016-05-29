@@ -4,9 +4,6 @@ layout: slide
 ---
 
 %section{"data-markdown" => ""}
-  \### TBD
-
-%section{"data-markdown" => ""}
   \## Architektur von Informationssystemen
   \#### Hochschule für angewandte Wissenschaften
   \#### Sommersemester 2016
@@ -106,12 +103,6 @@ layout: slide
   &rarr; Gehen Sie mit diesen Begriffen pragmatisch um und suchen Sie nicht nach einer "formalen" Definition.
 
 %section{"data-markdown" => ""}
-  \### Wenn Ihnen jemand eine Architektur-Darstellung vorlegt, stellen Sie folgende Fragen (die in einer guten Dokumentation immer beantwortet sind):
-  * Welche Verantwortlichkeiten (*responsibilities*) hat jees der Kästchen und Verbindungslinien im Diagram?
-  * Für jede Verbindungslinie: Warum existiert sie und welche Semantik oder Bedeutung hat sie?
-  * Was wird zu welchem Zeitpunkt auf welche Weise über diese Verbindungen transportiert?
-
-%section{"data-markdown" => ""}
   \### Die Aufgaben von Softwarearchitekten
   %br
 
@@ -125,12 +116,6 @@ layout: slide
   ![](/images/moving_target.png)
   %br
   Bildquelle: Starke / "Effektive Softwarearchitekturen" (5. Auflage)
-
-%section{"data-markdown" => ""}
-  \### Architekturen entstehen in kleinen Teams
-  * gemeinsames Ziel: Die Anforderungen des Kunden erfüllen
-  * Erfahrung in Software-Engineering
-  * Erfahrung in der Fachdomäne
 
 %section{"data-markdown" => ""}
   \#### Was ist Softwarearchitektur?
@@ -605,7 +590,7 @@ layout: slide
   \#### Organisations Anti-Pattern
 
 %section{"data-markdown" => ""}
-  \### Projektmanagement Anti-Patterns
+  \#### Projektmanagement Anti-Patterns
   \### Blendwerk
   \### Aufgeblähte Software
   \### Feature creep
@@ -808,10 +793,6 @@ layout: slide
   \#### Literatur
   \### "Domain-Driven Design. Tackling Complexity in the Heart of Software"
   *(Eric Evans)*
-
-
-%section{"data-markdown" => ""}
-  \### Fragen?
 
 %section{"data-markdown" => ""}
   \#### Chaos zu Struktur / Mud-to-structure
@@ -1064,75 +1045,386 @@ layout: slide
   * --> In die drei Einheiten Presentation, Control und Abstraction (ähnlich dem MVC)
   * --> Hierarchisch in verschiedene Teile („Agenten“), die jeweils einen Teil der Aufgaben des Systems anbieten
 
+%section{"data-markdown" => ""}
+  \#### Chaos zu Struktur / Mud-to-structure
+  \#### Verteilte Systeme
+  \#### Interaktive Systeme
+  \### Adaptive Systeme
+
+%section{"data-markdown" => ""}
+  \##### Adaptive Systeme
+  \### Mikrokernel
+  \#### Reflexion
+  \#### Dependency Injection
+
+%section{"data-markdown" => ""}
+  \#### Mikrokernel
+
+  \### Ziel: Änderung von Systemanforderungen zur Laufzeit dynamisch begegnen.
+
+%section{"data-markdown" => ""}
+  \#### Mikrokernel
+
+  \### Aufgaben
+  * Der Mikrokernel bietet die Basis für mögliche Erweiterungen
+  * Der Microkernel koordiniert die Zusammenarbeit.
+
+%section{"data-markdown" => ""}
+  \#### Microkernel
+  \### Herausforderung
+
+  ![](/images/microkernel.png)
+
+%section{"data-markdown" => ""}
+  \#### Mikrokernel
+  \### Vorteile
+
+  * Separierte Komponenten: Austauschbarkeit
+  * Treiber im Benutzer-Modus: Sicherheit
+  * kleine Trusted Computing Base
+  * Skalierbarkeit
+  * Zuverlässigkeit
+  * Transparenz
+
+%section{"data-markdown" => ""}
+  \#### Mikrokernel
+  \### Nachteile
+
+  * Leistung
+  * Komplexität
 
 
+%section{"data-markdown" => ""}
+  \#### Was ist Softwarearchitektur?
+  \#### Geschichte und Trends
+  \#### Sichten auf Architekturen
+  \#### Qualiät und andere nichtfunktionale Anforderungen
+  \#### Architekturmuster
+  \### Dokumentation von Architekturen
+  \#### Technologien und Frameworks
 
+%section{"data-markdown" => ""}
+  \#### Dokumentation von Architekturen
+  \### Nutzen von Templates
 
+  Beispiele:
+  * arc42
+  * Normen
+  * Software Guidebook
+
+%section{"data-markdown" => ""}
+  \### ARC42
+  \#### (Dr. Gernot Starke / Dr. Peter Hruschka)
+  http://www.arc42.de/
+
+  \#### *arc42 unterstützt Software- und Systemarchitekten. Es kommt aus der Praxis und basiert auf Erfahrungen internationaler Architekturprojekte und Rückmeldungen vieler Anwender.*
+
+%section{"data-markdown" => ""}
+  \#### Dokumentation von Architekturen
+  \### ARC42
+
+  1. Einführung und Ziele
+  2. Randbedingungen
+  3. Kontextabgrenzung
+  4. Lösungsstrategie
+  5. Bausteinsicht
+  6. Laufzeitsicht
+  7. Verteilungssicht
+  8. Querschnittliche Konzepte/Muster
+  9. Entwurfsentscheidungen
+  10. Qualitätsszenarien
+  11. Risiken
+  12. Glossar
+
+%section{"data-markdown" => ""}
+  \#### ARC42
+  ![](/images/arc42.png)
+
+%section{"data-markdown" => ""}
+  \### IEEE Standards
+
+  **IEEE Standards** documents are developed within the IEEE Societies and the Standards Coordinating Committees of
+  the IEEE Standards Association (IEEE-SA) Standards Board. The IEEE develops its standards through a consensus
+  development process, approved by the American National Standards Institute, which brings together volunteers representing
+  varied viewpoints and interests to achieve the final product. Volunteers are not necessarily members of the
+  Institute and serve without compensation. While the IEEE administers the process and establishes rules to promote
+  fairness in the consensus development process, the IEEE does not independently evaluate, test, or verify the accuracy
+  of any of the information contained in its standards or implementations thereof.
+
+%section{"data-markdown" => ""}
+  \### IEEE Standards
+
+  * IEEE 802:    LAN
+  * IEEE 802.3:  Carrier sense multiple access with collision detection (CSMA/CD)
+  * IEEE 802.11: Wireless LAN
+  * IEEE 830:    Recommended Practice for Software Requirements Specifications
+  * IEEE 1394:   FireWire/i.Link Bussysteme
+  * IEEE 1471:   Recommended Practice for Architectural Description of Software-Intensive Systems
+  * IEEE 9945:   Portable Operating System Interface (POSIX®)
+
+%section{"data-markdown" => ""}
+  \### IEEE Standards - Kosten
+
+  * IEEE 830: 171$
+  * Journals: 26.500$ / Jahr
+  * Standards Library: *custom quote*
+
+%section{"data-markdown" => ""}
+  \### Software Guidebook
+
+  * Template von Simon Brown aus dem Buch *"Software Architecture for Developers"*
+  * Buch: https://leanpub.com/software-architecture-for-developers
+  * Beispiel: https://leanpub.com/techtribesje (kostenlos)
+
+%section{"data-markdown" => ""}
+  \### Software Guidebook
+
+  \#### Welche Informationen wünsche ich mir, wenn ich in ein neues Projekt komme?
+
+  * Karten
+  * Sichten
+  * Geschichte
+  * Praktische Informationen!
+
+%section{"data-markdown" => ""}
+  \### Software Guidebook
+  \## Product vs project documentation
+
+%section{"data-markdown" => ""}
+  \#### Was ist Softwarearchitektur?
+  \#### Geschichte und Trends
+  \#### Sichten auf Architekturen
+  \#### Qualiät und andere nichtfunktionale Anforderungen
+  \#### Architekturmuster
+  \#### Dokumentation von Architekturen
+  \### Technologien und Frameworks
+
+%section{"data-markdown" => ""}
+  \### Frameworks
+  \## Was ist ein Framework?
+
+%section{"data-markdown" => ""}
+  \## Frameworks
+
+  \### Ein Framework ist kein fertiges Programm, es stellt einen Rahmen zur Verfügung.
+
+%section{"data-markdown" => ""}
+  \## Frameworks
+
+  * Ein Framework ist eine semi-vollständige Applikation.
+  * Es stellt für Applikationen eine wiederverwendbare, gemeinsame Struktur zur Verfügung.
+  * Entwickler integrieren dass Framework in ihre eigene Applikation ein, und erweitern es um die Applikationslogik.
+  * Frameworks stellen eine kohärente Struktur zur Verfügung, anstatt eine einfache Menge von Hilfsklassen anzubieten.
+
+%section{"data-markdown" => ""}
+  \## Frameworks
+
+  * Ein Framework gibt in der Regel die Anwendungsarchitektur vor.
+  * Ein Framework definiert den Kontrollfluss der Anwendung
+  * Ein Framework definierte die Schnittstellen für die Applikation.
+
+%section{"data-markdown" => ""}
+  \## Frameworks
+
+  \### Eine allgemeingültige Definition von Frameworks gibt es aufgrund der hohen Anzahl von Diversitäten nicht.
+
+%section{"data-markdown" => ""}
+  \### Frameworks
+
+  \## Vorteile
+
+  * Wiederverwendung von Code
+  * Grundfunktionalität muss nicht immer wieder implementiert werden
+  * Es existieren genormte Schnittstellen z.B. zu Datenbanken
+  * Frameworks erleichtern die Programmierarbeit und sparen Entwicklungszeit
+  * Frameworks können den Stil entscheidend verbessern
+
+%section{"data-markdown" => ""}
+  \### Frameworks
+
+  \## Nachteile
+  * Frameworks erhöhen die Komplexität der Anwendung
+  * Frameworks stecken voller Know-How und eine effiziente Anwendung erfordert Profiwissen
+  * Frameworks nehmen nicht das Verständnis der Grundlagen ab, auch wenn oft so gearbeitet wird
+  * Dokumentationen sind größtenteils unzureichend
 
 
 
 %section{"data-markdown" => ""}
+  \## Frameworks
+  Wie wähle ich ein Framework aus?
 
-  \#### Vorbereitung auf Klausuraufgaben (VL6)
 
+%section{"data-markdown" => ""}
+  \###	Popularität und Community
+  *Wie wahrscheinlich finde ich Hilfe und Entwickler?*
+
+%section{"data-markdown" => ""}
+  \### Philosophie
+  *A tool developed by professionals for their own needs will obviously meet the demands of other professionals.*
+
+%section{"data-markdown" => ""}
+  \### Sustainability / Nachhaltigkeit
+  *Kann das Framework "mitwachsen"?*
+
+%section{"data-markdown" => ""}
+  \### Support
+  *Gibt es professionelle Hilfe neben der Community?*
+
+%section{"data-markdown" => ""}
+  \### Technik
+  *Wie gut ist das Framework implementiert?*
+
+%section{"data-markdown" => ""}
+  \### Security
+  *Wie schnell werden Sicherheitslücken reportet und geschlossen?*
+
+%section{"data-markdown" => ""}
+  \### Dokumentation
+  *Wie gut, ausführlich und verständlich ist das Framework dokumentiert? Wie aktuell ist die Doku?*
+
+%section{"data-markdown" => ""}
+  \### Lizenz
+  *Ein Framework unter GPL Lizenz verlangt z.B., dass die Anwendung auch unter der GPL steht. MIT dagegen nicht.*
+
+%section{"data-markdown" => ""}
+  \### Entwickler-Kapazität
+  *Wie wahrscheinlich werde ich Entwickler finden?*
+
+%section{"data-markdown" => ""}
+  \### Hosting Requirements
+  *Wie einfach kann ich die Anwendung deployen?*
+
+%section{"data-markdown" => ""}
+  \### Einfache Installation?
+  *Wie schnell ist ein neues Projekt eingerichtet?*
+
+%section{"data-markdown" => ""}
+  \### Lernkurve
+  *Wie komplex ist das Framework?*
+
+%section{"data-markdown" => ""}
+  \### Inhalte / Funktionen?
+
+  * AJAX
+  * Authentication
+  * Authorization
+  * Caching
+  * Data Validation
+  * Templating engine
+  * URL mapping / rewriting
+  * ...?
+
+%section{"data-markdown" => ""}
+  \### DB Abstraktion / ORM
+  *Wie einfach/mächtig ist das Object Relational Mapping?*
+
+%section{"data-markdown" => ""}
+  \### JS Library
+  *Welche JS Bibliothek ist per default dabei?*
+
+%section{"data-markdown" => ""}
+  \### Unit Testing
+  *Wie sehr ist TDD Teil der Philosophie, wie ist der Tool-Support?*
+
+%section{"data-markdown" => ""}
+  \### Skalierbarkeit?
+  *Wie einfach lässt sich die Anwendung bei Bedarf skalieren?*
+
+%section{"data-markdown" => ""}
+  \### Ausprobieren!
+  *Reviews lesen reicht nicht, Erfahrungen und das look&feel zählen!*
+
+%section{"data-markdown" => ""}
+  \### Wann brauche ich ein Framework?
+
+  * Die Anwendung basiert im Wesentlichen auf CRUD Operationen
+  * Die Anwendung wird relativ groß
+  * UI und Anwendungslogik sollen getrennt werden
+  * Authentication und andere Grundfunkionen werden intensiv genutzt
+  * Zeitdruck + Das Framework ist bereits bekannt
+
+%section{"data-markdown" => ""}
+  \### Wann brauche ich KEIN Framework?
+
+  * Ich brauche nur einen kleinen Teil des Frameworks (z.B. ORM)
+  * Zeitdruck + Das Framework ist nicht bekannt
+  * "Frameworks lösen jedes Problem"
+
+%section{"data-markdown" => ""}
+
+  \### Vorbereitung auf Klausuraufgaben
+
+%section{"data-markdown" => ""}
+
+  \### Was ist NICHT Klausrelevant?
+
+  * UML
+  * Details zu konkreten Frameworks oder Technologien
+
+%section{"data-markdown" => ""}
+
+  \#### Vorbereitung auf Klausuraufgaben
+  \### Grundlagen & Geschichte
+  * Was waren die Gründe für Softwarearchitektur?
   * Nennen Sie drei typische Aufgaben von Softwarearchitekten
-  * Welche Arten von Sichten gibt es?
   * Welche nicht-funktionalen Anforderungen sollten Sie beim Architekturentwurf ggf. berücksichtigen?
   * Was besagt das Brook'sche Gesetz?
+  * Was besagt 'Conways Law'?
+  * In welcher Beziehung stehen Architektur und Design?
+
+%section{"data-markdown" => ""}
+
+  \#### Vorbereitung auf Klausuraufgaben
+  \### Sichten
+
+  * Welche Arten von Sichten gibt es?
+  * Was sollte eine Kontext-Sicht enthalten?
+  * Was enthält eine Verteilungssicht?
+  * Sind mehr als die vier klassischen Sichten sinnvoll?
+
+%section{"data-markdown" => ""}
+
+  \#### Vorbereitung auf Klausuraufgaben
+  \### Architekturmuster
+
+  * Welche Aufgabe haben Architekturmuster?
+  * Nennen und erläutern Sie drei Arten von Architekturmustern
   * Nennen und erläutern Sie drei Anti-Patterns
   * Für welche Systeme würden Sie eine Blackboard-Architektur verwenden?
-
-%section{"data-markdown" => ""}
-
-  \#### Vorbereitung auf Klausuraufgaben (VL7)
-
-  * Was waren die Gründe für Softwarearchitektur?
-  * Was sollte eine Kontext-Sicht enthalten?
-  * In welcher Beziehung stehen Architektur und Design?
-  * Was besagt 'Conways Law'?
-  * Nennen und erläutern Sie drei Arten von Architekturmustern
   * Für welche Systeme wird das MVC Muster typischerweise verwendet?
-
-%section{"data-markdown" => ""}
-
-  \#### Vorbereitung auf Klausuraufgaben (VL8)
-
-  * Was ist ein Framework?
-  * Nennen sie drei Vorteile für die Verwendung von Frameworks!
-  * Wann ist die Verwendung eines Frameworks sinnvoll?
-  * Nennen sie drei Auswahlkriterien für Frameworks!
-  * Für welche Systeme wird das Microkernel Architekturmuster typischerweise verwendet?
-  * Was ist der Grundgedanke hinter dem "Software Guidebook"?
-
-%section{"data-markdown" => ""}
-
-  \#### Vorbereitung auf Klausuraufgaben (VL9)
-
-  * Was sind zwei Grundprinzipien, die hinter Ruby on Rails stecken?
-  * Nennen sie drei Nachteile für die Verwendung von Frameworks!
-  * Wann ist die Verwendung eines Frameworks nicht sinnvoll?
-  * Nennen sie drei Auswahlkriterien für Frameworks!
   * Für welche Systeme wird das MVP Architekturmuster typischerweise verwendet?
+  * Für welche Systeme wird das Microkernel Architekturmuster typischerweise verwendet?
+
+%section{"data-markdown" => ""}
+
+  \#### Vorbereitung auf Klausuraufgaben
+  \### Dokumentation
+
+  * Was ist der Grundgedanke hinter dem "Software Guidebook"?
   * Wie ist das ARC42 Template entstanden?
 
 %section{"data-markdown" => ""}
 
-  \#### Vorbereitung auf Klausuraufgaben (VL10)
+  \#### Vorbereitung auf Klausuraufgaben
+  \### Frameworks
 
+  * Was ist ein Framework?
+  * Wann ist die Verwendung eines Frameworks sinnvoll?
+  * Wann ist die Verwendung eines Frameworks nicht sinnvoll?
+  * Nennen sie drei Vorteile für die Verwendung von Frameworks!
+  * Nennen sie drei Nachteile für die Verwendung von Frameworks!
+  * Nennen sie drei Auswahlkriterien für Frameworks!
   * Was ist Dependency Injection?
   * Nennen Sie drei Beispiele für Crosscutting Concerns
-  * Wo wird NodeJS typischerweise eingesetzt?
-  * Was ist das grundlegende Konzept einer NodeJS Anwendung?
-  * Wo sollte NodeJS eher nicht eingesetzt werden?
-  * Für welche Art von Anwendungen wird AngularJS verwendet?
 
 %section{"data-markdown" => ""}
+  \### Klausur
 
-  \#### Vorbereitung auf Klausuraufgaben (VL11)
+  * 7.7.2016
+  * 90 Minuten
+  * keine Hilfsmittel
 
-  \#### Vorbereitung auf Klausuraufgaben
-  * Was zeichnet einen Docker Container aus?
-  * Was ist Twitter Bootstrap?
-  * Was ist der Grundgedanke hinter Twitter Bootstrap?
-  * Was ist AMQP?
-  * Wo sollte NodeJS eher nicht eingesetzt werden?
+%section{"data-markdown" => ""}
+  \## Fragen?
+  \##### Unterlagen: [ai2016.nils-loewe.de](https://ai2016.nils-loewe.de)
