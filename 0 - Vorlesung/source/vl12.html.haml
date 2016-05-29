@@ -1,10 +1,1075 @@
 ---
-title: Vorlesung X
+title: Vorlesung 12 - Klausurvorbereitung
 layout: slide
 ---
 
+%section{"data-markdown" => ""}
+  \### TBD
+
+%section{"data-markdown" => ""}
+  \## Architektur von Informationssystemen
+  \#### Hochschule für angewandte Wissenschaften
+  \#### Sommersemester 2016
+  Nils Löwe / [nils@loewe.io](mailto:nils@loewe.io) / @NilsLoewe
+
+%section{"data-markdown" => ""}
+  \### Ziele dieser Vorlesung
+
+  * Was ist Softwarearchitektur und wozu braucht man sie?
+  * Was muss ein Softwarearchitekt / eine Softwarearchitektin können?
+  * Wie konzipiert man eine große Anwendung?
+  * Wie werden Architekturen entworfen, dokumentiert und bewertet?
+
+%section{"data-markdown" => ""}
+  \### **Was ist Softwarearchitektur?**
+  \#### Geschichte und Trends
+  \#### Sichten auf Architekturen
+  \#### Qualiät und andere nichtfunktionale Anforderungen
+  \#### Architekturmuster
+  \#### Dokumentation von Architekturen
+  \#### Technologien und Frameworks
+
+%section{"data-markdown" => ""}
+  \### Definitionen für Softwarearchitektur
+
+%section{"data-markdown" => ""}
+  %p
+    Die Architektur eines Softwaresystems ist die Menge der Haupt-Designentscheidungen über das System. *(Taylor)*
+  *(“A software system’s architecture is the set of principal design decisions about the system.”)*
+
+%section{"data-markdown" => ""}
+  Die Software-Architektur ist die grundlegende Organisation eines Systems, dargestellt durch dessen Komponenten, deren Beziehungen zueinander und zur Umgebung sowie die Prinzipien, die den Entwurf und die Evolution des Systems bestimmen. *(Reussner)*
+
+%section{"data-markdown" => ""}
+  Software Architecture = { what, how, why } *(Perry and Wolf)*
+
+%section{"data-markdown" => ""}
+  The software architecture of deployed software is determined by those aspects that are the hardest to change. *(Chris Verhoef)*
+
+%section{"data-markdown" => ""}
+  \### Architektur besteht aus Strukturen
+  * die Komponenten (Bausteine), aus denen ein System besteht
+  * die wesentlichen (extern sichtbaren) Eigenschaften dieser Komponenten
+  * die Beziehungen der Komponenten untereinander
+
+%section{"data-markdown" => ""}
+  \### Architektur beschreibt eine Lösung im Sinne eines Bauplans
+  (die Architektur eines Gebäudes besteht aus einer Sammlung von Plänen - nicht aus Steinen und Zement)
+  \#### Erst die *Implementierung* macht aus den Komponenten und Schnittstellen der Architektur ein reales System.
+
+%section{"data-markdown" => ""}
+  \### Architektur basiert auf Entwurfsentscheidungen
+  * Entscheidungen zum Entwurf der Komponenten
+  * Entscheidung für eine bestimmte Technologie
+
+  \#### Die Konsequenz vieler Entscheidungen können Architekten erst sehr viel später beurteilen!
+
+%section{"data-markdown" => ""}
+  \### Architektur schafft Verständlichkeit
+  * komplexe Anforderungen &rarr; geordnete Strukturen
+  * angemessene und problembezogene Dokumentation
+  %br
+  *Management:* Anforderungen erfüllbar / erfüllt?
+  %br
+  *neue Mitarbeiter:* Systemstruktur kennen lernen
+  %br
+  *Wartungsteams:* betroffene Bestandteile leichter finden und Folgen von Änderungen abschätzen
+  %br
+  *Systembetreiber:* Welche Software-Komponenten laufen auf welchen physischen Systemen ab?
+
+%section{"data-markdown" => ""}
+  \### Architektur ist der Rahmen für flexible Systeme
+  * stellt Flexibilität und Erweiterbarkeit sicher &rarr; *"framework for change"* (Tom DeMarco)
+
+%section{"data-markdown" => ""}
+  \### Architektur ist Abstraktion
+  * Essenzielle Aufgabe von Architekten: Weglassen von nicht benötigten Informationen
+  * Informationen werden bewusst gefiltert um die Darstellung lesbar und verständlich zu halten
+
+%section{"data-markdown" => ""}
+  \### Architektur schafft Qualität
+  %br
+  Die Qualität eines Systems bezeichnet die Summe seiner nicht-funktionale Eigenschaften:
+  * Performance
+  * Verständlichkeit
+  * Flexibilität
+  * ...
+  %br
+  Das sind meistens die schwierigen Anforderungen!
+
+
+%section{"data-markdown" => ""}
+  \### Architektur vs. Entwurf/Design?
+  * die Grenze ist fließend
+  * Design (oder Entwurf) bezeichnet den Prozess der Erstellung der Architektur
+  %br
+  &rarr; Gehen Sie mit diesen Begriffen pragmatisch um und suchen Sie nicht nach einer "formalen" Definition.
+
+%section{"data-markdown" => ""}
+  \### Wenn Ihnen jemand eine Architektur-Darstellung vorlegt, stellen Sie folgende Fragen (die in einer guten Dokumentation immer beantwortet sind):
+  * Welche Verantwortlichkeiten (*responsibilities*) hat jees der Kästchen und Verbindungslinien im Diagram?
+  * Für jede Verbindungslinie: Warum existiert sie und welche Semantik oder Bedeutung hat sie?
+  * Was wird zu welchem Zeitpunkt auf welche Weise über diese Verbindungen transportiert?
+
+%section{"data-markdown" => ""}
+  \### Die Aufgaben von Softwarearchitekten
+  %br
+
+  "Das Leben von Software-Architekten besteht aus einer langen und schnellen Abfolge suboptimaler Entwurfsentscheidungen, die meist im Dunkel getroffen werden."
+  %br
+  (Phillipe Kruchten)
+
+%section{"data-markdown" => ""}
+  \### Architekturen entstehen in Zyklen und Iterationen
+  %br
+  ![](/images/moving_target.png)
+  %br
+  Bildquelle: Starke / "Effektive Softwarearchitekturen" (5. Auflage)
+
+%section{"data-markdown" => ""}
+  \### Architekturen entstehen in kleinen Teams
+  * gemeinsames Ziel: Die Anforderungen des Kunden erfüllen
+  * Erfahrung in Software-Engineering
+  * Erfahrung in der Fachdomäne
+
+%section{"data-markdown" => ""}
+  \#### Was ist Softwarearchitektur?
+  \### Geschichte und Trends
+  \#### Sichten auf Architekturen
+  \#### Qualiät und andere nichtfunktionale Anforderungen
+  \#### Architekturmuster
+  \#### Dokumentation von Architekturen
+  \#### Technologien und Frameworks
+
+%section{"data-markdown" => ""}
+  \#### Seit wann gibt es den Begriff der Softwarearchitektur?
+
+  \### Konferenz über Softwaretechnik in Rom
+  %br
+  %i Software Engineering Techniques. Report of a Conference Sponsored by the NATO Science Committee. Scientific Affairs Division, NATO, 1970, S. 12.
+
+%section{"data-markdown" => ""}
+  \#### Warum?
+
+  Die Systeme wurden in den 1960ern so komplex, dass sie von mehreren Teams entwickelt werden mussten.
+
 %section
-  TBD
+  %h4 Beispiel: IBM OS/360
+
+  %h3 Planung
+  %ul
+    %li Entwicklungskosten: 40 Mio. USD
+    %li Lines of Code: 1 Mio.
+    %li Fertigstellung: 1965
+
+%section
+
+  %h4 Beispiel: IBM OS/360
+
+  %h3 Realität
+  %ul
+    %li Entwicklungskosten: 500 Mio. USD (Faktor 12,5)
+    %li Lines of Code: 10 Mio. (Faktor 10)
+    %li Fertigstellung: 1967 (2 Jahre zu spät)
+
+%section{"data-markdown" => ""}
+  \#### Softwarearchitektur im Lauf der Zeit
+
+  \#### Erste Beschreibung von "Dekomposition, Zerlegung, Entwurf"
+
+  * 1970er: Eher im Kontext von Hardware genutzt
+  * 1972:  *"On the criteria to be used in decomposing systems into modules"* von D. L. Parnas
+  * 1975: *"The Mythical Man Month"* von Frederick Brooks
+
+
+%section{"data-markdown" => ""}
+  \#### Softwarearchitektur im Lauf der Zeit
+  \#### Unabhängiges Teilgebiet der Softwaretechnik
+  \#### Konzept der Schnittstellen und Konnektoren
+
+  * 1992: *"Foundations for the Study of Software Architecture"* von Dewayne Perry und Alexander Wolf
+  * 1995: *"Software Architecture Analysis Method"* des Software Engineering Institute
+
+%section{"data-markdown" => ""}
+  \#### Softwarearchitektur im Lauf der Zeit
+  \#### Allgemeine Verbreitung und "Stand der Technik"
+
+  * 2000: *"IEEE 1471:2000 Norm Recommended Practice for Architectural Description of Software-Intensive Systems"*
+  * 2003: Zertifizierung als Softwarearchitekt durch die iSAQB (International Software Architect Qualification Board)
+  * 2003: UML 2.0 ist geeignet um Softwarearchitekturen zu beschreiben
+
+%section{"data-markdown" => ""}
+  \#### Was ist Softwarearchitektur?
+  \#### Geschichte und Trends
+  \### Sichten auf Architekturen
+  \#### Qualiät und andere nichtfunktionale Anforderungen
+  \#### Architekturmuster
+  \#### Dokumentation von Architekturen
+  \#### Technologien und Frameworks
+
+%section{"data-markdown" => ""}
+  \### Warum überhaupt Sichten?
+  %br
+  \#### *"Es ist eine offensichtliche Wahrheit, dass auch eine perfekte Architektur nutzlos bleibt, wenn sie nicht verstanden wird..."*
+  %br
+  Felix Bachmann und Len Bass in "Software Architecture Documentation in Practice"
+
+%section{"data-markdown" => ""}
+  \## 1.
+  \#### Eine einzelne Darstellung kann die Vielschichtigkeit und Komplexität einer Architektur nicht ausdrücken.
+  %br
+  \#### - Genauso wenig, wie man nur mit einem Grundriss ein Haus bauen kann.
+
+%section{"data-markdown" => ""}
+  \## 2.
+  \#### Sichten ermöglichen die Konzentration auf einzelne Aspekte des Gesamtsystems und reduzieren somit die Komplexität der Darstellung.
+
+%section{"data-markdown" => ""}
+  \## 3.
+  \#### Die Projektbeteiligten haben ganz unterschiedliche Informationsbedürfnisse.
+
+%section{"data-markdown" => ""}
+  ![](/images/4-sichten.png)
+  %br
+  Bildquelle: "Effektive Softwarearchitekturen" von Gernot Starke
+
+%section{"data-markdown" => ""}
+  \#### Architekten müssen Projektbeteiligten die Architektur erklären bzw. sie verteidigen/vermarkten
+  * die entworfenen Strukturen
+  * die getroffenen Entscheidungen
+  * ihre Konzepte + Begründungen + Vor- und Nachteile
+  %br
+  &rarr; Mit Hilfe von unterschiedlichen Sichten lassen sich viele Aspekte von Architektur verständlich darstellen.
+
+%section{"data-markdown" => ""}
+  \#### Überblick über die vier Sichten
+  ![](/images/vier_sichten_auf_architektur.png)
+  %br
+  Bildquelle: "Effektive Softwarearchitekturen" von Gernot Starke
+
+%section{"data-markdown" => ""}
+  \## Kontextsicht
+  * Wie ist das System in seine Umgebung eingebettet?
+  * zeigt das System als Blackbox in seinem Kontext aus der Vogelperspektive
+
+%section{"data-markdown" => ""}
+  \### Kontextsicht - Enthaltene Informationen:
+  * Schnittstellen zu Nachbarsystemen
+  * Interaktion mit wichtigen Stakeholdern
+  * wesentliche Teile der umgebenden Infrastruktur
+
+%section{"data-markdown" => ""}
+  \#### Kontextsicht - Beispiel
+  ![](/images/kontextsicht_beispiel.png)
+  %br
+  Bildquelle: "Effektive Softwarearchitekturen" von Gernot Starke
+
+%section{"data-markdown" => ""}
+  \## Bausteinsicht
+  * Wie ist das System intern aufgebaut?
+  * unterstützt Auftaggeber und Projektleiter bei der Projektüberwachung
+  * dienent der Zuteilung von Arbeitspaketen
+  * dient als Referenz für Software-Entwickler
+
+%section{"data-markdown" => ""}
+  \### Bausteinsicht - Enthaltene Informationen:
+  * statische Strukturen der Bausteine des Systems
+  * Subsysteme
+  * Komponenten und deren Schnittstellen
+
+%section{"data-markdown" => ""}
+  \#### Bausteinsicht - Beispiel
+  ![](/images/bausteinsicht_beispiel.png)
+  %br
+  Bildquelle: "Effektive Softwarearchitekturen" von Gernot Starke
+
+%section{"data-markdown" => ""}
+  \## Laufzeitsicht
+  * Wie läuft das System ab?
+  * Welche Bausteine des Systems existieren zur Laufzeit?
+  * Wie wirken die Bausteine zusammen?
+
+%section{"data-markdown" => ""}
+  \#### Laufzeitsicht - Beispiel
+  ![](/images/laufzeitsicht_beispiel.png)
+  %br
+  Bildquelle: "Effektive Softwarearchitekturen" von Gernot Starke
+
+%section{"data-markdown" => ""}
+  \##  Verteilungssicht / Infrastruktursicht
+  * In welcher Umgebung läuft das System ab?
+  * zeigt das System aus Betreibersicht
+
+%section{"data-markdown" => ""}
+  \### Verteilungssicht - Enthaltene Informationen:
+  * Hardwarekomponenten: Rechner, Prozessoren
+  * Netztopologien
+  * Netzprotokolle
+  * sonstige Bestandteile der physischen Systemumgebung
+
+%section{"data-markdown" => ""}
+  \#### Verteilungssicht - Beispiel
+  ![](/images/verteilungssicht_beispiel.png)
+  %br
+  Bildquelle: "Effektive Softwarearchitekturen" von Gernot Starke
+
+%section{"data-markdown" => ""}
+  \## Gibt es noch weitere Sichten?
+
+%section{"data-markdown" => ""}
+  \### Empfehlung
+  * Verzichten Sie möglichst auf weitere Sichten
+  * Jede Sicht kostet Erstellungs- und Wartungsaufwand
+  * Die grundlegenden Aspekte der Architektur- und Systementwicklung decken die vier Sichten ab
+
+%section
+  %h4 Beispiel (nach Peter Hruschka):
+  %pre
+    %code
+      :preserve
+        Beim Häuserbau könnten Kakteen- und Orchideenzüchter nach der Sonnenein-
+        strahlung in einzelnen Räumen fragen und zum Wohle ihrer pflanzlichen Lieblinge
+        einen gesonderten Plan wünschen. Wie groß ist Ihrer Erfahrung nach die Zahl derer,
+        die beim Bau oder beim Kauf einer Immobilie diese „pflanzliche“ Sicht als Entschei-
+        dungskriterium verwenden?
+
+%section{"data-markdown" => ""}
+  \### Wie viel Aufwand für welche Sicht?
+
+  \##### Rechnen Sie damit, dass Sie 60 bis 80% der Zeit, die Sie für den Entwurf der Architektursichten insgesamt benötigen, alleine für die Ausgestaltung der Bausteinsicht aufwenden. Der ausschlaggebende Grund hierfür: Die Bausteinsicht wird oftmals wesentlich detaillierter ausgeführt als die übrigen Sichten.
+  \##### Dennoch sind die übrigen Sichten für die Software-Architektur und das Gelingen des gesamten Projektes wichtig! Lassen Sie sich von diesem relativ hohen Aufwand für die Bausteinsicht in keinem Fall dazu verleiten, die anderen Sichten zu ignorieren.
+  \##### *Quelle: Starke/Effektive Softwarearchitekturen*
+
+%section{"data-markdown" => ""}
+  \###  Wechselwirkungen dokumentieren
+
+  \##### Sie sollten in Ihren Architekturbeschreibungen die Entwurfsentscheidungen dokumentieren, die besonderen Einfluss auf andere Sichten haben. Beispielsweise bestimmt die Entscheidung für eine zentrale Datenhaltung in der Bausteinsicht maßgeblich den Aufbau der technischen Infrastruktur
+
+%section{"data-markdown" => ""}
+  \###  Wechselwirkungen dokumentieren
+  * Bessere Nachvollziehbarkeit von Entscheidungen
+  * Auswirkungen von Änderungen werden vereinfacht
+  * Das Verständnis der Architekturbeschreibung wird einfacher, da die Zusammenhänge zwischen den Sichten klarer werden
+
+
+%section{"data-markdown" => ""}
+  \#### Was ist Softwarearchitektur?
+  \#### Geschichte und Trends
+  \#### Sichten auf Architekturen
+  \### Qualiät und andere nichtfunktionale Anforderungen
+  \#### Architekturmuster
+  \#### Dokumentation von Architekturen
+  \#### Technologien und Frameworks
+
+%section{"data-markdown" => ""}
+  \### Was ist Qualität?
+
+%section{"data-markdown" => ""}
+  \##### *Was ist Qualität?*
+  \#### Duden: Qualität=„Beschaffenheit, Güte, Wert“
+
+%section{"data-markdown" => ""}
+  \##### *Was ist Qualität?*
+  \#### Die Qualität stimmt, wenn der Kunde wiederkommt und nicht das Produkt
+
+%section{"data-markdown" => ""}
+  \##### *Was ist Qualität?*
+  ![](/images/triple_constraint.png)
+  %br
+  *Quelle: http://pm-blog.com/*
+
+%section{"data-markdown" => ""}
+  \### Qualität ist ein wichtiges Ziel für Software-Architekten
+
+%section{"data-markdown" => ""}
+  \### Probleme von Qualität
+  * Qualität ist nur indirekt messbar
+  * Qualität ist relativ (jeweils anders für: Anwender, Projektleiter, Betreiber, ...)
+  * Die Qualität der Architektur korreliert nicht notwendigerweise mit der Codequalität
+  * Erfüllung aller funktionalen Anforderungen lässt keinerlei Aussage über die Erreichung der Qualitätsanforderungen zu
+
+%section{"data-markdown" => ""}
+  \### Beispiel funktionale Anforderung „Sortierung von Daten“
+
+  * Kann funktional erfüllt sein, aber nichtfunktional?
+  * Sortierung großer Datenmengen (Terabyte), die nicht mehr zeitgleich im Hauptspeicher gehalten werden können
+  * Sortierung robust gegenüber unterschiedlichen Sortierkriterien (Umlaute, akzentuierte Zeichen, Phoneme, Ähnlichkeitsmaße und anderes)
+  * Sortierung für viele parallele Benutzer
+  * Sortierung unterbrechbar für lang laufende Sortiervorgänge
+  * Erweiterbarkeit um weitere Algorithmen, beispielsweise für ressourcenintensive Vergleichsoperationen
+  * Entwickelbarkeit im räumlich verteilten Team
+
+%section{"data-markdown" => ""}
+  \#### Qualitätsmerkmale nach DIN/ISO 9126
+
+  \### Funktionalität
+  \### Zuverlässigkeit
+  \### Benutzbarkeit
+  \### Effizienz
+  \### Änderbarkeit
+  \### Übertragbarkeit
+
+%section{"data-markdown" => ""}
+  \#### Funktionalität
+  \### Existenz eines Satzes von Funktionen mit spezifizierten Eigenschaften
+
+%section{"data-markdown" => ""}
+  \#### Zuverlässigkeit
+  \### Fähigkeit, Leistungsniveau über einen Zeitraum aufrecht zu erhalten
+
+%section{"data-markdown" => ""}
+  \#### Benutzbarkeit
+  \### Aufwand zur Benutzung und individuelle Beurteilung der Benutzung
+
+%section{"data-markdown" => ""}
+  \#### Effizienz
+  \### Verhältnis Leistungsniveau / eingesetzte Betriebsmittel
+
+%section{"data-markdown" => ""}
+  \#### Änderbarkeit
+  \### Aufwand zur Durchführung von Änderungen
+
+%section{"data-markdown" => ""}
+  \#### Übertragbarkeit
+  \### Eignung zur Übertragung in andere Umgebung
+
+%section{"data-markdown" => ""}
+  \#### Was ist Softwarearchitektur?
+  \#### Geschichte und Trends
+  \#### Sichten auf Architekturen
+  \#### Qualiät und andere nichtfunktionale Anforderungen
+  \### Architekturmuster
+  \#### Dokumentation von Architekturen
+  \#### Technologien und Frameworks
+
+%section{"data-markdown" => ""}
+  \### Was sind Architekturmuster?
+
+%section
+  %h4
+    A pattern for software architexture describes a particular
+    recurring design problem that arises in specific design
+    contexts, and presents a well-proven generic scheme for
+    its solution. The solution scheme is specified by describing
+    its constituent components, theis relationships, and the ways
+    in which they collaborate.
+  %p
+    %i (1996 / Pattern Oriented Software Architectute)
+
+%section
+  %h4
+    Ein Architekturmuster beschreibt eine bewährte Lösung für ein wiederholt auftretendes Entwurfsproblem
+  %p
+    %i (Effektive Softwarearchitekturen)
+
+%section
+  %h4
+    Ein Architekturmuster definiert den Kontext für die Anwendbarkeit der Lösung
+  %p
+    %i (Effektive Softwarearchitekturen)
+
+%section{"data-markdown" => ""}
+  \### Warum Architekturmuster?
+
+%section{"data-markdown" => ""}
+  \#### Erfolg kommt von Weisheit.
+  \#### Weisheit kommt von Erfahrung.
+  \#### Erfahrung kommt von Fehlern.
+
+%section{"data-markdown" => ""}
+  \#### Haben Sie jemals einen dummen Fehler zweimal begangen?
+  \#### *– Willkommen in der realen Welt.*
+  \#### Haben Sie diesen Fehler hundertmal hintereinander gemacht?
+  \#### *-Willkommen in der Software-Entwicklung.*
+
+%section{"data-markdown" => ""}
+  \#### Aus Fehlern kann man hervorragend lernen.
+  Leider akzeptiert kaum ein Kunde Fehler, nur weil Sie Ihre Erfahrung als Software-Architekt sammeln.
+
+%section{"data-markdown" => ""}
+  \#### In dieser Situation helfen Heuristiken.
+  Heuristiken kodifizieren Erfahrungen anderer Architekten und Projekte, auch aus anderen Bereichen der Systemarchitektur.
+
+%section{"data-markdown" => ""}
+  \#### Heuristiken sind nicht-analytische Abstraktionen von Erfahrung
+  Es sind Regeln zur Behandlung komplexer Probleme,
+  für die es meist beliebig viele Lösungsalternativen gibt.
+  Heuristiken können helfen, Komplexität zu reduzieren.
+
+%section{"data-markdown" => ""}
+  \#### Andere Begriffe für Heuristiken sind auch „Regeln“, „Muster“ oder „Prinzipien“.
+  Es geht immer um Verallgemeinerungen und Abstraktionen von konkreten Situationen.
+
+%section{"data-markdown" => ""}
+  \#### Heuristiken bieten Orientierung im Sinne von Wegweisern, Straßenmarkierungen und Warnschildern.
+  Sie geben allerdings lediglich Hinweise und garantieren nichts. Es bleibt in Ihrer Verantwortung, die passen-
+  den Heuristiken für eine bestimmte Situation auszuwählen:
+
+%section{"data-markdown" => ""}
+  \#### Die Kunst der Architektur liegt nicht in der Weisheit der Heuristiken, sondern in der Weisheit, a priori die passenden Heuristiken für das aktuelle Projekt auszuwählen.
+
+%section{"data-markdown" => ""}
+  \### Architektur: Von der Idee zur Struktur
+  Ein klassischer und systematischer Ansatz der Beherrschung von Komplexität lautet „teile
+  und herrsche“ (divide et impera). Das Problem wird in immer kleinere Teile zerlegt, bis diese
+  Teilprobleme eine überschaubare Größe annehmen.
+
+%section{"data-markdown" => ""}
+  \### Anwendung auf Software-Architekturen:
+
+  *klassische Architekturmuster*
+  \#### Horizontale Zerlegung: „In Scheiben schneiden“
+  \#### Vertikale Zerlegung: „In Stücke schneiden“
+  *weitere Architekturmuster*
+  \#### Alles ist möglich...
+
+%section{"data-markdown" => ""}
+  \#### Überblick über Architekturmuster
+  \### *Arten von Architekturmustern?*
+
+%section{"data-markdown" => ""}
+  \#### Chaos zu Struktur / Mud-to-structure
+  \#### Verteilte Systeme
+  \#### Interaktive Systeme
+  \#### Adaptive Systeme
+  \#### Domain-spezifische Architektur
+
+%section
+  %h3 Chaos zu Struktur / Mud-to-structure
+  %ul
+    %li Organisation der Komponenten und Objekte eines Softwaresystems
+    %li Die Funktionalität des Gesamtsystems wird in kooperierende Subsysteme aufgeteilt
+    %li Zu Beginn des Softwareentwurfs werden Anforderungen analysiert und spezifiziert
+    %li Integrierbarkeit, Wartbarkeit, Änderbarkeit, Portierbarkeit und Skalierbarkeit sollen berücksichtigt werden
+
+%section{"data-markdown" => ""}
+  \### Chaos zu Struktur / Mud-to-structure
+  \#### Layers
+  \#### Pipes und Filter
+  \#### Blackboard
+  \#### Domain-driven Design
+
+%section
+  %h3 Verteilte Systeme
+  %ul
+    %li Verteilung von Ressourcen und Dienste in Netzwerken
+    %li Kein "zentrales System" mehr
+    %li Basiert auf guter Infrastruktur lokaler Datennetze
+
+%section{"data-markdown" => ""}
+  \### Verteilte Systeme
+  \#### Serviceorientierte Architektur (SOA)
+  \#### Peer-to-Peer
+  \#### Client-Server
+
+%section
+  %h3 Interaktive Systeme
+  %ul
+    %li Strukturierung von Mensch-Computer-Interaktionen
+    %li Möglichst gute Schnittstellen für die Benutzer schaffen
+    %li Der eigentliche Systemkern bleibt von der Benutzerschnittstelle unangetastet.
+
+%section{"data-markdown" => ""}
+  \### Interaktive Systeme
+  \#### Model View Controller (MVC)
+  \#### Model View Presenter
+  \#### Presentation-Abstraction-Control (PAC)
+
+%section
+  %h3 Adaptive Systeme
+  %ul
+    %li Unterstützung der Erweiterungs- und Anpassungsfähigkeit von Softwaresystemen.
+    %li Das System sollte von vornherein mögliche Erweiterungen unterstützen
+    %li Die Kernfunktionalität sollte davon unberührt bleiben kann.
+
+%section{"data-markdown" => ""}
+  \### Adaptive Systeme
+  \#### Mikrokernel
+  \#### Reflexion
+  \#### Dependency Injection
+
+%section{"data-markdown" => ""}
+  \### Anti-Patterns
+
+%section{"data-markdown" => ""}
+  \#### Anti-Patterns?
+  Ein Anti-Pattern ist in der Softwareentwicklung ein häufig anzutreffender schlechter Lösungsansatz für
+  ein bestimmtes Problem. Es bildet damit das Gegenstück zu den Mustern (Entwurfsmuster, Analysemuster,
+  Architekturmuster, …), welche allgemein übliche und bewährte Problemlösungsansätze beschreiben.
+
+%section{"data-markdown" => ""}
+  \### Überblick über Antipatterns
+  \#### Projektmanagement Anti-Patterns
+  \#### Architektur Anti-Pattern
+  \#### Code Smells
+  \#### Organisations Anti-Pattern
+
+%section{"data-markdown" => ""}
+  \### Projektmanagement Anti-Patterns
+  \### Blendwerk
+  \### Aufgeblähte Software
+  \### Feature creep
+  \### Scope creep
+  \### Brooks’sches Gesetz
+  \### Death Sprint
+  \### Death March
+
+%section{"data-markdown" => ""}
+  \#### Architektur Anti-Patterns
+  \### Big Ball of Mud
+  \### Gasfabrik
+  \### Gottobjekt
+  \### Innere-Plattform-Effekt
+  \### Spaghetticode
+  \### Sumo-Hochzeit
+
+%section{"data-markdown" => ""}
+  \#### Code Smells
+  \### Zwiebel
+  \### Copy and Paste
+  \### Lavafluss
+  \### Magische Werte
+  \### Reservierte Wörter
+  \### Unbeabsichtigte Komplexität
+
+%section{"data-markdown" => ""}
+  \#### Organisations Anti-Pattern
+  \### Wunderwaffe
+  \### Das Rad neu erfinden
+  \### Das quadratische Rad neu erfinden
+  \### Body ballooning
+  \### Empire building
+  \### Warme Leiche
+  \### Single head of knowledge
+
+%section{"data-markdown" => ""}
+  \#### Organisations Anti-Pattern II
+  \### Management nach Zahlen
+  \### Vendor Lock-In
+  \### Design by Committee
+  \### Boat Anchor
+  \### Dead End
+  \### Swiss Army Knife
+
+%section{"data-markdown" => ""}
+  \##### Chaos zu Struktur / Mud-to-structure
+  \### Layers
+  \#### Pipes und Filter
+  \#### Blackboard
+  \#### Domain-driven Design
+
+%section{"data-markdown" => ""}
+  \##### Layers
+  Das Layers-Muster trennt eine Architektur in verschiedene Schichten, von denen jede eine Unteraufgabe auf einer bestimmten Abstraktionsebene realisiert.
+
+%section{"data-markdown" => ""}
+  \##### Layers
+  \### Beispiel: ISO/OSI-Referenzmodell
+  Netzwerk-Protokolle sind wahrscheinlich die bekanntesten Beispiele für geschichtete Architekturen.
+  Das ISO/OSI-Referenzmodell teilt Netzwerk-Protokolle in 7 Schichten auf, von denen jede Schicht
+  für eine bestimmte Aufgabe zuständig ist:
+
+%section{"data-markdown" => ""}
+  \##### Beispiel: ISO/OSI-Referenzmodell
+
+  ![](/images/isoosi.png)
+
+%section
+  %h5 Layers
+  %h3 Vorteile
+  %ul
+    %li Wiederverwendung und Austauschbarkeit von Schichten
+    %li Unterstützung von Standards
+    %li Einkapselung von Abhängigkeiten
+
+%section
+  %h5 Layers
+  %h3 Nachteile
+  %ul
+    %li Geringere Effizienz
+    %li Mehrfache Arbeit (z.B. Fehlerkorrektur)
+    %li Schwierigkeit, die richtige Anzahl Schichten zu bestimmen
+
+%section{"data-markdown" => ""}
+  \##### Chaos zu Struktur / Mud-to-structure
+  \#### Layers
+  \### Pipes und Filter
+  \#### Blackboard
+  \#### Domain-driven Design
+
+%section
+  %h5 Pipes and Filters
+  %h4 Eine Pipes-and-Filter Architektur eignet sich für Systeme, die Datenströme verarbeiten.
+
+%section{"data-markdown" => ""}
+  \##### Pipes and Filters
+
+  ![](/images/filters1.png)
+
+%section
+  %h5 Pipes and Filters
+
+  Das Pipes-and-Filters Muster strukturiert Systeme, in dem Kontext „Verarbeitung von
+  Datenströmen“. Die Verarbeitungsschritte werden in Filter eingekapselt und lassen sich
+  so beliebig anordnen und getrennt voneinander entwickeln.
+
+%section
+  %h5 Pipes and Filters
+  Der Kommandointerpreter sowie viele Werkzeuge
+  des Unix Betriebssystems sind nach dem Pipes-and-
+  Filter Muster gebaut. Die Ausgabe des einen dient
+  als Eingabe für das nächste Werkzeug:
+
+%section
+  %h5 Pipes and Filters
+  %h4 Vorteile
+  %ul
+    %li Flexibilität durch Austausch und Hinzufügen von Filtern
+    %li Flexibilität durch Neuanordnung
+    %li Wiederverwendung einzelner Filter
+    %li Rapid Prototyping von Pipeline Prototypen
+    %li Zwischendateien sind nicht notwendig aber so gewünscht möglich
+    %li Parallel-Verarbeitung möglich
+
+%section
+  %h5 Pipes and Filters
+  %h4 Nachteile
+  %ul
+    %li Die Kosten der Datenübertragung zwischen den Filtern können je nach Pipe sehr hoch sein
+    %li Häufig überflüssige Datentransformationen zwischen den einzelnen Filterstufen
+    %li Fehlerbehandlung über Filterstufen hinweg ist teilweise schwierig
+    %li Gemeinsamer Zustand (z.B. Symboltabelle in Compilern) ist teuer und unflexibel
+    %li Effizienzsteigerung durch Parallelisierung oft nicht möglich (z.B. da Filter aufeinander warten oder nur ein Prozessor arbeitet)
+
+%section{"data-markdown" => ""}
+  \##### Chaos zu Struktur / Mud-to-structure
+  \#### Layers
+  \#### Pipes und Filter
+  \### Blackboard
+  \#### Domain-driven Design
+
+%section
+  %h5 Blackboard
+
+  Das Blackboard Muster wird angewendet bei Problemen, die nicht auf eine eindeutige
+  Lösungsstrategie hindeuten. Den Kontext für „Blackboard“ bilden somit Problembereiche,
+  für die es noch keine festgelegten Lösungsstrategien gibt. Beispiele hierfür sind
+  Spracherkennungs-, Bildverarbeitungs-, sowie Überwachungssysteme.
+
+%section{"data-markdown" => ""}
+  \##### Blackboard
+
+  ![](/images/blackboard.png)
+
+%section
+  %h5 Blackboard
+  Das Schwarzes Brett dient als zentrale Datenstruktur. Agenten verarbeiten vorhandenes und
+  bringen neues Wissen. Eine Steuerung entscheidet, welcher Agent die Bedingung zum Ermitteln
+  von neuem Wissen erfüllt und somit das Programm der Lösung einen Schritt näher bringen könnte,
+  dann aktiviert es den Agenten.
+
+%section
+  %h5 Blackboard
+  Die Zugriffe von Agenten auf das schwarze Brett stellen die Konnektoren da. Die Agenten
+  sind völlig entkoppelt und können auch zur Laufzeit hinzugefügt und ausgetauscht
+  werden, ohne dass andere Agenten betroen sind. Die parallele Ausführung von Agenten ist ebenfalls möglich.
+
+%section
+  %h5 Blackboard
+  Das Programmverhalten von Systemen, für die solch eine Architektur eingesetzt wird, ist
+  hochgradig nichtdeterministisch und daher schwer prüfbar. Im Bereich Robotersteuerung und
+  Mustererkennung (Bild, Ton, Sprache, Schrift) wird aufgrund der nichtdeterministischen
+  Problemlösung die Black Board Architektur häufig verwendet.
+
+%section{"data-markdown" => ""}
+  \##### Chaos zu Struktur / Mud-to-structure
+  \#### Layers
+  \#### Pipes und Filter
+  \#### Blackboard
+  \### Domain-driven Design
+
+%section
+  %h5 Domain-driven Design
+  %p
+    Domain-driven Design ist nicht nur eine Technik oder Methode. Es ist viel mehr eine Denkweise und
+    Priorisierung zur Steigerung der Produktivität von Softwareprojekten im Umfeld komplexer fachlicher
+    Zusammenhänge
+
+%section
+  %h5 Domain-driven Design
+  %p
+    Domain-driven Design basiert auf folgenden zwei Annahmen:
+  %ul
+    %li Der Schwerpunkt des Softwaredesigns liegt auf der Fachlichkeit und der Fachlogik.
+    %li Der Entwurf komplexer fachlicher Zusammenhänge sollte auf einem Modell der Anwendungsdomäne, dem Domänenmodell basieren.
+
+%section{"data-markdown" => ""}
+  \##### Domain-driven Design
+  \#### Literatur
+  \### "Domain-Driven Design. Tackling Complexity in the Heart of Software"
+  *(Eric Evans)*
+
+
+%section{"data-markdown" => ""}
+  \### Fragen?
+
+%section{"data-markdown" => ""}
+  \#### Chaos zu Struktur / Mud-to-structure
+  \### Verteilte Systeme
+  \#### Interaktive Systeme
+  \#### Adaptive Systeme
+  \#### Domain-spezifische Architektur
+
+
+%section{"data-markdown" => ""}
+  \##### Verteilte Systeme
+  \### Serviceorientierte Architektur (SOA)
+  \#### Peer-to-Peer
+  \#### Client-Server
+
+%section{"data-markdown" => ""}
+  \#### Serviceorientierte Architektur (SOA)
+
+  \### "SOA ist ein Paradigma für die Strukturierung und Nutzung verteilter Funktionalität, die von unterschiedlichen Besitzern verantwortet wird."
+
+%section{"data-markdown" => ""}
+  \#### Serviceorientierte Architektur (SOA)
+
+  * SOA soll Dienste von IT-Systemen strukturieren und zugänglich machen.
+  * SOA orientiert sich an Geschäftsprozessen
+  * Geschäftsprozesse sind die Grundlage für konkrete Serviceimplementierungen
+
+%section{"data-markdown" => ""}
+  \#### Serviceorientierte Architektur (SOA)
+
+  \### Vorteile
+  * Eine agile IT-Umgebung, die schnell auf geschäftliche Veränderungen reagieren kann
+  * Niedrigere Gesamtbetriebskosten durch die Wiederverwendung von Services
+  * Höhere Leistung, größere Skalierbarkeit und Transparenz
+  * Dienstleistungen und Produkte können schneller auf den Markt gebracht werden
+
+%section{"data-markdown" => ""}
+  \#### Serviceorientierte Architektur (SOA)
+
+  \### Nachteile
+  * SOA wird von Marketingabteilungen gehyped: Einführung von SOA ist die Lösung aller bisherigen Probleme
+  * SOA generiert einen höheren Aufwand als bisherige monolithische Programmstrukturen.
+  * SOA erzeugt im Code wesentlich komplexere Abläufe
+  * SOA setzt für die beteiligten Entwickler ein erhebliches Know-how voraus.
+  * _Somit sind Entwickler auch nicht so einfach ersetzbar, und die Abhängigkeit der Unternehmen von einzelnen Entwicklern steigt deutlich._
+
+
+%section{"data-markdown" => ""}
+  \##### Verteilte Systeme
+  \#### Serviceorientierte Architektur (SOA)
+  \### Peer-to-Peer
+  \#### Client-Server
+
+%section{"data-markdown" => ""}
+  \#### Peer-to-Peer
+
+  \### In einem reinen Peer-to-Peer-Netz sind alle Computer gleichberechtigt und können sowohl Dienste in Anspruch nehmen, als auch zur Verfügung stellen.
+
+%section{"data-markdown" => ""}
+  \#### Peer-to-Peer
+  ![](/images/PeerToPeer.jpg)
+
+%section{"data-markdown" => ""}
+  \#### Peer-to-Peer
+
+  \### Vorteile
+  * alle Computer sind gleichberechtigt
+  * Kostengünstiger als Servernetzwerke
+  * Kein leistungsstarker zentraler Server erforderlich
+  * Keine spezielle Netzwerksoftware erforderlich
+  * Benutzer verwalten sich selbst
+  * Keine hierarchische Netzwerkstruktur
+
+%section{"data-markdown" => ""}
+  \#### Peer-to-Peer
+
+  \### Nachteile
+  * Zentrale Sicherheitsaspekte sind nicht von Bedeutung
+  * Sehr schwer zu administrieren
+  * kein einziges Glied im System ist verlässlich
+
+%section{"data-markdown" => ""}
+  \##### Verteilte Systeme
+  \#### Serviceorientierte Architektur (SOA)
+  \#### Peer-to-Peer
+  \### Client-Server
+
+%section{"data-markdown" => ""}
+  \#### Client-Server
+
+  \### Das Client-Server-Modell verteilt Aufgaben und Dienstleistungen innerhalb eines Netzwerkes.
+
+%section{"data-markdown" => ""}
+  \#### Client-Server
+
+  * Der Client kann auf Wunsch einen Dienst vom Server anfordern
+  * Der Server beantwortet die Anforderung.
+  * Üblicherweise kann ein Server gleichzeitig für mehrere Clients arbeiten.
+
+%section{"data-markdown" => ""}
+  \#### Client-Server
+  ![](/images/client-server.jpg)
+
+%section{"data-markdown" => ""}
+  \#### Client-Server
+
+  * Ein Server ist ein Programm, das einen Dienst (Service) anbietet.
+  * Ein anderes Programm, der Client, kann diesen Dienst nutzen.
+  * Die Kommunikation zwischen Client und Server ist abhängig vom Dienst
+  * Der Dienst bestimmt, welche Daten zwischen beiden ausgetauscht werden.
+  * Der Server ist in Bereitschaft, um jederzeit auf die Kontaktaufnahme eines Clients reagieren zu können.
+  * Der Server ist passiv und wartet auf Anforderungen.
+  * Die Regeln der Kommunikation für einen Dienst werden durch ein für den jeweiligen Dienst spezifisches Protokoll festgelegt.
+
+%section{"data-markdown" => ""}
+  \#### Client-Server
+
+  * Clients und Server können als Programme auf verschiedenen Rechnern oder auf demselben Rechner ablaufen.
+  * Das Konzept kann zu einer Gruppe von Servern ausgebaut werden, die eine Gruppe von Diensten anbietet.
+  * In der Praxis laufen Server-Dienste meist gesammelt auf bestimmten Rechnern, die dann selber "Server" genannt werden
+
+%section{"data-markdown" => ""}
+  \#### Client-Server
+  \### Vorteile
+  * Gute Skalierbarkeit
+  * Einheitliches Auffinden von Objekten
+
+%section{"data-markdown" => ""}
+  \#### Client-Server
+  \### Nachteile
+  * Der Server muss immer in Betrieb sein
+  * Der Server muss gegen Ausfall und Datenverlust gesichert werden
+
+%section{"data-markdown" => ""}
+  \#### Chaos zu Struktur / Mud-to-structure
+  \#### Verteilte Systeme
+  \### Interaktive Systeme
+  \#### Adaptive Systeme
+  \#### Domain-spezifische Architektur
+
+%section{"data-markdown" => ""}
+  \##### Interaktive Systeme
+  \### Model View Controller (MVC)
+  \#### Model View Presenter
+  \#### Presentation-Abstraction-Control (PAC)
+
+%section{"data-markdown" => ""}
+  \#### Model View Controller (MVC)
+
+  Das MVC-Pattern ist eine spezielle Variante des Layers-Pattern, die sich aus den
+  drei Schichten Datenhaltung (Model), Programmlogik (Controller) und Präsentation (View) zusammensetzt.
+
+%section{"data-markdown" => ""}
+  \#### Model View Controller (MVC)
+
+  * Model: Speicherung und Zugriffskontrolle von Daten
+  * View: Darstellung der Daten für die Anwender
+  * Controller: Vermittlung zwischen View und Model
+
+%section{"data-markdown" => ""}
+  \#### Model View Controller (MVC)
+  ![](/images/mvc.png)
+
+
+%section{"data-markdown" => ""}
+  \#### Model View Controller (MVC)
+  \### Teilnehmer: Model
+
+  * Das Modell kapselt Kerndaten und Funktionalität.
+  * Das Modell ist unabhängig von einer bestimmten Darstellung der Ausgabe oder einem bestimmten Verhalten der Eingabe.
+  * Das Modell bildet die Kernfunktionalität der Anwendung ab.
+  * (Das Modell benachrichtigt registrierte bei Datenänderungen.)
+
+%section{"data-markdown" => ""}
+  \#### Model View Controller (MVC)
+  \### Teilnehmer: View
+
+  * Die Sicht (view) zeigt dem Benutzer Informationen an.
+  * Es kann mehrere Sichten pro Modell geben.
+  * Ggf. zugeordnete Eingabeelemente anzeigen
+
+%section{"data-markdown" => ""}
+  \#### Model View Controller (MVC)
+  \### Teilnehmer: Controller
+
+  * Der Controller verarbeitet Eingaben und ruft passende Dienste der zugeordeten Sicht oder des Modells auf.
+  * Jede Controller ist einer Sicht zugeordnet
+  * Es kann mehrere Controller pro Modell geben.
+
+%section{"data-markdown" => ""}
+  \#### Model View Controller (MVC)
+  \### Vorteile
+
+  * Mehrere Sichten desselben Modells
+  * Automatische Synchronisation aller Views
+  * Austauschbarkeit von Views und Controllern
+  * Gute Trennung von Modell und View
+  * Potential für vorgefertigte Frameworks
+
+%section{"data-markdown" => ""}
+  \#### Model View Controller (MVC)
+  \### Nachteile
+  * Erhöhte Komplexität
+  * Starke Kopplung zwischen Modell und View
+  * Starke Kopplung zwischen Modell und Controller
+  * Potential für unnötig häufige Aktualisierungen
+  * Häufig ineffizienter Datenzugriff auf das Modell.
+  * View und Controller sind schwer zu portieren.
+
+%section{"data-markdown" => ""}
+  \##### Interaktive Systeme
+  \#### Model View Controller (MVC)
+  \### Model View Presenter
+  \#### Presentation-Abstraction-Control (PAC)
+
+%section{"data-markdown" => ""}
+  \#### Model View Presenter
+
+  \### Hervorgegangen aus dem Model-View-Controller (MVC) Architekturmuster.
+
+  Vollständige Trennung von Model und View, Verbindung über einen Presenter.
+
+%section{"data-markdown" => ""}
+  \#### Model View Presenter
+
+  * Vollständige Trennung von Model und View
+  * Deutlich verbesserte Testbarkeit
+  * Strenge Trennung der einzelnen Komponenten
+
+%section{"data-markdown" => ""}
+  \#### Model View Presenter (MVP)
+  ![](/images/mvp.png)
+
+%section{"data-markdown" => ""}
+  \##### Interaktive Systeme
+  \#### Model View Controller (MVC)
+  \#### Model View Presenter
+  \### Presentation-Abstraction-Control (PAC)
+
+%section{"data-markdown" => ""}
+  \#### Presentation-Abstraction-Control (PAC)
+
+  \### Hohe Flexibilität für ein System, das aus vielen autarken Einzelsystemen zusammengesetzt ist.
+
+%section{"data-markdown" => ""}
+  \#### Presentation-Abstraction-Control (PAC)
+
+  * Große Systeme, für die das Model-View-Controller-Muster nicht ausreicht
+  * Aufteilung des Systems in zwei Richtungen
+  * --> In die drei Einheiten Presentation, Control und Abstraction (ähnlich dem MVC)
+  * --> Hierarchisch in verschiedene Teile („Agenten“), die jeweils einen Teil der Aufgaben des Systems anbieten
+
+
+
+
+
+
+
 
 %section{"data-markdown" => ""}
 
@@ -49,3 +1114,25 @@ layout: slide
   * Nennen sie drei Auswahlkriterien für Frameworks!
   * Für welche Systeme wird das MVP Architekturmuster typischerweise verwendet?
   * Wie ist das ARC42 Template entstanden?
+
+%section{"data-markdown" => ""}
+
+  \#### Vorbereitung auf Klausuraufgaben (VL10)
+
+  * Was ist Dependency Injection?
+  * Nennen Sie drei Beispiele für Crosscutting Concerns
+  * Wo wird NodeJS typischerweise eingesetzt?
+  * Was ist das grundlegende Konzept einer NodeJS Anwendung?
+  * Wo sollte NodeJS eher nicht eingesetzt werden?
+  * Für welche Art von Anwendungen wird AngularJS verwendet?
+
+%section{"data-markdown" => ""}
+
+  \#### Vorbereitung auf Klausuraufgaben (VL11)
+
+  \#### Vorbereitung auf Klausuraufgaben
+  * Was zeichnet einen Docker Container aus?
+  * Was ist Twitter Bootstrap?
+  * Was ist der Grundgedanke hinter Twitter Bootstrap?
+  * Was ist AMQP?
+  * Wo sollte NodeJS eher nicht eingesetzt werden?
